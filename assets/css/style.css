@@ -267,3 +267,16 @@
     grid-column: span 2;
   }
 }
+
+/* Mobile language switch toggle */
+.m-lang {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .m-lang {
+    display: block !important;
+    color: var(--accent-deep) !important;
+    font-weight: 600;
+  }
+}
