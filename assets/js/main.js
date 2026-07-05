@@ -94,11 +94,14 @@
           // Play video if it's a video slide, pause other videos
           var video = slide.querySelector("video");
           if (video) {
-            video.currentTime = 0;
-            video.play().catch(function(err) {
-              // Browser may block autoplay if not interacted, that's fine
-              console.log("Video auto-play blocked: ", err);
-            });
+            // Avoid calling play() programmatically on initial load (when currentIndex equals index)
+            // to allow native HTML autoplay to execute without browser security interruption
+            if (currentIndex !== index) {
+              video.currentTime = 0;
+              video.play().catch(function(err) {
+                console.log("Video auto-play blocked: ", err);
+              });
+            }
           }
         } else {
           slide.classList.remove("active");
