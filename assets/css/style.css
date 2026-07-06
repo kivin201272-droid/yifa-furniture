@@ -275,8 +275,23 @@
 
 @media (max-width: 900px) {
   .m-lang {
-    display: block !important;
-    color: var(--accent-deep) !important;
-    font-weight: 600;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    padding: 8px 16px !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 3px !important;
+    color: var(--ink) !important;
+    margin: 16px 2px !important;
+    text-decoration: none !important;
+    width: fit-content !important;
+    background: transparent !important;
+  }
+  .m-lang:hover {
+    background: var(--ink) !important;
+    color: #fff !important;
+    border-color: var(--ink) !important;
   }
 }
