@@ -14,7 +14,7 @@ const DEFAULT_CATEGORY = {
     'pdf2': 'living-room',
     'pdf3': 'living-room',
     'pdf5': 'living-room',
-    'pdf6': 'living-room',
+    'pdf6': 'mattress',
     'pdf7': 'living-room', // per previous request
     'pdf8': 'living-room',
     'pdf10': 'living-room'
@@ -26,7 +26,9 @@ const PAGES = [
     { file: 'living-room/index.html', cat: 'living-room', level: 1 },
     { file: 'zh/living-room/index.html', cat: 'living-room', level: 2 },
     { file: 'dining/index.html', cat: 'dining', level: 1 },
-    { file: 'zh/dining/index.html', cat: 'dining', level: 2 }
+    { file: 'zh/dining/index.html', cat: 'dining', level: 2 },
+    { file: 'mattress/index.html', cat: 'mattress', level: 1 },
+    { file: 'zh/mattress/index.html', cat: 'mattress', level: 2 }
 ];
 
 const allSets = [];
