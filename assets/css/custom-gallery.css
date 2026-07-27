@@ -1,0 +1,153 @@
+/* Interactive Sofa Showcase Styles */
+.sofa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .sofa-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.sofa-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sofa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.sofa-img-container {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background: #fdfdfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sofa-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sofa-card:hover .sofa-img-container img {
+  transform: scale(1.02);
+}
+
+.sofa-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 24px 8px 24px;
+  background: #fff;
+  border-bottom: 1px solid #f0eee9;
+}
+
+.sofa-thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, opacity 0.2s;
+  background: #faf9f6;
+}
+
+.sofa-thumb:hover {
+  opacity: 0.8;
+}
+
+.sofa-thumb.active {
+  border-color: var(--accent);
+  outline: 1px solid var(--accent);
+}
+
+.sofa-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.sofa-info h3 {
+  font-size: 1.35rem;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.sofa-info p {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+.sofa-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.detail-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  background: var(--bg-soft);
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sofa-diagram-link {
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-dimensions {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.view-dimensions::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.view-dimensions:hover::after {
+  transform: translateX(4px);
+}
+
+.no-dimensions {
+  font-size: 0.85rem;
+  color: var(--muted);
+}

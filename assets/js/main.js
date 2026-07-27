@@ -173,3 +173,16 @@
     container.addEventListener("mouseleave", startTimer);
   });
 })();
+
+// Interactive Sofa/Product Gallery changeImage function
+function changeImage(thumbnail, mainImageId) {
+    var mainImg = document.getElementById(mainImageId);
+    if (!mainImg) return;
+    mainImg.src = thumbnail.src;
+    
+    var siblings = thumbnail.parentElement.children;
+    for (var i = 0; i < siblings.length; i++) {
+        siblings[i].classList.remove('active');
+    }
+    thumbnail.classList.add('active');
+}
