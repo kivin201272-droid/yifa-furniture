@@ -60,10 +60,16 @@ for (const pdf of pdfs) {
         const chunk = files.slice(i, i + chunkSize);
         const setIndex = i / chunkSize; // e.g., 0 for Set 1
         const setId = `${pdf}-set-${setIndex}`;
-        const mainImgKey = `${pdf}-${chunk[0]}`;
         
-        // Determine category for this specific set
-        let category = productMapping[mainImgKey];
+        let category;
+        for (const img of chunk) {
+            const mainImgKey = `${pdf}-${img}`;
+            if (productMapping[mainImgKey]) {
+                category = productMapping[mainImgKey];
+                break;
+            }
+        }
+        
         if (!category) {
             category = DEFAULT_CATEGORY[pdf] || 'living-room';
         }
