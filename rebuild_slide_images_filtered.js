@@ -15,9 +15,9 @@ const DEFAULT_CATEGORY = {
     'pdf3': 'living-room',
     'pdf5': 'living-room',
     'pdf6': 'mattress',
-    'pdf7': 'dining',
-    'pdf8': 'dining',
-    'pdf10': 'dining'
+    'pdf7': 'living-room',
+    'pdf8': 'living-room',
+    'pdf10': 'living-room'
 };
 
 const PAGES = [
