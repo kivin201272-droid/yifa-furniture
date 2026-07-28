@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Read the mapping configuration (if any)
-const MAPPING_FILE = path.join(__dirname, 'product_mapping.json');
+const MAPPING_FILE = path.join(__dirname, 'product_mapping_by_img.json');
 let productMapping = {};
 if (fs.existsSync(MAPPING_FILE)) {
     productMapping = JSON.parse(fs.readFileSync(MAPPING_FILE, 'utf-8'));
@@ -60,9 +60,10 @@ for (const pdf of pdfs) {
         const chunk = files.slice(i, i + chunkSize);
         const setIndex = i / chunkSize; // e.g., 0 for Set 1
         const setId = `${pdf}-set-${setIndex}`;
+        const mainImgKey = `${pdf}-${chunk[0]}`;
         
         // Determine category for this specific set
-        let category = productMapping[setId];
+        let category = productMapping[mainImgKey];
         if (!category) {
             category = DEFAULT_CATEGORY[pdf] || 'living-room';
         }
