@@ -1,0 +1,98 @@
+=== 产品标注对照表 (Product Labels for AI Annotation) ===
+
+【沙发 Sofa】
+F4601 - Red Faux Leather
+F4602 - Black Faux Leather
+F4603 - Orange Brown Faux Leather
+F4604 - White Faux Leather
+F4605 - Brown Faux Leather
+F4501 - Black & White Faux Leather
+F4502 - Black Faux Leather
+F4503 - Black & Red Faux Leather
+F4901 - Red Microfiber
+F4902 - Black Microfiber
+F4903 - Blue Microfiber
+F4904 - Gray Microfiber
+F4905 - White Microfiber
+F2502 - Black Faux Leather
+F4872 - Gray Microfiber
+F4873 - White Microfiber
+
+【沙发床 / 模块沙发 Sofa Bed / Modular】
+FF0001 - Gray White Flannelette Sofabed
+FF0002 - Dark Brown
+FF0003 - Red
+FF0004 - Blue
+FF0005 - Black
+FF0006 - Dark Gray
+FF0051 - Dark Gray Sackcloth
+FF0052 - Dark Gray Sackcloth
+FF0053 - Cream White Sackcloth
+F5996-#1 to #6 - Dark Gray Corduroy Modular
+F44672 - Brown Flannel
+F44673 - Blue Flannel
+F22301 - Blue Sectional
+F22302 - Apple Green Woven Cotton
+F22306 - Light Gray / Dark Gray
+F22307 - Pale Green
+F4972 / F4973 / F4974 - Corduroy Modular Series
+F4982 / F4983 / F4984 - Corduroy Modular Series
+F4992 - Gray Microfiber Modular
+F4402 - Black Microfiber Sectional
+FU2201 - White Flannelette Chaise
+F22021 - Black Faux Leather Chaise
+
+【躺椅 / 电动沙发 Recliners】
+GN4731 - Light Brown Gel Leather
+GNT4632 / GN4730 - Black Faux Leather
+GNT4633 / GN4733 - Brown Faux Leather
+GNT4634 / GN4732 - Cream White Faux Leather
+GNT4658 / GN4647 / GN4648 / GN4748 - Black Gel Leather
+GN4643 - Light Gray Gel Leather
+GN4649 / GN4749 - Cream White Gel Leather
+GN4738 / GN4638 - Beige Gel Leather
+GN4637 - Blueish Grey Sanded Gel Leather
+GN4756 - Black Faux Leather Sectional
+GN4762 - Beige Corduroy / Light Gray Faux Leather
+GN4764 - Chocolate Corduroy / Black Faux Leather
+GST4791 - Deep Gray Faux Leather Power Recline
+GST4801 - Gray Faux Leather Power Recline
+GN4729 - Gray Gel Leather Power Recline
+GS4106 - Cream White Gel Leather Manual
+GN4212 - Cream White Gel Leather Power
+GS2898 / GS2762 - Dark Gray Corduroy
+GS2896 / GS2761 - Brown Patterned Chinelle
+GS2899 / GS2764 - Pecan Corduroy
+GS4735 / GS4737 / GS4303 - Dark Gray / Dark Brown Corduroy
+GS5121~GS5124 - Corduroy Manual Recliners
+GS5132 - Brown Cashmere Fleece
+GS4111 / GS4112 / GS4301 - Faux Leather Manual
+GS2781 / GS2890B / GS2890 / GS2892 - Faux Leather Manual
+GS2895 / GS2888 / GS2889 - Colored Faux Leather
+GS2885 / GS2886 - Soft Flannel
+GS2900 / GS2900B - Brown / Black Faux Leather
+
+【真皮 Top Grain Leather】
+GN8602 - Dark Gray Genuine Leather
+GN8602-Mahogany - Mahogany Brown Genuine Leather
+GN8603 - Taupe Genuine Leather
+GN8322 - Gray Genuine Leather
+F302 - Black & Red Genuine Leather
+F304 - Black Genuine Leather
+F306 - Brown & Black Genuine Leather
+F8301A / F8301B - Black Genuine Leather
+F8302A / F8302B - White Genuine Leather
+F8801 - Black Genuine Leather
+F8802 - White Genuine Leather
+F3210#1~#4 - Brown Genuine Leather Modular
+
+【床垫 Mattress - Sleepy Edge】
+ELEVATE / ELEVATE PRO
+ATTUNE / ATTUNE PRO
+GROUND / GROUND PRO
+CANADIAN ROCK
+COCONUT MATTRESS / COCONUT MATTRESS WITH GEL
+BORA
+DREAM PLUSH
+HYBRIPURE
+LATECH / LATECH PRO / LATECH ELITE

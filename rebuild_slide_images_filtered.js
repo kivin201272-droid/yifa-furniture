@@ -8,6 +8,18 @@ if (fs.existsSync(MAPPING_FILE)) {
     productMapping = JSON.parse(fs.readFileSync(MAPPING_FILE, 'utf-8'));
 }
 
+const RICH_MAPPING_FILE = path.join(__dirname, 'product_codes_rich.json');
+let richMapping = {};
+if (fs.existsSync(RICH_MAPPING_FILE)) {
+    richMapping = JSON.parse(fs.readFileSync(RICH_MAPPING_FILE, 'utf-8'));
+}
+
+const PRICE_MAPPING_FILE = path.join(__dirname, 'product_prices.json');
+let priceMapping = {};
+if (fs.existsSync(PRICE_MAPPING_FILE)) {
+    priceMapping = JSON.parse(fs.readFileSync(PRICE_MAPPING_FILE, 'utf-8'));
+}
+
 // Default fallbacks if a set is not explicitly mapped in product_mapping.json
 const DEFAULT_CATEGORY = {
     'pdf1': 'living-room',
@@ -114,8 +126,20 @@ for (const page of PAGES) {
         setsForThisPage.forEach(setObj => {
             const { pdf, setIndex, setId, chunk } = setObj;
             const mainImg = chunk[0];
-            const title = `${pdf.toUpperCase()} Set ${setIndex + 1}`;
-            const subtitle = page.file.startsWith('zh/') ? '高品质家具' : 'Premium Quality';
+            const mainImgName = mainImg.replace('.jpg', '').replace('.png', '');
+            
+            const richData = richMapping[`${pdf}/${mainImgName}`] || {};
+            let title = richData.code || `${pdf.toUpperCase()} Set ${setIndex + 1}`;
+            if (title === '通用转角线框图' || title === 'PDF10 封面款' || title === '未匹配') {
+                title = `${pdf.toUpperCase()} Set ${setIndex + 1}`;
+            }
+
+            let subtitle = page.file.startsWith('zh/') ? '高品质家具' : 'Premium Quality';
+            if (richData.name) {
+                subtitle = richData.name;
+            }
+
+            const price = priceMapping[title];
             const tag = page.file.startsWith('zh/') ? '精选' : 'Featured';
             
             injectionHtml += `        <div class="sofa-card reveal">\n`;
@@ -134,6 +158,9 @@ for (const page of PAGES) {
             injectionHtml += `                <h3>${title}</h3>\n`;
             injectionHtml += `                <p>${subtitle}</p>\n`;
             injectionHtml += `                <div class="sofa-details">\n`;
+            if (price) {
+                injectionHtml += `                    <span class="price-tag" style="font-weight:bold; color:#e63946; margin-right:10px;">$${price}</span>\n`;
+            }
             injectionHtml += `                    <span class="detail-tag">${tag}</span>\n`;
             injectionHtml += `                </div>\n`;
             injectionHtml += `            </div>\n`;
