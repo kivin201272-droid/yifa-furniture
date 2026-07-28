@@ -28,7 +28,9 @@ const PAGES = [
     { file: 'dining/index.html', cat: 'dining', level: 1 },
     { file: 'zh/dining/index.html', cat: 'dining', level: 2 },
     { file: 'mattress/index.html', cat: 'mattress', level: 1 },
-    { file: 'zh/mattress/index.html', cat: 'mattress', level: 2 }
+    { file: 'zh/mattress/index.html', cat: 'mattress', level: 2 },
+    { file: 'office/index.html', cat: 'office', level: 1 },
+    { file: 'zh/office/index.html', cat: 'office', level: 2 }
 ];
 
 const allSets = [];
