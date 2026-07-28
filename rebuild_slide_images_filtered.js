@@ -10,8 +10,8 @@ if (fs.existsSync(MAPPING_FILE)) {
 
 // Default fallbacks if a set is not explicitly mapped in product_mapping.json
 const DEFAULT_CATEGORY = {
-    'pdf1': 'living-room',
-    'pdf2': 'living-room',
+    'pdf1': 'bedroom',
+    'pdf2': 'bedroom',
     'pdf3': 'living-room',
     'pdf5': 'living-room',
     'pdf6': 'mattress',
