@@ -87,6 +87,26 @@
       } else if (index >= slides.length) {
         index = 0;
       }
+
+      var heroWrap = container.closest(".hero-slideshow-wrap");
+      var heroOverlay = heroWrap ? heroWrap.querySelector(".hero-content-overlay") : document.querySelector(".hero-content-overlay");
+      var slideOverlay = container.querySelector(".slideshow-overlay");
+
+      if (heroOverlay) {
+        if (index === 0) {
+          heroOverlay.classList.remove("hidden-overlay");
+        } else {
+          heroOverlay.classList.add("hidden-overlay");
+        }
+      }
+
+      if (slideOverlay) {
+        if (index === 0) {
+          slideOverlay.classList.remove("hidden-overlay");
+        } else {
+          slideOverlay.classList.add("hidden-overlay");
+        }
+      }
       
       slides.forEach(function(slide, i) {
         if (i === index) {

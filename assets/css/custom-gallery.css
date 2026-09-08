@@ -44,6 +44,10 @@
   height: 100%;
   object-fit: contain;
   transition: transform 0.5s ease;
+  image-rendering: -webkit-optimize-contrast;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .sofa-card:hover .sofa-img-container img {
@@ -68,6 +72,7 @@
   cursor: pointer;
   transition: border-color 0.2s, opacity 0.2s;
   background: #faf9f6;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .sofa-thumb:hover {
