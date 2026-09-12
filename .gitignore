@@ -19,6 +19,8 @@ reports/dining_batch2_draft_images/
 reports/price_list_evidence/
 reports/price_list_page_*.jpg
 reports/non_pj_preservation_audit.json
+reports/non_pj_card_hashes.json
+reports/three_way_preservation_audit.json
 reports/pj_pdf_inventory.json
 reports/pj_pdf_inventory.csv
 reports/sku_random_50_sample_audit.csv
@@ -47,3 +49,4 @@ scripts/build_dining_batch2_evidence.py
 scripts/build_dining_batch2_manifest.py
 scripts/audit_non_pj_preservation.py
 scripts/verify_pj_scope_protection.py
+scripts/restore_office_f_series.py
