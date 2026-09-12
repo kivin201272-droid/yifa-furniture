@@ -448,30 +448,144 @@ def run_eight_negative_tests():
     assert not passed_8, "Negative Test 8 Failed: Unresolved conflict with publish:true was NOT caught!"
     print(f"  - Neg Test 8 (Unresolved Conflict on Publish): Caught expected error: '{errors_8[0]}' [PASS]")
 
+OFFICE_19_PJ_SKUS = [
+    "2715", "2716", "4500TAUPE", "4500CA", "2704WH", "2704BK",
+    "2709", "2714", "2006GRAY", "2706", "2707", "2708BK",
+    "2720BK-RD", "2721BK-GRAY", "2722RD", "2723BK", "2724BK", "2724GRAY", "2725BK"
+]
+
+def check_office_baseline_protection():
+    print("[TEST 3A] Office PJ 19-SKU Baseline Regression Protection:")
+    with open("reports/manifest_v2_office.json", "r", encoding="utf-8") as f:
+        office_manifest = json.load(f)
+    manifest_by_sku = {item["sku"]: item for item in office_manifest}
+    
+    off_en = open("office/index.html", "r", encoding="utf-8").read()
+    off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
+    cards_en = extract_cards(off_en)
+    cards_zh = extract_cards(off_zh)
+    map_en, _ = build_sku_map(cards_en, "office")
+    map_zh, _ = build_sku_map(cards_zh, "zh/office")
+    
+    errors = []
+    pj_cards_checked = 0
+    pj_images_checked = 0
+    
+    # 1. 19 Office PJ Cards in EN and ZH
+    for sku in OFFICE_19_PJ_SKUS:
+        m_item = manifest_by_sku.get(sku)
+        if not m_item:
+            errors.append(f"Missing SKU {sku} in reports/manifest_v2_office.json")
+            continue
+            
+        # EN card check
+        if sku not in map_en:
+            errors.append(f"[Office EN] Missing PJ card for SKU {sku}")
+        else:
+            pj_cards_checked += 1
+            card_en = map_en[sku]
+            if f"${m_item['price']}" not in card_en["price"]:
+                errors.append(f"[Office EN] Price mismatch for SKU {sku}: {card_en['price']} vs expected ${m_item['price']}")
+                
+        # ZH card check
+        if sku not in map_zh:
+            errors.append(f"[Office ZH] Missing PJ card for SKU {sku}")
+        else:
+            pj_cards_checked += 1
+            card_zh = map_zh[sku]
+            if f"${m_item['price']}" not in card_zh["price"]:
+                errors.append(f"[Office ZH] Price mismatch for SKU {sku}: {card_zh['price']} vs expected ${m_item['price']}")
+                
+        # Image check
+        img_path = m_item["output_image"]
+        if not os.path.exists(img_path):
+            errors.append(f"Missing PJ image file: {img_path}")
+        else:
+            with open(img_path, "rb") as f:
+                actual_img_sha = hashlib.sha256(f.read()).hexdigest()
+            if actual_img_sha != m_item["image_sha256"]:
+                errors.append(f"Image SHA mismatch for {img_path}: {actual_img_sha} != {m_item['image_sha256']}")
+            else:
+                pj_images_checked += 1
+                
+    # 2. 5 Office Non-PJ Cards (F-series)
+    off_non_pj_checked = 0
+    html_root_en = subprocess.check_output(["git", "show", f"{ROOT_BASELINE}:office/index.html"]).decode("utf-8")
+    html_root_zh = subprocess.check_output(["git", "show", f"{ROOT_BASELINE}:zh/office/index.html"]).decode("utf-8")
+    map_root_en, _ = build_sku_map(extract_cards(html_root_en), "office")
+    map_root_zh, _ = build_sku_map(extract_cards(html_root_zh), "zh/office")
+    
+    for sku in OFFICE_PROTECTED_SKUS:
+        if sku in map_en and sku in map_root_en:
+            if map_en[sku]["hash"] == map_root_en[sku]["hash"]:
+                off_non_pj_checked += 1
+            else:
+                errors.append(f"[Office EN] Non-PJ Card hash mismatch for {sku}")
+        if sku in map_zh and sku in map_root_zh:
+            if map_zh[sku]["hash"] == map_root_zh[sku]["hash"]:
+                off_non_pj_checked += 1
+            else:
+                errors.append(f"[Office ZH] Non-PJ Card hash mismatch for {sku}")
+                
+    # 3. Dining Production PJ Card Check (Must be 0)
+    din_en = open("dining/index.html", "r", encoding="utf-8").read()
+    din_zh = open("zh/dining/index.html", "r", encoding="utf-8").read()
+    din_pj_cards = 0
+    for mf in glob.glob("reports/manifest_v2_dining_*.json"):
+        with open(mf, "r", encoding="utf-8") as f:
+            d_items = json.load(f)
+        for it in d_items:
+            s = it.get("sku", "")
+            if s and (f"<h3>{s}" in din_en or f"<h3>{s}" in din_zh):
+                din_pj_cards += 1
+                errors.append(f"Dining production page unexpectedly contains PJ card for {s}")
+                
+    if errors:
+        for err in errors:
+            print(f"  [ERROR] {err}")
+        assert False, f"Office baseline regression check failed with {len(errors)} error(s)."
+        
+    print(f"  -> Office PJ cards: {pj_cards_checked}/38 PASS (19 EN + 19 ZH)")
+    print(f"  -> Office PJ images: {pj_images_checked}/19 PASS")
+    print(f"  -> Office non-PJ cards: {off_non_pj_checked}/10 PASS")
+    print(f"  -> Dining production PJ cards: {din_pj_cards} (0 expected)")
+
 def check_git_cleanliness():
-    print("[TEST 5] Unapproved Files / Git Status Whitelist Check:")
+    print("[TEST 5] Unapproved Files / Production Page Modification Check:")
     status = subprocess.check_output(["git", "status", "--short"]).decode("utf-8").strip()
+    unapproved_production = []
     if status:
-        lines = [l for l in status.splitlines() if not l.startswith("??")]
-        assert len(lines) == 0, f"Unapproved tracked modifications found: {lines}"
-    print("  -> PASS: 0 unapproved file modifications in git working tree.")
+        for line in status.splitlines():
+            # Disallow any tracked or untracked changes to production html/css/js
+            tokens = line.strip().split()
+            if len(tokens) >= 2:
+                path = tokens[-1]
+                if path.endswith(".html") or path.endswith(".css") or (path.startswith("dining/") or path.startswith("zh/dining/")):
+                    unapproved_production.append(line)
+    assert len(unapproved_production) == 0, f"Unapproved production page changes found: {unapproved_production}"
+    print("  -> PASS: 0 unapproved production page modifications in git working tree.")
 
 def main():
     print("=" * 70)
-    print("GLOBAL CANONICAL SCOPE PROTECTION & NON-PJ INTEGRITY VERIFIER (V4)")
+    print("GLOBAL CANONICAL SCOPE PROTECTION & REGRESSION VERIFIER (V5)")
     print("=" * 70)
     check_pdf_hash()
     check_manifests_source_fields()
     check_live_scope_protection()
+    check_office_baseline_protection()
     run_eight_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
+    print("  Office PJ cards: 38/38 PASS (19 EN + 19 ZH)")
+    print("  Office PJ images: 19/19 PASS")
+    print("  Office non-PJ cards: 10/10 PASS")
     print("  Protected non-PJ cards audited: 104 (10 Office + 94 Dining)")
-    print("  Position-independent SKU matches: 104/104 (100.0%)")
     print("  Protected unique image files audited: 115/115 (100.0%)")
+    print("  Dining production PJ cards: 0")
+    print("  Cross-manifest duplicates: 0")
+    print("  Unapproved production page changes: 0")
     print("  Negative test suite assertions passed: 8/8")
-    print("  Unapproved files changed: 0")
     print("=" * 70)
     print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)

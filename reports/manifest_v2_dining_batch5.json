@@ -1,0 +1,333 @@
+[
+  {
+    "record_type": "canonical_product",
+    "sku": "3000T/3002BK",
+    "sku_canonical": "3000T/3002BK",
+    "is_occurrence_reference": false,
+    "first_discovered_page": 53,
+    "first_discovered_section": "DINETTE 101",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "pdf_file_page": 53,
+    "printed_page": "101",
+    "page_heading": "DINETTE 101",
+    "raw_model_tokens": [
+      "3000T",
+      "3002BK",
+      "1500GRAY-CHROME"
+    ],
+    "raw_text_in_pdf": "3000T/3002BK/1500GRAY-CHROME\n3000T  |   DINING TABLE WITH STAINLESS CHROME FRAME,LEGS    63\"W x 36\"D x 30\"H\n3002BK  |   12MM BLACK GLASS TOP\nPACK: 2/1 CARTON",
+    "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
+    "raw_pack_text": "PACK: 2/1 CARTON",
+    "raw_product_type": "DINING TABLE WITH STAINLESS CHROME FRAME,LEGS / 12MM BLACK GLASS TOP",
+    "expected_product_type": "DINING TABLE",
+    "observed_product_type": "DINING TABLE + DINING CHAIRS LIFESTYLE SCENE",
+    "source_region": [
+      70,
+      70,
+      780,
+      520
+    ],
+    "image_classification": "MULTI_PRODUCT_SCENE",
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "standalone_crop_possible": false,
+    "scene_products_present": [
+      "3000T/3002BK (Table)",
+      "1500GRAY-CHROME (4 Chairs)"
+    ],
+    "price": "349.00",
+    "price_source": "素材库/价钱/price list2026 (5_22).pdf P6 (Line 871: 3000T/3002BK Dining Table with Black GlassTop $349.00)",
+    "exact_price_row_text": "3000T/3002BK Dining Table with Black GlassTop $349.00",
+    "conflict_status": "none",
+    "conflict_type": null,
+    "conflict_details": null,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products (4 surrounding 1500GRAY-CHROME chairs); it cannot satisfy the one-SKU-one-product image rule.",
+    "draft_image_path": "reports/dining_batch5_draft_images/draft-3000t-3002bk.jpg",
+    "occurrences": [
+      {
+        "page": 53,
+        "section": "DINETTE 101",
+        "region": [
+          70,
+          70,
+          780,
+          520
+        ],
+        "scene_chairs": "1500GRAY-CHROME"
+      },
+      {
+        "page": 53,
+        "section": "DINETTE 102",
+        "region": [
+          920,
+          70,
+          1630,
+          520
+        ],
+        "scene_chairs": "1301BK"
+      },
+      {
+        "page": 55,
+        "section": "DINETTE 105",
+        "region": [
+          70,
+          70,
+          780,
+          520
+        ],
+        "scene_chairs": "1001BK"
+      }
+    ]
+  },
+  {
+    "record_type": "canonical_product",
+    "sku": "1001BK",
+    "sku_canonical": "1001BK",
+    "is_occurrence_reference": false,
+    "first_discovered_page": 54,
+    "first_discovered_section": "DINETTE 103",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "pdf_file_page": 54,
+    "printed_page": "103",
+    "page_heading": "DINETTE 103",
+    "raw_model_tokens": [
+      "3000T",
+      "3000GRAY",
+      "1001BK"
+    ],
+    "raw_text_in_pdf": "3000T/3000GRAY/1001BK\n1001BK   |   STAINLESS CHROME DINING CHAIR     23\"W x 29\"D x 45\"H\nPACK: 2/1 CARTON",
+    "raw_dimensions_text": "23\"W x 29\"D x 45\"H",
+    "raw_pack_text": "PACK: 2/1 CARTON",
+    "raw_product_type": "STAINLESS CHROME DINING CHAIR",
+    "expected_product_type": "DINING CHAIR",
+    "observed_product_type": "DINING TABLE + DINING CHAIRS LIFESTYLE SCENE",
+    "source_region": [
+      70,
+      70,
+      780,
+      520
+    ],
+    "image_classification": "MULTI_PRODUCT_SCENE",
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "standalone_crop_possible": false,
+    "scene_products_present": [
+      "3000T/3000GRAY (Table)",
+      "1001BK (4 Chairs)"
+    ],
+    "price": "149.00",
+    "price_source": "素材库/价钱/price list2026 (5_22).pdf P7 (Line 900: 1001BK Dinning Chair $149.00)",
+    "exact_price_row_text": "1001BK Dinning Chair $149.00",
+    "conflict_status": "none",
+    "conflict_type": null,
+    "conflict_details": null,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products (surrounding 3000T/3000GRAY marble dining table); it cannot satisfy the one-SKU-one-product image rule.",
+    "draft_image_path": "reports/dining_batch5_draft_images/draft-1001bk.jpg",
+    "occurrences": [
+      {
+        "page": 54,
+        "section": "DINETTE 103",
+        "region": [
+          70,
+          70,
+          780,
+          520
+        ],
+        "scene_table": "3000T/3000GRAY"
+      },
+      {
+        "page": 54,
+        "section": "DINETTE 104",
+        "region": [
+          920,
+          70,
+          1630,
+          520
+        ],
+        "scene_table": "3000T/3000BK"
+      },
+      {
+        "page": 55,
+        "section": "DINETTE 105",
+        "region": [
+          70,
+          70,
+          780,
+          520
+        ],
+        "scene_table": "3000T/3002BK"
+      }
+    ]
+  },
+  {
+    "record_type": "canonical_product",
+    "sku": "3008T/3008GRAY",
+    "sku_canonical": "3008T/3008GRAY",
+    "is_occurrence_reference": false,
+    "first_discovered_page": 55,
+    "first_discovered_section": "DINETTE 106",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "pdf_file_page": 55,
+    "printed_page": "106",
+    "page_heading": "DINETTE 106",
+    "raw_model_tokens": [
+      "3008T",
+      "3008GRAY",
+      "1500GRAY-CHROME"
+    ],
+    "raw_text_in_pdf": "3008T/3008GRAY/1500GRAY-CHROME\n3008T  |  ROUND DINING TABLE WITH  STAINLESS CHROME FRAME, LEGS   DIA 45\"D x 30\"H\n3008GRAY  |   22MM ROUND GRAY MARBLE TOP\nPACK: 2/1 CARTON",
+    "raw_dimensions_text": "DIA 45\"D x 30\"H",
+    "raw_pack_text": "PACK: 2/1 CARTON",
+    "raw_product_type": "ROUND DINING TABLE WITH STAINLESS CHROME FRAME, LEGS / 22MM ROUND GRAY MARBLE TOP",
+    "expected_product_type": "DINING TABLE",
+    "observed_product_type": "DINING TABLE + DINING CHAIRS LIFESTYLE SCENE",
+    "source_region": [
+      920,
+      70,
+      1630,
+      520
+    ],
+    "image_classification": "MULTI_PRODUCT_SCENE",
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "standalone_crop_possible": false,
+    "scene_products_present": [
+      "3008T/3008GRAY (Round Table)",
+      "1500GRAY-CHROME (4 Chairs)"
+    ],
+    "price": "399.00",
+    "price_source": "素材库/价钱/price list2026 (5_22).pdf P7 (Line 905: 3008T/3008GRAY Dining Table with Gray Marble Top $399.00)",
+    "exact_price_row_text": "3008T/3008GRAY Dining Table with 22mm Gray Marble Top $399.00",
+    "conflict_status": "none",
+    "conflict_type": null,
+    "conflict_details": null,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products (4 surrounding 1500GRAY-CHROME chairs); it cannot satisfy the one-SKU-one-product image rule.",
+    "draft_image_path": "reports/dining_batch5_draft_images/draft-3008t-3008gray.jpg",
+    "occurrences": [
+      {
+        "page": 55,
+        "section": "DINETTE 106",
+        "region": [
+          920,
+          70,
+          1630,
+          520
+        ],
+        "scene_chairs": "1500GRAY-CHROME"
+      }
+    ]
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "1500GRAY-CHROME",
+    "sku": "1500GRAY-CHROME",
+    "sku_canonical": "1500GRAY-CHROME",
+    "is_occurrence_reference": true,
+    "canonical_source_manifest": "reports/manifest_v2_dining_batch4.json",
+    "canonical_first_page": 51,
+    "canonical_first_section": "DINETTE 97",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "pdf_file_page": 53,
+    "printed_page": "101",
+    "page_heading": "DINETTE 101",
+    "occurrence_pages": [
+      53,
+      55
+    ],
+    "occurrence_sections": [
+      "DINETTE 101",
+      "DINETTE 106"
+    ],
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "1301BK",
+    "sku": "1301BK",
+    "sku_canonical": "1301BK",
+    "is_occurrence_reference": true,
+    "canonical_source_manifest": "reports/manifest_v2_dining_batch4.json",
+    "canonical_first_page": 52,
+    "canonical_first_section": "DINETTE 99",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "pdf_file_page": 53,
+    "printed_page": "102",
+    "page_heading": "DINETTE 102",
+    "occurrence_pages": [
+      53
+    ],
+    "occurrence_sections": [
+      "DINETTE 102"
+    ],
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3000T/3000GRAY",
+    "sku": "3000T/3000GRAY",
+    "sku_canonical": "3000T/3000GRAY",
+    "is_occurrence_reference": true,
+    "canonical_source_manifest": "reports/manifest_v2_dining_batch3.json",
+    "canonical_first_page": 49,
+    "canonical_first_section": "DINETTE 93",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "pdf_file_page": 54,
+    "printed_page": "103",
+    "page_heading": "DINETTE 103",
+    "occurrence_pages": [
+      54
+    ],
+    "occurrence_sections": [
+      "DINETTE 103"
+    ],
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3000T/3000BK",
+    "sku": "3000T/3000BK",
+    "sku_canonical": "3000T/3000BK",
+    "is_occurrence_reference": true,
+    "canonical_source_manifest": "reports/manifest_v2_dining_batch4.json",
+    "canonical_first_page": 52,
+    "canonical_first_section": "DINETTE 99",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "pdf_file_page": 54,
+    "printed_page": "104",
+    "page_heading": "DINETTE 104",
+    "occurrence_pages": [
+      54
+    ],
+    "occurrence_sections": [
+      "DINETTE 104"
+    ],
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  }
+]
