@@ -21,6 +21,8 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .sofa-card:hover {
