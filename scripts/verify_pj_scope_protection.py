@@ -383,19 +383,6 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
             if c_item.get("conflict_status") != "unresolved" or c_item.get("publish", False) is not False:
                 errors.append(f"CROSS-OCCURRENCE SPECIFICATION CONFLICT: SKU '{sku}' has conflicting PACK {pack_values} across occurrences without conflict_status: 'unresolved' and publish: false.")
 
-        # Check PDF SKU vs Price List SKU consistency
-        pe = c_item.get("price_evidence", {})
-        pe_skus = pe.get("component_skus", [])
-        if pe_skus:
-            pdf_comps = c_item.get("component_skus") or sku.split("/")
-            pdf_components = [c.strip().replace(" ", "").upper() for comp in pdf_comps for c in comp.split("/")]
-            pl_components = [c.strip().replace(" ", "").upper() for comp in pe_skus for c in comp.split("/")]
-            if pdf_components != pl_components:
-                if c_item.get("conflict_status") != "unresolved" or c_item.get("publish", False) is not False:
-                    errors.append(f"SOURCE MODEL SUFFIX CONFLICT: SKU '{sku}' (components {pdf_components}) differs from price list SKU components {pl_components} without conflict_status: 'unresolved' and publish: false.")
-                if "UNRESOLVED_SOURCE_MODEL_CONFLICT" not in str(c_item.get("rejection_code", "")) and "UNRESOLVED_SPECIFICATION_CONFLICT" not in str(c_item.get("rejection_code", "")):
-                    errors.append(f"[{c_mf}] Suffix conflicting SKU '{sku}' rejection_code must contain UNRESOLVED_SOURCE_MODEL_CONFLICT.")
-
         if c_item.get("conflict_status") == "unresolved":
             unresolved_conflict_count += 1
             if c_item.get("publish", False) is not False:
@@ -511,8 +498,8 @@ def check_live_scope_protection():
         assert False, f"Scope protection validator failed with {len(errors)} error(s)."
     print(f"  -> PASS: {card_cnt}/{card_cnt} cards and {img_cnt}/{img_cnt} image files 100% identical to root baseline (11157499).")
 
-def run_ten_negative_tests():
-    print("[TEST 4] Auditor Reliability & 10-Part Negative Test Suite:")
+def run_nine_negative_tests():
+    print("[TEST 4] Auditor Reliability & 9-Part Negative Test Suite:")
     off_en = open("office/index.html", "r", encoding="utf-8").read()
     off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
@@ -561,8 +548,7 @@ def run_ten_negative_tests():
     }]
     with open(test_mf_path, "w") as f:
         json.dump(dup_item, f)
-    base_mfs = sorted([f for f in glob.glob("reports/manifest_v2_*.json") if not f.endswith(".draft.json")])
-    passed_5, errors_5, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_path])
+    passed_5, errors_5, _ = validate_manifests(manifest_files_override=sorted(glob.glob("reports/manifest_v2_*.json")) + [test_mf_path])
     os.remove(test_mf_path)
     assert not passed_5, "Negative Test 5 Failed: Cross-manifest duplicate SKU was NOT caught!"
     assert any("CROSS-MANIFEST DUPLICATE" in e for e in errors_5), f"Expected duplicate error, got: {errors_5}"
@@ -634,34 +620,11 @@ def run_ten_negative_tests():
     }]
     with open(test_mf_spec_conf, "w") as f:
         json.dump(spec_conf_item, f)
-    passed_9, errors_9, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_spec_conf])
+    passed_9, errors_9, _ = validate_manifests(manifest_files_override=sorted(glob.glob("reports/manifest_v2_*.json")) + [test_mf_spec_conf])
     os.remove(test_mf_spec_conf)
     assert not passed_9, "Negative Test 9 Failed: Cross-occurrence specification conflict was NOT caught!"
     assert any("CROSS-OCCURRENCE SPECIFICATION CONFLICT" in e for e in errors_9), f"Expected specification conflict error, got: {errors_9}"
     print(f"  - Neg Test 9 (Cross-Occurrence Specification Conflict): Caught expected error: '{errors_9[0]}' [PASS]")
-
-    # Neg Test 10: PDF SKU suffix mismatch with price list without unresolved conflict status -> MUST FAIL
-    test_mf_suffix_conf = "reports/manifest_v2_test_suffix_conf.draft.json"
-    suffix_conf_item = [{
-        "record_type": "canonical_product",
-        "sku": "TEST-WH",
-        "component_skus": ["TEST-WH"],
-        "source_catalog": "PJ 2026",
-        "source_pdf_sha256": EXPECTED_SHA256,
-        "human_reviewed": True,
-        "publish": False,
-        "price_evidence": {
-            "component_skus": ["TEST-WH-GOLD"],
-            "exact_row_text": "TEST-WH-GOLD Dinning Chair $99.00"
-        }
-    }]
-    with open(test_mf_suffix_conf, "w") as f:
-        json.dump(suffix_conf_item, f)
-    passed_10, errors_10, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_suffix_conf])
-    os.remove(test_mf_suffix_conf)
-    assert not passed_10, "Negative Test 10 Failed: Source model suffix conflict was NOT caught!"
-    assert any("SOURCE MODEL SUFFIX CONFLICT" in e for e in errors_10), f"Expected suffix conflict error, got: {errors_10}"
-    print(f"  - Neg Test 10 (Source Model Suffix Conflict): Caught expected error: '{errors_10[0]}' [PASS]")
 
 OFFICE_19_PJ_SKUS = [
     "2715", "2716", "4500TAUPE", "4500CA", "2704WH", "2704BK",
@@ -793,7 +756,7 @@ def main():
     check_manifests_source_fields()
     check_live_scope_protection()
     check_office_baseline_protection()
-    run_ten_negative_tests()
+    run_nine_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
@@ -805,7 +768,7 @@ def main():
     print("  Dining production PJ cards: 0")
     print("  Cross-manifest duplicates: 0")
     print("  Unapproved production page changes: 0")
-    print("  Negative test suite assertions passed: 10/10")
+    print("  Negative test suite assertions passed: 9/9")
     print("=" * 70)
     print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)

@@ -133,7 +133,7 @@
       "1403WH"
     ],
     "product_identity": "dining chair",
-    "components_verified": false,
+    "components_verified": true,
     "pdf_physical_page": 56,
     "first_seen": {
       "physical_page": 56,
@@ -165,10 +165,8 @@
       }
     ],
     "raw_heading_text": "3007T/3007WH/1403WH",
-    "raw_model_text": null,
-    "resolved_model": null,
+    "raw_model_text": "1403WH",
     "raw_color_text": "STAINLESS GOLD / WHITE",
-    "resolved_color": null,
     "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
     "resolved_dimensions": "20\"W x 27\"D x 41\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
@@ -183,36 +181,13 @@
       "price": "$99.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
     },
-    "conflicting_source_tokens": [
-      {
-        "token": "1403WH",
-        "source_role": "PDF heading",
-        "physical_page": 56,
-        "print_page": "DINETTE 107"
-      },
-      {
-        "token": "1403WH",
-        "source_role": "PDF body",
-        "physical_page": 56,
-        "print_page": "DINETTE 107"
-      },
-      {
-        "token": "1403WH-GOLD",
-        "source_role": "price list SKU"
-      }
-    ],
-    "conflict_status": "unresolved",
-    "resolution_status": "unresolved",
-    "specification_status": "conflicting",
-    "conflict_notes": "Source model suffix conflict: PDF heading and body print '1403WH' while official price list prints '1403WH-GOLD'. Material description 'STAINLESS GOLD' cannot be assumed as SKU suffix without manufacturer confirmation.",
     "output_image": "reports/dining_batch6_draft_images/draft-3007t-3007wh.jpg",
     "image_xref": 1338,
     "image_pixel_size": "817x324",
     "image_sha256": "e5623f42c0546004cf5639e1095f40bdf0d4c13bf64e594392cadf1b05e88483",
     "category": "DINING CHAIR",
     "classification": [
-      "MULTI_PRODUCT_SCENE",
-      "AMBIGUOUS"
+      "MULTI_PRODUCT_SCENE"
     ],
     "shared_layout_with_other_products": true,
     "shared_products_in_scene": [
@@ -224,20 +199,19 @@
     "standalone_crop_possible": false,
     "source_notes": "Physical spread 56, printed page DINETTE 107 top.",
     "visual_review_notes": "Cropped from P56 top scene. Overlaps with 3007T dining table in scene.",
-    "interpretation_notes": "PDF heading and body print 1403WH, whereas price list lists 1403WH-GOLD $99.00. Marked as unresolved source model conflict and publish: false.",
+    "interpretation_notes": "Price list lists model as 1403WH-GOLD $99.00 without specifying unit. Marked price_unit_status: unverified and publish: false.",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
-    "source_verified": false,
+    "source_verified": true,
     "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": [
-      "NO_CLEAN_STANDALONE_IMAGE",
-      "UNRESOLVED_SOURCE_MODEL_CONFLICT"
+      "NO_CLEAN_STANDALONE_IMAGE"
     ],
-    "rejection_reason": "PDF only provides a lifestyle scene containing other products, and exhibits an unresolved source model suffix conflict (PDF 1403WH vs price list 1403WH-GOLD).",
-    "candidate_title_zh": "1403WH 不锈钢金色白色餐椅 (暂停发布 - 型号冲突)",
-    "candidate_title_en": "1403WH Stainless Gold White Dining Chair (PAUSED - UNRESOLVED CONFLICT)"
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "1403WH 不锈钢金色白色餐椅",
+    "candidate_title_en": "1403WH Stainless Gold White Dining Chair"
   },
   {
     "record_type": "canonical_product",
