@@ -427,6 +427,27 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
                 if "dimension_occurrences" in c_item and c_item.get("raw_dimensions_text") is not None:
                     errors.append(f"[{c_mf}] Conflicting dimensions SKU '{sku}' must have raw_dimensions_text: null.")
 
+        # Check output image SHA-256 integrity
+        out_img = c_item.get("output_image") or c_item.get("target_crop_image")
+        out_sha = c_item.get("output_image_sha256")
+        if out_img and out_sha:
+            if not os.path.exists(out_img):
+                errors.append(f"OUTPUT IMAGE NOT FOUND: SKU '{sku}' output_image '{out_img}' does not exist on disk.")
+            else:
+                with open(out_img, "rb") as f:
+                    actual_sha = hashlib.sha256(f.read()).hexdigest()
+                if actual_sha != out_sha:
+                    errors.append(f"OUTPUT IMAGE HASH MISMATCH: SKU '{sku}' output_image '{out_img}' disk hash {actual_sha} != output_image_sha256 {out_sha}.")
+
+        # Check price unit status verification
+        pus = str(c_item.get("price_unit_status", "")).lower()
+        if pus == "verified":
+            has_verbatim_unit = bool(pe.get("verbatim_unit_evidence") or pe.get("unit_text_verbatim") or pe.get("unit_evidence"))
+            has_unit_page = pe.get("unit_source_page") is not None or pe.get("unit_page") is not None
+            has_unit_bbox = pe.get("unit_bbox") is not None or pe.get("unit_text_region") is not None
+            if not (has_verbatim_unit and has_unit_page and has_unit_bbox):
+                errors.append(f"UNGROUNDED PRICE UNIT STATUS: SKU '{sku}' has price_unit_status '{c_item.get('price_unit_status')}' without verbatim unit evidence, source page, and bbox.")
+
     # Check that formal production HTML pages do not reference reports/ draft/evidence images
     for page_name, html_text in formal_pages.items():
         if "reports/dining_batch" in html_text or "reports/office" in html_text or ("evidence" in html_text.lower() and "reports/" in html_text):
@@ -538,8 +559,8 @@ def check_live_scope_protection():
         assert False, f"Scope protection validator failed with {len(errors)} error(s)."
     print(f"  -> PASS: {card_cnt}/{card_cnt} cards and {img_cnt}/{img_cnt} image files 100% identical to root baseline (11157499).")
 
-def run_nineteen_negative_tests():
-    print("[TEST 4] Auditor Reliability & 19-Part Negative Test Suite:")
+def run_twenty_one_negative_tests():
+    print("[TEST 4] Auditor Reliability & 21-Part Negative Test Suite:")
     off_en = open("office/index.html", "r", encoding="utf-8").read()
     off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
@@ -912,6 +933,87 @@ def run_nineteen_negative_tests():
     assert len(mat_err) > 0, f"Expected CROSS-SOURCE MATERIAL CONFLICT error, got: {errors_19}"
     print(f"  - Neg Test 19 (Cross-Source Material Conflict): Caught expected error: '{mat_err[0]}' [PASS]")
 
+    # Neg Test 20: Tampering with output_image_sha256 -> MUST FAIL
+    test_mf_img_hash = "reports/manifest_v2_test_img_hash.draft.json"
+    img_hash_item = [{
+        "record_type": "canonical_product",
+        "sku": "TEST_HASH_SKU",
+        "component_skus": ["TEST_HASH_SKU"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 59,
+        "human_reviewed": True,
+        "publish": False,
+        "conflict_status": "none",
+        "output_image": "reports/dining_batch7_draft_images/draft-2240.jpg",
+        "output_image_sha256": "0" * 64,
+        "source_text_regions": [
+            {
+                "page": 59,
+                "verbatim_text": "TEST_HASH_SKU text"
+            }
+        ],
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [470.0, 701.3, 583.5, 731.6],
+            "exact_row_text": "TEST_HASH_SKU Table $75.00",
+            "component_skus": ["TEST_HASH_SKU"],
+            "resolved_price": "$75.00",
+            "price": "$75.00"
+        }
+    }]
+    with open(test_mf_img_hash, "w", encoding="utf-8") as f:
+        json.dump(img_hash_item, f, indent=2)
+    try:
+        passed_20, errors_20, _ = validate_manifests(manifest_files_override=[test_mf_img_hash])
+    finally:
+        if os.path.exists(test_mf_img_hash):
+            os.remove(test_mf_img_hash)
+    assert not passed_20, "Negative Test 20 Failed: Output image hash tampering was NOT caught!"
+    hash_err = [e for e in errors_20 if "OUTPUT IMAGE HASH MISMATCH" in e]
+    assert len(hash_err) > 0, f"Expected OUTPUT IMAGE HASH MISMATCH error, got: {errors_20}"
+    print(f"  - Neg Test 20 (Output Image Hash Tampering): Caught expected error: '{hash_err[0]}' [PASS]")
+
+    # Neg Test 21: price_unit_status=verified without verbatim unit evidence -> MUST FAIL
+    test_mf_unit = "reports/manifest_v2_test_unit.draft.json"
+    unit_item = [{
+        "record_type": "canonical_product",
+        "sku": "TEST_UNIT_SKU",
+        "component_skus": ["TEST_UNIT_SKU"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 59,
+        "human_reviewed": True,
+        "publish": False,
+        "conflict_status": "none",
+        "price_unit_status": "verified",
+        "source_text_regions": [
+            {
+                "page": 59,
+                "verbatim_text": "TEST_UNIT_SKU text"
+            }
+        ],
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [470.0, 701.3, 583.5, 731.6],
+            "exact_row_text": "TEST_UNIT_SKU Table $75.00",
+            "component_skus": ["TEST_UNIT_SKU"],
+            "resolved_price": "$75.00",
+            "price": "$75.00"
+        }
+    }]
+    with open(test_mf_unit, "w", encoding="utf-8") as f:
+        json.dump(unit_item, f, indent=2)
+    try:
+        passed_21, errors_21, _ = validate_manifests(manifest_files_override=[test_mf_unit])
+    finally:
+        if os.path.exists(test_mf_unit):
+            os.remove(test_mf_unit)
+    assert not passed_21, "Negative Test 21 Failed: Ungrounded verified price unit was NOT caught!"
+    unit_err = [e for e in errors_21 if "UNGROUNDED PRICE UNIT STATUS" in e]
+    assert len(unit_err) > 0, f"Expected UNGROUNDED PRICE UNIT STATUS error, got: {errors_21}"
+    print(f"  - Neg Test 21 (Ungrounded Verified Price Unit): Caught expected error: '{unit_err[0]}' [PASS]")
+
 OFFICE_19_PJ_SKUS = [
     "2715", "2716", "4500TAUPE", "4500CA", "2704WH", "2704BK",
     "2709", "2714", "2006GRAY", "2706", "2707", "2708BK",
@@ -1042,7 +1144,7 @@ def main():
     check_manifests_source_fields()
     check_live_scope_protection()
     check_office_baseline_protection()
-    run_nineteen_negative_tests()
+    run_twenty_one_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
@@ -1056,7 +1158,7 @@ def main():
     print("  Out-of-bounds regions: 0")
     print("  Evidence-only images referenced by production HTML: 0")
     print("  Unapproved production page changes: 0")
-    print("  Negative test suite assertions passed: 19/19")
+    print("  Negative test suite assertions passed: 21/21")
     print("=" * 70)
     print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)

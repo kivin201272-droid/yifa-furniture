@@ -40,13 +40,13 @@
     ],
     "raw_heading_text": "2240/2800BLACK-GRAY",
     "raw_model_text": null,
-    "raw_color_text": "SINTERED STONE DINING TABLE",
+    "raw_color_text": null,
     "resolved_color": null,
     "raw_dimensions_text": "47\"W x 28\"D x 30\"H",
     "resolved_dimensions": "47\"W x 28\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$75.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -63,12 +63,12 @@
       ],
       "resolved_price": "$75.00",
       "price": "$75.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-2240.jpg",
     "image_xref": 1394,
     "image_pixel_size": "819x564",
-    "image_sha256": "36ef9149495393437171e54911ea18770fe4596350e18fc091f868d4a65aee17",
+    "image_sha256": "b8749cd0f614a1dcca879b359fb80c370725479f6df4eb315625c5408e10a22f",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -130,7 +130,9 @@
           731.63
         ]
       }
-    ]
+    ],
+    "source_image_sha256": "36ef9149495393437171e54911ea18770fe4596350e18fc091f868d4a65aee17",
+    "output_image_sha256": "b8749cd0f614a1dcca879b359fb80c370725479f6df4eb315625c5408e10a22f"
   },
   {
     "record_type": "canonical_product",
@@ -197,7 +199,7 @@
     "resolved_dimensions": "17\"W x 19\"D x 38\"H",
     "raw_pack_text": "PACK: 4/1 CARTON",
     "raw_price_text": "$30.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -214,12 +216,12 @@
       ],
       "resolved_price": "$30.00",
       "price": "$30.00",
-      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $30.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-2800black-gray.jpg",
     "image_xref": 1394,
     "image_pixel_size": "819x564",
-    "image_sha256": "36ef9149495393437171e54911ea18770fe4596350e18fc091f868d4a65aee17",
+    "image_sha256": "b8749cd0f614a1dcca879b359fb80c370725479f6df4eb315625c5408e10a22f",
     "category": "DINING CHAIR",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -252,7 +254,9 @@
     "candidate_title_en": "2800BLACK-GRAY Welded Dining Chair",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "36ef9149495393437171e54911ea18770fe4596350e18fc091f868d4a65aee17",
+    "output_image_sha256": "b8749cd0f614a1dcca879b359fb80c370725479f6df4eb315625c5408e10a22f"
   },
   {
     "record_type": "canonical_product",
@@ -301,7 +305,7 @@
     "resolved_dimensions": "47\"W x 28\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$59.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -318,12 +322,12 @@
       ],
       "resolved_price": "$59.00",
       "price": "$59.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-2250.jpg",
     "image_xref": 1400,
     "image_pixel_size": "817x563",
-    "image_sha256": "479427b3b7e7195c80a221f757e7eb343949f69b82141c2c31e9c20a84f3df9b",
+    "image_sha256": "3937ba6cd650e027040404ef34336b9a4b7ae9a9b1bcb7ca207a848cd7605941",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -355,7 +359,9 @@
     "candidate_title_en": "2250 47\" Dining Table",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "479427b3b7e7195c80a221f757e7eb343949f69b82141c2c31e9c20a84f3df9b",
+    "output_image_sha256": "3937ba6cd650e027040404ef34336b9a4b7ae9a9b1bcb7ca207a848cd7605941"
   },
   {
     "record_type": "canonical_product",
@@ -404,7 +410,7 @@
     "resolved_dimensions": "DIA 43\" x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$129.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -421,12 +427,12 @@
       ],
       "resolved_price": "$129.00",
       "price": "$129.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-3101t.jpg",
     "image_xref": 1414,
     "image_pixel_size": "818x563",
-    "image_sha256": "3cb4ee27027db944747eb68b35e297825d1e2e92ecbe354ba5f553a948c26bb5",
+    "image_sha256": "24ce99d36889dda65d9f6a571bade8f79a2836aad7cead9e89f57a225fea4335",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -458,7 +464,9 @@
     "candidate_title_en": "3101T 43\" Round Glass Dining Table",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "3cb4ee27027db944747eb68b35e297825d1e2e92ecbe354ba5f553a948c26bb5",
+    "output_image_sha256": "24ce99d36889dda65d9f6a571bade8f79a2836aad7cead9e89f57a225fea4335"
   },
   {
     "record_type": "canonical_product",
@@ -525,7 +533,7 @@
     "resolved_dimensions": "17\"W x 19\"D x 38\"H",
     "raw_pack_text": "PACK: 4/1 CARTON",
     "raw_price_text": "$35.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -542,12 +550,12 @@
       ],
       "resolved_price": "$35.00",
       "price": "$35.00",
-      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $35.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-2800wh-chrome.jpg",
     "image_xref": 1414,
     "image_pixel_size": "818x563",
-    "image_sha256": "3cb4ee27027db944747eb68b35e297825d1e2e92ecbe354ba5f553a948c26bb5",
+    "image_sha256": "24ce99d36889dda65d9f6a571bade8f79a2836aad7cead9e89f57a225fea4335",
     "category": "DINING CHAIR",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -581,7 +589,9 @@
     "candidate_title_en": "2800WH-CHROME White Chrome Frame Welded Dining Chair",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "3cb4ee27027db944747eb68b35e297825d1e2e92ecbe354ba5f553a948c26bb5",
+    "output_image_sha256": "24ce99d36889dda65d9f6a571bade8f79a2836aad7cead9e89f57a225fea4335"
   },
   {
     "record_type": "canonical_product",
@@ -630,7 +640,7 @@
     "resolved_dimensions": "30\"W x 48\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$119.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -647,12 +657,12 @@
       ],
       "resolved_price": "$119.00",
       "price": "$119.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-3112t.jpg",
     "image_xref": 1415,
     "image_pixel_size": "817x564",
-    "image_sha256": "4b6c310461ce7b43f9a9415449755ebaa873130dcfeb81ef77f12a32ea07c132",
+    "image_sha256": "d366dbe6597c44ca7dbd38cd52abad2c591cc0cdd1d1b9620935e04b3639d3ab",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -685,7 +695,9 @@
     "candidate_title_en": "3112T 48\" Rectangular Glass Dining Table",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "4b6c310461ce7b43f9a9415449755ebaa873130dcfeb81ef77f12a32ea07c132",
+    "output_image_sha256": "d366dbe6597c44ca7dbd38cd52abad2c591cc0cdd1d1b9620935e04b3639d3ab"
   },
   {
     "record_type": "canonical_product",
@@ -734,7 +746,7 @@
     "resolved_dimensions": "DIA 43\" x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$139.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -751,12 +763,12 @@
       ],
       "resolved_price": "$139.00",
       "price": "$139.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-3103t.jpg",
     "image_xref": 1429,
     "image_pixel_size": "819x564",
-    "image_sha256": "278aaef51d02c46fbe85764724b077c44957e8412fc6814c0a520e54d6d6ce3b",
+    "image_sha256": "97c74d393e212813119c0d637617624cd6f12ac5c98ae64d5a7a25fc4cf2a828",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -788,7 +800,9 @@
     "candidate_title_en": "3103T 43\" Round Gold Glass Dining Table",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "278aaef51d02c46fbe85764724b077c44957e8412fc6814c0a520e54d6d6ce3b",
+    "output_image_sha256": "97c74d393e212813119c0d637617624cd6f12ac5c98ae64d5a7a25fc4cf2a828"
   },
   {
     "record_type": "canonical_product",
@@ -855,7 +869,7 @@
     "resolved_dimensions": "17\"W x 19\"D x 38\"H",
     "raw_pack_text": "PACK: 4/1 CARTON",
     "raw_price_text": "$40.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -872,12 +886,12 @@
       ],
       "resolved_price": "$40.00",
       "price": "$40.00",
-      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $40.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-2800wh-gold.jpg",
     "image_xref": 1429,
     "image_pixel_size": "819x564",
-    "image_sha256": "278aaef51d02c46fbe85764724b077c44957e8412fc6814c0a520e54d6d6ce3b",
+    "image_sha256": "97c74d393e212813119c0d637617624cd6f12ac5c98ae64d5a7a25fc4cf2a828",
     "category": "DINING CHAIR",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -911,7 +925,9 @@
     "candidate_title_en": "2800WH-GOLD White Gold Frame Welded Dining Chair",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "278aaef51d02c46fbe85764724b077c44957e8412fc6814c0a520e54d6d6ce3b",
+    "output_image_sha256": "97c74d393e212813119c0d637617624cd6f12ac5c98ae64d5a7a25fc4cf2a828"
   },
   {
     "record_type": "canonical_product",
@@ -960,7 +976,7 @@
     "resolved_dimensions": "30\"W x 48\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$129.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -977,12 +993,12 @@
       ],
       "resolved_price": "$129.00",
       "price": "$129.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-3114t.jpg",
     "image_xref": 1430,
     "image_pixel_size": "817x564",
-    "image_sha256": "4b971d6092d6e32d3e120f4d36ef5571618a80486c12365440d99596b63ea534",
+    "image_sha256": "fa34abdc9b22a2b934a1fea110b3c0889799c9a5ae2244528c60c815a965cbd0",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -1015,7 +1031,9 @@
     "candidate_title_en": "3114T 48\" Rectangular Gold Glass Dining Table",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "4b971d6092d6e32d3e120f4d36ef5571618a80486c12365440d99596b63ea534",
+    "output_image_sha256": "fa34abdc9b22a2b934a1fea110b3c0889799c9a5ae2244528c60c815a965cbd0"
   },
   {
     "record_type": "canonical_product",
@@ -1064,7 +1082,7 @@
     "resolved_dimensions": "36\"W x 60\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$159.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -1081,12 +1099,12 @@
       ],
       "resolved_price": "$159.00",
       "price": "$159.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch7_draft_images/draft-3104t.jpg",
     "image_xref": 1430,
     "image_pixel_size": "817x564",
-    "image_sha256": "4b971d6092d6e32d3e120f4d36ef5571618a80486c12365440d99596b63ea534",
+    "image_sha256": "fa34abdc9b22a2b934a1fea110b3c0889799c9a5ae2244528c60c815a965cbd0",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -1119,7 +1137,9 @@
     "candidate_title_en": "3104T 60\" Rectangular Gold Glass Dining Table",
     "evidence_only": true,
     "eligible_as_product_image": false,
-    "publication_candidate": false
+    "publication_candidate": false,
+    "source_image_sha256": "4b971d6092d6e32d3e120f4d36ef5571618a80486c12365440d99596b63ea534",
+    "output_image_sha256": "fa34abdc9b22a2b934a1fea110b3c0889799c9a5ae2244528c60c815a965cbd0"
   },
   {
     "record_type": "occurrence_reference",
