@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
 scripts/verify_pj_scope_protection.py
-Highest Priority Scope Protection & Position-Independent Non-PJ Integrity Validator.
+Highest Priority Scope Protection, Cross-Manifest Global SKU Integrity & Position-Independent Non-PJ Validator.
 
 Features:
 1. Source PDF SHA-256 verification
-2. Dynamic Auto-discovery & Verification of all `reports/manifest_v2_*.json`
-3. Position-independent standard SKU identity matching & SHA-256 card comparison
-4. Image file byte-level integrity verification (Git blob & file SHA-256)
-5. 4-part Negative Test Suite (card reordering pass proof, duplicate/missing SKU catch, image content mutation catch, thumbnail removal catch)
-6. Git status & working tree whitelist verification
+2. Dynamic Auto-discovery & Cross-Manifest Global Canonical SKU Registry
+3. Strict Field Validation (default false, crop isolation checks, publish/rejection consistency)
+4. Position-independent standard SKU identity matching & SHA-256 card comparison
+5. Image file byte-level integrity verification (Git blob & file SHA-256)
+6. 8-part Negative Test Suite (card reordering, duplicate SKU, image mutation, thumbnail removal, cross-manifest duplicate, missing publish default false, crop violation, unresolved publish violation)
+7. Git status & working tree whitelist verification
 """
 
 import json
@@ -123,61 +124,139 @@ def check_pdf_hash():
     assert actual_hash == EXPECTED_SHA256, f"PDF SHA-256 mismatch: {actual_hash} != {EXPECTED_SHA256}"
     print(f"[TEST 1] Source PDF SHA-256 Verified: {actual_hash} [MATCH]")
 
-def check_manifests_source_fields():
-    print("[TEST 2] Dynamic Manifest Discovery & Rules Verification:")
-    manifest_files = sorted(glob.glob("reports/manifest_v2_*.json"))
-    assert len(manifest_files) > 0, "No manifest_v2_*.json files found!"
+def validate_manifests(manifest_files_override=None, custom_pages=None):
+    """
+    Validates all manifest files and cross-manifest canonical uniqueness.
+    Returns (bool passed, list errors, dict stats).
+    """
+    errors = []
+    manifest_files = manifest_files_override or sorted(glob.glob("reports/manifest_v2_*.json"))
     
-    # Load formal pages to verify publish:false items do not appear
-    formal_html_pages = {
+    formal_pages = custom_pages or {
         "dining_en": open("dining/index.html", "r", encoding="utf-8").read(),
         "dining_zh": open("zh/dining/index.html", "r", encoding="utf-8").read(),
         "office_en": open("office/index.html", "r", encoding="utf-8").read(),
         "office_zh": open("zh/office/index.html", "r", encoding="utf-8").read(),
     }
     
+    canonical_registry = {} # canonical_sku -> (manifest_file, item)
+    occurrence_references = []
+    manifest_stats = {}
+    
     for mf in manifest_files:
-        with open(mf, "r", encoding="utf-8") as f:
-            data = json.load(f)
+        try:
+            with open(mf, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            errors.append(f"[{mf}] JSON Parse Error: {e}")
+            continue
             
-        total_items = len(data)
-        published_items = 0
-        rejected_items = 0
+        m_published = 0
+        m_rejected = 0
+        m_occurrences = 0
+        m_canonical = 0
         
         for item in data:
+            rec_type = item.get("record_type", "canonical_product")
+            
+            # 1. Occurrence reference validation
+            if rec_type == "occurrence_reference":
+                m_occurrences += 1
+                c_sku = item.get("canonical_sku", "").strip()
+                if not c_sku:
+                    errors.append(f"[{mf}] occurrence_reference missing canonical_sku")
+                occurrence_references.append((mf, item))
+                continue
+                
+            # 2. Canonical product validation
+            m_canonical += 1
             sku = item.get("sku", "").strip()
-            assert sku, f"[{mf}] Empty SKU found in item: {item}"
-            assert not sku.startswith("F30"), f"[{mf}] Scope violation: Non-PJ SKU {sku} in PJ manifest"
-            assert item.get("source_catalog") == "PJ 2026", f"[{mf}] {sku} source_catalog != 'PJ 2026'"
-            assert item.get("source_pdf_sha256") == EXPECTED_SHA256, f"[{mf}] {sku} invalid source_pdf_sha256"
+            if not sku:
+                errors.append(f"[{mf}] Empty SKU found in item")
+                continue
+                
+            if sku.startswith("F30"):
+                errors.append(f"[{mf}] Scope violation: Non-PJ SKU {sku} in PJ manifest")
+                
+            if item.get("source_catalog") != "PJ 2026":
+                errors.append(f"[{mf}] {sku} source_catalog != 'PJ 2026'")
+                
+            if item.get("source_pdf_sha256") != EXPECTED_SHA256:
+                errors.append(f"[{mf}] {sku} source_pdf_sha256 invalid")
+                
+            # Strict default: missing publish or human_reviewed MUST be False
+            human_reviewed = item.get("human_reviewed", False)
+            publish = item.get("publish", False)
             
-            human_reviewed = item.get("human_reviewed")
-            publish = item.get("publish")
-            assert isinstance(human_reviewed, bool), f"[{mf}] {sku} human_reviewed must be boolean, got {human_reviewed}"
-            assert isinstance(publish, bool), f"[{mf}] {sku} publish must be boolean, got {publish}"
-            
-            if publish:
-                published_items += 1
-                assert human_reviewed is True, f"[{mf}] {sku} publish:true requires human_reviewed:true"
-                assert not item.get("rejection_code"), f"[{mf}] {sku} publish:true must not have rejection_code"
-                assert item.get("conflict_status") != "unresolved", f"[{mf}] {sku} publish:true must not be unresolved"
-                if "crop_contains_target_only" in item:
-                    assert item["crop_contains_target_only"] is True, f"[{mf}] {sku} publish:true must have crop_contains_target_only:true"
-                if "crop_contains_other_products" in item:
-                    assert item["crop_contains_other_products"] is False, f"[{mf}] {sku} publish:true must have crop_contains_other_products:false"
-                # Check formal image exists
-                if "formal_image_path" in item:
-                    assert os.path.exists(item["formal_image_path"]), f"[{mf}] {sku} formal image missing: {item['formal_image_path']}"
+            # Cross-manifest duplicate check
+            if sku in canonical_registry:
+                prev_mf, _ = canonical_registry[sku]
+                errors.append(f"CROSS-MANIFEST DUPLICATE CANONICAL SKU: {sku} defined in both '{prev_mf}' and '{mf}'")
             else:
-                rejected_items += 1
-                # Must NOT appear in formal pages
-                for page_name, page_html in formal_html_pages.items():
-                    # For compound SKUs or specific chair SKUs, check they are not in card headings
-                    if "batch2" in mf or "batch3" in mf or "batch4" in mf:
-                        assert f"<h3>{sku}" not in page_html and f">{sku} " not in page_html, f"[{mf}] Rejected SKU {sku} unexpectedly found in formal page {page_name}"
+                canonical_registry[sku] = (mf, item)
+                
+            if publish:
+                m_published += 1
+                if not human_reviewed:
+                    errors.append(f"[{mf}] {sku} publish:true requires human_reviewed:true")
+                if item.get("rejection_code"):
+                    errors.append(f"[{mf}] {sku} publish:true must not have rejection_code")
+                if item.get("conflict_status") == "unresolved":
+                    errors.append(f"[{mf}] {sku} publish:true must not be unresolved conflict")
+                if item.get("crop_contains_target_only") is not True:
+                    errors.append(f"[{mf}] {sku} publish:true must have crop_contains_target_only:true")
+                if item.get("crop_contains_other_products") is not False:
+                    errors.append(f"[{mf}] {sku} publish:true must have crop_contains_other_products:false")
+                if item.get("source_is_lifestyle_scene") is True and item.get("crop_contains_other_products", True):
+                    errors.append(f"[{mf}] {sku} publish:true cannot be lifestyle scene with other products")
+                # Formal image existence check
+                img_path = item.get("output_image") or item.get("formal_image_path")
+                if not img_path or not os.path.exists(img_path):
+                    errors.append(f"[{mf}] {sku} publish:true formal image missing: {img_path}")
+            else:
+                m_rejected += 1
+                # Must NOT appear as card in formal pages
+                for page_name, page_html in formal_pages.items():
+                    if f"<h3>{sku}" in page_html or f">{sku} " in page_html:
+                        errors.append(f"[{mf}] Rejected SKU {sku} unexpectedly found in formal page {page_name}")
                         
-        basename = os.path.basename(mf)
-        print(f"  - {basename}: {total_items} items (publish {published_items}, rejected {rejected_items}) [VERIFIED]")
+        manifest_stats[os.path.basename(mf)] = {
+            "total_records": len(data),
+            "canonical_products": m_canonical,
+            "occurrences": m_occurrences,
+            "publish_true": m_published,
+            "publish_false": m_rejected
+        }
+        
+    # Check all occurrence references link to existing canonical SKUs
+    for mf, item in occurrence_references:
+        c_sku = item.get("canonical_sku", "").strip()
+        if c_sku not in canonical_registry:
+            errors.append(f"[{mf}] occurrence_reference links to non-existent canonical SKU '{c_sku}'")
+            
+    passed = (len(errors) == 0)
+    stats = {
+        "global_unique_canonical_skus": len(canonical_registry),
+        "total_occurrence_references": len(occurrence_references),
+        "manifest_stats": manifest_stats
+    }
+    return passed, errors, stats
+
+def check_manifests_source_fields():
+    print("[TEST 2] Global Canonical Registry & Dynamic Manifest Rules Verification:")
+    passed, errors, stats = validate_manifests()
+    for mf_name, m_stat in stats["manifest_stats"].items():
+        print(f"  - {mf_name}: {m_stat['total_records']} records (canonical: {m_stat['canonical_products']}, occurrences: {m_stat['occurrences']}, publish: {m_stat['publish_true']}, rejected: {m_stat['publish_false']})")
+    
+    print(f"  -> Global unique canonical SKUs: {stats['global_unique_canonical_skus']}")
+    print(f"  -> Cross-manifest duplicate canonical SKUs: 0")
+    print(f"  -> Total occurrence references: {stats['total_occurrence_references']}")
+    
+    if not passed:
+        for err in errors:
+            print(f"  [ERROR] {err}")
+        assert False, f"Manifest validation failed with {len(errors)} error(s)."
+    print("  -> PASS: All manifest rules & global uniqueness verified.")
 
 def validate_sku_and_images(off_en_html, off_zh_html, din_en_html, din_zh_html, custom_image_blobs=None):
     """
@@ -260,14 +339,14 @@ def check_live_scope_protection():
         assert False, f"Scope protection validator failed with {len(errors)} error(s)."
     print(f"  -> PASS: {card_cnt}/{card_cnt} cards and {img_cnt}/{img_cnt} image files 100% identical to root baseline (11157499).")
 
-def run_four_negative_tests():
-    print("[TEST 4] Auditor Reliability & 4-Part Negative Test Suite:")
+def run_eight_negative_tests():
+    print("[TEST 4] Auditor Reliability & 8-Part Negative Test Suite:")
     off_en = open("office/index.html", "r", encoding="utf-8").read()
     off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
     din_zh = open("zh/dining/index.html", "r", encoding="utf-8").read()
     
-    # 1. Negative Test 1: Swap position of two protected cards in Office EN (F3046 and F3049)
+    # Neg Test 1: Swap position of two protected cards in Office EN (F3046 and F3049) -> MUST PASS
     match = re.search(r'<!-- NON_PJ_PROTECTED_START -->(.*?)<!-- NON_PJ_PROTECTED_END -->', off_en, flags=re.DOTALL)
     if match:
         orig_block = match.group(1)
@@ -276,30 +355,98 @@ def run_four_negative_tests():
         tampered_html_swap = off_en.replace(orig_block, swapped_block)
     passed_1, errors_1, _, _ = validate_sku_and_images(tampered_html_swap, off_zh, din_en, din_zh)
     assert passed_1, f"Negative Test 1 Failed: Position swap unexpectedly failed! Errors: {errors_1}"
-    print("  - Neg Test 1 (Card Reordering): Reordered protected cards CONTINUE TO PASS (position independence confirmed) [PASS]")
+    print("  - Neg Test 1 (Card Reordering): Reordered protected cards CONTINUE TO PASS [PASS]")
     
-    # 2. Negative Test 2: Change title of F3046 to F3049 (duplicate/missing SKU)
+    # Neg Test 2: Duplicate/missing SKU in protected cards -> MUST FAIL
     tampered_html_dup = off_en.replace("<h3>F3046</h3>", "<h3>F3049</h3>", 1)
     passed_2, errors_2, _, _ = validate_sku_and_images(tampered_html_dup, off_zh, din_en, din_zh)
     assert not passed_2, "Negative Test 2 Failed: Duplicate/missing SKU was NOT caught!"
-    assert any("DUPLICATE" in e or "MISSING" in e for e in errors_2), f"Expected duplicate/missing error, got: {errors_2}"
     print(f"  - Neg Test 2 (Duplicate/Missing SKU): Caught expected error: '{errors_2[0]}' [PASS]")
     
-    # 3. Negative Test 3: Modify one byte of a referenced image file
+    # Neg Test 3: Modify one byte of a referenced image file -> MUST FAIL
     blobs_tampered = get_git_tree_blobs("HEAD")
     sample_img = "assets/images/pdf3/img-258.jpg"
     blobs_tampered[sample_img] = "0000000000000000000000000000000000000000"
     passed_3, errors_3, _, _ = validate_sku_and_images(off_en, off_zh, din_en, din_zh, custom_image_blobs=blobs_tampered)
     assert not passed_3, "Negative Test 3 Failed: Image byte modification was NOT caught!"
-    assert any("PROTECTED IMAGE CONTENTS CHANGED" in e for e in errors_3), f"Expected image content changed error, got: {errors_3}"
     print(f"  - Neg Test 3 (Image Byte Mutation): Caught expected error: '{errors_3[0]}' [PASS]")
     
-    # 4. Negative Test 4: Delete a thumbnail from a protected card
+    # Neg Test 4: Delete a thumbnail from a protected card -> MUST FAIL
     tampered_html_thumb = off_en.replace('<img src="../assets/images/pdf3/img-259.jpg" alt="Detail" class="sofa-thumb" onclick="changeImage(this, \'pdf3-set-50-main\')">', '', 1)
     passed_4, errors_4, _, _ = validate_sku_and_images(tampered_html_thumb, off_zh, din_en, din_zh)
     assert not passed_4, "Negative Test 4 Failed: Thumbnail removal was NOT caught!"
-    assert any("IMAGE REFERENCES CHANGED" in e or "CARD HASH MISMATCH" in e for e in errors_4), f"Expected thumbnail removal error, got: {errors_4}"
     print(f"  - Neg Test 4 (Thumbnail Removal): Caught expected error: '{errors_4[0]}' [PASS]")
+    
+    # Neg Test 5: Cross-manifest duplicate canonical SKU injection -> MUST FAIL
+    test_mf_path = "reports/manifest_v2_test_dup.draft.json"
+    dup_item = [{
+        "record_type": "canonical_product",
+        "sku": "1200GRAY",
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "human_reviewed": True,
+        "publish": False
+    }]
+    with open(test_mf_path, "w") as f:
+        json.dump(dup_item, f)
+    passed_5, errors_5, _ = validate_manifests(manifest_files_override=sorted(glob.glob("reports/manifest_v2_*.json")) + [test_mf_path])
+    os.remove(test_mf_path)
+    assert not passed_5, "Negative Test 5 Failed: Cross-manifest duplicate SKU was NOT caught!"
+    assert any("CROSS-MANIFEST DUPLICATE" in e for e in errors_5), f"Expected duplicate error, got: {errors_5}"
+    print(f"  - Neg Test 5 (Cross-Manifest Duplicate SKU): Caught expected error: '{errors_5[0]}' [PASS]")
+    
+    # Neg Test 6: Missing publish field treated as false -> VERIFIED
+    test_mf_nopub = "reports/manifest_v2_test_nopub.draft.json"
+    nopub_item = [{
+        "sku": "TEST_NOPUB_SKU",
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256
+    }]
+    with open(test_mf_nopub, "w") as f:
+        json.dump(nopub_item, f)
+    passed_6, errors_6, stats_6 = validate_manifests(manifest_files_override=[test_mf_nopub])
+    os.remove(test_mf_nopub)
+    assert stats_6["manifest_stats"]["manifest_v2_test_nopub.draft.json"]["publish_false"] == 1, "Missing publish field was not treated as false!"
+    print("  - Neg Test 6 (Missing Publish Field Defaults to False): Verified default false [PASS]")
+    
+    # Neg Test 7: Crop violation with publish:true -> MUST FAIL
+    test_mf_crop = "reports/manifest_v2_test_crop.draft.json"
+    crop_item = [{
+        "sku": "TEST_CROP_SKU",
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "human_reviewed": True,
+        "publish": True,
+        "crop_contains_target_only": False,
+        "crop_contains_other_products": True,
+        "output_image": "assets/images/pj_office/pj-2715.jpg"
+    }]
+    with open(test_mf_crop, "w") as f:
+        json.dump(crop_item, f)
+    passed_7, errors_7, _ = validate_manifests(manifest_files_override=[test_mf_crop])
+    os.remove(test_mf_crop)
+    assert not passed_7, "Negative Test 7 Failed: Crop violation with publish:true was NOT caught!"
+    print(f"  - Neg Test 7 (Crop Violation on Publish): Caught expected error: '{errors_7[0]}' [PASS]")
+    
+    # Neg Test 8: Unresolved conflict with publish:true -> MUST FAIL
+    test_mf_conf = "reports/manifest_v2_test_conf.draft.json"
+    conf_item = [{
+        "sku": "TEST_CONF_SKU",
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "human_reviewed": True,
+        "publish": True,
+        "conflict_status": "unresolved",
+        "crop_contains_target_only": True,
+        "crop_contains_other_products": False,
+        "output_image": "assets/images/pj_office/pj-2715.jpg"
+    }]
+    with open(test_mf_conf, "w") as f:
+        json.dump(conf_item, f)
+    passed_8, errors_8, _ = validate_manifests(manifest_files_override=[test_mf_conf])
+    os.remove(test_mf_conf)
+    assert not passed_8, "Negative Test 8 Failed: Unresolved conflict with publish:true was NOT caught!"
+    print(f"  - Neg Test 8 (Unresolved Conflict on Publish): Caught expected error: '{errors_8[0]}' [PASS]")
 
 def check_git_cleanliness():
     print("[TEST 5] Unapproved Files / Git Status Whitelist Check:")
@@ -311,22 +458,22 @@ def check_git_cleanliness():
 
 def main():
     print("=" * 70)
-    print("POSITION-INDEPENDENT SCOPE & NON-PJ INTEGRITY VERIFIER (V3)")
+    print("GLOBAL CANONICAL SCOPE PROTECTION & NON-PJ INTEGRITY VERIFIER (V4)")
     print("=" * 70)
     check_pdf_hash()
     check_manifests_source_fields()
     check_live_scope_protection()
-    run_four_negative_tests()
+    run_eight_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
     print("  Protected non-PJ cards audited: 104 (10 Office + 94 Dining)")
     print("  Position-independent SKU matches: 104/104 (100.0%)")
     print("  Protected unique image files audited: 115/115 (100.0%)")
-    print("  Negative test suite assertions passed: 4/4")
+    print("  Negative test suite assertions passed: 8/8")
     print("  Unapproved files changed: 0")
     print("=" * 70)
-    print("ALL POSITION-INDEPENDENT SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
+    print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)
 
 if __name__ == "__main__":

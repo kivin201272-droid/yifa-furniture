@@ -22,7 +22,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "9182b6cb7cd1798a426f6b3598de63a57499a2ecc8cd07485065b83fe27abb09",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(425, 140, 630, 440)"
   },
   {
     "sku": "2716",
@@ -47,7 +53,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "a57704af7e665829859506c8b8a2c4423ee66265bfdd097a8ca6eb06d8a262b3",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(635, 140, 850, 440)"
   },
   {
     "sku": "4500TAUPE",
@@ -72,7 +84,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "fdbe5c7d07cb6ae114f0ce4dd6fb0d022b1d9c31bfab401491f83a2454faf86f",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(50, 140, 230, 440)"
   },
   {
     "sku": "4500CA",
@@ -97,7 +115,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "3f225bd6ac1334fbcdb33201a5d11b41c60f49d146719a0799f0069444569c78",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(235, 140, 415, 440)"
   },
   {
     "sku": "2704WH",
@@ -122,7 +146,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "b8270dd084e8c366772673397f93b1d62257d75bd40b3b29bd6ed26e9ce46c12",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(880, 50, 1160, 230)"
   },
   {
     "sku": "2704BK",
@@ -147,7 +177,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "75a6db83a9d72740be5e794b393a8fff7e7fc26121694ec765f8d27f438fa4e5",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(1160, 50, 1440, 230)"
   },
   {
     "sku": "2709",
@@ -172,7 +208,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "9c0c5fdf3e0ad80af007515957385836523971259012766fd3989700615455e3",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(1230, 280, 1450, 510)"
   },
   {
     "sku": "2714",
@@ -197,7 +239,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "07d07d8fca48595247bc424a025e1e207c28f60c4ca754b2a1cd6f871c448ea1",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(910, 280, 1200, 510)"
   },
   {
     "sku": "2006GRAY",
@@ -222,7 +270,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "6d41d6e89c10cd22f9d05ffde7735f73e0157d29b865b570df97dd80e1ef9d2b",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(1080, 150, 1620, 580)"
   },
   {
     "sku": "2706",
@@ -247,7 +301,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "ca306c7e05027149825fbf6f3a2c1cccf2f461a440f3bceafe86e0bad85b0192",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(90, 310, 310, 520)"
   },
   {
     "sku": "2707",
@@ -272,7 +332,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "a23c4bb73782d505ce128546dd9ffe9aee57828356c98e7be78b784788334c84",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(90, 40, 310, 240)"
   },
   {
     "sku": "2708BK",
@@ -297,7 +363,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "d6648f0010bbfc1e58f4af810721f2287bbecde0b3d142d2c4bfa307b6a62134",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(320, 310, 550, 520)"
   },
   {
     "sku": "2720BK-RD",
@@ -322,7 +394,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "ac9696c630d7f65ebb2295de4c9c81dba801368ae06b9575b097af64418bd94e",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(1060, 40, 1290, 250)"
   },
   {
     "sku": "2721BK-GRAY",
@@ -347,7 +425,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "cb10aba287a122cf057c42105181671633196634b69abd8cf26682da8ae91a71",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(1300, 40, 1540, 250)"
   },
   {
     "sku": "2722RD",
@@ -372,7 +456,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "e0fdb006d8b880a8202d1cf7f081d4cb1623e805999d2bca31a64ec2efcbe5d9",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(1060, 320, 1290, 540)"
   },
   {
     "sku": "2723BK",
@@ -397,7 +487,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "594c3dcbfa484df3bdb15cfad0f07315cd71971437f661b5ce49b26f8a16af6e",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(1300, 320, 1540, 540)"
   },
   {
     "sku": "2724BK",
@@ -422,7 +518,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "27a5cc427a7b95094f368ebebb745a8d5e99d353f97dcbaf4c063d19ea91f926",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(560, 40, 780, 240)"
   },
   {
     "sku": "2724GRAY",
@@ -447,7 +549,13 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "037328f8c48d35bfdfa8659a63cd9f8e2f3052038b512d1840527f0aa6d171c2",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(560, 310, 780, 520)"
   },
   {
     "sku": "2725BK",
@@ -472,6 +580,12 @@
     "human_reviewed": true,
     "verification_status": "approved",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "image_sha256": "9b065cd737af0e350e503a411201187c10b9f4e2e3deeb44f8eaf88f3c1b7d14",
+    "crop_contains_target_only": true,
+    "crop_contains_other_products": false,
+    "visual_structure_matches": true,
+    "human_review_method": "1-to-1 isolated studio shot verified against PDF bounding box and grid",
+    "source_region": "(320, 40, 550, 240)"
   }
 ]
