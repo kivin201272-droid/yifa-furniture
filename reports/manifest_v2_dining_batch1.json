@@ -24,7 +24,10 @@
     "ai_visual_reviewed": true,
     "human_reviewed": true,
     "verification_status": "approved_lifestyle_reference",
-    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present."
+    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "publish": true
   },
   {
     "sku": "4130",
@@ -51,7 +54,10 @@
     "ai_visual_reviewed": true,
     "human_reviewed": true,
     "verification_status": "approved_lifestyle_reference",
-    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present."
+    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "publish": true
   },
   {
     "sku": "4110GREEN",
@@ -77,7 +83,10 @@
     "ai_visual_reviewed": true,
     "human_reviewed": true,
     "verification_status": "approved_lifestyle_reference",
-    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present."
+    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "publish": true
   },
   {
     "sku": "4110IVY",
@@ -103,7 +112,10 @@
     "ai_visual_reviewed": true,
     "human_reviewed": true,
     "verification_status": "approved_lifestyle_reference",
-    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present."
+    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "publish": true
   },
   {
     "sku": "4110GRAY",
@@ -129,6 +141,9 @@
     "ai_visual_reviewed": true,
     "human_reviewed": true,
     "verification_status": "approved_lifestyle_reference",
-    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present."
+    "status_reason": "Lifestyle scene reference approved by user. Visual highlight frame and disclaimer present.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "publish": true
   }
 ]

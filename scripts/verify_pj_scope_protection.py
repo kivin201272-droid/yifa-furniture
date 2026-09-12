@@ -5,7 +5,7 @@ Highest Priority Scope Protection & Position-Independent Non-PJ Integrity Valida
 
 Features:
 1. Source PDF SHA-256 verification
-2. Manifest source & scope verification
+2. Dynamic Auto-discovery & Verification of all `reports/manifest_v2_*.json`
 3. Position-independent standard SKU identity matching & SHA-256 card comparison
 4. Image file byte-level integrity verification (Git blob & file SHA-256)
 5. 4-part Negative Test Suite (card reordering pass proof, duplicate/missing SKU catch, image content mutation catch, thumbnail removal catch)
@@ -16,6 +16,7 @@ import json
 import os
 import sys
 import re
+import glob
 import subprocess
 import hashlib
 
@@ -123,24 +124,60 @@ def check_pdf_hash():
     print(f"[TEST 1] Source PDF SHA-256 Verified: {actual_hash} [MATCH]")
 
 def check_manifests_source_fields():
-    print("[TEST 2] Manifest Source & Scope Verification:")
-    manifests = [
-        "reports/manifest_v2_office.json",
-        "reports/manifest_v2_dining_batch1.json",
-        "reports/manifest_v2_dining_batch2.json"
-    ]
-    for mf in manifests:
-        if os.path.exists(mf):
-            with open(mf, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            for item in data:
-                sku = item.get("sku", "UNKNOWN")
-                assert not sku.startswith("F30"), f"Scope violation: Non-PJ SKU {sku} present in PJ manifest {mf}"
-                if "dining" in mf and "batch2" in mf:
-                    assert item.get("source_catalog") == "PJ 2026", f"{sku} missing source_catalog"
-                    assert item.get("source_pdf_sha256") == EXPECTED_SHA256, f"{sku} invalid source sha"
-                    assert item.get("source_verified") is True, f"{sku} source_verified not True"
-            print(f"  - {mf}: ({len(data)} items) [VERIFIED]")
+    print("[TEST 2] Dynamic Manifest Discovery & Rules Verification:")
+    manifest_files = sorted(glob.glob("reports/manifest_v2_*.json"))
+    assert len(manifest_files) > 0, "No manifest_v2_*.json files found!"
+    
+    # Load formal pages to verify publish:false items do not appear
+    formal_html_pages = {
+        "dining_en": open("dining/index.html", "r", encoding="utf-8").read(),
+        "dining_zh": open("zh/dining/index.html", "r", encoding="utf-8").read(),
+        "office_en": open("office/index.html", "r", encoding="utf-8").read(),
+        "office_zh": open("zh/office/index.html", "r", encoding="utf-8").read(),
+    }
+    
+    for mf in manifest_files:
+        with open(mf, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            
+        total_items = len(data)
+        published_items = 0
+        rejected_items = 0
+        
+        for item in data:
+            sku = item.get("sku", "").strip()
+            assert sku, f"[{mf}] Empty SKU found in item: {item}"
+            assert not sku.startswith("F30"), f"[{mf}] Scope violation: Non-PJ SKU {sku} in PJ manifest"
+            assert item.get("source_catalog") == "PJ 2026", f"[{mf}] {sku} source_catalog != 'PJ 2026'"
+            assert item.get("source_pdf_sha256") == EXPECTED_SHA256, f"[{mf}] {sku} invalid source_pdf_sha256"
+            
+            human_reviewed = item.get("human_reviewed")
+            publish = item.get("publish")
+            assert isinstance(human_reviewed, bool), f"[{mf}] {sku} human_reviewed must be boolean, got {human_reviewed}"
+            assert isinstance(publish, bool), f"[{mf}] {sku} publish must be boolean, got {publish}"
+            
+            if publish:
+                published_items += 1
+                assert human_reviewed is True, f"[{mf}] {sku} publish:true requires human_reviewed:true"
+                assert not item.get("rejection_code"), f"[{mf}] {sku} publish:true must not have rejection_code"
+                assert item.get("conflict_status") != "unresolved", f"[{mf}] {sku} publish:true must not be unresolved"
+                if "crop_contains_target_only" in item:
+                    assert item["crop_contains_target_only"] is True, f"[{mf}] {sku} publish:true must have crop_contains_target_only:true"
+                if "crop_contains_other_products" in item:
+                    assert item["crop_contains_other_products"] is False, f"[{mf}] {sku} publish:true must have crop_contains_other_products:false"
+                # Check formal image exists
+                if "formal_image_path" in item:
+                    assert os.path.exists(item["formal_image_path"]), f"[{mf}] {sku} formal image missing: {item['formal_image_path']}"
+            else:
+                rejected_items += 1
+                # Must NOT appear in formal pages
+                for page_name, page_html in formal_html_pages.items():
+                    # For compound SKUs or specific chair SKUs, check they are not in card headings
+                    if "batch2" in mf or "batch3" in mf or "batch4" in mf:
+                        assert f"<h3>{sku}" not in page_html and f">{sku} " not in page_html, f"[{mf}] Rejected SKU {sku} unexpectedly found in formal page {page_name}"
+                        
+        basename = os.path.basename(mf)
+        print(f"  - {basename}: {total_items} items (publish {published_items}, rejected {rejected_items}) [VERIFIED]")
 
 def validate_sku_and_images(off_en_html, off_zh_html, din_en_html, din_zh_html, custom_image_blobs=None):
     """
@@ -231,15 +268,6 @@ def run_four_negative_tests():
     din_zh = open("zh/dining/index.html", "r", encoding="utf-8").read()
     
     # 1. Negative Test 1: Swap position of two protected cards in Office EN (F3046 and F3049)
-    # Since the audit is position-independent, swapping should CONTINUE TO PASS!
-    cards_off = extract_cards(off_en)
-    # Swap card 0 (F3046) and card 1 (F3049)
-    swapped_cards = list(cards_off)
-    swapped_cards[0], swapped_cards[1] = swapped_cards[1], swapped_cards[0]
-    tampered_html_swap = off_en
-    for orig, rep in zip(cards_off[:2], swapped_cards[:2]):
-        pass  # create swapped body
-    # build a swapped page
     match = re.search(r'<!-- NON_PJ_PROTECTED_START -->(.*?)<!-- NON_PJ_PROTECTED_END -->', off_en, flags=re.DOTALL)
     if match:
         orig_block = match.group(1)

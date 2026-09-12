@@ -1,7 +1,10 @@
 [
   {
     "sku": "3010T/3002WH",
-    "component_skus": ["3010T", "3002WH"],
+    "component_skus": [
+      "3010T",
+      "3002WH"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 47,
@@ -11,9 +14,19 @@
       {
         "page": 47,
         "print_page": "DINETTE 89",
-        "heading_region": [72, 522, 293, 544],
+        "heading_region": [
+          72,
+          522,
+          293,
+          544
+        ],
         "verbatim_heading": "3010T/3002WH/1002WH-GOLD",
-        "region": [72, 578, 508, 616],
+        "region": [
+          72,
+          578,
+          508,
+          616
+        ],
         "verbatim_text": "3010T  |   DINING TABLE WITH STAINLESS GOLD FRAME,LEGS    63\"W x 36\"D x 30\"H\n3002WH  |   12MM WHITE GLASS TOP"
       }
     ],
@@ -27,7 +40,10 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3010T/3002WH Dining Table with White Glass Table $499.00",
-      "component_skus": ["3010T", "3002WH"],
+      "component_skus": [
+        "3010T",
+        "3002WH"
+      ],
       "price": "$499.00",
       "unit_text": "1 complete table (table base + glass top)"
     },
@@ -35,7 +51,9 @@
     "category": "DINING TABLE",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1002WH-GOLD"],
+    "shared_products_in_scene": [
+      "1002WH-GOLD"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -48,7 +66,7 @@
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": true,
-    "human_reviewed": false,
+    "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
@@ -58,7 +76,9 @@
   },
   {
     "sku": "1002WH-GOLD",
-    "component_skus": ["1002WH-GOLD"],
+    "component_skus": [
+      "1002WH-GOLD"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 47,
@@ -68,17 +88,37 @@
       {
         "page": 47,
         "print_page": "DINETTE 89",
-        "heading_region": [72, 522, 293, 544],
+        "heading_region": [
+          72,
+          522,
+          293,
+          544
+        ],
         "verbatim_heading": "3010T/3002WH/1002WH-GOLD",
-        "region": [72, 620, 570, 637],
+        "region": [
+          72,
+          620,
+          570,
+          637
+        ],
         "verbatim_text": "1002WH-GOLD  |    STAINLESS GOLD DINING CHAIR    20\"W x 22\"D x 43\"H    PACK: 2/1 CARTON"
       },
       {
         "page": 47,
         "print_page": "DINETTE 90",
-        "heading_region": [1395, 523, 1616, 545],
+        "heading_region": [
+          1395,
+          523,
+          1616,
+          545
+        ],
         "verbatim_heading": "3010T/3000WH/1002WH-GOLD",
-        "region": [1122, 624, 1617, 641],
+        "region": [
+          1122,
+          624,
+          1617,
+          641
+        ],
         "verbatim_text": "1002WH-GOLD  |   STAINLESS GOLD DINING CHAIR    20\"W x 22\"D x 43\"H    PACK: 2/1 CARTON"
       }
     ],
@@ -92,7 +132,9 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1002WH-GOLD Dinning Chair $149.00",
-      "component_skus": ["1002WH-GOLD"],
+      "component_skus": [
+        "1002WH-GOLD"
+      ],
       "price": "$149.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $149.00 without unit"
     },
@@ -100,7 +142,10 @@
     "category": "DINING CHAIR",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3010T/3002WH", "3010T/3000WH"],
+    "shared_products_in_scene": [
+      "3010T/3002WH",
+      "3010T/3000WH"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -113,7 +158,7 @@
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": true,
-    "human_reviewed": false,
+    "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
@@ -123,7 +168,10 @@
   },
   {
     "sku": "3010T/3000WH",
-    "component_skus": ["3010T", "3000WH"],
+    "component_skus": [
+      "3010T",
+      "3000WH"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 47,
@@ -133,9 +181,19 @@
       {
         "page": 47,
         "print_page": "DINETTE 90",
-        "heading_region": [1395, 523, 1616, 545],
+        "heading_region": [
+          1395,
+          523,
+          1616,
+          545
+        ],
         "verbatim_heading": "3010T/3000WH/1002WH-GOLD",
-        "region": [1181, 582, 1617, 620],
+        "region": [
+          1181,
+          582,
+          1617,
+          620
+        ],
         "verbatim_text": "3010T  |   DINING TABLE WITH STAINLESS GOLD FRAME,LEGS    63\"W x 36\"D x 30\"H\n3000WH  |   22MM WHITE MARBLE TOP"
       }
     ],
@@ -149,7 +207,10 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3010T/3000WH Dining Table with White Marble Top $499.00",
-      "component_skus": ["3010T", "3000WH"],
+      "component_skus": [
+        "3010T",
+        "3000WH"
+      ],
       "price": "$499.00",
       "unit_text": "1 complete table (table base + marble top)"
     },
@@ -157,7 +218,9 @@
     "category": "DINING TABLE",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1002WH-GOLD"],
+    "shared_products_in_scene": [
+      "1002WH-GOLD"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -170,7 +233,7 @@
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": true,
-    "human_reviewed": false,
+    "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
@@ -180,7 +243,10 @@
   },
   {
     "sku": "3012T/3000GRAY",
-    "component_skus": ["3012T", "3000GRAY"],
+    "component_skus": [
+      "3012T",
+      "3000GRAY"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 48,
@@ -190,25 +256,55 @@
       {
         "page": 48,
         "print_page": "DINETTE 91",
-        "heading_region": [69, 518, 329, 539],
+        "heading_region": [
+          69,
+          518,
+          329,
+          539
+        ],
         "verbatim_heading": "3012T/3000GRAY/2680WH-CHROME",
-        "region": [72, 578, 563, 616],
+        "region": [
+          72,
+          578,
+          563,
+          616
+        ],
         "verbatim_text": "3012T  |   DINING TABLE WITH STAINLESS CHROME FRAME,LEGS,BASE     63\"W x 36\"D x 30\"H\n3000GRAY  |   22MM GRAY MARBLE TOP"
       },
       {
         "page": 48,
         "print_page": "DINETTE 92",
-        "heading_region": [1379, 523, 1631, 545],
+        "heading_region": [
+          1379,
+          523,
+          1631,
+          545
+        ],
         "verbatim_heading": "3012T/3000GRAY/2680BK-CHROME",
-        "region": [1133, 582, 1617, 620],
+        "region": [
+          1133,
+          582,
+          1617,
+          620
+        ],
         "verbatim_text": "3012T  |   DINING TABLE WITH STAINLESS CHROME FRAME,LEGS,BASE    63\"W x 36\"D x 30\"H\n3000GRAY-CHROME  |   22MM GRAY MARBLE TOP"
       },
       {
         "page": 49,
         "print_page": "DINETTE 94",
-        "heading_region": [1379, 523, 1631, 545],
+        "heading_region": [
+          1379,
+          523,
+          1631,
+          545
+        ],
         "verbatim_heading": "3012T/3000GRAY/2680BK-CHROME",
-        "region": [1133, 582, 1617, 620],
+        "region": [
+          1133,
+          582,
+          1617,
+          620
+        ],
         "verbatim_text": "3012T  |   DINING TABLE WITH STAINLESS CHROME FRAME,LEGS,BASE    63\"W x 36\"D x 30\"H\n3000GRAY-CHROME  |   22MM GRAY MARBLE TOP"
       }
     ],
@@ -222,7 +318,10 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3012T/3000GRAY Dining Table with Gray Marble Top $499.00",
-      "component_skus": ["3012T", "3000GRAY"],
+      "component_skus": [
+        "3012T",
+        "3000GRAY"
+      ],
       "price": "$499.00",
       "unit_text": "1 complete table (table base + marble top)"
     },
@@ -230,30 +329,42 @@
     "category": "DINING TABLE",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["2680WH-CHROME", "2680GRAY-CHROME"],
+    "shared_products_in_scene": [
+      "2680WH-CHROME",
+      "2680GRAY-CHROME"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
     "standalone_crop_possible": false,
     "source_notes": "Physical spread 48 (DINETTE 91 left & DINETTE 92 right) and Physical spread 49 (DINETTE 94 right).",
     "visual_review_notes": "Lifestyle scene crop from P48 left. Overlaps with 2680WH-CHROME chairs. P48 right and P49 right repeat the table in another scene overlapping with 2680GRAY-CHROME chairs.",
-    "interpretation_notes": "Composed of table base 3012T and 22mm gray marble top 3000GRAY. Price list lists complete table as $499.00. Body text on DINETTE 92 and 94 mislabels table top as '3000GRAY-CHROME'.",
+    "interpretation_notes": "Composed of table base 3012T and 22mm gray marble top 3000GRAY. Price list lists complete table as $499.00. Body text on DINETTE 92 and 94 prints 3000GRAY-CHROME while headings and other occurrences use 3000GRAY.",
     "conflict_status": "none",
     "conflict_notes": "Table base 3012T is consistent across headings and body text. Top SKU on P48/P49 right has typo '3000GRAY-CHROME' in body text while heading states '3000GRAY'.",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": true,
-    "human_reviewed": false,
+    "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3012T/3000GRAY 不锈钢铬色架22毫米灰色大理石餐桌",
-    "candidate_title_en": "3012T/3000GRAY Dining Table with Stainless Chrome Frame, Legs, Base and 22mm Gray Marble Top"
+    "candidate_title_en": "3012T/3000GRAY Dining Table with Stainless Chrome Frame, Legs, Base and 22mm Gray Marble Top",
+    "anomaly_record": {
+      "token": "3000GRAY-CHROME",
+      "classification": "SOURCE_TEXT_ANOMALY",
+      "publish": false,
+      "resolution_status": "unresolved",
+      "notes": "Body text prints 3000GRAY-CHROME while headings and other occurrences use 3000GRAY."
+    }
   },
   {
     "sku": "2680WH-CHROME",
-    "component_skus": ["2680WH-CHROME"],
+    "component_skus": [
+      "2680WH-CHROME"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 48,
@@ -263,9 +374,19 @@
       {
         "page": 48,
         "print_page": "DINETTE 91",
-        "heading_region": [69, 518, 329, 539],
+        "heading_region": [
+          69,
+          518,
+          329,
+          539
+        ],
         "verbatim_heading": "3012T/3000GRAY/2680WH-CHROME",
-        "region": [72, 620, 511, 658],
+        "region": [
+          72,
+          620,
+          511,
+          658
+        ],
         "verbatim_text": "2680WH-CHROME   |  DINING CHAIR WITH CHROME FRAME    18\"W x 20\"D x 42\"H\nPACK: 2/1 CARTON"
       }
     ],
@@ -279,7 +400,9 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "2680WH-CHROME Dinning Chair $79.00",
-      "component_skus": ["2680WH-CHROME"],
+      "component_skus": [
+        "2680WH-CHROME"
+      ],
       "price": "$79.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $79.00 without unit"
     },
@@ -287,7 +410,9 @@
     "category": "DINING CHAIR",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3012T/3000GRAY"],
+    "shared_products_in_scene": [
+      "3012T/3000GRAY"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -300,7 +425,7 @@
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": true,
-    "human_reviewed": false,
+    "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
@@ -310,7 +435,9 @@
   },
   {
     "sku": "2680GRAY-CHROME",
-    "component_skus": ["2680GRAY-CHROME"],
+    "component_skus": [
+      "2680GRAY-CHROME"
+    ],
     "product_identity": "dining chair",
     "components_verified": false,
     "pdf_physical_page": 48,
@@ -320,17 +447,37 @@
       {
         "page": 48,
         "print_page": "DINETTE 92",
-        "heading_region": [1379, 523, 1631, 545],
+        "heading_region": [
+          1379,
+          523,
+          1631,
+          545
+        ],
         "verbatim_heading": "3012T/3000GRAY/2680BK-CHROME",
-        "region": [1188, 624, 1617, 641],
+        "region": [
+          1188,
+          624,
+          1617,
+          641
+        ],
         "verbatim_text": "2680GRAY-CHROME  |   DINING CHAIR    18\"W x 20\"D x 42\"H    PACK: 2/1 CARTON"
       },
       {
         "page": 49,
         "print_page": "DINETTE 94",
-        "heading_region": [1379, 523, 1631, 545],
+        "heading_region": [
+          1379,
+          523,
+          1631,
+          545
+        ],
         "verbatim_heading": "3012T/3000GRAY/2680BK-CHROME",
-        "region": [1188, 624, 1617, 641],
+        "region": [
+          1188,
+          624,
+          1617,
+          641
+        ],
         "verbatim_text": "2680GRAY-CHROME  |   DINING CHAIR    18\"W x 20\"D x 42\"H    PACK: 2/1 CARTON"
       }
     ],
@@ -344,7 +491,9 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "2680GRAY-CHROME Dinning Chair $79.00",
-      "component_skus": ["2680GRAY-CHROME"],
+      "component_skus": [
+        "2680GRAY-CHROME"
+      ],
       "price": "$79.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $79.00 without unit"
     },
@@ -352,7 +501,9 @@
     "category": "DINING CHAIR",
     "classification": "AMBIGUOUS",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3012T/3000GRAY"],
+    "shared_products_in_scene": [
+      "3012T/3000GRAY"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -361,11 +512,11 @@
     "visual_review_notes": "Cropped from P48 right scene. Overlaps with 3012T dining table. P49 right scene is a second occurrence of the same scene.",
     "interpretation_notes": "Heading states '2680BK-CHROME' while body text states '2680GRAY-CHROME' on both DINETTE 92 and DINETTE 94. Price list lists 2680GRAY-CHROME $79.00 for Page 92. Strictly paused pending clarification.",
     "conflict_status": "unresolved",
-    "conflict_notes": "SOURCE CONFLICT: Heading on P48 (DINETTE 92) and P49 (DINETTE 94) states '2680BK-CHROME', while body text on both pages states '2680GRAY-CHROME'. In addition, table top body text is mislabeled '3000GRAY-CHROME'.",
+    "conflict_notes": "SOURCE CONFLICT: Heading on P48 (DINETTE 92) and P49 (DINETTE 94) states 2680BK-CHROME, while body text on both pages states 2680GRAY-CHROME. Both tokens preserved as unresolved.",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": false,
-    "human_reviewed": false,
+    "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": [
@@ -374,11 +525,21 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products, and P48/P49 right side contains unresolved source text conflict (heading states 2680BK-CHROME while body text states 2680GRAY-CHROME).",
     "candidate_title_zh": "2680GRAY-CHROME 铬色框架灰色餐椅 (暂停发布 - 正文冲突)",
-    "candidate_title_en": "2680GRAY-CHROME Dining Chair with Chrome Frame (PAUSED - UNRESOLVED CONFLICT)"
+    "candidate_title_en": "2680GRAY-CHROME Dining Chair with Chrome Frame (PAUSED - UNRESOLVED CONFLICT)",
+    "anomaly_record": {
+      "token": "2680BK-CHROME vs 2680GRAY-CHROME",
+      "classification": "SOURCE_TEXT_ANOMALY",
+      "publish": false,
+      "resolution_status": "unresolved",
+      "notes": "Heading states 2680BK-CHROME while body text states 2680GRAY-CHROME. Neither token is deleted or assumed."
+    }
   },
   {
     "sku": "3000T/3000GRAY",
-    "component_skus": ["3000T", "3000GRAY"],
+    "component_skus": [
+      "3000T",
+      "3000GRAY"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 49,
@@ -388,9 +549,19 @@
       {
         "page": 49,
         "print_page": "DINETTE 93",
-        "heading_region": [72, 522, 271, 544],
+        "heading_region": [
+          72,
+          522,
+          271,
+          544
+        ],
         "verbatim_heading": "3000T/3000GRAY/1200GRAY",
-        "region": [72, 578, 529, 616],
+        "region": [
+          72,
+          578,
+          529,
+          616
+        ],
         "verbatim_text": "3000T  |   DINING TABLE WITH STAINLESS CHROME FRAME,LEGS    63\"W x 36\"D x 30\"H\n3000GRAY  |   22MM GRAY MARBLE TOP"
       }
     ],
@@ -404,7 +575,10 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3000T/3000GRAY Dining Table with Gray Marble Top $399.00",
-      "component_skus": ["3000T", "3000GRAY"],
+      "component_skus": [
+        "3000T",
+        "3000GRAY"
+      ],
       "price": "$399.00",
       "unit_text": "1 complete table (table base + marble top)"
     },
@@ -412,7 +586,9 @@
     "category": "DINING TABLE",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1200GRAY"],
+    "shared_products_in_scene": [
+      "1200GRAY"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -425,7 +601,7 @@
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": true,
-    "human_reviewed": false,
+    "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
@@ -435,7 +611,9 @@
   },
   {
     "sku": "1200GRAY",
-    "component_skus": ["1200GRAY"],
+    "component_skus": [
+      "1200GRAY"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 49,
@@ -445,9 +623,19 @@
       {
         "page": 49,
         "print_page": "DINETTE 93",
-        "heading_region": [72, 522, 271, 544],
+        "heading_region": [
+          72,
+          522,
+          271,
+          544
+        ],
         "verbatim_heading": "3000T/3000GRAY/1200GRAY",
-        "region": [72, 620, 450, 658],
+        "region": [
+          72,
+          620,
+          450,
+          658
+        ],
         "verbatim_text": "1200GRAY   |   STAINLESS CHROME DINING CHAIR    20\"W x 27\"D x 41\"H\nPACK: 2/1 CARTON"
       }
     ],
@@ -461,7 +649,9 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1200GRAY Dinning Chair $89.00",
-      "component_skus": ["1200GRAY"],
+      "component_skus": [
+        "1200GRAY"
+      ],
       "price": "$89.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $89.00 without unit"
     },
@@ -469,7 +659,9 @@
     "category": "DINING CHAIR",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3000T/3000GRAY"],
+    "shared_products_in_scene": [
+      "3000T/3000GRAY"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -482,7 +674,7 @@
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": true,
-    "human_reviewed": false,
+    "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
