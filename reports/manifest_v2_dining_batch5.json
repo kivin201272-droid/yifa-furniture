@@ -82,7 +82,17 @@
         ],
         "scene_chairs": "1001BK"
       }
-    ]
+    ],
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "3000T/3002BK Dining Table with Black Glass Top $349.00",
+      "component_skus": [
+        "3000T",
+        "3002BK"
+      ],
+      "price": "$349.00",
+      "unit_text": "1 complete table"
+    }
   },
   {
     "record_type": "canonical_product",
@@ -167,7 +177,16 @@
         ],
         "scene_table": "3000T/3002BK"
       }
-    ]
+    ],
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "1001BK Dinning Chair $89.00",
+      "component_skus": [
+        "1001BK"
+      ],
+      "price": "$89.00",
+      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $89.00 without unit"
+    }
   },
   {
     "record_type": "canonical_product",
@@ -240,7 +259,17 @@
       55,
       57
     ],
-    "conflict_notes": "Specification conflict: DINETTE 106 prints STAINLESS CHROME FRAME, LEGS while DINETTE 109 prints STAINLESS GOLD FRAME,LEGS. Unresolved without manufacturer clarification."
+    "conflict_notes": "Specification conflict: DINETTE 106 prints STAINLESS CHROME FRAME, LEGS while DINETTE 109 prints STAINLESS GOLD FRAME,LEGS. Unresolved without manufacturer clarification.",
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "3008T/3008GRAY Dining Table with Gray Marble Top $399.00",
+      "component_skus": [
+        "3008T",
+        "3008GRAY"
+      ],
+      "price": "$399.00",
+      "unit_text": "1 complete table"
+    }
   },
   {
     "record_type": "occurrence_reference",
