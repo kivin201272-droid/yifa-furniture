@@ -1,0 +1,834 @@
+[
+  {
+    "category": "office",
+    "lang": "EN",
+    "sku": "F3046",
+    "before_sha256": "735bca63b581124659fc707eab474d4d653d734c4f1c4e38e2b4a1a97bbcb971",
+    "after_sha256": "735bca63b581124659fc707eab474d4d653d734c4f1c4e38e2b4a1a97bbcb971",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "EN",
+    "sku": "F3049",
+    "before_sha256": "1d5e8cf6d94bb96b790214bd8bddc300fb285202ee31cab551226f994298a198",
+    "after_sha256": "1d5e8cf6d94bb96b790214bd8bddc300fb285202ee31cab551226f994298a198",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "EN",
+    "sku": "F3050",
+    "before_sha256": "4cae0c4ca7bee6068342b0f75d30d4c8b62ea3928a954e85f1036dd2954bf45e",
+    "after_sha256": "4cae0c4ca7bee6068342b0f75d30d4c8b62ea3928a954e85f1036dd2954bf45e",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "EN",
+    "sku": "F3051",
+    "before_sha256": "31d105e7ef6db35f59a980bc283fbddf280a1d5e10cbe0fb919dd48a0844f6b0",
+    "after_sha256": "31d105e7ef6db35f59a980bc283fbddf280a1d5e10cbe0fb919dd48a0844f6b0",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "EN",
+    "sku": "F3052",
+    "before_sha256": "592a486dd4f5fbf7fa3c262f68aa5ca4b93697c45f403f096e339fd38783ea7e",
+    "after_sha256": "592a486dd4f5fbf7fa3c262f68aa5ca4b93697c45f403f096e339fd38783ea7e",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "ZH",
+    "sku": "F3046",
+    "before_sha256": "bc887b374ab8957b167002f80561e97e946805375e53c91e07ade924babd9d5d",
+    "after_sha256": "bc887b374ab8957b167002f80561e97e946805375e53c91e07ade924babd9d5d",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "ZH",
+    "sku": "F3049",
+    "before_sha256": "13d4479183479bdaa5290c537e3fa7f13b4d42e1cdeefafea4ffb385c961c996",
+    "after_sha256": "13d4479183479bdaa5290c537e3fa7f13b4d42e1cdeefafea4ffb385c961c996",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "ZH",
+    "sku": "F3050",
+    "before_sha256": "1757eecfd86c50d49f596a5fef8bf55a463e314c6a3fa0c9e081627074a29f1a",
+    "after_sha256": "1757eecfd86c50d49f596a5fef8bf55a463e314c6a3fa0c9e081627074a29f1a",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "ZH",
+    "sku": "F3051",
+    "before_sha256": "a3ffd44ff93a866822f9eda1a7d5a4db442591fafbb4746515a2ad666450f690",
+    "after_sha256": "a3ffd44ff93a866822f9eda1a7d5a4db442591fafbb4746515a2ad666450f690",
+    "identical": true
+  },
+  {
+    "category": "office",
+    "lang": "ZH",
+    "sku": "F3052",
+    "before_sha256": "ecb1b49074c6bc3e4ea602963c9eb9d3904ad63aa5d3e13d478c7e74993cf25f",
+    "after_sha256": "ecb1b49074c6bc3e4ea602963c9eb9d3904ad63aa5d3e13d478c7e74993cf25f",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "BZ-0396",
+    "before_sha256": "8367e50eac9133519efbcb49e75ed9fc40aa3ebae702f5f26f713e2cd415052a",
+    "after_sha256": "8367e50eac9133519efbcb49e75ed9fc40aa3ebae702f5f26f713e2cd415052a",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "BZ-2192",
+    "before_sha256": "c0b5901f3964bbb2b6446b908ae2d4a2bb9f90013006f499305f1d9fc072da85",
+    "after_sha256": "c0b5901f3964bbb2b6446b908ae2d4a2bb9f90013006f499305f1d9fc072da85",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "BZ-0296",
+    "before_sha256": "bc542d8fce00152b1ae43dda5d4257f502c23fd6ff5aa097f2c3ca16689d1bf0",
+    "after_sha256": "bc542d8fce00152b1ae43dda5d4257f502c23fd6ff5aa097f2c3ca16689d1bf0",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "TH-DT04",
+    "before_sha256": "798caa29c42d1b25a1fb02be35d56f4f4b2d6d661f3d495eb48b01bc5ea930af",
+    "after_sha256": "798caa29c42d1b25a1fb02be35d56f4f4b2d6d661f3d495eb48b01bc5ea930af",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F4972",
+    "before_sha256": "1082a1c8c79b247d944d0e2b54adb3e8a4c1626ddeeb90dbbf5cb2b47754089d",
+    "after_sha256": "1082a1c8c79b247d944d0e2b54adb3e8a4c1626ddeeb90dbbf5cb2b47754089d",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3022",
+    "before_sha256": "f5cb20b7f8e14e14a3c6557f3f0316aeec1d3222a3a5ac98c5c2c0abd438606b",
+    "after_sha256": "f5cb20b7f8e14e14a3c6557f3f0316aeec1d3222a3a5ac98c5c2c0abd438606b",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3023",
+    "before_sha256": "49b5250c7cb6a8c73840e5504d5af8e1c42d79d985b3cf25580622d263a45d2a",
+    "after_sha256": "49b5250c7cb6a8c73840e5504d5af8e1c42d79d985b3cf25580622d263a45d2a",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3024",
+    "before_sha256": "e612e0b3a7f107e5550a5a7dde3e2879f9d095ba28a882332767d28f13f51be0",
+    "after_sha256": "e612e0b3a7f107e5550a5a7dde3e2879f9d095ba28a882332767d28f13f51be0",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3025",
+    "before_sha256": "118a94aeb3ad3a22fc54bafe0516fafd9c464e822d336a43d17bcfc5b53181b1",
+    "after_sha256": "118a94aeb3ad3a22fc54bafe0516fafd9c464e822d336a43d17bcfc5b53181b1",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3026",
+    "before_sha256": "7ed3a3c28cc4f98cc000c14afb2160a4cdfd6797b910d5d27e6368a9b6676f1c",
+    "after_sha256": "7ed3a3c28cc4f98cc000c14afb2160a4cdfd6797b910d5d27e6368a9b6676f1c",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3027",
+    "before_sha256": "8f9181f39dc6335f5c38f0f59e4d02178918fa0151e6577b72b0ad0a5db1e668",
+    "after_sha256": "8f9181f39dc6335f5c38f0f59e4d02178918fa0151e6577b72b0ad0a5db1e668",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3028",
+    "before_sha256": "dfe6bf70716453c8d520321b1c33b06bfec113c0b27cb668bbbd25d39fc63fba",
+    "after_sha256": "dfe6bf70716453c8d520321b1c33b06bfec113c0b27cb668bbbd25d39fc63fba",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3029",
+    "before_sha256": "c83d422ba80225235628b609a7192766b673e0859971c148b4e5d4de11c355ff",
+    "after_sha256": "c83d422ba80225235628b609a7192766b673e0859971c148b4e5d4de11c355ff",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3030",
+    "before_sha256": "b404894ef2da0fdcdb229090ac1234be412a29536467b3d948861747ed42e53b",
+    "after_sha256": "b404894ef2da0fdcdb229090ac1234be412a29536467b3d948861747ed42e53b",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3031",
+    "before_sha256": "f0facf60dd5a39c390bd42df2b27d3419b6148d4121d529a368f2da4fba2b1ae",
+    "after_sha256": "f0facf60dd5a39c390bd42df2b27d3419b6148d4121d529a368f2da4fba2b1ae",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3032",
+    "before_sha256": "f44841bf7ad3c7059b162af808e1d1ddb0b763b4039df93eb079a75283376967",
+    "after_sha256": "f44841bf7ad3c7059b162af808e1d1ddb0b763b4039df93eb079a75283376967",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3033",
+    "before_sha256": "bf4f5c30c390db6d78ce7bded11e9b60c475f8d234c1f8d429062a3ba14fb0a6",
+    "after_sha256": "bf4f5c30c390db6d78ce7bded11e9b60c475f8d234c1f8d429062a3ba14fb0a6",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3034",
+    "before_sha256": "1ab720b6d6fb234d74f4d5925a4452d4328e279a54de9ea82a690c578e483213",
+    "after_sha256": "1ab720b6d6fb234d74f4d5925a4452d4328e279a54de9ea82a690c578e483213",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3035",
+    "before_sha256": "627acac0da1ec82a3f203d10b5abd182384813a84af7124c2d3ce4cf3a13b32e",
+    "after_sha256": "627acac0da1ec82a3f203d10b5abd182384813a84af7124c2d3ce4cf3a13b32e",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3036",
+    "before_sha256": "75a0214abe5766464bb3a1e462ad8d6228588afa6d6a385cefb5f0a3c9cbd25d",
+    "after_sha256": "75a0214abe5766464bb3a1e462ad8d6228588afa6d6a385cefb5f0a3c9cbd25d",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3037",
+    "before_sha256": "fef267d0d343aa1b11d3ff10707521f6d7e495b284d8d0ba45949d788574d8fc",
+    "after_sha256": "fef267d0d343aa1b11d3ff10707521f6d7e495b284d8d0ba45949d788574d8fc",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3038",
+    "before_sha256": "5f5b62e784badfb48137bd4588aa2ede97d432a040ea49521ee6b575b855e79f",
+    "after_sha256": "5f5b62e784badfb48137bd4588aa2ede97d432a040ea49521ee6b575b855e79f",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3039",
+    "before_sha256": "260c5f1369a0af9797d27c78563273297b93057cc08e7d235fa02f372d307542",
+    "after_sha256": "260c5f1369a0af9797d27c78563273297b93057cc08e7d235fa02f372d307542",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3040",
+    "before_sha256": "e30f19e49f3787b46fbf7d63b7f1fcfed712ee1f385c6b45ab3c9c1f3229d166",
+    "after_sha256": "e30f19e49f3787b46fbf7d63b7f1fcfed712ee1f385c6b45ab3c9c1f3229d166",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3041",
+    "before_sha256": "591235ce93f9d7720f45aac8d30df3898b518765e19a76aeb0ab5341430219d4",
+    "after_sha256": "591235ce93f9d7720f45aac8d30df3898b518765e19a76aeb0ab5341430219d4",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3042",
+    "before_sha256": "db9a832619c492e364675f12e763a050b8db350881f0a1a762b9552e6d368680",
+    "after_sha256": "db9a832619c492e364675f12e763a050b8db350881f0a1a762b9552e6d368680",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3043",
+    "before_sha256": "0998dbf02609a04870e7b12a1fc23efb401da1358067e8bd8f99dc11223f7499",
+    "after_sha256": "0998dbf02609a04870e7b12a1fc23efb401da1358067e8bd8f99dc11223f7499",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3044",
+    "before_sha256": "0f07da8f6702d7d382fd3cf304b68e8ad734243c87b1e4e7fa5d59cccb967b4c",
+    "after_sha256": "0f07da8f6702d7d382fd3cf304b68e8ad734243c87b1e4e7fa5d59cccb967b4c",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3045",
+    "before_sha256": "6dc4801fc58d2afbb197af80813c94584afa8c0c403cc094b645158561976655",
+    "after_sha256": "6dc4801fc58d2afbb197af80813c94584afa8c0c403cc094b645158561976655",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "F3047",
+    "before_sha256": "cef9b059bf1070bf957277f0ebdaf2fe0a6cc75979c81ff42c6fb0ca83620f1c",
+    "after_sha256": "cef9b059bf1070bf957277f0ebdaf2fe0a6cc75979c81ff42c6fb0ca83620f1c",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "3016T",
+    "before_sha256": "775ff3f60bae5ff583af36a62983b7515f656afe0f87efb2c038fd9c992b746a",
+    "after_sha256": "775ff3f60bae5ff583af36a62983b7515f656afe0f87efb2c038fd9c992b746a",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "3010T",
+    "before_sha256": "632e9a986b325221223388a3707282396c361c9c23ecfc277028d4c2893f6aca",
+    "after_sha256": "632e9a986b325221223388a3707282396c361c9c23ecfc277028d4c2893f6aca",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "3012T",
+    "before_sha256": "f04993413c283c3f6125044416a0ffdb52e2710c21ce599e82f9208cdcf36fbf",
+    "after_sha256": "f04993413c283c3f6125044416a0ffdb52e2710c21ce599e82f9208cdcf36fbf",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "3000T",
+    "before_sha256": "3c0cf0698cb677dd0e978ec182da2a2ae7621dc860925f3f834f0a8440ac8364",
+    "after_sha256": "3c0cf0698cb677dd0e978ec182da2a2ae7621dc860925f3f834f0a8440ac8364",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "3008T",
+    "before_sha256": "e7f8d8f7cfd9f2561282686ee1bfb696adb0c759e3db3b0b7c13a714a99677ce",
+    "after_sha256": "e7f8d8f7cfd9f2561282686ee1bfb696adb0c759e3db3b0b7c13a714a99677ce",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "3102T",
+    "before_sha256": "037cb8695eae317aac214b9a49aaefa1fda4b1a68b078330d2f890629c9185fb",
+    "after_sha256": "037cb8695eae317aac214b9a49aaefa1fda4b1a68b078330d2f890629c9185fb",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "3104T",
+    "before_sha256": "6197458984669229639a9a24617068880ead243bf1ab0397e8b14dd902afd00f",
+    "after_sha256": "6197458984669229639a9a24617068880ead243bf1ab0397e8b14dd902afd00f",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "2240",
+    "before_sha256": "c4d149d0d22f52159b8b4899ce2bf1bd68834d999ecc2fe722f802fcaaff0b54",
+    "after_sha256": "c4d149d0d22f52159b8b4899ce2bf1bd68834d999ecc2fe722f802fcaaff0b54",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "4031T",
+    "before_sha256": "24147bb58078f4f195df57d8059fe94f6e7e9f590489db19894e7cdb6942465d",
+    "after_sha256": "24147bb58078f4f195df57d8059fe94f6e7e9f590489db19894e7cdb6942465d",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "2206T",
+    "before_sha256": "a62c8cb8f5fc89cab1a0b906dbcaf208f85c58f4f62d9ee7e3b694e09500a424",
+    "after_sha256": "a62c8cb8f5fc89cab1a0b906dbcaf208f85c58f4f62d9ee7e3b694e09500a424",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "4002",
+    "before_sha256": "4047f8ac2265284b389ce0c054902b3bc1c39315a0278a8af12815237e8f296c",
+    "after_sha256": "4047f8ac2265284b389ce0c054902b3bc1c39315a0278a8af12815237e8f296c",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "4003",
+    "before_sha256": "12541fd3d4ca391f325e86407e354c73a998e8dc4341c332c95f6f0ef68346d3",
+    "after_sha256": "12541fd3d4ca391f325e86407e354c73a998e8dc4341c332c95f6f0ef68346d3",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "2391",
+    "before_sha256": "f5d00f5f0cdf3421907d01a629f519c1ff6a991079ba4a6e2096aa422bedfeb1",
+    "after_sha256": "f5d00f5f0cdf3421907d01a629f519c1ff6a991079ba4a6e2096aa422bedfeb1",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "2524",
+    "before_sha256": "efe9a6e15773548abd5705cf2e7c10ae290d3c89e4b9727dbc155664d445bbdb",
+    "after_sha256": "efe9a6e15773548abd5705cf2e7c10ae290d3c89e4b9727dbc155664d445bbdb",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "2526",
+    "before_sha256": "9db8a7da9aeb90cc7a4fa270406f21c866e7d4eb475ba8b9c5b8279234b02788",
+    "after_sha256": "9db8a7da9aeb90cc7a4fa270406f21c866e7d4eb475ba8b9c5b8279234b02788",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "4405",
+    "before_sha256": "7e599505cde3a3542b5bcaaa9926b3713dd3c767e978f6f6a701b2016ab2f53d",
+    "after_sha256": "7e599505cde3a3542b5bcaaa9926b3713dd3c767e978f6f6a701b2016ab2f53d",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "EN",
+    "sku": "4406",
+    "before_sha256": "c4261d142dd39158510cb034d9ecdedbcd9e01167d03ddca0ecac8d9683cc949",
+    "after_sha256": "c4261d142dd39158510cb034d9ecdedbcd9e01167d03ddca0ecac8d9683cc949",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "BZ-0396",
+    "before_sha256": "603c9f0d6a52575afb0cef42de484d5cb0b8f400669465ee074d08287a065298",
+    "after_sha256": "603c9f0d6a52575afb0cef42de484d5cb0b8f400669465ee074d08287a065298",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "BZ-2192",
+    "before_sha256": "bcbcaaf709699218e4cfce69c1f3645bd738990934dcb784935b3c497dc2ffd7",
+    "after_sha256": "bcbcaaf709699218e4cfce69c1f3645bd738990934dcb784935b3c497dc2ffd7",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "BZ-0296",
+    "before_sha256": "2b2907964eba59bec2b78a37e653150a569562217dd0aaf7fa12928d571afc78",
+    "after_sha256": "2b2907964eba59bec2b78a37e653150a569562217dd0aaf7fa12928d571afc78",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "TH-DT04",
+    "before_sha256": "e70f86101bd4de247b801e328605e5bbfca34ae15d51a81435085f264edf7aa6",
+    "after_sha256": "e70f86101bd4de247b801e328605e5bbfca34ae15d51a81435085f264edf7aa6",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F4972",
+    "before_sha256": "d10bfa1a5f8aa67bf77fc54958dbb7da54d3f138d00cad5a6c36c229c095dd6d",
+    "after_sha256": "d10bfa1a5f8aa67bf77fc54958dbb7da54d3f138d00cad5a6c36c229c095dd6d",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3022",
+    "before_sha256": "d7ec633bafd6147919e2dd40745b58f382acc94ab596e41e0a40089b697a72e5",
+    "after_sha256": "d7ec633bafd6147919e2dd40745b58f382acc94ab596e41e0a40089b697a72e5",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3023",
+    "before_sha256": "4191aa315e2160ca2789f585a84c9172eb6846c23305b3244bd478a6a4c67439",
+    "after_sha256": "4191aa315e2160ca2789f585a84c9172eb6846c23305b3244bd478a6a4c67439",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3024",
+    "before_sha256": "c977fc5e67882df3fb3c833150ee5d1f38ac65aecadef50de3f59d10c862657f",
+    "after_sha256": "c977fc5e67882df3fb3c833150ee5d1f38ac65aecadef50de3f59d10c862657f",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3025",
+    "before_sha256": "c3f1e186ddebb2c24f2f20eee8ff5ccf351a6764f8fec022db1063989101cf47",
+    "after_sha256": "c3f1e186ddebb2c24f2f20eee8ff5ccf351a6764f8fec022db1063989101cf47",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3026",
+    "before_sha256": "910ec0b5c7f2b60c17fd6cbce05ee535581bcc3cdba06bb32c5e9938cbaaeeb6",
+    "after_sha256": "910ec0b5c7f2b60c17fd6cbce05ee535581bcc3cdba06bb32c5e9938cbaaeeb6",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3027",
+    "before_sha256": "fda2f9447667a7fdbc455888423d0514004e96f9fb44fcae7e98a21da2079616",
+    "after_sha256": "fda2f9447667a7fdbc455888423d0514004e96f9fb44fcae7e98a21da2079616",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3028",
+    "before_sha256": "e8050f0611beaf27b08b617f5c0a97eb897525683de1510262ff499c2584468a",
+    "after_sha256": "e8050f0611beaf27b08b617f5c0a97eb897525683de1510262ff499c2584468a",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3029",
+    "before_sha256": "1847175c411c1ad3b2351b8ee7cc2301e6f6ea86b58c32e1f3e62e1467887985",
+    "after_sha256": "1847175c411c1ad3b2351b8ee7cc2301e6f6ea86b58c32e1f3e62e1467887985",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3030",
+    "before_sha256": "4f5b7bc7603bde36ca418ae257eacc727ade69528cd8bcbf0a56be845f8d85d4",
+    "after_sha256": "4f5b7bc7603bde36ca418ae257eacc727ade69528cd8bcbf0a56be845f8d85d4",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3031",
+    "before_sha256": "b30eb1625fdf4a84834667653e93806d0923e8f88ebfe7b8af2746e36fd9bf7c",
+    "after_sha256": "b30eb1625fdf4a84834667653e93806d0923e8f88ebfe7b8af2746e36fd9bf7c",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3032",
+    "before_sha256": "dafb47ae3bcd7d6bcc66a6a0b08766cb29dc72c544195c21f3f65f585debcc86",
+    "after_sha256": "dafb47ae3bcd7d6bcc66a6a0b08766cb29dc72c544195c21f3f65f585debcc86",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3033",
+    "before_sha256": "adfeb70c4d7fbf507d1821eb8973e94f7014eb158556302f2b2ec30907a38136",
+    "after_sha256": "adfeb70c4d7fbf507d1821eb8973e94f7014eb158556302f2b2ec30907a38136",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3034",
+    "before_sha256": "a8eacc5ca30b58c0c3faedb5495700522020623b56ac88b2749289fb0a41478a",
+    "after_sha256": "a8eacc5ca30b58c0c3faedb5495700522020623b56ac88b2749289fb0a41478a",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3035",
+    "before_sha256": "0e5ef09f9f908b833dc4256b93fe2d4ae874b5b2a5cf92bd910e0253fbe53cb6",
+    "after_sha256": "0e5ef09f9f908b833dc4256b93fe2d4ae874b5b2a5cf92bd910e0253fbe53cb6",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3036",
+    "before_sha256": "2ce2a7089d6d49ce1ad8075a6217d58921558a02592a6735a6ddd03905f15c6c",
+    "after_sha256": "2ce2a7089d6d49ce1ad8075a6217d58921558a02592a6735a6ddd03905f15c6c",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3037",
+    "before_sha256": "3d42e42ae3848b159bef336f7831265e76222e45edcda6b9855a022f4325e773",
+    "after_sha256": "3d42e42ae3848b159bef336f7831265e76222e45edcda6b9855a022f4325e773",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3038",
+    "before_sha256": "0d20cce2fed7d8c3af80ee0d2ee72d98d2185516de3648f5dfd2372c35cd5c1c",
+    "after_sha256": "0d20cce2fed7d8c3af80ee0d2ee72d98d2185516de3648f5dfd2372c35cd5c1c",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3039",
+    "before_sha256": "4be3962a8b63f1b9cd939e4d0f1903d298b795d301c8d642214a1e935baaaeaf",
+    "after_sha256": "4be3962a8b63f1b9cd939e4d0f1903d298b795d301c8d642214a1e935baaaeaf",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3040",
+    "before_sha256": "5e55a693fd2c665fcd170471461445c6e7ea02e469848452085fe8d6138a8eda",
+    "after_sha256": "5e55a693fd2c665fcd170471461445c6e7ea02e469848452085fe8d6138a8eda",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3041",
+    "before_sha256": "afddeb086bbbed1a99f3348d6274bf7db468992b528b26e7ce958e33de8c6ed7",
+    "after_sha256": "afddeb086bbbed1a99f3348d6274bf7db468992b528b26e7ce958e33de8c6ed7",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3042",
+    "before_sha256": "d4f62b801bf4313e3ed2e31e3eddd576db6f46de2fb481e76bc4df79d7f54966",
+    "after_sha256": "d4f62b801bf4313e3ed2e31e3eddd576db6f46de2fb481e76bc4df79d7f54966",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3043",
+    "before_sha256": "ea3b6ef0394cb78dea92652b877074a6a94b4794bc6664b99868fb118e8b4b0b",
+    "after_sha256": "ea3b6ef0394cb78dea92652b877074a6a94b4794bc6664b99868fb118e8b4b0b",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3044",
+    "before_sha256": "0072f1fc0f68b33e1cf1f84340705c45047a85ba1c020e1659f750087a492af4",
+    "after_sha256": "0072f1fc0f68b33e1cf1f84340705c45047a85ba1c020e1659f750087a492af4",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3045",
+    "before_sha256": "da9bc93babe0b9b2957457aeed3305c2c4d3c5395aa32e37cd3110d3073d8eea",
+    "after_sha256": "da9bc93babe0b9b2957457aeed3305c2c4d3c5395aa32e37cd3110d3073d8eea",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "F3047",
+    "before_sha256": "9a8383d64dc4aa2f0e4b068af103072e369790d73bf9f16dcd2d637810124d34",
+    "after_sha256": "9a8383d64dc4aa2f0e4b068af103072e369790d73bf9f16dcd2d637810124d34",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "3016T",
+    "before_sha256": "08aeabe95c69dde51f76ba4b5f3e82d201317e62ee13ad32386ef47783d7d54e",
+    "after_sha256": "08aeabe95c69dde51f76ba4b5f3e82d201317e62ee13ad32386ef47783d7d54e",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "3010T",
+    "before_sha256": "40539ca0372e73ac6a7eae6f9535ef3a66bf9a2e97936c8c385663a7f77e0c8c",
+    "after_sha256": "40539ca0372e73ac6a7eae6f9535ef3a66bf9a2e97936c8c385663a7f77e0c8c",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "3012T",
+    "before_sha256": "a0fdedaeb83b38a1b094791b794c9166c0ab45873a3ea7962002cd7b2b863c52",
+    "after_sha256": "a0fdedaeb83b38a1b094791b794c9166c0ab45873a3ea7962002cd7b2b863c52",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "3000T",
+    "before_sha256": "b1adb36c334f58bc444df514a08871fccd40ce13ff343f9ea366aa0002c74b05",
+    "after_sha256": "b1adb36c334f58bc444df514a08871fccd40ce13ff343f9ea366aa0002c74b05",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "3008T",
+    "before_sha256": "63d102801dd0930197cc64428053e4b0f36adf5b5e02927085524364888b5457",
+    "after_sha256": "63d102801dd0930197cc64428053e4b0f36adf5b5e02927085524364888b5457",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "3102T",
+    "before_sha256": "eeeacd0d263ec99bbba47363f8dc80c7ab2122f09eb6758d783cb9ef8a8347af",
+    "after_sha256": "eeeacd0d263ec99bbba47363f8dc80c7ab2122f09eb6758d783cb9ef8a8347af",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "3104T",
+    "before_sha256": "0ce97de3be8a2f246763316a4a60774ac2091cbcf4d78440cb069b1485c06163",
+    "after_sha256": "0ce97de3be8a2f246763316a4a60774ac2091cbcf4d78440cb069b1485c06163",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "2240",
+    "before_sha256": "fbed26d7db013748283397c2fa89924397e502193f37624cfcef9e446a376986",
+    "after_sha256": "fbed26d7db013748283397c2fa89924397e502193f37624cfcef9e446a376986",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "4031T",
+    "before_sha256": "820e976e4dbb90da01857adc7a61aeb2a21db7319d7bdc0bc8f8e2d63219b825",
+    "after_sha256": "820e976e4dbb90da01857adc7a61aeb2a21db7319d7bdc0bc8f8e2d63219b825",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "2206T",
+    "before_sha256": "8e79d8f00694e3901fb08af4b7d060cc58814c8aeeb82aff2a95382fa632f204",
+    "after_sha256": "8e79d8f00694e3901fb08af4b7d060cc58814c8aeeb82aff2a95382fa632f204",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "4002",
+    "before_sha256": "5616304cdd1ab5371935172f0b7d688cd1d535952b1cfb1b7518e41511055ed1",
+    "after_sha256": "5616304cdd1ab5371935172f0b7d688cd1d535952b1cfb1b7518e41511055ed1",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "4003",
+    "before_sha256": "eb25251126a517e43c8cce4e2fc1d0cf5486433d8ab89ddbae8a9dcf88a30a0b",
+    "after_sha256": "eb25251126a517e43c8cce4e2fc1d0cf5486433d8ab89ddbae8a9dcf88a30a0b",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "2391",
+    "before_sha256": "66c941bebd387f8846a5d0b5ce4a0527bd334aa6192a56b5716552fb7b1d1a00",
+    "after_sha256": "66c941bebd387f8846a5d0b5ce4a0527bd334aa6192a56b5716552fb7b1d1a00",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "2524",
+    "before_sha256": "08b51d37eb06c6a0797d3346820f87251f15511845aed378a83e9aafc93a4292",
+    "after_sha256": "08b51d37eb06c6a0797d3346820f87251f15511845aed378a83e9aafc93a4292",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "2526",
+    "before_sha256": "2d9a4be52e142f17d4aaaf4269537a6a47676cc490a06efaf38045fc0f379554",
+    "after_sha256": "2d9a4be52e142f17d4aaaf4269537a6a47676cc490a06efaf38045fc0f379554",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "4405",
+    "before_sha256": "dff595264a569d17e99e9e45f2e2b1486fb130f8045249bfc4efc78655b70a96",
+    "after_sha256": "dff595264a569d17e99e9e45f2e2b1486fb130f8045249bfc4efc78655b70a96",
+    "identical": true
+  },
+  {
+    "category": "dining",
+    "lang": "ZH",
+    "sku": "4406",
+    "before_sha256": "e97fa68be6ff04c7933271fedb4133a3476ce8bac4e96671ef65ebd31b061294",
+    "after_sha256": "e97fa68be6ff04c7933271fedb4133a3476ce8bac4e96671ef65ebd31b061294",
+    "identical": true
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "office": {
+    "protected_skus_before": [
+      "F3046",
+      "F3049",
+      "F3050",
+      "F3051",
+      "F3052"
+    ],
+    "protected_skus_after": [
+      "F3046",
+      "F3049",
+      "F3050",
+      "F3051",
+      "F3052"
+    ],
+    "deleted_protected_skus": [],
+    "modified_protected_skus": [],
+    "protected_image_changes": 0,
+    "protected_text_changes": 0,
+    "protected_price_changes": 0,
+    "result": "PASS"
+  },
+  "dining": {
+    "protected_products_before": 94,
+    "protected_products_after": 94,
+    "deleted_protected_skus": [],
+    "modified_protected_skus": [],
+    "result": "PASS"
+  }
+}
