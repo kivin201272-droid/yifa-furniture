@@ -11,8 +11,14 @@ reports/evidence_p79_p81/
 reports/p80_comparisons/
 reports/original_dining_pages/
 reports/evidence_dining_batch1/
+reports/evidence_dining_batch2/
 reports/dining_comparisons/
+reports/dining_comparisons_batch2/
 reports/dining_batch1_raw_images/
+reports/dining_batch2_draft_images/
+reports/price_list_evidence/
+reports/price_list_page_*.jpg
+reports/non_pj_preservation_audit.json
 reports/pj_pdf_inventory.json
 reports/pj_pdf_inventory.csv
 reports/sku_random_50_sample_audit.csv
@@ -27,6 +33,8 @@ reports/p81_2706_2707_comparison.jpg
 reports/dining_5_sku_contact_sheet.jpg
 reports/preview_dining_desktop.jpg
 reports/preview_dining_mobile.jpg
+reports/preview_dining_batch1.html
+reports/manifest_v2_dining_batch2.json
 scripts/audit_f_series.py
 scripts/audit_sku_inventory_extraction.py
 scripts/build_office_evidence_table.py
@@ -35,5 +43,7 @@ scripts/generate_grid_evidence_images.py
 scripts/generate_pdf_evidence_crops.py
 scripts/negative_test_out_of_bounds.py
 scripts/validate_image_content_metrics.py
-scripts/rebuild_dining_batch1.py
-scripts/verify_dining_batch1.py
+scripts/build_dining_batch2_evidence.py
+scripts/build_dining_batch2_manifest.py
+scripts/audit_non_pj_preservation.py
+scripts/verify_pj_scope_protection.py
