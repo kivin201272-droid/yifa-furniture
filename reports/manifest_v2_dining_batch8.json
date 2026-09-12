@@ -64,7 +64,7 @@
     "resolved_dimensions": "17\"W x 19\"D x 38\"H",
     "raw_pack_text": "PACK: 4/1 CARTON",
     "raw_price_text": "$35.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -81,12 +81,12 @@
       ],
       "resolved_price": "$35.00",
       "price": "$35.00",
-      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $35.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch8_draft_images/draft-2800bk-chrome.jpg",
     "image_xref": 1444,
     "image_pixel_size": "819x563",
-    "image_sha256": "981410724da49a946aa53837f0541f5c9c9dc774a372d726e9ffb93995b2c262",
+    "image_sha256": "ba11bbfee3eff2d0004ca093c561d7afa467c808188f8ac5e217911bbf82b160",
     "category": "DINING CHAIR",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -123,7 +123,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2800BK-CHROME 黑色铬架焊接餐椅",
-    "candidate_title_en": "2800BK-CHROME Black Chrome Frame Welded Dining Chair"
+    "candidate_title_en": "2800BK-CHROME Black Chrome Frame Welded Dining Chair",
+    "source_image_sha256": "981410724da49a946aa53837f0541f5c9c9dc774a372d726e9ffb93995b2c262",
+    "output_image_sha256": "ba11bbfee3eff2d0004ca093c561d7afa467c808188f8ac5e217911bbf82b160"
   },
   {
     "record_type": "canonical_product",
@@ -190,7 +192,7 @@
     "resolved_dimensions": "17\"W x 19\"D x 38\"H",
     "raw_pack_text": "PACK: 4/1 CARTON",
     "raw_price_text": "$40.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -207,12 +209,12 @@
       ],
       "resolved_price": "$40.00",
       "price": "$40.00",
-      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $40.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch8_draft_images/draft-2800bk-gold.jpg",
     "image_xref": 1459,
     "image_pixel_size": "819x564",
-    "image_sha256": "f370be51f9c735d10aeea15a9ac0af360157d46587ca462a89d19b0a20061504",
+    "image_sha256": "fe5b80125cb0c95fd980b06e836e27a682711e6ab0a3ebcb322aa364407f3d4f",
     "category": "DINING CHAIR",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -249,7 +251,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2800BK-GOLD 黑色金架焊接餐椅",
-    "candidate_title_en": "2800BK-GOLD Black Gold Frame Welded Dining Chair"
+    "candidate_title_en": "2800BK-GOLD Black Gold Frame Welded Dining Chair",
+    "source_image_sha256": "f370be51f9c735d10aeea15a9ac0af360157d46587ca462a89d19b0a20061504",
+    "output_image_sha256": "fe5b80125cb0c95fd980b06e836e27a682711e6ab0a3ebcb322aa364407f3d4f"
   },
   {
     "record_type": "canonical_product",
@@ -298,7 +302,7 @@
     "resolved_dimensions": "DIA 43\" x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$119.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -315,12 +319,12 @@
       ],
       "resolved_price": "$119.00",
       "price": "$119.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch8_draft_images/draft-3105t.jpg",
     "image_xref": 1474,
     "image_pixel_size": "817x563",
-    "image_sha256": "481550636ab03f550b7cf924580f1de78f1fba58d820f99f312d2ab7aba3288a",
+    "image_sha256": "16a7a1025defd27f3bbefa8105125a38101ee45c4b73ea49a3854b398d5b9071",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -355,7 +359,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3105T 43英寸圆形黑色玻璃餐桌",
-    "candidate_title_en": "3105T 43\" Round Black Glass Dining Table"
+    "candidate_title_en": "3105T 43\" Round Black Glass Dining Table",
+    "source_image_sha256": "481550636ab03f550b7cf924580f1de78f1fba58d820f99f312d2ab7aba3288a",
+    "output_image_sha256": "16a7a1025defd27f3bbefa8105125a38101ee45c4b73ea49a3854b398d5b9071"
   },
   {
     "record_type": "canonical_product",
@@ -422,7 +428,7 @@
     "resolved_dimensions": "17\"W x 19\"D x 38\"H",
     "raw_pack_text": "PACK: 4/1 CARTON",
     "raw_price_text": "$30.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -439,12 +445,12 @@
       ],
       "resolved_price": "$30.00",
       "price": "$30.00",
-      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $30.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch8_draft_images/draft-2800bk-gray.jpg",
     "image_xref": 1474,
     "image_pixel_size": "817x563",
-    "image_sha256": "481550636ab03f550b7cf924580f1de78f1fba58d820f99f312d2ab7aba3288a",
+    "image_sha256": "16a7a1025defd27f3bbefa8105125a38101ee45c4b73ea49a3854b398d5b9071",
     "category": "DINING CHAIR",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -480,7 +486,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2800BK-GRAY 黑色灰面焊接餐椅",
-    "candidate_title_en": "2800BK-GRAY Black Frame Gray Seat Welded Dining Chair"
+    "candidate_title_en": "2800BK-GRAY Black Frame Gray Seat Welded Dining Chair",
+    "source_image_sha256": "481550636ab03f550b7cf924580f1de78f1fba58d820f99f312d2ab7aba3288a",
+    "output_image_sha256": "16a7a1025defd27f3bbefa8105125a38101ee45c4b73ea49a3854b398d5b9071"
   },
   {
     "record_type": "canonical_product",
@@ -529,7 +537,7 @@
     "resolved_dimensions": "36\"W x 60\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$139.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -546,12 +554,12 @@
       ],
       "resolved_price": "$139.00",
       "price": "$139.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch8_draft_images/draft-3106t.jpg",
     "image_xref": 1475,
     "image_pixel_size": "819x562",
-    "image_sha256": "973c193d5a28dfcd2adb5e41e6dcbf9acb81fe1b3bb46899d8580acb516df23a",
+    "image_sha256": "21cbac1a7b6b3af0145b3a9c57272c911cbf2b31355913dd6f99433d2a05c409",
     "category": "DINING TABLE",
     "classification": [
       "MULTI_PRODUCT_SCENE"
@@ -586,7 +594,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3106T 60英寸长方形黑色玻璃餐桌",
-    "candidate_title_en": "3106T 60\" Rectangular Black Glass Dining Table"
+    "candidate_title_en": "3106T 60\" Rectangular Black Glass Dining Table",
+    "source_image_sha256": "973c193d5a28dfcd2adb5e41e6dcbf9acb81fe1b3bb46899d8580acb516df23a",
+    "output_image_sha256": "21cbac1a7b6b3af0145b3a9c57272c911cbf2b31355913dd6f99433d2a05c409"
   },
   {
     "record_type": "occurrence_reference",

@@ -26,7 +26,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$549.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3016T/3000WH Dining Table with White Marble Table $549.00",
@@ -35,7 +35,7 @@
         "3000WH"
       ],
       "price": "$549.00",
-      "unit_text": "1 complete table (table base + marble top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch2_draft_images/draft-3016t-3000wh.jpg",
     "category": "DINING TABLE",
@@ -62,7 +62,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3016T/3000WH 不锈钢金架22毫米白色大理石餐桌",
-    "candidate_title_en": "3016T/3000WH Dining Table with Stainless Gold Frame, Legs, Base and 22mm White Marble Top"
+    "candidate_title_en": "3016T/3000WH Dining Table with Stainless Gold Frame, Legs, Base and 22mm White Marble Top",
+    "output_image_sha256": "37b92966b3ce06bde5145dd5c6441e50b966af0a907fb24fac87d93d488e63f4",
+    "image_sha256": "37b92966b3ce06bde5145dd5c6441e50b966af0a907fb24fac87d93d488e63f4"
   },
   {
     "sku": "1600WH-GOLD",
@@ -90,7 +92,7 @@
     "raw_dimensions_text": "20\"W x 22\"D x 43\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$149.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1600WH-GOLD Dinning Chair $149.00",
@@ -98,7 +100,7 @@
         "1600WH-GOLD"
       ],
       "price": "$149.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $149.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch2_draft_images/draft-1600wh-gold.jpg",
     "category": "DINING CHAIR",
@@ -124,7 +126,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "1600WH-GOLD 不锈钢金色餐椅",
-    "candidate_title_en": "1600WH-GOLD Stainless Gold Dining Chair"
+    "candidate_title_en": "1600WH-GOLD Stainless Gold Dining Chair",
+    "output_image_sha256": "d019256f25d4a86ed218dcec5540cb935e918cac9488fbade08f98f1b693bb20",
+    "image_sha256": "d019256f25d4a86ed218dcec5540cb935e918cac9488fbade08f98f1b693bb20"
   },
   {
     "sku": "1500WH-GOLD",
@@ -152,7 +156,7 @@
     "raw_dimensions_text": "18\"W x 21\"D x 41\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$99.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1500WH-GOLD Dinning Chair $99.00",
@@ -160,7 +164,7 @@
         "1500WH-GOLD"
       ],
       "price": "$99.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch2_draft_images/draft-1500wh-gold.jpg",
     "category": "DINING CHAIR",
@@ -186,7 +190,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "1500WH-GOLD 不锈钢金色餐椅",
-    "candidate_title_en": "1500WH-GOLD Stainless Gold Dining Chair"
+    "candidate_title_en": "1500WH-GOLD Stainless Gold Dining Chair",
+    "output_image_sha256": "7e3090de8ee905234ab56bae728338811f1af8e92993ef8df696a4e473685d7a",
+    "image_sha256": "7e3090de8ee905234ab56bae728338811f1af8e92993ef8df696a4e473685d7a"
   },
   {
     "sku": "3011T/3000BK",
@@ -225,7 +231,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$549.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3011T/3000BK Dining Table with Black Marble Table $549.00",
@@ -234,7 +240,7 @@
         "3000BK"
       ],
       "price": "$549.00",
-      "unit_text": "1 complete table (table base + marble top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch2_draft_images/draft-3011t-3000bk.jpg",
     "category": "DINING TABLE",
@@ -277,7 +283,9 @@
       }
     ],
     "resolution_status": "unresolved",
-    "specification_status": "conflicting"
+    "specification_status": "conflicting",
+    "output_image_sha256": "fba578d997f2e515efb6404221718f22a767bdeb9530707a9266464445cc9f1b",
+    "image_sha256": "fba578d997f2e515efb6404221718f22a767bdeb9530707a9266464445cc9f1b"
   },
   {
     "sku": "1003BK-GOLD",
@@ -305,7 +313,7 @@
     "raw_dimensions_text": "20\"W x 22\"D x 43\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$149.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1003BK-GOLD Dinning Chair $149.00",
@@ -313,7 +321,7 @@
         "1003BK-GOLD"
       ],
       "price": "$149.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $149.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch2_draft_images/draft-1003bk-gold.jpg",
     "category": "DINING CHAIR",
@@ -341,7 +349,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "1003BK-GOLD 不锈钢金色餐椅",
-    "candidate_title_en": "1003BK-GOLD Stainless Gold Dining Chair"
+    "candidate_title_en": "1003BK-GOLD Stainless Gold Dining Chair",
+    "output_image_sha256": "c0b2925ddb40c5cbf957de7473b3c0265c897db930db461a4779a353a0b2bc8d",
+    "image_sha256": "c0b2925ddb40c5cbf957de7473b3c0265c897db930db461a4779a353a0b2bc8d"
   },
   {
     "sku": "2680BK-GOLD",
@@ -369,7 +379,7 @@
     "raw_dimensions_text": "18\"W x 20\"D x 42\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$85.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "2680BK-GOLD Dinning Chair $85.00",
@@ -377,7 +387,7 @@
         "2680BK-GOLD"
       ],
       "price": "$85.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $85.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch2_draft_images/draft-2680bk-gold.jpg",
     "category": "DINING CHAIR",
@@ -403,7 +413,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2680BK-GOLD 金色框架餐椅",
-    "candidate_title_en": "2680BK-GOLD Gold Frame Dining Chair"
+    "candidate_title_en": "2680BK-GOLD Gold Frame Dining Chair",
+    "output_image_sha256": "26214a657f907f522216d5345cde6c63b9c11dfb6a1c009eed0b0d9613a20f9f",
+    "image_sha256": "26214a657f907f522216d5345cde6c63b9c11dfb6a1c009eed0b0d9613a20f9f"
   },
   {
     "sku": "3010T/3000BK",
@@ -432,7 +444,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$499.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3010T/3000BK Dining Table with Black Marble Table $499.00",
@@ -441,7 +453,7 @@
         "3000BK"
       ],
       "price": "$499.00",
-      "unit_text": "1 complete table (table base + marble top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch2_draft_images/draft-3010t-3000bk.jpg",
     "category": "DINING TABLE",
@@ -467,7 +479,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3010T/3000BK 不锈钢金腿22毫米黑色大理石餐桌",
-    "candidate_title_en": "3010T/3000BK Dining Table with Stainless Gold Frame, Legs and 22mm Black Marble Top"
+    "candidate_title_en": "3010T/3000BK Dining Table with Stainless Gold Frame, Legs and 22mm Black Marble Top",
+    "output_image_sha256": "9575850093d25db4c4c416851045855474e350cd5aaff3f85116c99f1f5ad014",
+    "image_sha256": "9575850093d25db4c4c416851045855474e350cd5aaff3f85116c99f1f5ad014"
   },
   {
     "sku": "3010T/3002BK",
@@ -496,7 +510,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$499.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3010T/3002BK Dining Table with Black Glass Table $499.00",
@@ -505,7 +519,7 @@
         "3002BK"
       ],
       "price": "$499.00",
-      "unit_text": "1 complete table (table base + glass top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch2_draft_images/draft-3010t-3002bk.jpg",
     "category": "DINING TABLE",
@@ -531,6 +545,8 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3010T/3002BK 不锈钢金腿12毫米黑色玻璃餐桌",
-    "candidate_title_en": "3010T/3002BK Dining Table with Stainless Gold Frame, Legs and 12mm Black Glass Top"
+    "candidate_title_en": "3010T/3002BK Dining Table with Stainless Gold Frame, Legs and 12mm Black Glass Top",
+    "output_image_sha256": "7544fc6e980b156fa7002a08c9bf3d02ebcc780eb87879bfbeed3bff686fb708",
+    "image_sha256": "7544fc6e980b156fa7002a08c9bf3d02ebcc780eb87879bfbeed3bff686fb708"
   }
 ]

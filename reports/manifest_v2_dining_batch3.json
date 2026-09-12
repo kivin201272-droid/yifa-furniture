@@ -36,7 +36,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$499.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3010T/3002WH Dining Table with White Glass Table $499.00",
@@ -45,7 +45,7 @@
         "3002WH"
       ],
       "price": "$499.00",
-      "unit_text": "1 complete table (table base + glass top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch3_draft_images/draft-3010t-3002wh.jpg",
     "category": "DINING TABLE",
@@ -72,7 +72,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3010T/3002WH 不锈钢金腿12毫米白色玻璃餐桌",
-    "candidate_title_en": "3010T/3002WH Dining Table with Stainless Gold Frame, Legs and 12mm White Glass Top"
+    "candidate_title_en": "3010T/3002WH Dining Table with Stainless Gold Frame, Legs and 12mm White Glass Top",
+    "output_image_sha256": "bf1bf90ed76a32bf7db13b277dfef22ef8e23ac163751c04a1ddd2dd1dfb0f93",
+    "image_sha256": "bf1bf90ed76a32bf7db13b277dfef22ef8e23ac163751c04a1ddd2dd1dfb0f93"
   },
   {
     "sku": "1002WH-GOLD",
@@ -128,7 +130,7 @@
     "raw_dimensions_text": "20\"W x 22\"D x 43\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$149.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1002WH-GOLD Dinning Chair $149.00",
@@ -136,7 +138,7 @@
         "1002WH-GOLD"
       ],
       "price": "$149.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $149.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch3_draft_images/draft-1002wh-gold.jpg",
     "category": "DINING CHAIR",
@@ -164,7 +166,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "1002WH-GOLD 不锈钢金色餐椅",
-    "candidate_title_en": "1002WH-GOLD Stainless Gold Dining Chair"
+    "candidate_title_en": "1002WH-GOLD Stainless Gold Dining Chair",
+    "output_image_sha256": "cafa206a4a9bd2ec40bf97777888ba450be18ccfe2bdae63de1600da96bd545d",
+    "image_sha256": "cafa206a4a9bd2ec40bf97777888ba450be18ccfe2bdae63de1600da96bd545d"
   },
   {
     "sku": "3010T/3000WH",
@@ -203,7 +207,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$499.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3010T/3000WH Dining Table with White Marble Top $499.00",
@@ -212,7 +216,7 @@
         "3000WH"
       ],
       "price": "$499.00",
-      "unit_text": "1 complete table (table base + marble top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch3_draft_images/draft-3010t-3000wh.jpg",
     "category": "DINING TABLE",
@@ -239,7 +243,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3010T/3000WH 不锈钢金腿22毫米白色大理石餐桌",
-    "candidate_title_en": "3010T/3000WH Dining Table with Stainless Gold Frame, Legs and 22mm White Marble Top"
+    "candidate_title_en": "3010T/3000WH Dining Table with Stainless Gold Frame, Legs and 22mm White Marble Top",
+    "output_image_sha256": "6ac86392996ba73d53398f8b6dc5140db7bf665213e7f5aadbe7d27effb99c02",
+    "image_sha256": "6ac86392996ba73d53398f8b6dc5140db7bf665213e7f5aadbe7d27effb99c02"
   },
   {
     "sku": "3012T/3000GRAY",
@@ -314,7 +320,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$499.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3012T/3000GRAY Dining Table with Gray Marble Top $499.00",
@@ -323,7 +329,7 @@
         "3000GRAY"
       ],
       "price": "$499.00",
-      "unit_text": "1 complete table (table base + marble top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch3_draft_images/draft-3012t-3000gray.jpg",
     "category": "DINING TABLE",
@@ -358,7 +364,9 @@
       "publish": false,
       "resolution_status": "unresolved",
       "notes": "Body text prints 3000GRAY-CHROME while headings and other occurrences use 3000GRAY."
-    }
+    },
+    "output_image_sha256": "6895982d8666f0293c90465511e350c1f0d3974bfb8dd9d311a0d54a66eab40f",
+    "image_sha256": "6895982d8666f0293c90465511e350c1f0d3974bfb8dd9d311a0d54a66eab40f"
   },
   {
     "sku": "2680WH-CHROME",
@@ -396,7 +404,7 @@
     "raw_dimensions_text": "18\"W x 20\"D x 42\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$79.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "2680WH-CHROME Dinning Chair $79.00",
@@ -404,7 +412,7 @@
         "2680WH-CHROME"
       ],
       "price": "$79.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $79.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch3_draft_images/draft-2680wh-chrome.jpg",
     "category": "DINING CHAIR",
@@ -435,7 +443,9 @@
     "evidence_pages": [
       48,
       58
-    ]
+    ],
+    "output_image_sha256": "3bfbae4c263adc32481dfe1d50478b1c59ec2a42f7728bec5148360d356448e4",
+    "image_sha256": "3bfbae4c263adc32481dfe1d50478b1c59ec2a42f7728bec5148360d356448e4"
   },
   {
     "sku": "2680GRAY-CHROME",
@@ -491,7 +501,7 @@
     "raw_dimensions_text": "18\"W x 20\"D x 42\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$79.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "2680GRAY-CHROME Dinning Chair $79.00",
@@ -499,7 +509,7 @@
         "2680GRAY-CHROME"
       ],
       "price": "$79.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $79.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch3_draft_images/draft-2680gray-chrome.jpg",
     "category": "DINING CHAIR",
@@ -555,7 +565,9 @@
       48,
       49,
       57
-    ]
+    ],
+    "output_image_sha256": "820a204258c740d6f504d9a35d9f68a18ab620aae2c006bf503315f3a455fbd8",
+    "image_sha256": "820a204258c740d6f504d9a35d9f68a18ab620aae2c006bf503315f3a455fbd8"
   },
   {
     "sku": "3000T/3000GRAY",
@@ -658,7 +670,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$399.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3000T/3000GRAY Dining Table with Gray Marble Top $399.00",
@@ -667,7 +679,7 @@
         "3000GRAY"
       ],
       "price": "$399.00",
-      "unit_text": "1 complete table (table base + marble top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch3_draft_images/draft-3000t-3000gray.jpg",
     "category": "DINING TABLE",
@@ -697,7 +709,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3000T/3000GRAY 不锈钢铬色腿22毫米灰色大理石餐桌",
-    "candidate_title_en": "3000T/3000GRAY Dining Table with Stainless Chrome Frame, Legs and 22mm Gray Marble Top"
+    "candidate_title_en": "3000T/3000GRAY Dining Table with Stainless Chrome Frame, Legs and 22mm Gray Marble Top",
+    "output_image_sha256": "11886894e03d0319778892a23ca4cf38d5e06bc7407e59192fa51d1653bd92e4",
+    "image_sha256": "11886894e03d0319778892a23ca4cf38d5e06bc7407e59192fa51d1653bd92e4"
   },
   {
     "sku": "1200GRAY",
@@ -810,7 +824,7 @@
     "raw_dimensions_text": null,
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$89.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1200GRAY Dinning Chair $89.00",
@@ -818,7 +832,7 @@
         "1200GRAY"
       ],
       "price": "$89.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $89.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch3_draft_images/draft-1200gray.jpg",
     "category": "DINING CHAIR",
@@ -866,6 +880,8 @@
         "token": "STAINLESS CHROME vs STAINLESS GOLD",
         "source_role": "frame finish contradiction (P49/P50/P56 vs P57)"
       }
-    ]
+    ],
+    "output_image_sha256": "5925535a96e0f9113082c0053e0b7dd03a9186d126e59c7c53c2ef17c3f02698",
+    "image_sha256": "5925535a96e0f9113082c0053e0b7dd03a9186d126e59c7c53c2ef17c3f02698"
   }
 ]

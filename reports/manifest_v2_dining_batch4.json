@@ -37,7 +37,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$349.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3000T/3002WH Dining Table with White Glass Top $349.00",
@@ -46,7 +46,7 @@
         "3002WH"
       ],
       "price": "$349.00",
-      "unit_text": "1 complete table (table base + glass top)"
+      "unit_text": null
     },
     "anomaly_record": {
       "token": "3000WH vs 3002WH",
@@ -99,7 +99,9 @@
         "source_role": "body"
       }
     ],
-    "specification_status": "conflicting"
+    "specification_status": "conflicting",
+    "output_image_sha256": "20402c93509f4548e0fe3b9dce5d5120a314eb0550eee109840e6e279de42b04",
+    "image_sha256": "20402c93509f4548e0fe3b9dce5d5120a314eb0550eee109840e6e279de42b04"
   },
   {
     "record_type": "canonical_product",
@@ -203,7 +205,7 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$399.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3000T/3000BK Dining Table with Black Marble Top $399.00",
@@ -212,7 +214,7 @@
         "3000BK"
       ],
       "price": "$399.00",
-      "unit_text": "1 complete table (table base + marble top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch4_draft_images/draft-3000t-3000bk.jpg",
     "category": "DINING TABLE",
@@ -242,7 +244,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3000T/3000BK 不锈钢铬色腿22毫米黑色大理石餐桌",
-    "candidate_title_en": "3000T/3000BK Dining Table with Stainless Chrome Frame, Legs and 22mm Black Marble Top"
+    "candidate_title_en": "3000T/3000BK Dining Table with Stainless Chrome Frame, Legs and 22mm Black Marble Top",
+    "output_image_sha256": "8dbeb16cff936c53383ed06eeeadea5e39c10d19978578078cf69c813000fb20",
+    "image_sha256": "8dbeb16cff936c53383ed06eeeadea5e39c10d19978578078cf69c813000fb20"
   },
   {
     "record_type": "canonical_product",
@@ -385,7 +389,7 @@
     "raw_dimensions_text": null,
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$89.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1500GRAY-CHROME Dinning Chair $89.00",
@@ -393,7 +397,7 @@
         "1500GRAY-CHROME"
       ],
       "price": "$89.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $89.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch4_draft_images/draft-1500gray-chrome.jpg",
     "category": "DINING CHAIR",
@@ -433,7 +437,9 @@
     "rejection_reason": "PDF only provides a lifestyle scene containing other products, and exhibits an unresolved cross-page specification conflict: physical pages 50, 51, 52 print 19\"W x 21\"D x 41\"H while pages 53, 55 print 19\"W x 28\"D x 41\"H.",
     "candidate_title_zh": "1500GRAY-CHROME 不锈钢铬色灰色餐椅",
     "candidate_title_en": "1500GRAY-CHROME Stainless Chrome Dining Chair",
-    "resolved_dimensions": null
+    "resolved_dimensions": null,
+    "output_image_sha256": "9921f072dd5338ac094b968d61448851a6f98a5fa209b18462993e6395cc4164",
+    "image_sha256": "9921f072dd5338ac094b968d61448851a6f98a5fa209b18462993e6395cc4164"
   },
   {
     "record_type": "canonical_product",
@@ -496,7 +502,7 @@
     "raw_dimensions_text": "19\"W x 28\"D x 41\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$89.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1301BK Dinning Chair $89.00",
@@ -504,7 +510,7 @@
         "1301BK"
       ],
       "price": "$89.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $89.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch4_draft_images/draft-1301bk.jpg",
     "category": "DINING CHAIR",
@@ -533,7 +539,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "1301BK 不锈钢铬色黑色餐椅",
-    "candidate_title_en": "1301BK Stainless Chrome Dining Chair"
+    "candidate_title_en": "1301BK Stainless Chrome Dining Chair",
+    "output_image_sha256": "bad091cc99fefeeb6370a10598db82484948c2c1d54e61844ab64d96e373f05c",
+    "image_sha256": "bad091cc99fefeeb6370a10598db82484948c2c1d54e61844ab64d96e373f05c"
   },
   {
     "record_type": "occurrence_reference",

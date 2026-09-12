@@ -430,23 +430,42 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
         # Check output image SHA-256 integrity
         out_img = c_item.get("output_image") or c_item.get("target_crop_image")
         out_sha = c_item.get("output_image_sha256")
-        if out_img and out_sha:
+        if out_img:
             if not os.path.exists(out_img):
                 errors.append(f"OUTPUT IMAGE NOT FOUND: SKU '{sku}' output_image '{out_img}' does not exist on disk.")
-            else:
-                with open(out_img, "rb") as f:
-                    actual_sha = hashlib.sha256(f.read()).hexdigest()
-                if actual_sha != out_sha:
-                    errors.append(f"OUTPUT IMAGE HASH MISMATCH: SKU '{sku}' output_image '{out_img}' disk hash {actual_sha} != output_image_sha256 {out_sha}.")
+            elif "dining" in c_mf or "test" in c_mf or out_sha:
+                if not out_sha:
+                    errors.append(f"MISSING OUTPUT IMAGE SHA256: SKU '{sku}' has output_image '{out_img}' but missing output_image_sha256.")
+                else:
+                    with open(out_img, "rb") as f:
+                        actual_sha = hashlib.sha256(f.read()).hexdigest()
+                    if actual_sha != out_sha:
+                        errors.append(f"OUTPUT IMAGE HASH MISMATCH: SKU '{sku}' output_image '{out_img}' disk hash {actual_sha} != output_image_sha256 {out_sha}.")
+                    img_sha = c_item.get("image_sha256")
+                    if img_sha and img_sha != out_sha:
+                        errors.append(f"IMAGE SHA256 MISMATCH: SKU '{sku}' image_sha256 {img_sha} != output_image_sha256 {out_sha}.")
 
         # Check price unit status verification
         pus = str(c_item.get("price_unit_status", "")).lower()
-        if pus == "verified":
-            has_verbatim_unit = bool(pe.get("verbatim_unit_evidence") or pe.get("unit_text_verbatim") or pe.get("unit_evidence"))
+        if pus == "verified" or pus.startswith("verified"):
+            verb_text = pe.get("verbatim_unit_text") or pe.get("verbatim_unit_evidence") or pe.get("unit_text_verbatim") or pe.get("unit_evidence")
             has_unit_page = pe.get("unit_source_page") is not None or pe.get("unit_page") is not None
-            has_unit_bbox = pe.get("unit_bbox") is not None or pe.get("unit_text_region") is not None
-            if not (has_verbatim_unit and has_unit_page and has_unit_bbox):
+            has_unit_bbox = pe.get("unit_bbox") is not None or pe.get("unit_text_region") is not None or pe.get("unit_source_region") is not None
+            if not (verb_text and has_unit_page and has_unit_bbox):
                 errors.append(f"UNGROUNDED PRICE UNIT STATUS: SKU '{sku}' has price_unit_status '{c_item.get('price_unit_status')}' without verbatim unit evidence, source page, and bbox.")
+            else:
+                exact_row = str(pe.get("exact_row_text") or "").upper()
+                pdf_texts_u = [r.get("verbatim_text", "") for r in c_item.get("source_text_regions", [])]
+                combined_pdf_u = " ".join(pdf_texts_u).upper()
+                if str(verb_text).upper() not in exact_row and str(verb_text).upper() not in combined_pdf_u:
+                    errors.append(f"PRICE UNIT VERBATIM TEXT NOT IN SOURCE: SKU '{sku}' unit '{verb_text}' not found in price row or PDF text.")
+
+    # Check global hash coverage for dining manifests
+    dining_mfs = [f for f in manifest_files if "dining" in f or "test" in f]
+    canon_with_img = sum(1 for c_mf in dining_mfs for it in json.load(open(c_mf, encoding="utf-8")) if it.get("record_type") != "occurrence_reference" and (it.get("output_image") or it.get("target_crop_image")))
+    canon_with_sha = sum(1 for c_mf in dining_mfs for it in json.load(open(c_mf, encoding="utf-8")) if it.get("record_type") != "occurrence_reference" and (it.get("output_image") or it.get("target_crop_image")) and it.get("output_image_sha256"))
+    if canon_with_img != canon_with_sha:
+        errors.append(f"GLOBAL HASH COVERAGE INCOMPLETE: {canon_with_img} canonical products have images, but only {canon_with_sha} have output_image_sha256.")
 
     # Check that formal production HTML pages do not reference reports/ draft/evidence images
     for page_name, html_text in formal_pages.items():
@@ -559,8 +578,8 @@ def check_live_scope_protection():
         assert False, f"Scope protection validator failed with {len(errors)} error(s)."
     print(f"  -> PASS: {card_cnt}/{card_cnt} cards and {img_cnt}/{img_cnt} image files 100% identical to root baseline (11157499).")
 
-def run_twenty_one_negative_tests():
-    print("[TEST 4] Auditor Reliability & 21-Part Negative Test Suite:")
+def run_twenty_five_negative_tests():
+    print("[TEST 4] Auditor Reliability & 25-Part Negative Test Suite:")
     off_en = open("office/index.html", "r", encoding="utf-8").read()
     off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
@@ -974,6 +993,87 @@ def run_twenty_one_negative_tests():
     assert len(hash_err) > 0, f"Expected OUTPUT IMAGE HASH MISMATCH error, got: {errors_20}"
     print(f"  - Neg Test 20 (Output Image Hash Tampering): Caught expected error: '{hash_err[0]}' [PASS]")
 
+    # Neg Test 20A: Missing output_image_sha256 -> MUST FAIL
+    test_mf_20a = "reports/manifest_v2_test_20a.draft.json"
+    item_20a = [{
+        "record_type": "canonical_product",
+        "sku": "TEST_20A_SKU",
+        "component_skus": ["TEST_20A_SKU"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 59,
+        "human_reviewed": True,
+        "publish": False,
+        "conflict_status": "none",
+        "output_image": "reports/dining_batch7_draft_images/draft-2240.jpg",
+        "source_text_regions": [
+            {
+                "page": 59,
+                "verbatim_text": "TEST_20A_SKU text"
+            }
+        ],
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [470.0, 701.3, 583.5, 731.6],
+            "exact_row_text": "TEST_20A_SKU Table $75.00",
+            "component_skus": ["TEST_20A_SKU"],
+            "resolved_price": "$75.00",
+            "price": "$75.00"
+        }
+    }]
+    with open(test_mf_20a, "w", encoding="utf-8") as f:
+        json.dump(item_20a, f, indent=2)
+    try:
+        passed_20a, errors_20a, _ = validate_manifests(manifest_files_override=[test_mf_20a])
+    finally:
+        if os.path.exists(test_mf_20a):
+            os.remove(test_mf_20a)
+    assert not passed_20a, "Negative Test 20A Failed: Missing output_image_sha256 was NOT caught!"
+    err_20a = [e for e in errors_20a if "MISSING OUTPUT IMAGE SHA256" in e]
+    assert len(err_20a) > 0, f"Expected MISSING OUTPUT IMAGE SHA256 error, got: {errors_20a}"
+    print(f"  - Neg Test 20A (Missing Output Image SHA256): Caught expected error: '{err_20a[0]}' [PASS]")
+
+    # Neg Test 20B: Non-existent output_image -> MUST FAIL
+    test_mf_20b = "reports/manifest_v2_test_20b.draft.json"
+    item_20b = [{
+        "record_type": "canonical_product",
+        "sku": "TEST_20B_SKU",
+        "component_skus": ["TEST_20B_SKU"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 59,
+        "human_reviewed": True,
+        "publish": False,
+        "conflict_status": "none",
+        "output_image": "reports/dining_batch7_draft_images/nonexistent_image_xyz.jpg",
+        "output_image_sha256": "0" * 64,
+        "source_text_regions": [
+            {
+                "page": 59,
+                "verbatim_text": "TEST_20B_SKU text"
+            }
+        ],
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [470.0, 701.3, 583.5, 731.6],
+            "exact_row_text": "TEST_20B_SKU Table $75.00",
+            "component_skus": ["TEST_20B_SKU"],
+            "resolved_price": "$75.00",
+            "price": "$75.00"
+        }
+    }]
+    with open(test_mf_20b, "w", encoding="utf-8") as f:
+        json.dump(item_20b, f, indent=2)
+    try:
+        passed_20b, errors_20b, _ = validate_manifests(manifest_files_override=[test_mf_20b])
+    finally:
+        if os.path.exists(test_mf_20b):
+            os.remove(test_mf_20b)
+    assert not passed_20b, "Negative Test 20B Failed: Non-existent output image was NOT caught!"
+    err_20b = [e for e in errors_20b if "OUTPUT IMAGE NOT FOUND" in e]
+    assert len(err_20b) > 0, f"Expected OUTPUT IMAGE NOT FOUND error, got: {errors_20b}"
+    print(f"  - Neg Test 20B (Non-Existent Output Image): Caught expected error: '{err_20b[0]}' [PASS]")
+
     # Neg Test 21: price_unit_status=verified without verbatim unit evidence -> MUST FAIL
     test_mf_unit = "reports/manifest_v2_test_unit.draft.json"
     unit_item = [{
@@ -1013,6 +1113,94 @@ def run_twenty_one_negative_tests():
     unit_err = [e for e in errors_21 if "UNGROUNDED PRICE UNIT STATUS" in e]
     assert len(unit_err) > 0, f"Expected UNGROUNDED PRICE UNIT STATUS error, got: {errors_21}"
     print(f"  - Neg Test 21 (Ungrounded Verified Price Unit): Caught expected error: '{unit_err[0]}' [PASS]")
+
+    # Neg Test 22: Global hash coverage incomplete -> MUST FAIL
+    test_mf_22 = "reports/manifest_v2_test_22.draft.json"
+    item_22 = [
+        {
+            "record_type": "canonical_product",
+            "sku": "TEST_22_SKU1",
+            "component_skus": ["TEST_22_SKU1"],
+            "source_catalog": "PJ 2026",
+            "source_pdf_sha256": EXPECTED_SHA256,
+            "pdf_physical_page": 59,
+            "human_reviewed": True,
+            "publish": False,
+            "conflict_status": "none",
+            "output_image": "reports/dining_batch7_draft_images/draft-2240.jpg",
+            "output_image_sha256": "b8749cd0f614a1dcca879b359fb80c370725479f6df4eb315625c5408e10a22f",
+            "source_text_regions": [{"page": 59, "verbatim_text": "TEST_22_SKU1 text"}],
+            "price_evidence": {"price_list_page": 7, "price_row_bbox": [470.0, 701.3, 583.5, 731.6], "exact_row_text": "TEST_22_SKU1 Table $75.00", "component_skus": ["TEST_22_SKU1"], "resolved_price": "$75.00", "price": "$75.00"}
+        },
+        {
+            "record_type": "canonical_product",
+            "sku": "TEST_22_SKU2",
+            "component_skus": ["TEST_22_SKU2"],
+            "source_catalog": "PJ 2026",
+            "source_pdf_sha256": EXPECTED_SHA256,
+            "pdf_physical_page": 59,
+            "human_reviewed": True,
+            "publish": False,
+            "conflict_status": "none",
+            "output_image": "reports/dining_batch7_draft_images/draft-2250.jpg",
+            "source_text_regions": [{"page": 59, "verbatim_text": "TEST_22_SKU2 text"}],
+            "price_evidence": {"price_list_page": 7, "price_row_bbox": [470.0, 701.3, 583.5, 731.6], "exact_row_text": "TEST_22_SKU2 Table $75.00", "component_skus": ["TEST_22_SKU2"], "resolved_price": "$75.00", "price": "$75.00"}
+        }
+    ]
+    with open(test_mf_22, "w", encoding="utf-8") as f:
+        json.dump(item_22, f, indent=2)
+    try:
+        passed_22, errors_22, _ = validate_manifests(manifest_files_override=[test_mf_22])
+    finally:
+        if os.path.exists(test_mf_22):
+            os.remove(test_mf_22)
+    assert not passed_22, "Negative Test 22 Failed: Incomplete global hash coverage was NOT caught!"
+    err_22 = [e for e in errors_22 if "GLOBAL HASH COVERAGE INCOMPLETE" in e or "MISSING OUTPUT IMAGE SHA256" in e]
+    assert len(err_22) > 0, f"Expected coverage error, got: {errors_22}"
+    print(f"  - Neg Test 22 (Incomplete Global Hash Coverage): Caught expected error: '{err_22[0]}' [PASS]")
+
+    # Neg Test 23: Price unit verified but verbatim text not found in source -> MUST FAIL
+    test_mf_23 = "reports/manifest_v2_test_23.draft.json"
+    item_23 = [{
+        "record_type": "canonical_product",
+        "sku": "TEST_23_SKU",
+        "component_skus": ["TEST_23_SKU"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 59,
+        "human_reviewed": True,
+        "publish": False,
+        "conflict_status": "none",
+        "price_unit_status": "verified",
+        "source_text_regions": [
+            {
+                "page": 59,
+                "verbatim_text": "TEST_23_SKU Table 47\"W x 28\"D"
+            }
+        ],
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [470.0, 701.3, 583.5, 731.6],
+            "exact_row_text": "TEST_23_SKU Table $75.00",
+            "component_skus": ["TEST_23_SKU"],
+            "resolved_price": "$75.00",
+            "price": "$75.00",
+            "verbatim_unit_text": "NONEXISTENT_UNIT_EACH_BOX_999",
+            "unit_source_page": 7,
+            "unit_bbox": [470.0, 701.3, 583.5, 731.6]
+        }
+    }]
+    with open(test_mf_23, "w", encoding="utf-8") as f:
+        json.dump(item_23, f, indent=2)
+    try:
+        passed_23, errors_23, _ = validate_manifests(manifest_files_override=[test_mf_23])
+    finally:
+        if os.path.exists(test_mf_23):
+            os.remove(test_mf_23)
+    assert not passed_23, "Negative Test 23 Failed: Price unit verbatim text not in source was NOT caught!"
+    err_23 = [e for e in errors_23 if "PRICE UNIT VERBATIM TEXT NOT IN SOURCE" in e]
+    assert len(err_23) > 0, f"Expected PRICE UNIT VERBATIM TEXT NOT IN SOURCE error, got: {errors_23}"
+    print(f"  - Neg Test 23 (Price Unit Verbatim Text Not In Source): Caught expected error: '{err_23[0]}' [PASS]")
 
 OFFICE_19_PJ_SKUS = [
     "2715", "2716", "4500TAUPE", "4500CA", "2704WH", "2704BK",
@@ -1144,7 +1332,7 @@ def main():
     check_manifests_source_fields()
     check_live_scope_protection()
     check_office_baseline_protection()
-    run_twenty_one_negative_tests()
+    run_twenty_five_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
@@ -1158,7 +1346,7 @@ def main():
     print("  Out-of-bounds regions: 0")
     print("  Evidence-only images referenced by production HTML: 0")
     print("  Unapproved production page changes: 0")
-    print("  Negative test suite assertions passed: 21/21")
+    print("  Negative test suite assertions passed: 25/25")
     print("=" * 70)
     print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)

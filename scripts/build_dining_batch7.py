@@ -940,6 +940,30 @@ def build_manifest():
         }
     ]
     
+    # Dynamically compute live disk hashes and PDF XObject hashes
+    doc = fitz.open(PDF_PATH)
+    for item in manifest:
+        if item.get("record_type") == "occurrence_reference":
+            continue
+        out_img = item.get("output_image") or item.get("target_crop_image")
+        if out_img and os.path.exists(out_img):
+            with open(out_img, "rb") as f:
+                disk_sha = hashlib.sha256(f.read()).hexdigest()
+            item["output_image_sha256"] = disk_sha
+            item["image_sha256"] = disk_sha
+            
+            xref = item.get("image_xref")
+            if xref:
+                try:
+                    img_dict = doc.extract_image(xref)
+                    if img_dict and "image" in img_dict:
+                        item["source_image_sha256"] = hashlib.sha256(img_dict["image"]).hexdigest()
+                except Exception:
+                    pass
+        item["price_unit_status"] = "unresolved"
+        if "price_evidence" in item and item["price_evidence"]:
+            item["price_evidence"]["unit_text"] = None
+
     out_path = "reports/manifest_v2_dining_batch7.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)

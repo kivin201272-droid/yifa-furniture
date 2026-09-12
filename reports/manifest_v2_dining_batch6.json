@@ -65,7 +65,7 @@
     "resolved_dimensions": null,
     "raw_pack_text": "",
     "raw_price_text": "$399.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -83,7 +83,7 @@
       ],
       "resolved_price": "$399.00",
       "price": "$399.00",
-      "unit_text": "1 complete table (table base + glass top)"
+      "unit_text": null
     },
     "conflicting_source_tokens": [
       {
@@ -132,7 +132,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products, and exhibits an unresolved frame finish specification conflict (CHROME on D107 vs GOLD on D108).",
     "candidate_title_zh": "3007T/3007WH 45英寸圆形白玻璃餐桌 (暂停发布 - 规格冲突)",
-    "candidate_title_en": "3007T/3007WH 45\" Round White Glass Dining Table (PAUSED - UNRESOLVED CONFLICT)"
+    "candidate_title_en": "3007T/3007WH 45\" Round White Glass Dining Table (PAUSED - UNRESOLVED CONFLICT)",
+    "source_image_sha256": "e5623f42c0546004cf5639e1095f40bdf0d4c13bf64e594392cadf1b05e88483",
+    "output_image_sha256": "e5623f42c0546004cf5639e1095f40bdf0d4c13bf64e594392cadf1b05e88483"
   },
   {
     "record_type": "canonical_product",
@@ -180,7 +182,7 @@
     "resolved_dimensions": "20\"W x 27\"D x 41\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$99.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -197,7 +199,7 @@
       ],
       "resolved_price": "$99.00",
       "price": "$99.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch6_draft_images/draft-3007t-3007wh.jpg",
     "image_xref": 1338,
@@ -254,7 +256,9 @@
         "token": "1403WH-GOLD",
         "source_role": "price list SKU"
       }
-    ]
+    ],
+    "source_image_sha256": "e5623f42c0546004cf5639e1095f40bdf0d4c13bf64e594392cadf1b05e88483",
+    "output_image_sha256": "e5623f42c0546004cf5639e1095f40bdf0d4c13bf64e594392cadf1b05e88483"
   },
   {
     "record_type": "canonical_product",
@@ -303,7 +307,7 @@
     "resolved_dimensions": "DIA 45\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$349.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -321,7 +325,7 @@
       ],
       "resolved_price": "$349.00",
       "price": "$349.00",
-      "unit_text": "1 complete table (table base + glass top)"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch6_draft_images/draft-3008t-3007wh.jpg",
     "image_xref": 1342,
@@ -353,7 +357,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3008T/3007WH 不锈钢金色腿45英寸圆形白玻璃餐桌",
-    "candidate_title_en": "3008T/3007WH 45\" Round White Glass Dining Table with Stainless Gold Frame, Legs"
+    "candidate_title_en": "3008T/3007WH 45\" Round White Glass Dining Table with Stainless Gold Frame, Legs",
+    "source_image_sha256": "a72441eee262bc6d25e5d9be97f430c6e48af33a9f0aeecac551c69ff4d4c2c7",
+    "output_image_sha256": "a72441eee262bc6d25e5d9be97f430c6e48af33a9f0aeecac551c69ff4d4c2c7"
   },
   {
     "record_type": "canonical_product",
@@ -401,7 +407,7 @@
     "resolved_dimensions": "20\"W x 27\"D x 41\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$99.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -418,7 +424,7 @@
       ],
       "resolved_price": "$99.00",
       "price": "$99.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch6_draft_images/draft-1401bk.jpg",
     "image_xref": 1340,
@@ -450,7 +456,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "1401BK 不锈钢金色黑色餐椅",
-    "candidate_title_en": "1401BK Stainless Gold Black Dining Chair"
+    "candidate_title_en": "1401BK Stainless Gold Black Dining Chair",
+    "source_image_sha256": "b895b6c8ead25d7a1dc860c1f5132ed2ea23a70d83a87cf95f38271a0506708f",
+    "output_image_sha256": "b895b6c8ead25d7a1dc860c1f5132ed2ea23a70d83a87cf95f38271a0506708f"
   },
   {
     "record_type": "canonical_product",
@@ -535,7 +543,7 @@
     "resolved_dimensions": "60\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$149.00",
-    "price_unit_status": "verified_table",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -552,7 +560,7 @@
       ],
       "resolved_price": "$149.00",
       "price": "$149.00",
-      "unit_text": "1 complete table"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch6_draft_images/draft-3102t.jpg",
     "image_xref": 1358,
@@ -586,7 +594,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3102T 60英寸玻璃餐桌",
-    "candidate_title_en": "3102T 60\" Glass Dining Table"
+    "candidate_title_en": "3102T 60\" Glass Dining Table",
+    "source_image_sha256": "177e23cb8515e3eb006380b54f8a92106e24b4b12488f89e47cd6dbf778bf29b",
+    "output_image_sha256": "177e23cb8515e3eb006380b54f8a92106e24b4b12488f89e47cd6dbf778bf29b"
   },
   {
     "record_type": "canonical_product",
@@ -634,7 +644,7 @@
     "resolved_dimensions": "18\"W x 20\"D x 42\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$79.00",
-    "price_unit_status": "unverified",
+    "price_unit_status": "unresolved",
     "price_evidence": {
       "price_list_page": 7,
       "price_row_bbox": [
@@ -651,7 +661,7 @@
       ],
       "resolved_price": "$79.00",
       "price": "$79.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $79.00 without unit"
+      "unit_text": null
     },
     "output_image": "reports/dining_batch6_draft_images/draft-2680bk-chrome.jpg",
     "image_xref": 1375,
@@ -683,7 +693,9 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2680BK-CHROME 铬色框架黑色餐椅",
-    "candidate_title_en": "2680BK-CHROME Chrome Frame Black Dining Chair"
+    "candidate_title_en": "2680BK-CHROME Chrome Frame Black Dining Chair",
+    "source_image_sha256": "ade9ec522d0eae18ad61c83294652ee8b31a73f30bb65c23b579a7d6973aad11",
+    "output_image_sha256": "ade9ec522d0eae18ad61c83294652ee8b31a73f30bb65c23b579a7d6973aad11"
   },
   {
     "record_type": "occurrence_reference",

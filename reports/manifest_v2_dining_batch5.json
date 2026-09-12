@@ -100,8 +100,9 @@
       ],
       "resolved_price": "$349.00",
       "price": "$349.00",
-      "unit_text": "1 complete table"
-    }
+      "unit_text": null
+    },
+    "price_unit_status": "unresolved"
   },
   {
     "record_type": "canonical_product",
@@ -203,8 +204,9 @@
       ],
       "resolved_price": "$149.00",
       "price": "$149.00",
-      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $149.00 without unit"
-    }
+      "unit_text": null
+    },
+    "price_unit_status": "unresolved"
   },
   {
     "record_type": "canonical_product",
@@ -295,8 +297,9 @@
       ],
       "resolved_price": "$399.00",
       "price": "$399.00",
-      "unit_text": "1 complete table"
-    }
+      "unit_text": null
+    },
+    "price_unit_status": "unresolved"
   },
   {
     "record_type": "occurrence_reference",

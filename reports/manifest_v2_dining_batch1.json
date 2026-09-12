@@ -14,7 +14,9 @@
     "source_is_lifestyle_scene": true,
     "standalone_crop_possible": false,
     "primary_product": "4160 dining table",
-    "shared_products_in_scene": ["4110GREEN"],
+    "shared_products_in_scene": [
+      "4110GREEN"
+    ],
     "requires_disclaimer": true,
     "output_image": "assets/images/pj_dining/pj-4160.jpg",
     "ai_visual_reviewed": true,
@@ -24,7 +26,10 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products (4110GREEN chairs); it cannot satisfy the one-SKU-one-product image rule.",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "output_image_sha256": "dbd853bd32d5fbed82c5eaf03a04931fc8a8d5d174954745eaf2f976ee96da51",
+    "image_sha256": "dbd853bd32d5fbed82c5eaf03a04931fc8a8d5d174954745eaf2f976ee96da51",
+    "price_unit_status": "unresolved"
   },
   {
     "sku": "4130",
@@ -41,7 +46,9 @@
     "source_is_lifestyle_scene": true,
     "standalone_crop_possible": false,
     "primary_product": "4130 dining table",
-    "shared_products_in_scene": ["4110IVY"],
+    "shared_products_in_scene": [
+      "4110IVY"
+    ],
     "requires_disclaimer": true,
     "output_image": "assets/images/pj_dining/pj-4130.jpg",
     "ai_visual_reviewed": true,
@@ -51,7 +58,10 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products (4110IVY chairs); it cannot satisfy the one-SKU-one-product image rule.",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "output_image_sha256": "9798c5e3ca05f2ddd4aed379bbc773dd1e10c4193f08fc333ff40753cec4c855",
+    "image_sha256": "9798c5e3ca05f2ddd4aed379bbc773dd1e10c4193f08fc333ff40753cec4c855",
+    "price_unit_status": "unresolved"
   },
   {
     "sku": "4110GREEN",
@@ -68,7 +78,9 @@
     "source_is_lifestyle_scene": true,
     "standalone_crop_possible": false,
     "primary_product": "4110GREEN dining chair",
-    "shared_products_in_scene": ["4160"],
+    "shared_products_in_scene": [
+      "4160"
+    ],
     "requires_disclaimer": true,
     "output_image": "assets/images/pj_dining/pj-4110green.jpg",
     "ai_visual_reviewed": true,
@@ -78,7 +90,10 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products (4160 dining table); it cannot satisfy the one-SKU-one-product image rule.",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "output_image_sha256": "3b135576c992417fb96703fbacde5dee29d1cbbb8fcd3071d283d90a435f47e6",
+    "image_sha256": "3b135576c992417fb96703fbacde5dee29d1cbbb8fcd3071d283d90a435f47e6",
+    "price_unit_status": "unresolved"
   },
   {
     "sku": "4110IVY",
@@ -95,7 +110,9 @@
     "source_is_lifestyle_scene": true,
     "standalone_crop_possible": false,
     "primary_product": "4110IVY dining chair",
-    "shared_products_in_scene": ["4130"],
+    "shared_products_in_scene": [
+      "4130"
+    ],
     "requires_disclaimer": true,
     "output_image": "assets/images/pj_dining/pj-4110ivy.jpg",
     "ai_visual_reviewed": true,
@@ -105,7 +122,10 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products (4130 dining table); it cannot satisfy the one-SKU-one-product image rule.",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "output_image_sha256": "108fafcf4a5640cab126f2418e2dfa0d21e7a6e3960918b3c28d794581387162",
+    "image_sha256": "108fafcf4a5640cab126f2418e2dfa0d21e7a6e3960918b3c28d794581387162",
+    "price_unit_status": "unresolved"
   },
   {
     "sku": "4110GRAY",
@@ -122,7 +142,9 @@
     "source_is_lifestyle_scene": true,
     "standalone_crop_possible": false,
     "primary_product": "4110GRAY dining chair",
-    "shared_products_in_scene": ["4160"],
+    "shared_products_in_scene": [
+      "4160"
+    ],
     "requires_disclaimer": true,
     "output_image": "assets/images/pj_dining/pj-4110gray.jpg",
     "ai_visual_reviewed": true,
@@ -132,6 +154,9 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products (4160 dining table); it cannot satisfy the one-SKU-one-product image rule.",
     "source_catalog": "PJ 2026",
-    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "output_image_sha256": "964150009db01e030d718e879b0c242f5c7775a747cc085810a8593f67a6dee3",
+    "image_sha256": "964150009db01e030d718e879b0c242f5c7775a747cc085810a8593f67a6dee3",
+    "price_unit_status": "unresolved"
   }
 ]
