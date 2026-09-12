@@ -142,31 +142,41 @@
 .sofa-thumbnails {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 16px 24px 8px 24px;
-  background: #fff;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #fafaf9;
   border-bottom: 1px solid #f0eee9;
 }
 
 .sofa-thumb {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  border: 1px solid var(--line);
-  border-radius: 4px;
+  width: 54px !important;
+  height: 54px !important;
+  min-width: 54px !important;
+  min-height: 54px !important;
+  max-width: 54px !important;
+  max-height: 54px !important;
+  object-fit: cover !important;
+  border: 1.5px solid var(--line, #e7e3da) !important;
+  border-radius: 4px !important;
   cursor: pointer;
-  transition: border-color 0.2s, opacity 0.2s;
-  background: #faf9f6;
+  transition: border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+  background: #ffffff;
   image-rendering: -webkit-optimize-contrast;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .sofa-thumb:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+  transform: scale(1.05);
+  border-color: var(--accent, #9c7c4a) !important;
 }
 
 .sofa-thumb.active {
-  border-color: var(--accent);
-  outline: 1px solid var(--accent);
+  border-color: #e63946 !important;
+  outline: 2px solid #e63946 !important;
+  outline-offset: 1px;
 }
 
 .sofa-info {
