@@ -67,12 +67,21 @@
     "raw_price_text": "$399.00",
     "price_unit_status": "verified_table",
     "price_evidence": {
-      "price_list_page": 6,
-      "exact_row_text": "3007T/3007WH Dining Table with White Glass Top $399.00",
+      "price_list_page": 7,
+      "price_row_bbox": [
+        183.6,
+        691.5,
+        286.8,
+        731.6
+      ],
+      "exact_row_text": "3007T/ 3007WH Dining Table with White Glass Top $399.00",
+      "previous_row_text": "Page 107",
+      "next_row_text": "1403WH-GOLD Dinning Chair $99.00",
       "component_skus": [
         "3007T",
         "3007WH"
       ],
+      "resolved_price": "$399.00",
       "price": "$399.00",
       "unit_text": "1 complete table (table base + glass top)"
     },
@@ -133,7 +142,7 @@
       "1403WH"
     ],
     "product_identity": "dining chair",
-    "components_verified": true,
+    "components_verified": false,
     "pdf_physical_page": 56,
     "first_seen": {
       "physical_page": 56,
@@ -165,19 +174,28 @@
       }
     ],
     "raw_heading_text": "3007T/3007WH/1403WH",
-    "raw_model_text": "1403WH",
-    "raw_color_text": "STAINLESS GOLD / WHITE",
+    "raw_model_text": null,
+    "raw_color_text": null,
     "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
     "resolved_dimensions": "20\"W x 27\"D x 41\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$99.00",
     "price_unit_status": "unverified",
     "price_evidence": {
-      "price_list_page": 6,
+      "price_list_page": 7,
+      "price_row_bbox": [
+        184.6,
+        729.4,
+        286.0,
+        756.2
+      ],
       "exact_row_text": "1403WH-GOLD Dinning Chair $99.00",
+      "previous_row_text": "3007T/ 3007WH Dining Table with White Glass Top $399.00",
+      "next_row_text": "3008T/3007WH Dining Table with 12mm White Glass Top $349.00",
       "component_skus": [
         "1403WH-GOLD"
       ],
+      "resolved_price": "$99.00",
       "price": "$99.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
     },
@@ -202,16 +220,41 @@
     "interpretation_notes": "Price list lists model as 1403WH-GOLD $99.00 without specifying unit. Marked price_unit_status: unverified and publish: false.",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
-    "source_verified": true,
+    "source_verified": false,
     "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": [
-      "NO_CLEAN_STANDALONE_IMAGE"
+      "NO_CLEAN_STANDALONE_IMAGE",
+      "UNRESOLVED_SOURCE_MODEL_CONFLICT"
     ],
-    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
-    "candidate_title_zh": "1403WH 不锈钢金色白色餐椅",
-    "candidate_title_en": "1403WH Stainless Gold White Dining Chair"
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products, and exhibits an unresolved source model suffix conflict (PDF 1403WH vs price list 1403WH-GOLD).",
+    "candidate_title_zh": "1403WH 不锈钢金色白色餐椅 (暂停发布 - 型号冲突)",
+    "candidate_title_en": "1403WH Stainless Gold White Dining Chair (PAUSED - UNRESOLVED CONFLICT)",
+    "resolved_model": null,
+    "resolved_color": null,
+    "conflict_status": "unresolved",
+    "resolution_status": "unresolved",
+    "specification_status": "conflicting",
+    "conflict_notes": "Source model suffix conflict: PDF heading and body print '1403WH' while official price list prints '1403WH-GOLD'. Material description 'STAINLESS GOLD' cannot be assumed as SKU suffix without manufacturer confirmation.",
+    "conflicting_source_tokens": [
+      {
+        "token": "1403WH",
+        "source_role": "PDF heading",
+        "physical_page": 56,
+        "print_page": "DINETTE 107"
+      },
+      {
+        "token": "1403WH",
+        "source_role": "PDF body",
+        "physical_page": 56,
+        "print_page": "DINETTE 107"
+      },
+      {
+        "token": "1403WH-GOLD",
+        "source_role": "price list SKU"
+      }
+    ]
   },
   {
     "record_type": "canonical_product",
@@ -262,12 +305,21 @@
     "raw_price_text": "$349.00",
     "price_unit_status": "verified_table",
     "price_evidence": {
-      "price_list_page": 6,
-      "exact_row_text": "3008T/3007WH Dining Table with $349.00 12mm White Glass Top",
+      "price_list_page": 7,
+      "price_row_bbox": [
+        183.1,
+        754.3,
+        286.0,
+        779.6
+      ],
+      "exact_row_text": "3008T/3007WH Dining Table with 12mm White Glass Top $349.00",
+      "previous_row_text": "1403WH-GOLD Dinning Chair $99.00",
+      "next_row_text": "1200GRAY Dinning Chair $89.00",
       "component_skus": [
         "3008T",
         "3007WH"
       ],
+      "resolved_price": "$349.00",
       "price": "$349.00",
       "unit_text": "1 complete table (table base + glass top)"
     },
@@ -351,11 +403,20 @@
     "raw_price_text": "$99.00",
     "price_unit_status": "unverified",
     "price_evidence": {
-      "price_list_page": 6,
+      "price_list_page": 7,
+      "price_row_bbox": [
+        470.5,
+        110.0,
+        577.1,
+        140.7
+      ],
       "exact_row_text": "1401BK Dinning Chair $99.00",
+      "previous_row_text": "3007T/3007WH Dining Table with White Glass Top $399.00",
+      "next_row_text": "Page 109",
       "component_skus": [
         "1401BK"
       ],
+      "resolved_price": "$99.00",
       "price": "$99.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
     },
@@ -476,11 +537,20 @@
     "raw_price_text": "$149.00",
     "price_unit_status": "verified_table",
     "price_evidence": {
-      "price_list_page": 6,
+      "price_list_page": 7,
+      "price_row_bbox": [
+        469.4,
+        314.5,
+        584.0,
+        344.9
+      ],
       "exact_row_text": "3102T Glass Dining Table $149.00",
+      "previous_row_text": "Page 110",
+      "next_row_text": "2680GRAY-CHROME Chair (Weled) $79.00",
       "component_skus": [
         "3102T"
       ],
+      "resolved_price": "$149.00",
       "price": "$149.00",
       "unit_text": "1 complete table"
     },
@@ -566,11 +636,20 @@
     "raw_price_text": "$79.00",
     "price_unit_status": "unverified",
     "price_evidence": {
-      "price_list_page": 6,
+      "price_list_page": 7,
+      "price_row_bbox": [
+        469.6,
+        476.4,
+        583.2,
+        509.0
+      ],
       "exact_row_text": "2680BK-CHROME Chair (Weled) $79.00",
+      "previous_row_text": "3102T Glass Dining Table $149.00",
+      "next_row_text": "2800WH-GOLD Chair (Weled) $40.00",
       "component_skus": [
         "2680BK-CHROME"
       ],
+      "resolved_price": "$79.00",
       "price": "$79.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $79.00 without unit"
     },
@@ -677,7 +756,26 @@
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "human_reviewed": true,
-    "publish": false
+    "publish": false,
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        183.6,
+        565.0,
+        288.3,
+        618.6
+      ],
+      "exact_row_text": "3008T/3008GRAY Dining Table with 22mm Gray Marble Top $399.00",
+      "previous_row_text": "Page 106",
+      "next_row_text": "1500GRAY-CHROME Dinning Chair $89.00",
+      "component_skus": [
+        "3008T",
+        "3008GRAY"
+      ],
+      "resolved_price": "$399.00",
+      "price": "$399.00",
+      "unit_text": "1 complete table"
+    }
   },
   {
     "record_type": "occurrence_reference",

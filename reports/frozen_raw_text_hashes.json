@@ -1,0 +1,14 @@
+{
+  "reports/raw_pdf_text_p56.txt": {
+    "sha256": "8c01c04369305f73ed4194c7f8e8951d203bf44850f37c7985bcca0da58f4a82",
+    "byte_size": 3032
+  },
+  "reports/raw_pdf_text_p57.txt": {
+    "sha256": "cf4fb9b9a325b7cf84dbe47dac307a9bd1d0ffdfa450faa03b39b8e74169db83",
+    "byte_size": 1682
+  },
+  "reports/raw_pdf_text_p58.txt": {
+    "sha256": "1b6dcfd1592e337985f8333d09fb380bd484569e7b39507f96daf697e168235f",
+    "byte_size": 1672
+  }
+}

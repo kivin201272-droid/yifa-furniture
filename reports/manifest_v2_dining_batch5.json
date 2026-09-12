@@ -36,7 +36,7 @@
       "3000T/3002BK (Table)",
       "1500GRAY-CHROME (4 Chairs)"
     ],
-    "price": "349.00",
+    "price": "$349.00",
     "price_source": "素材库/价钱/price list2026 (5_22).pdf P6 (Line 871: 3000T/3002BK Dining Table with Black GlassTop $349.00)",
     "exact_price_row_text": "3000T/3002BK Dining Table with Black GlassTop $349.00",
     "conflict_status": "none",
@@ -82,7 +82,26 @@
         ],
         "scene_chairs": "1001BK"
       }
-    ]
+    ],
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        182.2,
+        437.1,
+        288.1,
+        467.2
+      ],
+      "exact_row_text": "3000T/3002BK Dining Table with Black Glass Top $349.00",
+      "previous_row_text": "Page 105",
+      "next_row_text": "1001BK Dinning Chair $149.00",
+      "component_skus": [
+        "3000T",
+        "3002BK"
+      ],
+      "resolved_price": "$349.00",
+      "price": "$349.00",
+      "unit_text": "1 complete table"
+    }
   },
   {
     "record_type": "canonical_product",
@@ -121,7 +140,7 @@
       "3000T/3000GRAY (Table)",
       "1001BK (4 Chairs)"
     ],
-    "price": "149.00",
+    "price": "$149.00",
     "price_source": "素材库/价钱/price list2026 (5_22).pdf P7 (Line 900: 1001BK Dinning Chair $149.00)",
     "exact_price_row_text": "1001BK Dinning Chair $149.00",
     "conflict_status": "none",
@@ -167,7 +186,25 @@
         ],
         "scene_table": "3000T/3002BK"
       }
-    ]
+    ],
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        182.8,
+        483.6,
+        287.9,
+        511.2
+      ],
+      "exact_row_text": "1001BK Dinning Chair $149.00",
+      "previous_row_text": "3000T/3002BK Dining Table with Black Glass Top $349.00",
+      "next_row_text": "Page 106",
+      "component_skus": [
+        "1001BK"
+      ],
+      "resolved_price": "$149.00",
+      "price": "$149.00",
+      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $149.00 without unit"
+    }
   },
   {
     "record_type": "canonical_product",
@@ -206,7 +243,7 @@
       "3008T/3008GRAY (Round Table)",
       "1500GRAY-CHROME (4 Chairs)"
     ],
-    "price": "399.00",
+    "price": "$399.00",
     "price_source": "素材库/价钱/price list2026 (5_22).pdf P7 (Line 905: 3008T/3008GRAY Dining Table with Gray Marble Top $399.00)",
     "exact_price_row_text": "3008T/3008GRAY Dining Table with 22mm Gray Marble Top $399.00",
     "conflict_status": "unresolved",
@@ -240,7 +277,26 @@
       55,
       57
     ],
-    "conflict_notes": "Specification conflict: DINETTE 106 prints STAINLESS CHROME FRAME, LEGS while DINETTE 109 prints STAINLESS GOLD FRAME,LEGS. Unresolved without manufacturer clarification."
+    "conflict_notes": "Specification conflict: DINETTE 106 prints STAINLESS CHROME FRAME, LEGS while DINETTE 109 prints STAINLESS GOLD FRAME,LEGS. Unresolved without manufacturer clarification.",
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        183.6,
+        565.0,
+        288.3,
+        618.6
+      ],
+      "exact_row_text": "3008T/3008GRAY Dining Table with 22mm Gray Marble Top $399.00",
+      "previous_row_text": "Page 106",
+      "next_row_text": "1500GRAY-CHROME Dinning Chair $89.00",
+      "component_skus": [
+        "3008T",
+        "3008GRAY"
+      ],
+      "resolved_price": "$399.00",
+      "price": "$399.00",
+      "unit_text": "1 complete table"
+    }
   },
   {
     "record_type": "occurrence_reference",

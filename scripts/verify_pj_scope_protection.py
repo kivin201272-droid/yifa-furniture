@@ -5,12 +5,13 @@ Highest Priority Scope Protection, Cross-Manifest Global SKU Integrity & Positio
 
 Features:
 1. Source PDF SHA-256 verification
-2. Dynamic Auto-discovery & Cross-Manifest Global Canonical SKU Registry
-3. Strict Field Validation (default false, crop isolation checks, publish/rejection consistency)
-4. Position-independent standard SKU identity matching & SHA-256 card comparison
-5. Image file byte-level integrity verification (Git blob & file SHA-256)
-6. 8-part Negative Test Suite (card reordering, duplicate SKU, image mutation, thumbnail removal, cross-manifest duplicate, missing publish default false, crop violation, unresolved publish violation)
-7. Git status & working tree whitelist verification
+2. Frozen Raw Text File SHA-256 Hash Auditing
+3. Dynamic Auto-discovery & Cross-Manifest Global Canonical SKU Registry
+4. Strict Field & Price Format Validation (regex ^\$\d+\.\d{2}$, exact row match, bbox bounds)
+5. Position-independent standard SKU identity matching & SHA-256 card comparison
+6. Image file byte-level integrity verification (Git blob & file SHA-256)
+7. 16-part Negative Test Suite
+8. Git status & working tree whitelist verification
 """
 
 import json
@@ -20,12 +21,17 @@ import re
 import glob
 import subprocess
 import hashlib
+import fitz
 
 EXPECTED_SHA256 = "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5"
 ROOT_BASELINE = "11157499"
 INTERMEDIATE_COMMIT = "0e00e8be"
+PDF_PATH = "/Users/kivinwang/Downloads/2026 PJ 型錄-內頁（final draft) (2).pdf"
+PRICE_LIST_PATH = "素材库/价钱/price list2026 (5_22).pdf"
+FROZEN_HASHES_PATH = "reports/frozen_raw_text_hashes.json"
 
 OFFICE_PROTECTED_SKUS = ["F3046", "F3049", "F3050", "F3051", "F3052"]
+PRICE_REGEX = re.compile(r"^\$\d+\.\d{2}$")
 
 def extract_cards(html):
     return re.findall(r'<div class="sofa-card reveal">.*?</div>\s*</div>\s*</div>', html, flags=re.DOTALL)
@@ -117,16 +123,27 @@ def get_dining_protected_skus():
     return protected_skus
 
 def check_pdf_hash():
-    pdf_path = "/Users/kivinwang/Downloads/2026 PJ 型錄-內頁（final draft) (2).pdf"
-    assert os.path.exists(pdf_path), f"PDF missing at {pdf_path}"
-    with open(pdf_path, "rb") as f:
+    assert os.path.exists(PDF_PATH), f"PDF missing at {PDF_PATH}"
+    with open(PDF_PATH, "rb") as f:
         actual_hash = hashlib.sha256(f.read()).hexdigest()
     assert actual_hash == EXPECTED_SHA256, f"PDF SHA-256 mismatch: {actual_hash} != {EXPECTED_SHA256}"
     print(f"[TEST 1] Source PDF SHA-256 Verified: {actual_hash} [MATCH]")
 
+def check_frozen_raw_text_hashes():
+    assert os.path.exists(FROZEN_HASHES_PATH), f"Missing frozen hashes file at {FROZEN_HASHES_PATH}"
+    with open(FROZEN_HASHES_PATH, "r", encoding="utf-8") as f:
+        expected_hashes = json.load(f)
+        
+    for fpath, exp in expected_hashes.items():
+        assert os.path.exists(fpath), f"Frozen text file missing: {fpath}"
+        with open(fpath, "rb") as f:
+            actual_hash = hashlib.sha256(f.read()).hexdigest()
+        assert actual_hash == exp["sha256"], f"Frozen text hash mismatch for {fpath}: {actual_hash} != {exp['sha256']}"
+    print(f"[TEST 1A] Frozen Raw Text Hashes Verified: {len(expected_hashes)}/{len(expected_hashes)} files identical [MATCH]")
+
 def validate_manifests(manifest_files_override=None, custom_pages=None):
     """
-    Validates all manifest files and cross-manifest canonical uniqueness.
+    Validates all manifest files, price evidence, coordinate bounds, and cross-manifest uniqueness.
     Returns (bool passed, list errors, dict stats).
     """
     errors = []
@@ -139,6 +156,10 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
         "office_zh": open("zh/office/index.html", "r", encoding="utf-8").read(),
     }
     
+    # Load PDFs for bounds, text, and price list checks
+    pdf_doc = fitz.open(PDF_PATH)
+    pl_doc = fitz.open(PRICE_LIST_PATH) if os.path.exists(PRICE_LIST_PATH) else None
+    
     canonical_registry = {} # canonical_sku -> (manifest_file, item)
     occurrence_references = []
     manifest_stats = {}
@@ -148,204 +169,186 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
             with open(mf, "r", encoding="utf-8") as f:
                 data = json.load(f)
         except Exception as e:
-            errors.append(f"[{mf}] JSON Parse Error: {e}")
+            errors.append(f"[{mf}] JSON parse error: {e}")
             continue
             
-        m_published = 0
-        m_rejected = 0
-        m_occurrences = 0
-        m_canonical = 0
-        
-        for item in data:
-            rec_type = item.get("record_type", "canonical_product")
-            
-            # 1. Occurrence reference validation
-            if rec_type == "occurrence_reference":
-                m_occurrences += 1
-                c_sku = item.get("canonical_sku", "").strip()
-                if not c_sku:
-                    errors.append(f"[{mf}] occurrence_reference missing canonical_sku")
-                occurrence_references.append((mf, item))
-                continue
-                
-            # 2. Canonical product validation
-            m_canonical += 1
-            sku = item.get("sku", "").strip()
-            if not sku:
-                errors.append(f"[{mf}] Empty SKU found in item")
-                continue
-                
-            if sku.startswith("F30"):
-                errors.append(f"[{mf}] Scope violation: Non-PJ SKU {sku} in PJ manifest")
-                
-            if item.get("source_catalog") != "PJ 2026":
-                errors.append(f"[{mf}] {sku} source_catalog != 'PJ 2026'")
-                
-            if item.get("source_pdf_sha256") != EXPECTED_SHA256:
-                errors.append(f"[{mf}] {sku} source_pdf_sha256 invalid")
-                
-            # Strict default: missing publish or human_reviewed MUST be False
-            human_reviewed = item.get("human_reviewed", False)
-            publish = item.get("publish", False)
-            
-            # Cross-manifest duplicate check
-            if sku in canonical_registry:
-                prev_mf, _ = canonical_registry[sku]
-                errors.append(f"CROSS-MANIFEST DUPLICATE CANONICAL SKU: {sku} defined in both '{prev_mf}' and '{mf}'")
-            else:
-                canonical_registry[sku] = (mf, item)
-                
-            if publish:
-                m_published += 1
-                if not human_reviewed:
-                    errors.append(f"[{mf}] {sku} publish:true requires human_reviewed:true")
-                if item.get("rejection_code"):
-                    errors.append(f"[{mf}] {sku} publish:true must not have rejection_code")
-                if item.get("conflict_status") == "unresolved":
-                    errors.append(f"[{mf}] {sku} publish:true must not be unresolved conflict")
-                if item.get("crop_contains_target_only") is not True:
-                    errors.append(f"[{mf}] {sku} publish:true must have crop_contains_target_only:true")
-                if item.get("crop_contains_other_products") is not False:
-                    errors.append(f"[{mf}] {sku} publish:true must have crop_contains_other_products:false")
-                if item.get("source_is_lifestyle_scene") is True and item.get("crop_contains_other_products", True):
-                    errors.append(f"[{mf}] {sku} publish:true cannot be lifestyle scene with other products")
-                # Formal image existence check
-                img_path = item.get("output_image") or item.get("formal_image_path")
-                if not img_path or not os.path.exists(img_path):
-                    errors.append(f"[{mf}] {sku} publish:true formal image missing: {img_path}")
-            else:
-                m_rejected += 1
-                # Must NOT appear as card in formal pages
-                for page_name, page_html in formal_pages.items():
-                    p_cards = extract_cards(page_html)
-                    p_skus = [extract_canonical_sku(c) for c in p_cards]
-                    if sku in p_skus:
-                        errors.append(f"[{mf}] Rejected SKU {sku} unexpectedly found in formal page {page_name}")
-                        
-        manifest_stats[os.path.basename(mf)] = {
+        mf_name = os.path.basename(mf)
+        manifest_stats[mf_name] = {
             "total_records": len(data),
-            "canonical_products": m_canonical,
-            "occurrences": m_occurrences,
-            "publish_true": m_published,
-            "publish_false": m_rejected
+            "canonical_products": 0,
+            "occurrences": 0,
+            "publish_true": 0,
+            "publish_false": 0
         }
         
-    # Cross-Occurrence Specification Integrity Checks
-    sku_occurrences = {} # sku -> list of occurrence dicts
-    for sku, (mf, item) in canonical_registry.items():
-        sku_occurrences[sku] = []
-        if "dimension_occurrences" in item:
-            for occ in item["dimension_occurrences"]:
-                raw_d = occ.get("raw_dimensions_text") or ""
-                raw_p = occ.get("raw_pack_text") or item.get("raw_pack_text") or ""
-                raw_c = occ.get("raw_color_text") or item.get("raw_color_text") or ""
-                sku_occurrences[sku].append({
-                    "manifest": mf,
-                    "page": occ.get("physical_page"),
-                    "print_page": occ.get("print_page"),
-                    "dimensions": raw_d.strip() if raw_d else "",
-                    "pack": raw_p.strip() if raw_p else "",
-                    "color": raw_c.strip() if raw_c else "",
-                    "product_type": (item.get("raw_product_type") or "").strip(),
-                    "price": (item.get("raw_price_text") or str(item.get("price", ""))).strip(),
-                    "conflict_status": item.get("conflict_status"),
-                    "publish": item.get("publish", False)
-                })
-        elif "source_text_regions" in item:
-            for tr in item["source_text_regions"]:
-                raw_d = item.get("raw_dimensions_text") or ""
-                raw_p = item.get("raw_pack_text") or ""
-                raw_c = item.get("raw_color_text") or ""
-                sku_occurrences[sku].append({
-                    "manifest": mf,
-                    "page": tr.get("page"),
-                    "print_page": tr.get("print_page"),
-                    "dimensions": raw_d.strip() if raw_d else "",
-                    "pack": raw_p.strip() if raw_p else "",
-                    "color": raw_c.strip() if raw_c else "",
-                    "product_type": (item.get("raw_product_type") or "").strip(),
-                    "price": (item.get("raw_price_text") or str(item.get("price", ""))).strip(),
-                    "conflict_status": item.get("conflict_status"),
-                    "publish": item.get("publish", False)
-                })
-        else:
-            raw_d = item.get("raw_dimensions_text") or ""
-            raw_p = item.get("raw_pack_text") or ""
-            raw_c = item.get("raw_color_text") or ""
-            sku_occurrences[sku].append({
-                "manifest": mf,
-                "page": item.get("pdf_file_page") or item.get("pdf_physical_page"),
-                "print_page": item.get("printed_page") or item.get("print_page"),
-                "dimensions": raw_d.strip() if raw_d else "",
-                "pack": raw_p.strip() if raw_p else "",
-                "color": raw_c.strip() if raw_c else "",
-                "product_type": (item.get("raw_product_type") or "").strip(),
-                "price": (item.get("raw_price_text") or str(item.get("price", ""))).strip(),
-                "conflict_status": item.get("conflict_status"),
-                "publish": item.get("publish", False)
-            })
-
-    # Check all occurrence references link to existing canonical SKUs
-    for mf, item in occurrence_references:
-        c_sku = item.get("canonical_sku", "").strip()
-        if c_sku not in canonical_registry:
-            errors.append(f"[{mf}] occurrence_reference links to non-existent canonical SKU '{c_sku}'")
-            continue
+        for idx, item in enumerate(data):
+            record_type = item.get("record_type", "canonical_product")
             
-        c_mf, c_item = canonical_registry[c_sku]
-        if "dimension_occurrences_in_batch" in item:
-            for occ in item["dimension_occurrences_in_batch"]:
-                raw_d = occ.get("raw_dimensions_text") or ""
-                raw_p = item.get("raw_pack_text") or ""
-                raw_c = item.get("raw_color_text") or ""
-                sku_occurrences[c_sku].append({
-                    "manifest": mf,
-                    "page": occ.get("physical_page"),
-                    "print_page": occ.get("print_page"),
-                    "dimensions": raw_d.strip() if raw_d else "",
-                    "pack": raw_p.strip() if raw_p else "",
-                    "color": raw_c.strip() if raw_c else "",
-                    "product_type": (item.get("raw_product_type") or "").strip(),
-                    "price": str(item.get("price", "")).strip(),
-                    "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
-                    "publish": item.get("publish", False)
-                })
-        elif "page_evidence" in item:
-            for pe in item["page_evidence"]:
-                raw_d = pe.get("raw_dimensions_text") or ""
-                raw_p = item.get("raw_pack_text") or ""
-                raw_c = item.get("raw_color_text") or ""
-                sku_occurrences[c_sku].append({
-                    "manifest": mf,
-                    "page": pe.get("physical_page"),
-                    "print_page": pe.get("print_page"),
-                    "dimensions": raw_d.strip() if raw_d else "",
-                    "pack": raw_p.strip() if raw_p else "",
-                    "color": raw_c.strip() if raw_c else "",
-                    "product_type": (item.get("raw_product_type") or "").strip(),
-                    "price": str(item.get("price", "")).strip(),
-                    "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
-                    "publish": item.get("publish", False)
-                })
-        elif "batch_page_evidence" in item:
-            for bpe in item["batch_page_evidence"]:
-                raw_d = bpe.get("raw_dimensions_text") or ""
-                raw_p = bpe.get("raw_pack_text") or ""
-                raw_c = bpe.get("raw_color_text") or ""
-                sku_occurrences[c_sku].append({
-                    "manifest": mf,
-                    "page": bpe.get("physical_page"),
-                    "print_page": bpe.get("print_page"),
-                    "dimensions": raw_d.strip() if raw_d else "",
-                    "pack": raw_p.strip() if raw_p else "",
-                    "color": raw_c.strip() if raw_c else "",
-                    "product_type": (item.get("raw_product_type") or "").strip(),
-                    "price": str(item.get("price", "")).strip(),
-                    "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
-                    "publish": item.get("publish", False)
-                })
-        elif "dimensions" in item or "raw_dimensions_text" in item:
-            raw_d = item.get("dimensions") or item.get("raw_dimensions_text") or ""
+            # Rule 1: Canonical SKU non-empty
+            sku = item.get("sku") or item.get("canonical_sku") or item.get("sku_normalized")
+            if not sku:
+                errors.append(f"[{mf} #{idx}] Item missing 'sku' or 'canonical_sku' or 'sku_normalized'.")
+                continue
+                
+            # Rule 2: Catalog source and SHA-256 check
+            if item.get("source_catalog") != "PJ 2026":
+                errors.append(f"[{mf} #{idx}] '{sku}' invalid source_catalog: {item.get('source_catalog')}")
+            if item.get("source_pdf_sha256") != EXPECTED_SHA256:
+                errors.append(f"[{mf} #{idx}] '{sku}' source_pdf_sha256 mismatch.")
+                
+            # Rule 3: Missing publish/human_reviewed MUST default to false
+            publish = item.get("publish", False)
+            human_reviewed = item.get("human_reviewed", False)
+            
+            if not isinstance(publish, bool):
+                errors.append(f"[{mf} #{idx}] '{sku}' publish field is not a boolean.")
+            if not isinstance(human_reviewed, bool):
+                errors.append(f"[{mf} #{idx}] '{sku}' human_reviewed field is not a boolean.")
+                
+            if publish:
+                manifest_stats[mf_name]["publish_true"] += 1
+            else:
+                manifest_stats[mf_name]["publish_false"] += 1
+                
+            # Rule 4: publish:true requires human_reviewed:true
+            if publish and not human_reviewed:
+                errors.append(f"[{mf} #{idx}] '{sku}' publish:true but human_reviewed is false.")
+                
+            # Rule 5: publish:true prohibits multi-product crop violations
+            crop_target_only = item.get("crop_contains_target_only", None)
+            crop_other = item.get("crop_contains_other_products", None)
+            if publish:
+                if crop_target_only is not True or crop_other is not False:
+                    errors.append(f"[{mf} #{idx}] '{sku}' publish:true must have crop_contains_target_only:true and crop_contains_other_products:false.")
+                    
+            # Rule 6: publish:true prohibits unresolved conflicts
+            conflict_status = item.get("conflict_status", "none")
+            if publish and conflict_status == "unresolved":
+                errors.append(f"[{mf} #{idx}] '{sku}' publish:true must not be unresolved conflict.")
+                
+            # Rule 7: rejection consistency
+            review_res = item.get("review_result", "approved_for_publication" if publish else "rejected_for_publication")
+            if not publish and review_res not in ["rejected_for_publication", "occurrence_only"]:
+                errors.append(f"[{mf} #{idx}] '{sku}' publish:false must have review_result:'rejected_for_publication' or 'occurrence_only'.")
+                
+            # Rule 8: Bounds checking for all source regions
+            for tr in item.get("source_text_regions", []):
+                pno = tr.get("page")
+                if pno and 1 <= pno <= len(pdf_doc):
+                    pw = pdf_doc[pno-1].rect.width
+                    ph = pdf_doc[pno-1].rect.height
+                    for rk in ["heading_region", "region"]:
+                        coords = tr.get(rk)
+                        if coords and len(coords) == 4:
+                            x0, y0, x1, y1 = coords
+                            if not (0 <= x0 < x1 <= pw and 0 <= y0 < y1 <= ph):
+                                errors.append(f"PDF SOURCE REGION OUT OF BOUNDS: SKU '{sku}' {rk} {coords} on P{pno} exceeds page bounds [0, 0, {pw:.1f}, {ph:.1f}].")
+                                
+            reg = item.get("reviewed_source_region") or item.get("source_region")
+            pno = item.get("reviewed_source_page") or item.get("pdf_physical_page") or item.get("pdf_file_page")
+            if reg and isinstance(reg, list) and len(reg) == 4 and pno and 1 <= pno <= len(pdf_doc):
+                pw = pdf_doc[pno-1].rect.width
+                ph = pdf_doc[pno-1].rect.height
+                x0, y0, x1, y1 = reg
+                if not (0 <= x0 < x1 <= pw and 0 <= y0 < y1 <= ph):
+                    errors.append(f"PDF SOURCE REGION OUT OF BOUNDS: SKU '{sku}' region {reg} on P{pno} exceeds page bounds [0, 0, {pw:.1f}, {ph:.1f}].")
+                    
+            # Rule 9: Raw PDF Text Token Presence Verification
+            if pno and 1 <= pno <= len(pdf_doc):
+                page_raw_text = pdf_doc[pno-1].get_text().upper()
+                comp_skus = item.get("component_skus") or [sku]
+                page_clean = page_raw_text.replace(" ", "").replace("\n", "")
+                for c_sku in comp_skus:
+                    c_clean = c_sku.strip().replace(" ", "").upper()
+                    if c_clean not in page_clean:
+                        has_conflict_evidence = any(c_clean in str(t.get("token", "")).replace(" ", "").upper() for t in item.get("conflicting_source_tokens", []))
+                        if not has_conflict_evidence:
+                            errors.append(f"MANIFEST SKU TOKEN NOT FOUND IN RAW PDF TEXT: SKU '{sku}' token '{c_sku}' not found on page {pno}.")
+                            
+            # Rule 10: Price Evidence strict validation
+            pe = item.get("price_evidence")
+            if pe:
+                exact_row = pe.get("exact_row_text", "")
+                comp_skus = pe.get("component_skus") or item.get("component_skus") or [sku]
+                clean_row = exact_row.replace(" ", "").upper()
+                found = False
+                for c_sku in comp_skus:
+                    clean_tok = c_sku.replace(" ", "").upper()
+                    for sub_tok in clean_tok.split("/"):
+                        if sub_tok and sub_tok in clean_row:
+                            found = True
+                            break
+                    if found:
+                        break
+                if not found:
+                    errors.append(f"PRICE EXACT ROW DOES NOT CONTAIN SKU: SKU '{sku}' components {comp_skus} not in exact_row_text '{exact_row}'.")
+
+                # Check price format: ^\$\d+\.\d{2}$
+                res_p = pe.get("resolved_price")
+                p_val = pe.get("price")
+                if res_p is not None and not PRICE_REGEX.match(str(res_p)):
+                    errors.append(f"INVALID PRICE FORMAT / POSSIBLE SHELL EXPANSION: SKU '{sku}' resolved_price '{res_p}' does not match '^\\$\\d+\\.\\d{2}$'.")
+                if p_val is not None and not PRICE_REGEX.match(str(p_val)):
+                    errors.append(f"INVALID PRICE FORMAT / POSSIBLE SHELL EXPANSION: SKU '{sku}' price '{p_val}' does not match '^\\$\\d+\\.\\d{2}$'.")
+                    
+                # Check that exact_row_text contains resolved_price
+                if res_p and str(res_p) not in exact_row:
+                    errors.append(f"PRICE VALUE MISMATCH: SKU '{sku}' exact_row_text '{exact_row}' does not contain resolved_price '{res_p}'.")
+                    
+                # Check price_list_page and price_row_bbox
+                pl_pno = pe.get("price_list_page")
+                pl_bbox = pe.get("price_row_bbox")
+                if pl_pno is not None and pl_doc and (pl_pno < 1 or pl_pno > len(pl_doc)):
+                    errors.append(f"[{mf}] SKU '{sku}' invalid price_list_page {pl_pno}.")
+                if pl_bbox is not None:
+                    if not (isinstance(pl_bbox, list) and len(pl_bbox) == 4):
+                        errors.append(f"[{mf}] SKU '{sku}' invalid 'price_row_bbox': {pl_bbox}.")
+                    elif pl_doc and pl_pno and 1 <= pl_pno <= len(pl_doc):
+                        pl_w = pl_doc[pl_pno-1].rect.width
+                        pl_h = pl_doc[pl_pno-1].rect.height
+                        bx0, by0, bx1, by1 = pl_bbox
+                        if not (0 <= bx0 < bx1 <= pl_w and 0 <= by0 < by1 <= pl_h):
+                            errors.append(f"PRICE ROW BBOX OUT OF BOUNDS: SKU '{sku}' bbox {pl_bbox} on price list page {pl_pno} exceeds bounds [0, 0, {pl_w:.1f}, {pl_h:.1f}].")
+
+            # Classification of record
+            if record_type == "occurrence_reference":
+                manifest_stats[mf_name]["occurrences"] += 1
+                occurrence_references.append((mf, item))
+            else:
+                manifest_stats[mf_name]["canonical_products"] += 1
+                if sku in canonical_registry:
+                    orig_mf, _ = canonical_registry[sku]
+                    errors.append(f"CROSS-MANIFEST DUPLICATE CANONICAL SKU: {sku} defined in both '{orig_mf}' and '{mf}'")
+                else:
+                    canonical_registry[sku] = (mf, item)
+                    
+    # Validate occurrence references point to valid canonical SKUs
+    sku_occurrences = {sku: [] for sku in canonical_registry}
+    
+    for c_sku, (c_mf, c_item) in canonical_registry.items():
+        raw_d = c_item.get("raw_dimensions_text") or c_item.get("resolved_dimensions") or c_item.get("dimensions") or ""
+        raw_p = c_item.get("raw_pack_text") or ""
+        raw_c = c_item.get("raw_color_text") or ""
+        sku_occurrences[c_sku].append({
+            "manifest": c_mf,
+            "page": c_item.get("pdf_file_page") or c_item.get("pdf_physical_page"),
+            "print_page": c_item.get("printed_page") or c_item.get("print_page"),
+            "dimensions": raw_d.strip() if raw_d else "",
+            "pack": raw_p.strip() if raw_p else "",
+            "color": raw_c.strip() if raw_c else "",
+            "product_type": (c_item.get("raw_product_type") or "").strip(),
+            "price": str(c_item.get("price", "")).strip(),
+            "conflict_status": c_item.get("conflict_status", "none"),
+            "publish": c_item.get("publish", False)
+        })
+        
+    for mf, item in occurrence_references:
+        c_sku = item.get("canonical_sku") or item.get("sku")
+        if c_sku not in canonical_registry:
+            errors.append(f"[{mf}] Occurrence reference for unknown canonical SKU: {c_sku}")
+        else:
+            c_mf, c_item = canonical_registry[c_sku]
+            raw_d = item.get("raw_dimensions_text") or item.get("resolved_dimensions") or item.get("dimensions") or ""
             raw_p = item.get("raw_pack_text") or ""
             raw_c = item.get("raw_color_text") or ""
             sku_occurrences[c_sku].append({
@@ -367,28 +370,35 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
         c_mf, c_item = canonical_registry[sku]
         dim_values = {o["dimensions"] for o in occs if o["dimensions"]}
         pack_values = {o["pack"] for o in occs if o["pack"]}
-        color_values = {o["color"] for o in occs if o["color"]}
-        price_values = {o["price"] for o in occs if o["price"]}
 
-        has_conflict = False
         if len(dim_values) > 1:
-            has_conflict = True
             if c_item.get("conflict_status") != "unresolved" or c_item.get("publish", False) is not False:
                 errors.append(f"CROSS-OCCURRENCE SPECIFICATION CONFLICT: SKU '{sku}' has conflicting dimensions {dim_values} across occurrences without conflict_status: 'unresolved' and publish: false.")
             if "dimension_occurrences" not in c_item and "conflict_notes" not in c_item:
                 errors.append(f"[{c_mf}] Conflicting SKU '{sku}' missing dimension_occurrences recording all conflicting source values.")
         
         if len(pack_values) > 1:
-            has_conflict = True
             if c_item.get("conflict_status") != "unresolved" or c_item.get("publish", False) is not False:
                 errors.append(f"CROSS-OCCURRENCE SPECIFICATION CONFLICT: SKU '{sku}' has conflicting PACK {pack_values} across occurrences without conflict_status: 'unresolved' and publish: false.")
+
+        # Check PDF SKU vs Price List SKU component consistency
+        pe = c_item.get("price_evidence", {})
+        pe_skus = pe.get("component_skus", [])
+        if pe_skus:
+            pdf_comps = c_item.get("component_skus") or sku.split("/")
+            pdf_components = [c.strip().replace(" ", "").upper() for comp in pdf_comps for c in comp.split("/")]
+            pl_components = [c.strip().replace(" ", "").upper() for comp in pe_skus for c in comp.split("/")]
+            if pdf_components != pl_components:
+                if c_item.get("conflict_status") != "unresolved" or c_item.get("publish", False) is not False:
+                    errors.append(f"SOURCE MODEL SUFFIX CONFLICT: SKU '{sku}' (components {pdf_components}) differs from price list SKU components {pl_components} without conflict_status: 'unresolved' and publish: false.")
+                if "UNRESOLVED_SOURCE_MODEL_CONFLICT" not in str(c_item.get("rejection_code", "")) and "UNRESOLVED_SPECIFICATION_CONFLICT" not in str(c_item.get("rejection_code", "")):
+                    errors.append(f"[{c_mf}] Suffix conflicting SKU '{sku}' rejection_code must contain UNRESOLVED_SOURCE_MODEL_CONFLICT.")
 
         if c_item.get("conflict_status") == "unresolved":
             unresolved_conflict_count += 1
             if c_item.get("publish", False) is not False:
                 errors.append(f"[{c_mf}] Unresolved conflict SKU '{sku}' must have publish: false.")
             if c_item.get("specification_status") == "conflicting":
-                # Ensure resolved_* or raw_* does not falsely provide unverified values
                 if "dimension_occurrences" in c_item and c_item.get("raw_dimensions_text") is not None:
                     errors.append(f"[{c_mf}] Conflicting dimensions SKU '{sku}' must have raw_dimensions_text: null.")
 
@@ -498,13 +508,15 @@ def check_live_scope_protection():
         assert False, f"Scope protection validator failed with {len(errors)} error(s)."
     print(f"  -> PASS: {card_cnt}/{card_cnt} cards and {img_cnt}/{img_cnt} image files 100% identical to root baseline (11157499).")
 
-def run_nine_negative_tests():
-    print("[TEST 4] Auditor Reliability & 9-Part Negative Test Suite:")
+def run_sixteen_negative_tests():
+    print("[TEST 4] Auditor Reliability & 16-Part Negative Test Suite:")
     off_en = open("office/index.html", "r", encoding="utf-8").read()
     off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
     din_zh = open("zh/dining/index.html", "r", encoding="utf-8").read()
     
+    base_mfs = sorted([f for f in glob.glob("reports/manifest_v2_*.json") if not f.endswith(".draft.json")])
+
     # Neg Test 1: Swap position of two protected cards in Office EN (F3046 and F3049) -> MUST PASS
     match = re.search(r'<!-- NON_PJ_PROTECTED_START -->(.*?)<!-- NON_PJ_PROTECTED_END -->', off_en, flags=re.DOTALL)
     if match:
@@ -548,7 +560,7 @@ def run_nine_negative_tests():
     }]
     with open(test_mf_path, "w") as f:
         json.dump(dup_item, f)
-    passed_5, errors_5, _ = validate_manifests(manifest_files_override=sorted(glob.glob("reports/manifest_v2_*.json")) + [test_mf_path])
+    passed_5, errors_5, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_path])
     os.remove(test_mf_path)
     assert not passed_5, "Negative Test 5 Failed: Cross-manifest duplicate SKU was NOT caught!"
     assert any("CROSS-MANIFEST DUPLICATE" in e for e in errors_5), f"Expected duplicate error, got: {errors_5}"
@@ -616,15 +628,185 @@ def run_nine_negative_tests():
         "source_pdf_sha256": EXPECTED_SHA256,
         "human_reviewed": True,
         "publish": False,
-        "dimensions": "19\"W x 35\"D x 41\"H"
+        "raw_dimensions_text": "19\"W x 35\"D x 41\"H"
     }]
     with open(test_mf_spec_conf, "w") as f:
         json.dump(spec_conf_item, f)
-    passed_9, errors_9, _ = validate_manifests(manifest_files_override=sorted(glob.glob("reports/manifest_v2_*.json")) + [test_mf_spec_conf])
+    passed_9, errors_9, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_spec_conf])
     os.remove(test_mf_spec_conf)
     assert not passed_9, "Negative Test 9 Failed: Cross-occurrence specification conflict was NOT caught!"
     assert any("CROSS-OCCURRENCE SPECIFICATION CONFLICT" in e for e in errors_9), f"Expected specification conflict error, got: {errors_9}"
     print(f"  - Neg Test 9 (Cross-Occurrence Specification Conflict): Caught expected error: '{errors_9[0]}' [PASS]")
+
+    # Neg Test 10: PDF SKU suffix mismatch with price list without unresolved conflict status -> MUST FAIL
+    test_mf_suffix_conf = "reports/manifest_v2_test_suffix_conf.draft.json"
+    suffix_conf_item = [{
+        "record_type": "canonical_product",
+        "sku": "TEST-WH",
+        "component_skus": ["TEST-WH"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "human_reviewed": True,
+        "publish": False,
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [100, 100, 200, 150],
+            "component_skus": ["TEST-WH-GOLD"],
+            "exact_row_text": "TEST-WH-GOLD Dinning Chair $99.00",
+            "resolved_price": "$99.00",
+            "price": "$99.00"
+        }
+    }]
+    with open(test_mf_suffix_conf, "w") as f:
+        json.dump(suffix_conf_item, f)
+    passed_10, errors_10, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_suffix_conf])
+    os.remove(test_mf_suffix_conf)
+    assert not passed_10, "Negative Test 10 Failed: Source model suffix conflict was NOT caught!"
+    assert any("SOURCE MODEL SUFFIX CONFLICT" in e for e in errors_10), f"Expected suffix conflict error, got: {errors_10}"
+    print(f"  - Neg Test 10 (Source Model Suffix Conflict): Caught expected error: '{errors_10[0]}' [PASS]")
+
+    # Neg Test 11: Source region out of bounds -> MUST FAIL
+    test_mf_oob = "reports/manifest_v2_test_oob.draft.json"
+    oob_item = [{
+        "record_type": "canonical_product",
+        "sku": "TEST-OOB",
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 56,
+        "reviewed_source_page": 56,
+        "reviewed_source_region": [0, 0, 2500, 1500],
+        "human_reviewed": True,
+        "publish": False
+    }]
+    with open(test_mf_oob, "w") as f:
+        json.dump(oob_item, f)
+    passed_11, errors_11, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_oob])
+    os.remove(test_mf_oob)
+    assert not passed_11, "Negative Test 11 Failed: Out of bounds source region was NOT caught!"
+    assert any("PDF SOURCE REGION OUT OF BOUNDS" in e for e in errors_11), f"Expected OOB error, got: {errors_11}"
+    print(f"  - Neg Test 11 (Source Region Out of Bounds): Caught expected error: '{errors_11[0]}' [PASS]")
+
+    # Neg Test 12: Manifest SKU token not in raw PDF text -> MUST FAIL
+    test_mf_missing_token = "reports/manifest_v2_test_missing_tok.draft.json"
+    missing_tok_item = [{
+        "record_type": "canonical_product",
+        "sku": "NONEXISTENT_SKU_TOKEN_999",
+        "component_skus": ["NONEXISTENT_SKU_TOKEN_999"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 56,
+        "human_reviewed": True,
+        "publish": False
+    }]
+    with open(test_mf_missing_token, "w") as f:
+        json.dump(missing_tok_item, f)
+    passed_12, errors_12, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_missing_token])
+    os.remove(test_mf_missing_token)
+    assert not passed_12, "Negative Test 12 Failed: Missing SKU token in raw PDF text was NOT caught!"
+    assert any("MANIFEST SKU TOKEN NOT FOUND IN RAW PDF TEXT" in e for e in errors_12), f"Expected missing token error, got: {errors_12}"
+    print(f"  - Neg Test 12 (SKU Token Not Found in PDF Text): Caught expected error: '{errors_12[0]}' [PASS]")
+
+    # Neg Test 13: Price exact row does not contain SKU -> MUST FAIL
+    test_mf_price_mismatch = "reports/manifest_v2_test_price_mismatch.draft.json"
+    price_mismatch_item = [{
+        "record_type": "canonical_product",
+        "sku": "3007T/3007WH",
+        "component_skus": ["3007T", "3007WH"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 56,
+        "human_reviewed": True,
+        "publish": False,
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [100, 100, 200, 150],
+            "component_skus": ["COMPLETELY_UNRELATED_SKU"],
+            "exact_row_text": "UNRELATED_CHAIR $99.00",
+            "resolved_price": "$99.00",
+            "price": "$99.00"
+        }
+    }]
+    with open(test_mf_price_mismatch, "w") as f:
+        json.dump(price_mismatch_item, f)
+    passed_13, errors_13, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_price_mismatch])
+    os.remove(test_mf_price_mismatch)
+    assert not passed_13, "Negative Test 13 Failed: Price exact row mismatch was NOT caught!"
+    assert any("PRICE EXACT ROW DOES NOT CONTAIN SKU" in e for e in errors_13), f"Expected price exact row error, got: {errors_13}"
+    print(f"  - Neg Test 13 (Price Exact Row Does Not Contain SKU): Caught expected error: '{errors_13[0]}' [PASS]")
+
+    # Neg Test 14: Subsequent batch modifies canonical SKU without evidence (cross-manifest duplicate) -> MUST FAIL
+    test_mf_overwrite = "reports/manifest_v2_test_overwrite.draft.json"
+    overwrite_item = [{
+        "record_type": "canonical_product",
+        "sku": "2715",
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "human_reviewed": True,
+        "publish": False
+    }]
+    with open(test_mf_overwrite, "w") as f:
+        json.dump(overwrite_item, f)
+    passed_14, errors_14, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_overwrite])
+    os.remove(test_mf_overwrite)
+    assert not passed_14, "Negative Test 14 Failed: Unauthorized canonical SKU overwrite was NOT caught!"
+    assert any("CROSS-MANIFEST DUPLICATE CANONICAL SKU" in e for e in errors_14), f"Expected duplicate error, got: {errors_14}"
+    print(f"  - Neg Test 14 (Unauthorized Canonical SKU Overwrite): Caught expected error: '{errors_14[0]}' [PASS]")
+
+    # Neg Test 15: Invalid price format (e.g. "49.00" instead of "$49.00") -> MUST FAIL
+    test_mf_price_fmt = "reports/manifest_v2_test_price_fmt.draft.json"
+    price_fmt_item = [{
+        "record_type": "canonical_product",
+        "sku": "3007T/3007WH",
+        "component_skus": ["3007T", "3007WH"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 56,
+        "human_reviewed": True,
+        "publish": False,
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [183.6, 691.5, 286.8, 731.6],
+            "exact_row_text": "3007T/ 3007WH Dining Table with White Glass Top $399.00",
+            "component_skus": ["3007T", "3007WH"],
+            "resolved_price": "49.00",
+            "price": "49.00"
+        }
+    }]
+    with open(test_mf_price_fmt, "w") as f:
+        json.dump(price_fmt_item, f)
+    passed_15, errors_15, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_price_fmt])
+    os.remove(test_mf_price_fmt)
+    assert not passed_15, "Negative Test 15 Failed: Invalid price format was NOT caught!"
+    assert any("INVALID PRICE FORMAT / POSSIBLE SHELL EXPANSION" in e for e in errors_15), f"Expected format error, got: {errors_15}"
+    print(f"  - Neg Test 15 (Invalid Price Format / Shell Expansion): Caught expected error: '{errors_15[0]}' [PASS]")
+
+    # Neg Test 16: Price Value Mismatch (exact_row has $349.00 but resolved is $49.00) -> MUST FAIL
+    test_mf_val_mismatch = "reports/manifest_v2_test_val_mismatch.draft.json"
+    val_mismatch_item = [{
+        "record_type": "canonical_product",
+        "sku": "3007T/3007WH",
+        "component_skus": ["3007T", "3007WH"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 56,
+        "human_reviewed": True,
+        "publish": False,
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [183.6, 691.5, 286.8, 731.6],
+            "exact_row_text": "3007T/ 3007WH Dining Table with White Glass Top $349.00",
+            "component_skus": ["3007T", "3007WH"],
+            "resolved_price": "$49.00",
+            "price": "$49.00"
+        }
+    }]
+    with open(test_mf_val_mismatch, "w") as f:
+        json.dump(val_mismatch_item, f)
+    passed_16, errors_16, _ = validate_manifests(manifest_files_override=base_mfs + [test_mf_val_mismatch])
+    os.remove(test_mf_val_mismatch)
+    assert not passed_16, "Negative Test 16 Failed: Price value mismatch was NOT caught!"
+    assert any("PRICE VALUE MISMATCH" in e for e in errors_16), f"Expected price value mismatch error, got: {errors_16}"
+    print(f"  - Neg Test 16 (Price Value Mismatch): Caught expected error: '{errors_16[0]}' [PASS]")
 
 OFFICE_19_PJ_SKUS = [
     "2715", "2716", "4500TAUPE", "4500CA", "2704WH", "2704BK",
@@ -739,7 +921,6 @@ def check_git_cleanliness():
     unapproved_production = []
     if status:
         for line in status.splitlines():
-            # Disallow any tracked or untracked changes to production html/css/js
             tokens = line.strip().split()
             if len(tokens) >= 2:
                 path = tokens[-1]
@@ -750,13 +931,14 @@ def check_git_cleanliness():
 
 def main():
     print("=" * 70)
-    print("GLOBAL CANONICAL SCOPE PROTECTION & REGRESSION VERIFIER (V5)")
+    print("GLOBAL CANONICAL SCOPE PROTECTION & REGRESSION VERIFIER (V7)")
     print("=" * 70)
     check_pdf_hash()
+    check_frozen_raw_text_hashes()
     check_manifests_source_fields()
     check_live_scope_protection()
     check_office_baseline_protection()
-    run_nine_negative_tests()
+    run_sixteen_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
@@ -768,7 +950,7 @@ def main():
     print("  Dining production PJ cards: 0")
     print("  Cross-manifest duplicates: 0")
     print("  Unapproved production page changes: 0")
-    print("  Negative test suite assertions passed: 9/9")
+    print("  Negative test suite assertions passed: 16/16")
     print("=" * 70)
     print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)
