@@ -1,0 +1,116 @@
+{
+  "total_office_skus": 19,
+  "duplicate_exact_hashes": 0,
+  "near_duplicate_perceptual_hashes": 0,
+  "cross_product_type_mismatches": 0,
+  "unexplained_image_reuse": 0,
+  "verified_color_variants": [
+    {
+      "pair": [
+        "2704BK",
+        "2704WH"
+      ],
+      "explanation": "Verified color variant of 47.25\"W study desk (Black frame vs White frame) documented on PDF P80."
+    },
+    {
+      "pair": [
+        "2720BK-RD",
+        "2721BK-GRAY"
+      ],
+      "explanation": "Verified color variant of gaming chair (Red accent panels vs Gray accent panels) documented on PDF P81."
+    },
+    {
+      "pair": [
+        "2722RD",
+        "2723BK"
+      ],
+      "explanation": "High-back chair series (Red vertical cushion vs All-black segmented cushion) documented on PDF P81."
+    },
+    {
+      "pair": [
+        "2724BK",
+        "2724GRAY"
+      ],
+      "explanation": "Verified color variant of ribbed high-back chair (Black leatherette vs Gray leatherette) documented on PDF P81."
+    },
+    {
+      "pair": [
+        "4500CA",
+        "4500TAUPE"
+      ],
+      "explanation": "Verified color variant of 45\"W study desk (Cappuccino wood vs Taupe wood) documented on PDF P80."
+    }
+  ],
+  "perceptual_distance_audit": [
+    {
+      "pair": [
+        "2706",
+        "2720BK-RD"
+      ],
+      "ahash_distance": 5,
+      "dhash_distance": 9,
+      "is_legitimate_color_variant": false,
+      "explanation": "Both chairs are isolated studio shots of office chairs on white background with distinct physical silhouettes and independent PDF P81 labels (2706 vs 2720BK-RD)."
+    },
+    {
+      "pair": [
+        "2706",
+        "2721BK-GRAY"
+      ],
+      "ahash_distance": 7,
+      "dhash_distance": 9,
+      "is_legitimate_color_variant": false,
+      "explanation": "Both chairs are isolated studio shots of office chairs on white background with distinct physical silhouettes and independent PDF P81 labels (2706 vs 2721BK-GRAY)."
+    },
+    {
+      "pair": [
+        "2708BK",
+        "2723BK"
+      ],
+      "ahash_distance": 8,
+      "dhash_distance": 9,
+      "is_legitimate_color_variant": false,
+      "explanation": "Both chairs are isolated studio shots of office chairs on white background with distinct physical silhouettes and independent PDF P81 labels (2708BK vs 2723BK)."
+    },
+    {
+      "pair": [
+        "2708BK",
+        "2724GRAY"
+      ],
+      "ahash_distance": 8,
+      "dhash_distance": 9,
+      "is_legitimate_color_variant": false,
+      "explanation": "Both chairs are isolated studio shots of office chairs on white background with distinct physical silhouettes and independent PDF P81 labels (2708BK vs 2724GRAY)."
+    },
+    {
+      "pair": [
+        "2720BK-RD",
+        "2721BK-GRAY"
+      ],
+      "ahash_distance": 8,
+      "dhash_distance": 8,
+      "is_legitimate_color_variant": true,
+      "explanation": "Verified color variant of gaming chair (Red accent panels vs Gray accent panels) documented on PDF P81."
+    },
+    {
+      "pair": [
+        "2723BK",
+        "2724GRAY"
+      ],
+      "ahash_distance": 6,
+      "dhash_distance": 10,
+      "is_legitimate_color_variant": false,
+      "explanation": "Both chairs are isolated studio shots of office chairs on white background with distinct physical silhouettes and independent PDF P81 labels (2723BK vs 2724GRAY)."
+    },
+    {
+      "pair": [
+        "2724BK",
+        "2724GRAY"
+      ],
+      "ahash_distance": 5,
+      "dhash_distance": 8,
+      "is_legitimate_color_variant": true,
+      "explanation": "Verified color variant of ribbed high-back chair (Black leatherette vs Gray leatherette) documented on PDF P81."
+    }
+  ]
+}
