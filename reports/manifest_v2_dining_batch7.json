@@ -6,7 +6,7 @@
     "component_skus": [
       "2240"
     ],
-    "product_identity": "one complete sintered stone dining table",
+    "product_identity": "dining table (material conflicting between catalog sintered stone and price list glass)",
     "components_verified": true,
     "pdf_physical_page": 59,
     "first_seen": {
@@ -39,9 +39,9 @@
       }
     ],
     "raw_heading_text": "2240/2800BLACK-GRAY",
-    "raw_model_text": "2240",
+    "raw_model_text": null,
     "raw_color_text": "SINTERED STONE DINING TABLE",
-    "resolved_color": "SINTERED STONE",
+    "resolved_color": null,
     "raw_dimensions_text": "47\"W x 28\"D x 30\"H",
     "resolved_dimensions": "47\"W x 28\"D x 30\"H",
     "raw_pack_text": "",
@@ -84,8 +84,8 @@
     "source_notes": "Physical spread 59, printed page DINETTE 113 left.",
     "visual_review_notes": "Cropped from P59 left scene. Overlaps with 2800BLACK-GRAY chairs.",
     "interpretation_notes": "Sintered stone dining table 2240 (47x28x30H). Price list lists $75.00.",
-    "conflict_status": "none",
-    "conflict_notes": "None.",
+    "conflict_status": "unresolved",
+    "conflict_notes": "Catalog PDF specifies SINTERED STONE DINING TABLE whereas price list specifies Glass Dining Table.",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "source_verified": true,
@@ -93,11 +93,44 @@
     "publish": false,
     "review_result": "rejected_for_publication",
     "rejection_code": [
-      "NO_CLEAN_STANDALONE_IMAGE"
+      "NO_CLEAN_STANDALONE_IMAGE",
+      "UNRESOLVED_SOURCE_MATERIAL_CONFLICT"
     ],
-    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
-    "candidate_title_zh": "2240 47英寸岩板餐桌",
-    "candidate_title_en": "2240 47\" Sintered Stone Dining Table"
+    "rejection_reason": "Unresolved cross-source material conflict (Catalog: Sintered Stone vs Price list: Glass) and lifestyle scene overlap.",
+    "candidate_title_zh": "2240 47英寸餐桌（材质待核实）",
+    "candidate_title_en": "2240 47\" Dining Table (Material Conflict)",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false,
+    "raw_material_text": null,
+    "resolved_material": null,
+    "resolution_status": "unresolved",
+    "material_status": "conflicting",
+    "material_occurrences": [
+      {
+        "source": "PJ catalog PDF",
+        "physical_page": 59,
+        "print_page": "DINETTE 113",
+        "raw_material_text": "SINTERED STONE DINING TABLE",
+        "text_region": [
+          68.08,
+          578.52,
+          408.23,
+          595.06
+        ]
+      },
+      {
+        "source": "PJ price list",
+        "price_list_page": 7,
+        "raw_material_text": "Glass Dining Table",
+        "text_region": [
+          469.77,
+          701.31,
+          583.5,
+          731.63
+        ]
+      }
+    ]
   },
   {
     "record_type": "canonical_product",
@@ -216,7 +249,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2800BLACK-GRAY 黑灰色焊接餐椅",
-    "candidate_title_en": "2800BLACK-GRAY Welded Dining Chair"
+    "candidate_title_en": "2800BLACK-GRAY Welded Dining Chair",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "canonical_product",
@@ -316,7 +352,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2250 47英寸餐桌",
-    "candidate_title_en": "2250 47\" Dining Table"
+    "candidate_title_en": "2250 47\" Dining Table",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "canonical_product",
@@ -416,7 +455,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3101T 43英寸圆形玻璃餐桌",
-    "candidate_title_en": "3101T 43\" Round Glass Dining Table"
+    "candidate_title_en": "3101T 43\" Round Glass Dining Table",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "canonical_product",
@@ -536,7 +578,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2800WH-CHROME 白色铬架焊接餐椅",
-    "candidate_title_en": "2800WH-CHROME White Chrome Frame Welded Dining Chair"
+    "candidate_title_en": "2800WH-CHROME White Chrome Frame Welded Dining Chair",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "canonical_product",
@@ -637,7 +682,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3112T 48英寸长方形玻璃餐桌",
-    "candidate_title_en": "3112T 48\" Rectangular Glass Dining Table"
+    "candidate_title_en": "3112T 48\" Rectangular Glass Dining Table",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "canonical_product",
@@ -737,7 +785,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3103T 43英寸圆形金色玻璃餐桌",
-    "candidate_title_en": "3103T 43\" Round Gold Glass Dining Table"
+    "candidate_title_en": "3103T 43\" Round Gold Glass Dining Table",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "canonical_product",
@@ -857,7 +908,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2800WH-GOLD 白色金架焊接餐椅",
-    "candidate_title_en": "2800WH-GOLD White Gold Frame Welded Dining Chair"
+    "candidate_title_en": "2800WH-GOLD White Gold Frame Welded Dining Chair",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "canonical_product",
@@ -958,7 +1012,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3114T 48英寸长方形金色玻璃餐桌",
-    "candidate_title_en": "3114T 48\" Rectangular Gold Glass Dining Table"
+    "candidate_title_en": "3114T 48\" Rectangular Gold Glass Dining Table",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "canonical_product",
@@ -1059,7 +1116,10 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "3104T 60英寸长方形金色玻璃餐桌",
-    "candidate_title_en": "3104T 60\" Rectangular Gold Glass Dining Table"
+    "candidate_title_en": "3104T 60\" Rectangular Gold Glass Dining Table",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   },
   {
     "record_type": "occurrence_reference",
@@ -1085,6 +1145,9 @@
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "human_reviewed": true,
     "publish": false,
-    "review_result": "occurrence_only"
+    "review_result": "occurrence_only",
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "publication_candidate": false
   }
 ]

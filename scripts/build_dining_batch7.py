@@ -103,7 +103,7 @@ def build_manifest():
             "canonical_sku": "2240",
             "sku": "2240",
             "component_skus": ["2240"],
-            "product_identity": "one complete sintered stone dining table",
+            "product_identity": "dining table (material conflicting between catalog sintered stone and price list glass)",
             "components_verified": True,
             "pdf_physical_page": 59,
             "first_seen": {
@@ -124,9 +124,11 @@ def build_manifest():
                 }
             ],
             "raw_heading_text": "2240/2800BLACK-GRAY",
-            "raw_model_text": "2240",
+            "raw_model_text": None,
             "raw_color_text": "SINTERED STONE DINING TABLE",
-            "resolved_color": "SINTERED STONE",
+            "resolved_color": None,
+            "raw_material_text": None,
+            "resolved_material": None,
             "raw_dimensions_text": "47\"W x 28\"D x 30\"H",
             "resolved_dimensions": "47\"W x 28\"D x 30\"H",
             "raw_pack_text": "",
@@ -143,13 +145,34 @@ def build_manifest():
                 "price": "$75.00",
                 "unit_text": "1 complete table"
             },
+            "material_occurrences": [
+                {
+                    "source": "PJ catalog PDF",
+                    "physical_page": 59,
+                    "print_page": "DINETTE 113",
+                    "raw_material_text": "SINTERED STONE DINING TABLE",
+                    "text_region": [68.08, 578.52, 408.23, 595.06]
+                },
+                {
+                    "source": "PJ price list",
+                    "price_list_page": 7,
+                    "raw_material_text": "Glass Dining Table",
+                    "text_region": [469.77, 701.31, 583.50, 731.63]
+                }
+            ],
             "output_image": "reports/dining_batch7_draft_images/draft-2240.jpg",
             "image_xref": 1394,
             "image_pixel_size": "819x564",
             "image_sha256": "36ef9149495393437171e54911ea18770fe4596350e18fc091f868d4a65aee17",
             "category": "DINING TABLE",
             "classification": ["MULTI_PRODUCT_SCENE"],
+            "ordinary_scene_props": False,
+            "catalog_product_overlap": True,
             "shared_layout_with_other_products": True,
+            "shared_scene_for_multiple_skus": False,
+            "displayed_model_uncertain": False,
+            "evidence_only": True,
+            "eligible_as_product_image": False,
             "shared_products_in_scene": ["2800BLACK-GRAY"],
             "crop_contains_target_only": False,
             "crop_contains_other_products": True,
@@ -157,19 +180,25 @@ def build_manifest():
             "standalone_crop_possible": False,
             "source_notes": "Physical spread 59, printed page DINETTE 113 left.",
             "visual_review_notes": "Cropped from P59 left scene. Overlaps with 2800BLACK-GRAY chairs.",
-            "interpretation_notes": "Sintered stone dining table 2240 (47x28x30H). Price list lists $75.00.",
-            "conflict_status": "none",
-            "conflict_notes": "None.",
+            "interpretation_notes": "Catalog PDF lists SINTERED STONE DINING TABLE, whereas price list lists Glass Dining Table. Unresolved material conflict.",
+            "conflict_status": "unresolved",
+            "resolution_status": "unresolved",
+            "material_status": "conflicting",
+            "conflict_notes": "Catalog PDF specifies SINTERED STONE DINING TABLE whereas price list specifies Glass Dining Table.",
             "source_catalog": "PJ 2026",
             "source_pdf_sha256": EXPECTED_SHA256,
             "source_verified": True,
             "human_reviewed": True,
             "publish": False,
+            "publication_candidate": False,
             "review_result": "rejected_for_publication",
-            "rejection_code": ["NO_CLEAN_STANDALONE_IMAGE"],
-            "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
-            "candidate_title_zh": "2240 47英寸岩板餐桌",
-            "candidate_title_en": "2240 47\" Sintered Stone Dining Table"
+            "rejection_code": [
+                "NO_CLEAN_STANDALONE_IMAGE",
+                "UNRESOLVED_SOURCE_MATERIAL_CONFLICT"
+            ],
+            "rejection_reason": "Unresolved cross-source material conflict (Catalog: Sintered Stone vs Price list: Glass) and lifestyle scene overlap.",
+            "candidate_title_zh": "2240 47英寸餐桌（材质待核实）",
+            "candidate_title_en": "2240 47\" Dining Table (Material Conflict)"
         },
         # 2. 2800BLACK-GRAY (Dining Chair)
         {

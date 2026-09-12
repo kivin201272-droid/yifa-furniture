@@ -398,6 +398,27 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
                 if "UNRESOLVED_SOURCE_MODEL_CONFLICT" not in str(c_item.get("rejection_code", "")) and "UNRESOLVED_SPECIFICATION_CONFLICT" not in str(c_item.get("rejection_code", "")):
                     errors.append(f"[{c_mf}] Suffix conflicting SKU '{sku}' rejection_code must contain UNRESOLVED_SOURCE_MODEL_CONFLICT.")
 
+        # Check cross-source material conflict (e.g. Sintered Stone vs Glass)
+        pdf_texts = []
+        for r in c_item.get("source_text_regions", []):
+            if r.get("verbatim_text"):
+                pdf_texts.append(r["verbatim_text"])
+        combined_pdf_mat = " ".join(pdf_texts + [str(c_item.get("raw_color_text") or ""), str(c_item.get("raw_material_text") or "")]).upper()
+        exact_row_mat = (pe.get("exact_row_text") or "").upper()
+        
+        has_mat_conflict = False
+        if ("SINTERED" in combined_pdf_mat and "GLASS" in exact_row_mat) or \
+           ("GLASS" in combined_pdf_mat and "SINTERED" in exact_row_mat) or \
+           ("MARBLE" in combined_pdf_mat and "GLASS" in exact_row_mat and "MARBLE" not in exact_row_mat) or \
+           ("GLASS" in combined_pdf_mat and "MARBLE" in exact_row_mat and "GLASS" not in exact_row_mat):
+            has_mat_conflict = True
+            
+        if has_mat_conflict:
+            if c_item.get("conflict_status") != "unresolved" or c_item.get("publish", False) is not False:
+                errors.append(f"CROSS-SOURCE MATERIAL CONFLICT: SKU '{sku}' has material conflict between PDF ('{combined_pdf_mat[:40]}') and Price List ('{exact_row_mat}') without conflict_status: 'unresolved' and publish: false.")
+            if "UNRESOLVED_SOURCE_MATERIAL_CONFLICT" not in str(c_item.get("rejection_code", "")) and "UNRESOLVED_SPECIFICATION_CONFLICT" not in str(c_item.get("rejection_code", "")):
+                errors.append(f"[{c_mf}] Material conflicting SKU '{sku}' rejection_code must contain UNRESOLVED_SOURCE_MATERIAL_CONFLICT.")
+
         if c_item.get("conflict_status") == "unresolved":
             unresolved_conflict_count += 1
             if c_item.get("publish", False) is not False:
@@ -517,8 +538,8 @@ def check_live_scope_protection():
         assert False, f"Scope protection validator failed with {len(errors)} error(s)."
     print(f"  -> PASS: {card_cnt}/{card_cnt} cards and {img_cnt}/{img_cnt} image files 100% identical to root baseline (11157499).")
 
-def run_eighteen_negative_tests():
-    print("[TEST 4] Auditor Reliability & 18-Part Negative Test Suite:")
+def run_nineteen_negative_tests():
+    print("[TEST 4] Auditor Reliability & 19-Part Negative Test Suite:")
     off_en = open("office/index.html", "r", encoding="utf-8").read()
     off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
@@ -851,6 +872,46 @@ def run_eighteen_negative_tests():
     assert any("PRODUCTION HTML CONTAINS EVIDENCE/DRAFT IMAGE PATH" in e for e in errors_18), f"Expected draft image reference error, got: {errors_18}"
     print(f"  - Neg Test 18 (Production HTML Referencing Draft Images): Caught expected error: '{errors_18[0]}' [PASS]")
 
+    # Neg Test 19: Cross-source material conflict without unresolved status -> MUST FAIL
+    test_mf_mat_conf = "reports/manifest_v2_test_mat_conf.draft.json"
+    mat_conf_item = [{
+        "record_type": "canonical_product",
+        "sku": "2240",
+        "component_skus": ["2240"],
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "pdf_physical_page": 59,
+        "human_reviewed": True,
+        "publish": False,
+        "conflict_status": "none",
+        "source_text_regions": [
+            {
+                "page": 59,
+                "verbatim_text": "2240 | SINTERED STONE DINING TABLE 47\"W x 28\"D x 30\"H"
+            }
+        ],
+        "price_evidence": {
+            "price_list_page": 7,
+            "price_row_bbox": [470.0, 701.3, 583.5, 731.6],
+            "exact_row_text": "2240 Glass Dining Table $75.00",
+            "component_skus": ["2240"],
+            "resolved_price": "$75.00",
+            "price": "$75.00"
+        }
+    }]
+    # Run against mock manifest to test the single manifest conflict rule without duplicate SKU error
+    with open(test_mf_mat_conf, "w", encoding="utf-8") as f:
+        json.dump(mat_conf_item, f, indent=2)
+    try:
+        passed_19, errors_19, _ = validate_manifests(manifest_files_override=[test_mf_mat_conf])
+    finally:
+        if os.path.exists(test_mf_mat_conf):
+            os.remove(test_mf_mat_conf)
+    assert not passed_19, "Negative Test 19 Failed: Cross-source material conflict was NOT caught!"
+    mat_err = [e for e in errors_19 if "CROSS-SOURCE MATERIAL CONFLICT" in e]
+    assert len(mat_err) > 0, f"Expected CROSS-SOURCE MATERIAL CONFLICT error, got: {errors_19}"
+    print(f"  - Neg Test 19 (Cross-Source Material Conflict): Caught expected error: '{mat_err[0]}' [PASS]")
+
 OFFICE_19_PJ_SKUS = [
     "2715", "2716", "4500TAUPE", "4500CA", "2704WH", "2704BK",
     "2709", "2714", "2006GRAY", "2706", "2707", "2708BK",
@@ -981,7 +1042,7 @@ def main():
     check_manifests_source_fields()
     check_live_scope_protection()
     check_office_baseline_protection()
-    run_eighteen_negative_tests()
+    run_nineteen_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
@@ -995,7 +1056,7 @@ def main():
     print("  Out-of-bounds regions: 0")
     print("  Evidence-only images referenced by production HTML: 0")
     print("  Unapproved production page changes: 0")
-    print("  Negative test suite assertions passed: 18/18")
+    print("  Negative test suite assertions passed: 19/19")
     print("=" * 70)
     print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)
