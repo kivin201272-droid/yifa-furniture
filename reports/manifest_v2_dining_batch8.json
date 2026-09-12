@@ -1,0 +1,759 @@
+[
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "2800BK-CHROME",
+    "sku": "2800BK-CHROME",
+    "component_skus": [
+      "2800BK-CHROME"
+    ],
+    "product_identity": "dining chair with chrome frame",
+    "components_verified": true,
+    "pdf_physical_page": 62,
+    "first_seen": {
+      "physical_page": 62,
+      "print_page": "DINETTE 119",
+      "section": "DINETTE 119 left"
+    },
+    "occurrences": 2,
+    "evidence_pages": [
+      62
+    ],
+    "source_text_regions": [
+      {
+        "page": 62,
+        "print_page": "DINETTE 119",
+        "heading_region": [
+          69.5,
+          505.9,
+          1626.2,
+          546.7
+        ],
+        "verbatim_heading": "3101T/2800BK-CHROME\n3112T/2800BK-CHROME\n3102T/2800BK-CHROME",
+        "region": [
+          72.3,
+          599.5,
+          378.1,
+          637.1
+        ],
+        "verbatim_text": "2800BK-CHROME  |  CHAIR (WELED)    17\"W x 19\"D x 38\"H\nPACK: 4/1 CARTON"
+      },
+      {
+        "page": 62,
+        "print_page": "DINETTE 120",
+        "heading_region": [
+          69.5,
+          505.9,
+          1626.2,
+          546.7
+        ],
+        "verbatim_heading": "3101T/2800BK-CHROME\n3112T/2800BK-CHROME\n3102T/2800BK-CHROME",
+        "region": [
+          1367.8,
+          624.5,
+          1629.0,
+          662.1
+        ],
+        "verbatim_text": "2800BK-CHROME  |  CHAIR    17\"W x 19\"D x 38\"H\nPACK: 4/1 CARTON"
+      }
+    ],
+    "raw_heading_text": "3101T/2800BK-CHROME",
+    "raw_model_text": "2800BK-CHROME",
+    "raw_color_text": "BK-CHROME",
+    "resolved_color": "BLACK / CHROME",
+    "raw_dimensions_text": "17\"W x 19\"D x 38\"H",
+    "resolved_dimensions": "17\"W x 19\"D x 38\"H",
+    "raw_pack_text": "PACK: 4/1 CARTON",
+    "raw_price_text": "$35.00",
+    "price_unit_status": "unverified",
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        780.9,
+        737.3,
+        885.4,
+        770.0
+      ],
+      "exact_row_text": "2800BK-CHROME Chair (Weled) $35.00",
+      "previous_row_text": "3101T Glass Dining Table $129.00",
+      "next_row_text": "Page 120",
+      "component_skus": [
+        "2800BK-CHROME"
+      ],
+      "resolved_price": "$35.00",
+      "price": "$35.00",
+      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $35.00 without unit"
+    },
+    "output_image": "reports/dining_batch8_draft_images/draft-2800bk-chrome.jpg",
+    "image_xref": 1444,
+    "image_pixel_size": "819x563",
+    "image_sha256": "981410724da49a946aa53837f0541f5c9c9dc774a372d726e9ffb93995b2c262",
+    "category": "DINING CHAIR",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "ordinary_scene_props": false,
+    "catalog_product_overlap": true,
+    "shared_layout_with_other_products": true,
+    "shared_scene_for_multiple_skus": true,
+    "displayed_model_uncertain": false,
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "shared_products_in_scene": [
+      "3101T",
+      "3112T",
+      "3102T"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 62, printed pages DINETTE 119 and DINETTE 120.",
+    "visual_review_notes": "Cropped from P62 scene. Overlaps with 3101T table in lifestyle scene.",
+    "interpretation_notes": "Dining chair (welded) 2800BK-CHROME. PACK: 4/1 CARTON. Price list lists $35.00 without unit. Marked price_unit_status: unverified and publish: false.",
+    "conflict_status": "none",
+    "conflict_notes": "None.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "2800BK-CHROME 黑色铬架焊接餐椅",
+    "candidate_title_en": "2800BK-CHROME Black Chrome Frame Welded Dining Chair"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "2800BK-GOLD",
+    "sku": "2800BK-GOLD",
+    "component_skus": [
+      "2800BK-GOLD"
+    ],
+    "product_identity": "dining chair with gold frame",
+    "components_verified": true,
+    "pdf_physical_page": 63,
+    "first_seen": {
+      "physical_page": 63,
+      "print_page": "DINETTE 121",
+      "section": "DINETTE 121 left"
+    },
+    "occurrences": 2,
+    "evidence_pages": [
+      63
+    ],
+    "source_text_regions": [
+      {
+        "page": 63,
+        "print_page": "DINETTE 121",
+        "heading_region": [
+          69.5,
+          505.9,
+          1626.2,
+          546.7
+        ],
+        "verbatim_heading": "3103T/2800BK-GOLD\n3114T/2800BK-GOLD\n3104T/2800BK-GOLD",
+        "region": [
+          72.3,
+          599.5,
+          360.5,
+          637.1
+        ],
+        "verbatim_text": "2800BK-GOLD  |  CHAIR (WELED)    17\"W x 19\"D x 38\"H\nPACK: 4/1 CARTON"
+      },
+      {
+        "page": 63,
+        "print_page": "DINETTE 122",
+        "heading_region": [
+          69.5,
+          505.9,
+          1626.2,
+          546.7
+        ],
+        "verbatim_heading": "3103T/2800BK-GOLD\n3114T/2800BK-GOLD\n3104T/2800BK-GOLD",
+        "region": [
+          1385.4,
+          624.5,
+          1629.0,
+          662.1
+        ],
+        "verbatim_text": "2800BK-GOLD  |  CHAIR    17\"W x 19\"D x 38\"H\nPACK: 4/1 CARTON"
+      }
+    ],
+    "raw_heading_text": "3103T/2800BK-GOLD",
+    "raw_model_text": "2800BK-GOLD",
+    "raw_color_text": "BK-GOLD",
+    "resolved_color": "BLACK / GOLD",
+    "raw_dimensions_text": "17\"W x 19\"D x 38\"H",
+    "resolved_dimensions": "17\"W x 19\"D x 38\"H",
+    "raw_pack_text": "PACK: 4/1 CARTON",
+    "raw_price_text": "$40.00",
+    "price_unit_status": "unverified",
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        1071.5,
+        234.2,
+        1177.1,
+        266.9
+      ],
+      "exact_row_text": "2800BK-GOLD Chair (Weled) $40.00",
+      "previous_row_text": "3103T Glass Dining Table $139.00",
+      "next_row_text": "Page 122",
+      "component_skus": [
+        "2800BK-GOLD"
+      ],
+      "resolved_price": "$40.00",
+      "price": "$40.00",
+      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $40.00 without unit"
+    },
+    "output_image": "reports/dining_batch8_draft_images/draft-2800bk-gold.jpg",
+    "image_xref": 1459,
+    "image_pixel_size": "819x564",
+    "image_sha256": "f370be51f9c735d10aeea15a9ac0af360157d46587ca462a89d19b0a20061504",
+    "category": "DINING CHAIR",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "ordinary_scene_props": false,
+    "catalog_product_overlap": true,
+    "shared_layout_with_other_products": true,
+    "shared_scene_for_multiple_skus": true,
+    "displayed_model_uncertain": false,
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "shared_products_in_scene": [
+      "3103T",
+      "3114T",
+      "3104T"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 63, printed pages DINETTE 121 and DINETTE 122.",
+    "visual_review_notes": "Cropped from P63 scene. Overlaps with 3103T table in lifestyle scene.",
+    "interpretation_notes": "Dining chair (welded) 2800BK-GOLD. PACK: 4/1 CARTON. Price list lists $40.00 without unit. Marked price_unit_status: unverified and publish: false.",
+    "conflict_status": "none",
+    "conflict_notes": "None.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "2800BK-GOLD 黑色金架焊接餐椅",
+    "candidate_title_en": "2800BK-GOLD Black Gold Frame Welded Dining Chair"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "3105T",
+    "sku": "3105T",
+    "component_skus": [
+      "3105T"
+    ],
+    "product_identity": "one complete round glass dining table with black frame",
+    "components_verified": true,
+    "pdf_physical_page": 64,
+    "first_seen": {
+      "physical_page": 64,
+      "print_page": "DINETTE 123",
+      "section": "DINETTE 123 left"
+    },
+    "occurrences": 1,
+    "evidence_pages": [
+      64
+    ],
+    "source_text_regions": [
+      {
+        "page": 64,
+        "print_page": "DINETTE 123",
+        "heading_region": [
+          69.5,
+          518.2,
+          1626.2,
+          544.5
+        ],
+        "verbatim_heading": "3105T/2800BK-GRAY\n3106T/2800BK-GRAY",
+        "region": [
+          72.3,
+          578.5,
+          343.4,
+          595.1
+        ],
+        "verbatim_text": "3105T  |  GLASS DINING TABLE    DIA  43\" x 30\"H"
+      }
+    ],
+    "raw_heading_text": "3105T/2800BK-GRAY",
+    "raw_model_text": "3105T",
+    "raw_color_text": "GLASS DINING TABLE",
+    "resolved_color": "BLACK",
+    "raw_dimensions_text": "DIA 43\" x 30\"H",
+    "resolved_dimensions": "DIA 43\" x 30\"H",
+    "raw_pack_text": "",
+    "raw_price_text": "$119.00",
+    "price_unit_status": "verified_table",
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        1068.8,
+        447.8,
+        1173.2,
+        478.1
+      ],
+      "exact_row_text": "3105T Glass Dining Table $119.00",
+      "previous_row_text": "Page 123",
+      "next_row_text": "2800BK-GRAY Chair (Weled) $30.00",
+      "component_skus": [
+        "3105T"
+      ],
+      "resolved_price": "$119.00",
+      "price": "$119.00",
+      "unit_text": "1 complete table"
+    },
+    "output_image": "reports/dining_batch8_draft_images/draft-3105t.jpg",
+    "image_xref": 1474,
+    "image_pixel_size": "817x563",
+    "image_sha256": "481550636ab03f550b7cf924580f1de78f1fba58d820f99f312d2ab7aba3288a",
+    "category": "DINING TABLE",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "ordinary_scene_props": false,
+    "catalog_product_overlap": true,
+    "shared_layout_with_other_products": true,
+    "shared_scene_for_multiple_skus": false,
+    "displayed_model_uncertain": false,
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "shared_products_in_scene": [
+      "2800BK-GRAY"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 64, printed page DINETTE 123 left.",
+    "visual_review_notes": "Cropped from P64 left scene. Overlaps with 2800BK-GRAY chairs.",
+    "interpretation_notes": "Round glass dining table 3105T (DIA 43x30H) with black legs. Price list lists $119.00.",
+    "conflict_status": "none",
+    "conflict_notes": "None.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "3105T 43英寸圆形黑色玻璃餐桌",
+    "candidate_title_en": "3105T 43\" Round Black Glass Dining Table"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "2800BK-GRAY",
+    "sku": "2800BK-GRAY",
+    "component_skus": [
+      "2800BK-GRAY"
+    ],
+    "product_identity": "dining chair with black frame",
+    "components_verified": true,
+    "pdf_physical_page": 64,
+    "first_seen": {
+      "physical_page": 64,
+      "print_page": "DINETTE 123",
+      "section": "DINETTE 123 left"
+    },
+    "occurrences": 2,
+    "evidence_pages": [
+      64
+    ],
+    "source_text_regions": [
+      {
+        "page": 64,
+        "print_page": "DINETTE 123",
+        "heading_region": [
+          69.5,
+          518.2,
+          1626.2,
+          544.5
+        ],
+        "verbatim_heading": "3105T/2800BK-GRAY\n3106T/2800BK-GRAY",
+        "region": [
+          72.3,
+          599.5,
+          359.6,
+          637.1
+        ],
+        "verbatim_text": "2800BK-GRAY  |  CHAIR (WELED)    17\"W x 19\"D x 38\"H\nPACK: 4/1 CARTON"
+      },
+      {
+        "page": 64,
+        "print_page": "DINETTE 124",
+        "heading_region": [
+          69.5,
+          518.2,
+          1626.2,
+          544.5
+        ],
+        "verbatim_heading": "3105T/2800BK-GRAY\n3106T/2800BK-GRAY",
+        "region": [
+          1386.3,
+          603.5,
+          1629.0,
+          641.1
+        ],
+        "verbatim_text": "2800BK-GRAY  |  CHAIR    17\"W x 19\"D x 38\"H\nPACK: 4/1 CARTON"
+      }
+    ],
+    "raw_heading_text": "3105T/2800BK-GRAY",
+    "raw_model_text": "2800BK-GRAY",
+    "raw_color_text": "BK-GRAY",
+    "resolved_color": "BLACK / GRAY",
+    "raw_dimensions_text": "17\"W x 19\"D x 38\"H",
+    "resolved_dimensions": "17\"W x 19\"D x 38\"H",
+    "raw_pack_text": "PACK: 4/1 CARTON",
+    "raw_price_text": "$30.00",
+    "price_unit_status": "unverified",
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        1068.8,
+        483.8,
+        1173.9,
+        516.4
+      ],
+      "exact_row_text": "2800BK-GRAY Chair (Weled) $30.00",
+      "previous_row_text": "3105T Glass Dining Table $119.00",
+      "next_row_text": "Page 124",
+      "component_skus": [
+        "2800BK-GRAY"
+      ],
+      "resolved_price": "$30.00",
+      "price": "$30.00",
+      "unit_text": "PACK: 4/1 CARTON in catalog; Price list lists $30.00 without unit"
+    },
+    "output_image": "reports/dining_batch8_draft_images/draft-2800bk-gray.jpg",
+    "image_xref": 1474,
+    "image_pixel_size": "817x563",
+    "image_sha256": "481550636ab03f550b7cf924580f1de78f1fba58d820f99f312d2ab7aba3288a",
+    "category": "DINING CHAIR",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "ordinary_scene_props": false,
+    "catalog_product_overlap": true,
+    "shared_layout_with_other_products": true,
+    "shared_scene_for_multiple_skus": true,
+    "displayed_model_uncertain": false,
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "shared_products_in_scene": [
+      "3105T",
+      "3106T"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 64, printed pages DINETTE 123 and DINETTE 124.",
+    "visual_review_notes": "Cropped from P64 scene. Overlaps with 3105T table.",
+    "interpretation_notes": "Dining chair (welded) 2800BK-GRAY. PACK: 4/1 CARTON. Price list lists $30.00 without specifying unit. Marked price_unit_status: unverified and publish: false.",
+    "conflict_status": "none",
+    "conflict_notes": "None.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "2800BK-GRAY 黑色灰面焊接餐椅",
+    "candidate_title_en": "2800BK-GRAY Black Frame Gray Seat Welded Dining Chair"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "3106T",
+    "sku": "3106T",
+    "component_skus": [
+      "3106T"
+    ],
+    "product_identity": "one complete rectangular glass dining table with black frame",
+    "components_verified": true,
+    "pdf_physical_page": 64,
+    "first_seen": {
+      "physical_page": 64,
+      "print_page": "DINETTE 124",
+      "section": "DINETTE 124 right"
+    },
+    "occurrences": 1,
+    "evidence_pages": [
+      64
+    ],
+    "source_text_regions": [
+      {
+        "page": 64,
+        "print_page": "DINETTE 124",
+        "heading_region": [
+          69.5,
+          518.2,
+          1626.2,
+          544.5
+        ],
+        "verbatim_heading": "3105T/2800BK-GRAY\n3106T/2800BK-GRAY",
+        "region": [
+          1348.5,
+          582.5,
+          1629.0,
+          599.1
+        ],
+        "verbatim_text": "3106T  |  GLASS DINING TABLE    36\"W x 60\"D x 30\"H"
+      }
+    ],
+    "raw_heading_text": "3106T/2800BK-GRAY",
+    "raw_model_text": "3106T",
+    "raw_color_text": "GLASS DINING TABLE",
+    "resolved_color": "BLACK",
+    "raw_dimensions_text": "36\"W x 60\"D x 30\"H",
+    "resolved_dimensions": "36\"W x 60\"D x 30\"H",
+    "raw_pack_text": "",
+    "raw_price_text": "$139.00",
+    "price_unit_status": "verified_table",
+    "price_evidence": {
+      "price_list_page": 7,
+      "price_row_bbox": [
+        1070.7,
+        569.4,
+        1172.4,
+        600.0
+      ],
+      "exact_row_text": "3106T Dining Table $139.00",
+      "previous_row_text": "Page 124",
+      "next_row_text": "2800BK-GRAY Dining Chair $30.00",
+      "component_skus": [
+        "3106T"
+      ],
+      "resolved_price": "$139.00",
+      "price": "$139.00",
+      "unit_text": "1 complete table"
+    },
+    "output_image": "reports/dining_batch8_draft_images/draft-3106t.jpg",
+    "image_xref": 1475,
+    "image_pixel_size": "819x562",
+    "image_sha256": "973c193d5a28dfcd2adb5e41e6dcbf9acb81fe1b3bb46899d8580acb516df23a",
+    "category": "DINING TABLE",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "ordinary_scene_props": false,
+    "catalog_product_overlap": true,
+    "shared_layout_with_other_products": true,
+    "shared_scene_for_multiple_skus": false,
+    "displayed_model_uncertain": false,
+    "evidence_only": true,
+    "eligible_as_product_image": false,
+    "shared_products_in_scene": [
+      "2800BK-GRAY"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 64, printed page DINETTE 124 right.",
+    "visual_review_notes": "Cropped from P64 right scene. Overlaps with 2800BK-GRAY chairs.",
+    "interpretation_notes": "Rectangular glass dining table 3106T (36x60x30H) with black legs. Price list lists $139.00.",
+    "conflict_status": "none",
+    "conflict_notes": "None.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "3106T 60英寸长方形黑色玻璃餐桌",
+    "candidate_title_en": "3106T 60\" Rectangular Black Glass Dining Table"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3101T",
+    "sku": "3101T",
+    "product_identity": "one complete round glass dining table",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 62,
+        "print_page": "DINETTE 119",
+        "section": "DINETTE 119 left",
+        "raw_heading_text": "3101T/2800BK-CHROME",
+        "raw_dimensions_text": "DIA 43\" x 30\"H",
+        "raw_pack_text": "",
+        "raw_body_text": "3101T  |  GLASS DINING TABLE    DIA  43\" x 30\"H",
+        "scene_chairs": "2800BK-CHROME",
+        "image_xref": 1444
+      }
+    ],
+    "notes": "Occurrence #2 of 3101T. P62 DINETTE 119 left repeated table with 2800BK-CHROME chairs. Canonical record in Batch 7 maintained.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3112T",
+    "sku": "3112T",
+    "product_identity": "one complete rectangular glass dining table",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 62,
+        "print_page": "DINETTE 120",
+        "section": "DINETTE 120 right",
+        "raw_heading_text": "3112T/2800BK-CHROME\n3102T/2800BK-CHROME",
+        "raw_dimensions_text": "30\"W x 48\"D x 30\"H",
+        "raw_pack_text": "",
+        "raw_body_text": "3112T  |  GLASS DINING TABLE    30\"W x 48\"D x 30\"H",
+        "scene_chairs": "2800BK-CHROME",
+        "image_xref": 1445,
+        "visual_identity_status": "ambiguous",
+        "shared_scene_for_multiple_skus": true,
+        "displayed_model_uncertain": true
+      }
+    ],
+    "notes": "Occurrence #2 of 3112T. P62 DINETTE 120 right shared scene with 3102T. Canonical record in Batch 7 maintained.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3102T",
+    "sku": "3102T",
+    "product_identity": "one complete rectangular glass dining table",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 62,
+        "print_page": "DINETTE 120",
+        "section": "DINETTE 120 right",
+        "raw_heading_text": "3112T/2800BK-CHROME\n3102T/2800BK-CHROME",
+        "raw_dimensions_text": "36\"W x 60\"D x 30\"H",
+        "raw_pack_text": "",
+        "raw_body_text": "3102T  |  GLASS DINING TABLE    36\"W x 60\"D x 30\"H",
+        "scene_chairs": "2800BK-CHROME",
+        "image_xref": 1445,
+        "visual_identity_status": "ambiguous",
+        "shared_scene_for_multiple_skus": true,
+        "displayed_model_uncertain": true
+      }
+    ],
+    "notes": "Occurrence #5 of 3102T. P62 DINETTE 120 right shared scene with 3112T. Canonical record in Batch 6 maintained.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3103T",
+    "sku": "3103T",
+    "product_identity": "one complete round glass dining table with gold frame",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 63,
+        "print_page": "DINETTE 121",
+        "section": "DINETTE 121 left",
+        "raw_heading_text": "3103T/2800BK-GOLD",
+        "raw_dimensions_text": "DIA 43\" x 30\"H",
+        "raw_pack_text": "",
+        "raw_body_text": "3103T  |  GLASS DINING TABLE    DIA  43\" x 30\"H",
+        "scene_chairs": "2800BK-GOLD",
+        "image_xref": 1459
+      }
+    ],
+    "notes": "Occurrence #2 of 3103T. P63 DINETTE 121 left repeated table with 2800BK-GOLD chairs. Canonical record in Batch 7 maintained.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3114T",
+    "sku": "3114T",
+    "product_identity": "one complete rectangular glass dining table with gold frame",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 63,
+        "print_page": "DINETTE 122",
+        "section": "DINETTE 122 right",
+        "raw_heading_text": "3114T/2800BK-GOLD\n3104T/2800BK-GOLD",
+        "raw_dimensions_text": "30\"W x 48\"D x 30\"H",
+        "raw_pack_text": "",
+        "raw_body_text": "New 3114T  |  GLASS DINING TABLE    30\"W x 48\"D x 30\"H",
+        "scene_chairs": "2800BK-GOLD",
+        "image_xref": 1460,
+        "visual_identity_status": "ambiguous",
+        "shared_scene_for_multiple_skus": true,
+        "displayed_model_uncertain": true
+      }
+    ],
+    "notes": "Occurrence #2 of 3114T. P63 DINETTE 122 right shared scene with 3104T. Canonical record in Batch 7 maintained.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3104T",
+    "sku": "3104T",
+    "product_identity": "one complete rectangular glass dining table with gold frame",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 63,
+        "print_page": "DINETTE 122",
+        "section": "DINETTE 122 right",
+        "raw_heading_text": "3114T/2800BK-GOLD\n3104T/2800BK-GOLD",
+        "raw_dimensions_text": "36\"W x 60\"D x 30\"H",
+        "raw_pack_text": "",
+        "raw_body_text": "3104T  |  GLASS DINING TABLE    36\"W x 60\"D x 30\"H",
+        "scene_chairs": "2800BK-GOLD",
+        "image_xref": 1460,
+        "visual_identity_status": "ambiguous",
+        "shared_scene_for_multiple_skus": true,
+        "displayed_model_uncertain": true
+      }
+    ],
+    "notes": "Occurrence #2 of 3104T. P63 DINETTE 122 right shared scene with 3114T. Canonical record in Batch 7 maintained.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "occurrence_only"
+  }
+]

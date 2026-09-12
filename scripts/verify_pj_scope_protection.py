@@ -226,6 +226,10 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
             if publish and conflict_status == "unresolved":
                 errors.append(f"[{mf} #{idx}] '{sku}' publish:true must not be unresolved conflict.")
                 
+            # Rule 6B: evidence_only / eligible_as_product_image:false prohibits publish:true
+            if (item.get("evidence_only") is True or item.get("eligible_as_product_image") is False) and publish:
+                errors.append(f"[{mf} #{idx}] EVIDENCE ONLY ITEM CANNOT BE PUBLISHED: SKU '{sku}' has evidence_only: true or eligible_as_product_image: false but publish is true.")
+                
             # Rule 7: rejection consistency
             review_res = item.get("review_result", "approved_for_publication" if publish else "rejected_for_publication")
             if not publish and review_res not in ["rejected_for_publication", "occurrence_only"]:
@@ -402,6 +406,11 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
                 if "dimension_occurrences" in c_item and c_item.get("raw_dimensions_text") is not None:
                     errors.append(f"[{c_mf}] Conflicting dimensions SKU '{sku}' must have raw_dimensions_text: null.")
 
+    # Check that formal production HTML pages do not reference reports/ draft/evidence images
+    for page_name, html_text in formal_pages.items():
+        if "reports/dining_batch" in html_text or "reports/office" in html_text or ("evidence" in html_text.lower() and "reports/" in html_text):
+            errors.append(f"PRODUCTION HTML CONTAINS EVIDENCE/DRAFT IMAGE PATH: '{page_name}' references draft/evidence images in reports/.")
+
     passed = (len(errors) == 0)
     stats = {
         "global_unique_canonical_skus": len(canonical_registry),
@@ -508,8 +517,8 @@ def check_live_scope_protection():
         assert False, f"Scope protection validator failed with {len(errors)} error(s)."
     print(f"  -> PASS: {card_cnt}/{card_cnt} cards and {img_cnt}/{img_cnt} image files 100% identical to root baseline (11157499).")
 
-def run_sixteen_negative_tests():
-    print("[TEST 4] Auditor Reliability & 16-Part Negative Test Suite:")
+def run_eighteen_negative_tests():
+    print("[TEST 4] Auditor Reliability & 18-Part Negative Test Suite:")
     off_en = open("office/index.html", "r", encoding="utf-8").read()
     off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
@@ -808,6 +817,40 @@ def run_sixteen_negative_tests():
     assert any("PRICE VALUE MISMATCH" in e for e in errors_16), f"Expected price value mismatch error, got: {errors_16}"
     print(f"  - Neg Test 16 (Price Value Mismatch): Caught expected error: '{errors_16[0]}' [PASS]")
 
+    # Neg Test 17: evidence_only: true item with publish: true -> MUST FAIL
+    test_mf_ev_only = "reports/manifest_v2_test_ev_only.draft.json"
+    ev_only_item = [{
+        "record_type": "canonical_product",
+        "sku": "TEST_EV_ONLY_SKU",
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "human_reviewed": True,
+        "publish": True,
+        "evidence_only": True,
+        "crop_contains_target_only": True,
+        "crop_contains_other_products": False,
+        "output_image": "assets/images/pj_office/pj-2715.jpg"
+    }]
+    with open(test_mf_ev_only, "w") as f:
+        json.dump(ev_only_item, f)
+    passed_17, errors_17, _ = validate_manifests(manifest_files_override=[test_mf_ev_only])
+    os.remove(test_mf_ev_only)
+    assert not passed_17, "Negative Test 17 Failed: evidence_only with publish:true was NOT caught!"
+    assert any("EVIDENCE ONLY ITEM CANNOT BE PUBLISHED" in e for e in errors_17), f"Expected evidence only error, got: {errors_17}"
+    print(f"  - Neg Test 17 (Evidence-Only Item on Publish): Caught expected error: '{errors_17[0]}' [PASS]")
+
+    # Neg Test 18: Production HTML referencing reports/dining_batch*_draft_images -> MUST FAIL
+    formal_pages_tampered = {
+        "dining_en": din_en.replace("assets/images/", "reports/dining_batch7_draft_images/draft-2240.jpg", 1),
+        "dining_zh": din_zh,
+        "office_en": off_en,
+        "office_zh": off_zh
+    }
+    passed_18, errors_18, _ = validate_manifests(manifest_files_override=base_mfs, custom_pages=formal_pages_tampered)
+    assert not passed_18, "Negative Test 18 Failed: Production HTML referencing draft images was NOT caught!"
+    assert any("PRODUCTION HTML CONTAINS EVIDENCE/DRAFT IMAGE PATH" in e for e in errors_18), f"Expected draft image reference error, got: {errors_18}"
+    print(f"  - Neg Test 18 (Production HTML Referencing Draft Images): Caught expected error: '{errors_18[0]}' [PASS]")
+
 OFFICE_19_PJ_SKUS = [
     "2715", "2716", "4500TAUPE", "4500CA", "2704WH", "2704BK",
     "2709", "2714", "2006GRAY", "2706", "2707", "2708BK",
@@ -931,14 +974,14 @@ def check_git_cleanliness():
 
 def main():
     print("=" * 70)
-    print("GLOBAL CANONICAL SCOPE PROTECTION & REGRESSION VERIFIER (V7)")
+    print("GLOBAL CANONICAL SCOPE PROTECTION & REGRESSION VERIFIER (V8)")
     print("=" * 70)
     check_pdf_hash()
     check_frozen_raw_text_hashes()
     check_manifests_source_fields()
     check_live_scope_protection()
     check_office_baseline_protection()
-    run_sixteen_negative_tests()
+    run_eighteen_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
@@ -949,8 +992,10 @@ def main():
     print("  Protected unique image files audited: 115/115 (100.0%)")
     print("  Dining production PJ cards: 0")
     print("  Cross-manifest duplicates: 0")
+    print("  Out-of-bounds regions: 0")
+    print("  Evidence-only images referenced by production HTML: 0")
     print("  Unapproved production page changes: 0")
-    print("  Negative test suite assertions passed: 16/16")
+    print("  Negative test suite assertions passed: 18/18")
     print("=" * 70)
     print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)
