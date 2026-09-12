@@ -1,0 +1,36 @@
+=== PHYSICAL PAGE 60 (INDEX 59) ===
+PAGE RECT: width=1700.7900390625, height=680.3150024414062
+
+--- FULL GET_TEXT() ---
+DINETTE 115
+3101T/2800WH-CHROME
+3101T  |  GLASS DINING TABLE    DIA  43" x 30"H     
+2800WH-CHROME  |  CHAIR (WELED)    17"W x 19"D x 38"H
+PACK: 4/1 CARTON
+   DINETTE 116
+3112T/2800WH-CHROME
+3102T/2800WH-CHROME
+3112T  |  GLASS DINING TABLE    30"W x 48"D x 30"H 
+3102T  |  GLASS DINING TABLE    36"W x 60"D x 30"H
+2800WH-CHROME  |  CHAIR    17"W x 19"D x 38"H 
+PACK: 4/1 CARTON
+New
+
+
+--- TEXT BLOCKS (BBOXES) ---
+Block 0 (type 0): bbox=[1.13, 508.56, 49.03, 664.93] -> DINETTE 115 \n 
+Block 1 (type 0): bbox=[69.53, 518.24, 250.26, 539.82] -> 3101T/2800WH-CHROME \n 
+Block 2 (type 0): bbox=[72.28, 578.52, 343.38, 595.06] -> 3101T  |  GLASS DINING TABLE    DIA  43" x 30"H      \n 
+Block 3 (type 0): bbox=[72.28, 599.52, 381.70, 616.06] -> 2800WH-CHROME  |  CHAIR (WELED)    17"W x 19"D x 38"H \n 
+Block 4 (type 0): bbox=[72.28, 620.52, 173.81, 637.06] -> PACK: 4/1 CARTON \n 
+Block 5 (type 0): bbox=[1652.42, 489.92, 1700.33, 664.29] ->    DINETTE 116 \n 
+Block 6 (type 0): bbox=[1448.26, 510.42, 1628.99, 551.21] -> 3112T/2800WH-CHROME \n 3102T/2800WH-CHROME \n 
+Block 7 (type 0): bbox=[1351.36, 578.51, 1631.84, 595.05] -> 3112T  |  GLASS DINING TABLE    30"W x 48"D x 30"H  \n 
+Block 8 (type 0): bbox=[1351.38, 599.51, 1628.51, 616.05] -> 3102T  |  GLASS DINING TABLE    36"W x 60"D x 30"H \n 
+Block 9 (type 0): bbox=[1366.97, 620.51, 1631.84, 637.05] -> 2800WH-CHROME  |  CHAIR    17"W x 19"D x 38"H  \n 
+Block 10 (type 0): bbox=[1526.98, 641.51, 1628.51, 658.05] -> PACK: 4/1 CARTON \n 
+Block 11 (type 0): bbox=[1328.03, 576.27, 1347.00, 594.55] -> New \n 
+
+--- IMAGE INFO ---
+Image xref=1414, smask=0, width=818, height=563, bpc=8, colorspace=ICCBased, name=Im0, type=JPXDecode
+Image xref=1415, smask=0, width=817, height=564, bpc=8, colorspace=ICCBased, name=Im1, type=JPXDecode

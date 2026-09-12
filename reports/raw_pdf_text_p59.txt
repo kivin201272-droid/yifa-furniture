@@ -1,0 +1,33 @@
+=== PHYSICAL PAGE 59 (INDEX 58) ===
+PAGE RECT: width=1700.7900390625, height=680.3150024414062
+
+--- FULL GET_TEXT() ---
+DINETTE 113
+2240/2800BLACK-GRAY
+2240  |  SINTERED STONE DINING TABLE   47"W x 28"D x 30"H     
+2800BLACK-GRAY | DINING CHAIR(WELDED)    17"W x 19"D x 38"H
+PACK: 4/1 CARTON
+   DINETTE 114
+2250/2800BLACK-GRAY
+2250  |   DINING TABLE   47"W x 28"D x 30"H 
+2800BLACK-GRAY |  DINING CHAIR(WELDED)    17"W x 19"D x 38"H
+PACK: 4/1 CARTON
+
+
+--- TEXT BLOCKS (BBOXES) ---
+Block 0 (type 0): bbox=[1.13, 508.56, 49.03, 664.93] -> DINETTE 113 \n 
+Block 1 (type 0): bbox=[68.16, 523.26, 234.96, 544.84] -> 2240/2800BLACK-GRAY \n 
+Block 2 (type 0): bbox=[68.08, 578.52, 408.23, 595.06] -> 2240  |  SINTERED STONE DINING TABLE   47"W x 28"D x 30"H      \n 
+Block 3 (type 0): bbox=[68.08, 599.52, 414.14, 616.06] -> 2800BLACK-GRAY | DINING CHAIR(WELDED)    17"W x 19"D x 38"H \n 
+Block 4 (type 0): bbox=[68.08, 620.52, 169.61, 637.06] -> PACK: 4/1 CARTON \n 
+Block 5 (type 0): bbox=[1649.59, 493.94, 1697.49, 668.30] ->    DINETTE 114 \n 
+Block 6 (type 0): bbox=[1445.47, 523.26, 1612.27, 544.84] -> 2250/2800BLACK-GRAY \n 
+Block 7 (type 0): bbox=[1380.24, 578.52, 1615.68, 595.06] -> 2250  |   DINING TABLE   47"W x 28"D x 30"H  \n 
+Block 8 (type 0): bbox=[1262.96, 599.52, 1612.35, 616.06] -> 2800BLACK-GRAY |  DINING CHAIR(WELDED)    17"W x 19"D x 38"H \n 
+Block 9 (type 0): bbox=[1510.82, 620.52, 1612.35, 637.06] -> PACK: 4/1 CARTON \n 
+
+--- IMAGE INFO ---
+Image xref=1394, smask=0, width=819, height=564, bpc=8, colorspace=ICCBased, name=Im0, type=JPXDecode
+Image xref=1396, smask=0, width=187, height=119, bpc=8, colorspace=ICCBased, name=Im1, type=JPXDecode
+Image xref=1398, smask=0, width=182, height=117, bpc=8, colorspace=ICCBased, name=Im2, type=JPXDecode
+Image xref=1400, smask=0, width=817, height=563, bpc=8, colorspace=ICCBased, name=Im3, type=JPXDecode
