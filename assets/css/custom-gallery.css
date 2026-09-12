@@ -54,6 +54,91 @@
   transform: scale(1.02);
 }
 
+/* Bottom Multi-Variant Price Strip Styles */
+.price-tag {
+  font-weight: 800;
+  color: #e63946;
+  font-size: 1.05rem;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.price-tag-multi {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-right: 8px;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.price-tag-multi .price-prefix {
+  font-weight: 800;
+  color: #e63946;
+  font-size: 0.98rem;
+  margin-right: 2px;
+}
+
+.price-tag-multi .spec-pill {
+  font-weight: 700;
+  background: #f4efe6;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  border: 1px solid #e7dcce;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.price-tag-multi .spec-pill .pill-lbl {
+  color: #78716c;
+  font-weight: 600;
+}
+
+.price-tag-multi .spec-pill .pill-val {
+  color: #b91c1c;
+  font-weight: 800;
+}
+
+.price-tag-multi .spec-pill.queen,
+.price-tag-multi .spec-pill.highlight {
+  background: #fef3c7;
+  border-color: #f59e0b;
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.15);
+}
+
+.price-tag-multi .spec-pill.queen .pill-lbl {
+  color: #b45309;
+}
+
+.price-tag-multi .spec-pill.queen .pill-val {
+  color: #b45309;
+}
+
+.price-tag-multi .spec-divider {
+  color: #d1c7b7;
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .price-tag {
+    font-size: 0.95rem;
+  }
+  .price-tag-multi {
+    font-size: 0.85rem;
+    gap: 3px;
+  }
+  .price-tag-multi .spec-pill {
+    padding: 1px 5px;
+    font-size: 0.78rem;
+  }
+}
+
 .sofa-thumbnails {
   display: flex;
   flex-wrap: wrap;
@@ -155,4 +240,37 @@
 .no-dimensions {
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+
+.sofa-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  margin-bottom: 12px;
+}
+
+.price-tag, .price-current {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #e63946 !important;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.detail-tag, .spec-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-deep, #78644c);
+  background: var(--bg-soft, #f4f0eb);
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
 }

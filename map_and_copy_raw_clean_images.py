@@ -1,0 +1,172 @@
+import fitz
+from PIL import Image, ImageEnhance, ImageOps
+import io, os, shutil
+
+doc = fitz.open('./素材库/价钱/price list2026 (5_22).pdf')
+
+def save_clean_image(page_idx, img_idx_1based, out_path):
+    page = doc[page_idx]
+    imgs = page.get_images()
+    if img_idx_1based > len(imgs):
+        print(f"Index {img_idx_1based} out of range on page {page_idx+1}")
+        return
+    
+    xref = imgs[img_idx_1based - 1][0]
+    base = doc.extract_image(xref)
+    im = Image.open(io.BytesIO(base['image'])).convert('RGB')
+    
+    # Auto-trim near-white borders
+    diff = ImageOps.invert(im)
+    bbox = diff.getbbox()
+    if bbox:
+        im = im.crop(bbox)
+        
+    # Scale to fit 740x550
+    im.thumbnail((740, 550), Image.Resampling.LANCZOS)
+    canvas = Image.new('RGB', (800, 600), (255, 255, 255))
+    paste_x = (800 - im.width) // 2
+    paste_y = (600 - im.height) // 2
+    canvas.paste(im, (paste_x, paste_y))
+    
+    enhancer = ImageEnhance.Sharpness(canvas)
+    canvas = enhancer.enhance(1.4)
+    
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    canvas.save(out_path, quality=95)
+    print(f"Saved Clean Pure Image: {out_path} (from Page {page_idx+1}, img #{img_idx_1based})")
+
+# Page 10 (Dining)
+save_clean_image(9, 32, 'assets/images/pj_dining/pj-4406.jpg')
+save_clean_image(9, 29, 'assets/images/pj_dining/pj-4405.jpg')
+save_clean_image(9, 30, 'assets/images/pj_dining/pj-2524.jpg')
+save_clean_image(9, 31, 'assets/images/pj_dining/pj-2526.jpg')
+
+# Page 6 (Dining Sets)
+save_clean_image(5, 1, 'assets/images/pj_dining/p6_img_10_204.jpg')
+save_clean_image(5, 2, 'assets/images/pj_dining/p6_img_11_205.jpg')
+save_clean_image(5, 3, 'assets/images/pj_dining/p6_img_12_207.jpg')
+save_clean_image(5, 4, 'assets/images/pj_dining/p6_img_13_209.jpg')
+save_clean_image(5, 5, 'assets/images/pj_dining/p6_img_14_211.jpg')
+
+# Page 7 (Dining Sets)
+save_clean_image(6, 1, 'assets/images/pj_dining/p7_img_10_250.jpg')
+save_clean_image(6, 2, 'assets/images/pj_dining/p7_img_11_252.jpg')
+save_clean_image(6, 3, 'assets/images/pj_dining/p7_img_12_253.jpg')
+save_clean_image(6, 4, 'assets/images/pj_dining/p7_img_13_255.jpg')
+
+# Page 8 (Dining Sets)
+save_clean_image(7, 1, 'assets/images/pj_dining/p8_img_10_282.jpg')
+save_clean_image(7, 2, 'assets/images/pj_dining/p8_img_11_284.jpg')
+save_clean_image(7, 3, 'assets/images/pj_dining/p8_img_12_285.jpg')
+save_clean_image(7, 4, 'assets/images/pj_dining/p8_img_13_287.jpg')
+
+# Page 9 (Bar Table & Stools)
+save_clean_image(8, 1, 'assets/images/pj_dining/p9_img_10_318.jpg')
+
+# Page 9 & 10 (Office)
+save_clean_image(8, 2, 'assets/images/pj_office/pj-2715.jpg')
+save_clean_image(8, 3, 'assets/images/pj_office/pj-2716.jpg')
+save_clean_image(8, 4, 'assets/images/pj_office/pj-4500.jpg')
+save_clean_image(8, 5, 'assets/images/pj_office/pj-2714.jpg')
+save_clean_image(8, 6, 'assets/images/pj_office/pj-2704.jpg')
+save_clean_image(8, 7, 'assets/images/pj_office/pj-2709.jpg')
+save_clean_image(8, 8, 'assets/images/pj_office/pj-2006.jpg')
+save_clean_image(8, 9, 'assets/images/pj_office/pj-2707.jpg')
+save_clean_image(9, 1, 'assets/images/pj_office/pj-2720-2721.jpg')
+save_clean_image(9, 2, 'assets/images/pj_office/pj-2722-2723.jpg')
+save_clean_image(9, 3, 'assets/images/pj_office/pj-2725.jpg')
+save_clean_image(9, 4, 'assets/images/pj_office/pj-2706.jpg')
+save_clean_image(9, 5, 'assets/images/pj_office/pj-2708.jpg')
+save_clean_image(9, 6, 'assets/images/pj_office/pj-2724.jpg')
+
+# Page 4 (Living Room Sofas)
+save_clean_image(3, 1, 'assets/images/pj_living/pj-9701br.jpg')
+save_clean_image(3, 2, 'assets/images/pj_living/pj-2406.jpg')
+save_clean_image(3, 3, 'assets/images/pj_living/pj-2402.jpg')
+save_clean_image(3, 4, 'assets/images/pj_living/pj-9211.jpg')
+save_clean_image(3, 5, 'assets/images/pj_living/pj-9910.jpg')
+save_clean_image(3, 6, 'assets/images/pj_living/pj-9900.jpg')
+save_clean_image(3, 7, 'assets/images/pj_living/pj-9921.jpg')
+save_clean_image(3, 8, 'assets/images/pj_living/pj-9931.jpg')
+save_clean_image(3, 9, 'assets/images/pj_living/pj-9941.jpg')
+
+# Page 10, 11, 12 (Living Room TV & Storage)
+save_clean_image(9, 19, 'assets/images/pj_living/pj-4420-4421.jpg')
+save_clean_image(9, 20, 'assets/images/pj_living/pj-4422.jpg')
+save_clean_image(9, 21, 'assets/images/pj_living/pj-4432.jpg')
+save_clean_image(9, 7, 'assets/images/pj_living/pj-4801.jpg')
+save_clean_image(9, 10, 'assets/images/pj_living/pj-2766.jpg')
+save_clean_image(9, 10, 'assets/images/pj_living/pj-2767.jpg')
+save_clean_image(9, 11, 'assets/images/pj_living/pj-2769.jpg')
+save_clean_image(9, 21, 'assets/images/pj_living/pj-4337-4338.jpg')
+save_clean_image(9, 23, 'assets/images/pj_living/pj-4333-4334.jpg')
+save_clean_image(9, 26, 'assets/images/pj_living/pj-4331-4332.jpg')
+save_clean_image(10, 1, 'assets/images/pj_living/pj-4220-4218.jpg')
+save_clean_image(10, 2, 'assets/images/pj_living/pj-4335-4336.jpg')
+save_clean_image(10, 3, 'assets/images/pj_living/pj-4337wh.jpg')
+save_clean_image(11, 1, 'assets/images/pj_living/pj-5115-5116.jpg')
+save_clean_image(11, 2, 'assets/images/pj_living/pj-4316-4320.jpg')
+save_clean_image(11, 3, 'assets/images/pj_living/pj-2036.jpg')
+save_clean_image(11, 4, 'assets/images/pj_living/pj-4411.jpg')
+save_clean_image(11, 5, 'assets/images/pj_living/pj-5107.jpg')
+save_clean_image(11, 6, 'assets/images/pj_living/pj-2052.jpg')
+save_clean_image(11, 7, 'assets/images/pj_living/pj-2050.jpg')
+save_clean_image(11, 8, 'assets/images/pj_living/pj-2051.jpg')
+save_clean_image(11, 9, 'assets/images/pj_living/pj-2047-2048.jpg')
+save_clean_image(11, 10, 'assets/images/pj_living/pj-2772.jpg')
+save_clean_image(11, 11, 'assets/images/pj_living/pj-2083.jpg')
+save_clean_image(11, 12, 'assets/images/pj_living/pj-2773-2771.jpg')
+save_clean_image(11, 13, 'assets/images/pj_living/pj-2825-2826.jpg')
+save_clean_image(11, 14, 'assets/images/pj_living/pj-2813-2814.jpg')
+save_clean_image(11, 15, 'assets/images/pj_living/pj-2810.jpg')
+save_clean_image(11, 16, 'assets/images/pj_living/pj-2824-2823.jpg')
+
+# Page 4 (Bedroom Suites)
+save_clean_image(3, 10, 'assets/images/pj_bedroom/pj-8910.jpg')
+save_clean_image(3, 11, 'assets/images/pj_bedroom/pj-8003.jpg')
+save_clean_image(3, 12, 'assets/images/pj_bedroom/pj-8010.jpg')
+save_clean_image(3, 13, 'assets/images/pj_bedroom/pj-8009.jpg')
+save_clean_image(3, 14, 'assets/images/pj_bedroom/pj-8008.jpg')
+
+# Page 2 & 3 & 11 (Bedroom Beds & Wardrobes)
+save_clean_image(1, 2, 'assets/images/pj_bedroom/pj-7402q.jpg')
+save_clean_image(1, 3, 'assets/images/pj_bedroom/pj-7401q.jpg')
+save_clean_image(1, 4, 'assets/images/pj_bedroom/pj-7405wh.jpg')
+save_clean_image(1, 5, 'assets/images/pj_bedroom/pj-7403gray.jpg')
+save_clean_image(1, 6, 'assets/images/pj_bedroom/pj-7602q-gray.jpg')
+save_clean_image(1, 7, 'assets/images/pj_bedroom/pj-7602q-ivy.jpg')
+save_clean_image(1, 8, 'assets/images/pj_bedroom/pj-7602-pink.jpg')
+save_clean_image(1, 9, 'assets/images/pj_bedroom/pj-7404bk.jpg')
+save_clean_image(1, 10, 'assets/images/pj_bedroom/pj-7500.jpg')
+save_clean_image(1, 11, 'assets/images/pj_bedroom/pj-7600q.jpg')
+save_clean_image(1, 12, 'assets/images/pj_bedroom/pj-7603.jpg')
+
+save_clean_image(2, 1, 'assets/images/pj_bedroom/pj-7806.jpg')
+save_clean_image(2, 2, 'assets/images/pj_bedroom/pj-7102.jpg')
+save_clean_image(2, 3, 'assets/images/pj_bedroom/pj-7100.jpg')
+save_clean_image(2, 4, 'assets/images/pj_bedroom/pj-7804.jpg')
+save_clean_image(2, 5, 'assets/images/pj_bedroom/pj-7011.jpg')
+save_clean_image(2, 6, 'assets/images/pj_bedroom/pj-7016.jpg')
+save_clean_image(2, 7, 'assets/images/pj_bedroom/pj-2331.jpg')
+save_clean_image(2, 8, 'assets/images/pj_bedroom/pj-7005bk.jpg')
+save_clean_image(2, 9, 'assets/images/pj_bedroom/pj-7004bk.jpg')
+save_clean_image(2, 10, 'assets/images/pj_bedroom/pj-7701wh.jpg')
+save_clean_image(2, 11, 'assets/images/pj_bedroom/pj-7702wh.jpg')
+save_clean_image(2, 12, 'assets/images/pj_bedroom/pj-7702ca.jpg')
+save_clean_image(2, 13, 'assets/images/pj_bedroom/pj-7701ca.jpg')
+save_clean_image(2, 14, 'assets/images/pj_bedroom/pj-7020-7021.jpg')
+save_clean_image(2, 15, 'assets/images/pj_bedroom/pj-7013.jpg')
+save_clean_image(2, 16, 'assets/images/pj_bedroom/pj-7901.jpg')
+save_clean_image(2, 17, 'assets/images/pj_bedroom/pj-1901.jpg')
+save_clean_image(2, 18, 'assets/images/pj_bedroom/pj-7800-7801.jpg')
+
+save_clean_image(10, 5, 'assets/images/pj_bedroom/pj-4228.jpg')
+save_clean_image(10, 6, 'assets/images/pj_bedroom/pj-4424.jpg')
+save_clean_image(10, 7, 'assets/images/pj_bedroom/pj-4224-4225.jpg')
+save_clean_image(10, 8, 'assets/images/pj_bedroom/pj-4226.jpg')
+save_clean_image(10, 9, 'assets/images/pj_bedroom/pj-4227.jpg')
+save_clean_image(10, 10, 'assets/images/pj_bedroom/pj-4229.jpg')
+save_clean_image(10, 11, 'assets/images/pj_bedroom/pj-4322-4323.jpg')
+save_clean_image(10, 12, 'assets/images/pj_bedroom/pj-4223.jpg')
+
+print("All product images mapped and replaced with pure clean studio versions!")

@@ -1,0 +1,48 @@
+
+    <svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bannerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#09090b" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#09090b" stop-opacity="0.92" />
+        </linearGradient>
+      </defs>
+      
+      <!-- Translucent Glass Banner -->
+      <rect x="0" y="516" width="800" height="84" fill="url(#bannerGrad)" />
+      
+      <!-- Top Glass Highlight Line -->
+      <line x1="0" y1="516" x2="800" y2="516" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" />
+      
+      <!-- Left Tagline -->
+      <text x="28" y="562" font-family="system-ui, -apple-system, PingFang SC, sans-serif" font-size="25.65" font-weight="700" fill="#fbbf24">
+        🔥 一件也是批发价
+      </text>
+
+      <!-- Right Prices -->
+      
+      <g>
+        
+        <text x="432.11999999999995" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="22.95" fill="#d6d3d1" font-weight="500">T:</text>
+        <text x="526.0799999999999" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="27" fill="#ffffff" font-weight="600" text-anchor="end">$149</text>
+      </g>
+      
+      
+      <g>
+        
+        <text x="552.0799999999999" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="22.95" fill="#d6d3d1" font-weight="500">F:</text>
+        <text x="646.04" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="27" fill="#ffffff" font-weight="600" text-anchor="end">$179</text>
+      </g>
+      <line x1="539.0799999999999" y1="544.5" x2="539.0799999999999" y2="571.5" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      
+      <g>
+        <rect x="666.04" y="536.4" width="105.96" height="43.2" rx="6" fill="rgba(245, 158, 11, 0.25)" stroke="rgba(251, 191, 36, 0.4)" stroke-width="1"/>
+        <text x="672.04" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="22.95" fill="#fef08a" font-weight="500">Q:</text>
+        <text x="766" y="562" font-family="system-ui, -apple-system, sans-serif" font-size="27" fill="#fcd34d" font-weight="800" text-anchor="end">$199</text>
+      </g>
+      <line x1="659.04" y1="544.5" x2="659.04" y2="571.5" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      
+    
+    
+    
+    </svg>
+  
