@@ -36,6 +36,11 @@ reports/preview_dining_desktop.jpg
 reports/preview_dining_mobile.jpg
 reports/preview_dining_batch1.html
 reports/manifest_v2_dining_batch2.json
+reports/manifest_v2_dining_batch3.json
+reports/evidence_dining_batch3/
+reports/dining_batch3_draft_images/
+reports/dining_batch3_comparisons/
+reports/dining_batch3_contact_sheet.jpg
 scripts/audit_f_series.py
 scripts/audit_sku_inventory_extraction.py
 scripts/build_office_evidence_table.py
@@ -47,4 +52,6 @@ scripts/validate_image_content_metrics.py
 scripts/build_dining_batch2_evidence.py
 scripts/build_dining_batch2_manifest.py
 scripts/build_dining_batch2_contact_sheet.py
+scripts/build_dining_batch3_evidence.py
 scripts/restore_office_f_series.py
+
