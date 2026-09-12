@@ -1,0 +1,732 @@
+[
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "3007T/3007WH",
+    "sku": "3007T/3007WH",
+    "component_skus": [
+      "3007T",
+      "3007WH"
+    ],
+    "product_identity": "one complete round dining table",
+    "components_verified": true,
+    "pdf_physical_page": 56,
+    "first_seen": {
+      "physical_page": 56,
+      "print_page": "DINETTE 107",
+      "section": "DINETTE 107 top"
+    },
+    "occurrences": 2,
+    "evidence_pages": [
+      56
+    ],
+    "source_text_regions": [
+      {
+        "page": 56,
+        "print_page": "DINETTE 107",
+        "heading_region": [
+          45.4,
+          281.5,
+          216.5,
+          303.1
+        ],
+        "verbatim_heading": "3007T/3007WH/1403WH",
+        "region": [
+          648.2,
+          325.1,
+          831.6,
+          467.6
+        ],
+        "verbatim_text": "3007T \nROUND DINING TABLE WITH \nSTAINLESS CHROME FRAME, LEGS \n DIA 45\"D x 30\"H   \n3007WH\n12MM ROUND WHITE GLASS TOP"
+      },
+      {
+        "page": 56,
+        "print_page": "DINETTE 108",
+        "heading_region": [
+          1448.9,
+          523.3,
+          1612.3,
+          544.8
+        ],
+        "verbatim_heading": "3007T/3007WH/1401BK",
+        "region": [
+          1152.3,
+          578.5,
+          1615.7,
+          616.1
+        ],
+        "verbatim_text": "3007T  |  ROUND DINING TABLE WITH  STAINLESS GOLD FRAME, LEGS   DIA 45\"D x 30\"H \n3007WH  |   12MM ROUND WHITE GLASS TOP"
+      }
+    ],
+    "raw_heading_text": "3007T/3007WH/1403WH",
+    "raw_model_text": "3007T / 3007WH",
+    "raw_color_text": null,
+    "resolved_color": null,
+    "raw_dimensions_text": "DIA 45\"D x 30\"H",
+    "resolved_dimensions": null,
+    "raw_pack_text": "",
+    "raw_price_text": "$399.00",
+    "price_unit_status": "verified_table",
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "3007T/3007WH Dining Table with White Glass Top $399.00",
+      "component_skus": [
+        "3007T",
+        "3007WH"
+      ],
+      "price": "$399.00",
+      "unit_text": "1 complete table (table base + glass top)"
+    },
+    "conflicting_source_tokens": [
+      {
+        "token": "STAINLESS CHROME FRAME, LEGS",
+        "source_role": "DINETTE 107 top body"
+      },
+      {
+        "token": "STAINLESS GOLD FRAME, LEGS",
+        "source_role": "DINETTE 108 right body"
+      }
+    ],
+    "output_image": "reports/dining_batch6_draft_images/draft-3007t-3007wh.jpg",
+    "image_xref": 1338,
+    "image_pixel_size": "817x324",
+    "image_sha256": "e5623f42c0546004cf5639e1095f40bdf0d4c13bf64e594392cadf1b05e88483",
+    "category": "DINING TABLE",
+    "classification": [
+      "MULTI_PRODUCT_SCENE",
+      "AMBIGUOUS"
+    ],
+    "shared_layout_with_other_products": true,
+    "shared_products_in_scene": [
+      "1403WH",
+      "1401BK"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 56 (DINETTE 107 top scene and DINETTE 108 right scene).",
+    "visual_review_notes": "Cropped from P56 top scene. Overlaps with 1403WH chairs in scene. Exhibits frame finish contradiction (CHROME on D107 vs GOLD on D108).",
+    "interpretation_notes": "Base 3007T combined with 12mm round white glass top 3007WH. Frame finish text contradicts between D107 (CHROME) and D108 (GOLD). Price list lists $399.00.",
+    "conflict_status": "unresolved",
+    "resolution_status": "unresolved",
+    "specification_status": "conflicting",
+    "conflict_notes": "Specification conflict: DINETTE 107 prints STAINLESS CHROME FRAME, LEGS while DINETTE 108 prints STAINLESS GOLD FRAME, LEGS. Unresolved without manufacturer clarification.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE",
+      "UNRESOLVED_SPECIFICATION_CONFLICT"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products, and exhibits an unresolved frame finish specification conflict (CHROME on D107 vs GOLD on D108).",
+    "candidate_title_zh": "3007T/3007WH 45英寸圆形白玻璃餐桌 (暂停发布 - 规格冲突)",
+    "candidate_title_en": "3007T/3007WH 45\" Round White Glass Dining Table (PAUSED - UNRESOLVED CONFLICT)"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "1403WH",
+    "sku": "1403WH",
+    "component_skus": [
+      "1403WH"
+    ],
+    "product_identity": "dining chair",
+    "components_verified": true,
+    "pdf_physical_page": 56,
+    "first_seen": {
+      "physical_page": 56,
+      "print_page": "DINETTE 107",
+      "section": "DINETTE 107 top"
+    },
+    "occurrences": 1,
+    "evidence_pages": [
+      56
+    ],
+    "source_text_regions": [
+      {
+        "page": 56,
+        "print_page": "DINETTE 107",
+        "heading_region": [
+          45.4,
+          281.5,
+          216.5,
+          303.1
+        ],
+        "verbatim_heading": "3007T/3007WH/1403WH",
+        "region": [
+          648.2,
+          493.1,
+          831.4,
+          572.6
+        ],
+        "verbatim_text": "1403WH\nSTAINLESS GOLD DINING CHAIR \n20\"W x 27\"D x 41\"H\nPACK: 2/1 CARTON"
+      }
+    ],
+    "raw_heading_text": "3007T/3007WH/1403WH",
+    "raw_model_text": "1403WH",
+    "raw_color_text": "STAINLESS GOLD / WHITE",
+    "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
+    "resolved_dimensions": "20\"W x 27\"D x 41\"H",
+    "raw_pack_text": "PACK: 2/1 CARTON",
+    "raw_price_text": "$99.00",
+    "price_unit_status": "unverified",
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "1403WH-GOLD Dinning Chair $99.00",
+      "component_skus": [
+        "1403WH-GOLD"
+      ],
+      "price": "$99.00",
+      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
+    },
+    "output_image": "reports/dining_batch6_draft_images/draft-3007t-3007wh.jpg",
+    "image_xref": 1338,
+    "image_pixel_size": "817x324",
+    "image_sha256": "e5623f42c0546004cf5639e1095f40bdf0d4c13bf64e594392cadf1b05e88483",
+    "category": "DINING CHAIR",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "shared_layout_with_other_products": true,
+    "shared_products_in_scene": [
+      "3007T/3007WH"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 56, printed page DINETTE 107 top.",
+    "visual_review_notes": "Cropped from P56 top scene. Overlaps with 3007T dining table in scene.",
+    "interpretation_notes": "Price list lists model as 1403WH-GOLD $99.00 without specifying unit. Marked price_unit_status: unverified and publish: false.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "1403WH 不锈钢金色白色餐椅",
+    "candidate_title_en": "1403WH Stainless Gold White Dining Chair"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "3008T/3007WH",
+    "sku": "3008T/3007WH",
+    "component_skus": [
+      "3008T",
+      "3007WH"
+    ],
+    "product_identity": "one complete round dining table",
+    "components_verified": true,
+    "pdf_physical_page": 56,
+    "first_seen": {
+      "physical_page": 56,
+      "print_page": "DINETTE 107",
+      "section": "DINETTE 107 bottom"
+    },
+    "occurrences": 1,
+    "evidence_pages": [
+      56
+    ],
+    "source_text_regions": [
+      {
+        "page": 56,
+        "print_page": "DINETTE 107",
+        "heading_region": [
+          45.4,
+          531.3,
+          230.4,
+          552.9
+        ],
+        "verbatim_heading": "3008T/3007WH/1200GRAY",
+        "region": [
+          72.3,
+          578.5,
+          535.7,
+          616.1
+        ],
+        "verbatim_text": "3008T  |   ROUND DINING TABLE WITH STAINLESS GOLD FRAME,LEGS    DIA 45\"D x 30\"H \n3007WH  |   12MM ROUND WHITE GLASS TOP"
+      }
+    ],
+    "raw_heading_text": "3008T/3007WH/1200GRAY",
+    "raw_model_text": "3008T / 3007WH",
+    "raw_color_text": "STAINLESS GOLD FRAME,LEGS / 12MM ROUND WHITE GLASS TOP",
+    "raw_dimensions_text": "DIA 45\"D x 30\"H",
+    "resolved_dimensions": "DIA 45\"D x 30\"H",
+    "raw_pack_text": "",
+    "raw_price_text": "$349.00",
+    "price_unit_status": "verified_table",
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "3008T/3007WH Dining Table with $349.00 12mm White Glass Top",
+      "component_skus": [
+        "3008T",
+        "3007WH"
+      ],
+      "price": "$349.00",
+      "unit_text": "1 complete table (table base + glass top)"
+    },
+    "output_image": "reports/dining_batch6_draft_images/draft-3008t-3007wh.jpg",
+    "image_xref": 1342,
+    "image_pixel_size": "610x247",
+    "image_sha256": "a72441eee262bc6d25e5d9be97f430c6e48af33a9f0aeecac551c69ff4d4c2c7",
+    "category": "DINING TABLE",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "shared_layout_with_other_products": true,
+    "shared_products_in_scene": [
+      "1200GRAY"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 56, printed page DINETTE 107 bottom.",
+    "visual_review_notes": "Cropped from P56 bottom scene. Overlaps with 1200GRAY chairs in scene.",
+    "interpretation_notes": "Base 3008T combined with 12mm round white glass top 3007WH. Price list lists $349.00.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "3008T/3007WH 不锈钢金色腿45英寸圆形白玻璃餐桌",
+    "candidate_title_en": "3008T/3007WH 45\" Round White Glass Dining Table with Stainless Gold Frame, Legs"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "1401BK",
+    "sku": "1401BK",
+    "component_skus": [
+      "1401BK"
+    ],
+    "product_identity": "dining chair",
+    "components_verified": true,
+    "pdf_physical_page": 56,
+    "first_seen": {
+      "physical_page": 56,
+      "print_page": "DINETTE 108",
+      "section": "DINETTE 108 right"
+    },
+    "occurrences": 1,
+    "evidence_pages": [
+      56
+    ],
+    "source_text_regions": [
+      {
+        "page": 56,
+        "print_page": "DINETTE 108",
+        "heading_region": [
+          1448.9,
+          523.3,
+          1612.3,
+          544.8
+        ],
+        "verbatim_heading": "3007T/3007WH/1401BK",
+        "region": [
+          1272.6,
+          620.5,
+          1612.4,
+          658.1
+        ],
+        "verbatim_text": "1401BK  |  STAINLESS GOLD DINING CHAIR    20\"W x 27\"D x 41\"H\nPACK: 2/1 CARTON"
+      }
+    ],
+    "raw_heading_text": "3007T/3007WH/1401BK",
+    "raw_model_text": "1401BK",
+    "raw_color_text": "STAINLESS GOLD / BLACK",
+    "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
+    "resolved_dimensions": "20\"W x 27\"D x 41\"H",
+    "raw_pack_text": "PACK: 2/1 CARTON",
+    "raw_price_text": "$99.00",
+    "price_unit_status": "unverified",
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "1401BK Dinning Chair $99.00",
+      "component_skus": [
+        "1401BK"
+      ],
+      "price": "$99.00",
+      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
+    },
+    "output_image": "reports/dining_batch6_draft_images/draft-1401bk.jpg",
+    "image_xref": 1340,
+    "image_pixel_size": "817x564",
+    "image_sha256": "b895b6c8ead25d7a1dc860c1f5132ed2ea23a70d83a87cf95f38271a0506708f",
+    "category": "DINING CHAIR",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "shared_layout_with_other_products": true,
+    "shared_products_in_scene": [
+      "3007T/3007WH"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 56, printed page DINETTE 108 right.",
+    "visual_review_notes": "Cropped from P56 right scene. Overlaps with 3007T dining table in scene.",
+    "interpretation_notes": "Price list lists 1401BK $99.00 without specifying unit. Marked price_unit_status: unverified and publish: false.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "1401BK 不锈钢金色黑色餐椅",
+    "candidate_title_en": "1401BK Stainless Gold Black Dining Chair"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "3102T",
+    "sku": "3102T",
+    "component_skus": [
+      "3102T"
+    ],
+    "product_identity": "one complete glass dining table",
+    "components_verified": true,
+    "pdf_physical_page": 57,
+    "first_seen": {
+      "physical_page": 57,
+      "print_page": "DINETTE 110",
+      "section": "DINETTE 110 right"
+    },
+    "occurrences": 3,
+    "evidence_pages": [
+      57,
+      58
+    ],
+    "source_text_regions": [
+      {
+        "page": 57,
+        "print_page": "DINETTE 110",
+        "heading_region": [
+          1421.0,
+          523.3,
+          1614.3,
+          544.8
+        ],
+        "verbatim_heading": "3102T/2680GRAY-CHROME",
+        "region": [
+          1340.5,
+          578.5,
+          1617.7,
+          595.1
+        ],
+        "verbatim_text": "3102T  |  GLASS DINING TABLE   60\"W x 36\"D x 30\"H"
+      },
+      {
+        "page": 58,
+        "print_page": "DINETTE 111",
+        "heading_region": [
+          88.5,
+          516.5,
+          261.6,
+          538.1
+        ],
+        "verbatim_heading": "3102T/2680BK-CHROME",
+        "region": [
+          88.4,
+          578.5,
+          378.9,
+          595.1
+        ],
+        "verbatim_text": "3102T  |  GLASS DINING TABLE   60\"W x 36\"D x 30\"H"
+      },
+      {
+        "page": 58,
+        "print_page": "DINETTE 112",
+        "heading_region": [
+          1433.5,
+          523.3,
+          1614.3,
+          544.8
+        ],
+        "verbatim_heading": "3102T/2680WH-CHROME",
+        "region": [
+          1338.6,
+          578.5,
+          1615.7,
+          595.1
+        ],
+        "verbatim_text": "3102T  |  GLASS DINING TABLE   60\"W x 36\"D x 30\"H"
+      }
+    ],
+    "raw_heading_text": "3102T/2680GRAY-CHROME",
+    "raw_model_text": "3102T",
+    "raw_color_text": "GLASS DINING TABLE",
+    "raw_dimensions_text": "60\"W x 36\"D x 30\"H",
+    "resolved_dimensions": "60\"W x 36\"D x 30\"H",
+    "raw_pack_text": "",
+    "raw_price_text": "$149.00",
+    "price_unit_status": "verified_table",
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "3102T Glass Dining Table $149.00",
+      "component_skus": [
+        "3102T"
+      ],
+      "price": "$149.00",
+      "unit_text": "1 complete table"
+    },
+    "output_image": "reports/dining_batch6_draft_images/draft-3102t.jpg",
+    "image_xref": 1358,
+    "image_pixel_size": "817x564",
+    "image_sha256": "177e23cb8515e3eb006380b54f8a92106e24b4b12488f89e47cd6dbf778bf29b",
+    "category": "DINING TABLE",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "shared_layout_with_other_products": true,
+    "shared_products_in_scene": [
+      "2680GRAY-CHROME",
+      "2680BK-CHROME",
+      "2680WH-CHROME"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 57 (DINETTE 110 right), spread 58 (DINETTE 111 left and DINETTE 112 right).",
+    "visual_review_notes": "Cropped from P57 right scene. Overlaps with 2680 chairs in scene. Repeated on P58 left and P58 right.",
+    "interpretation_notes": "Single glass dining table model 3102T. Price list lists $149.00 across pages 105, 106, 107.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "3102T 60英寸玻璃餐桌",
+    "candidate_title_en": "3102T 60\" Glass Dining Table"
+  },
+  {
+    "record_type": "canonical_product",
+    "canonical_sku": "2680BK-CHROME",
+    "sku": "2680BK-CHROME",
+    "component_skus": [
+      "2680BK-CHROME"
+    ],
+    "product_identity": "dining chair",
+    "components_verified": true,
+    "pdf_physical_page": 58,
+    "first_seen": {
+      "physical_page": 58,
+      "print_page": "DINETTE 111",
+      "section": "DINETTE 111 left"
+    },
+    "occurrences": 1,
+    "evidence_pages": [
+      58
+    ],
+    "source_text_regions": [
+      {
+        "page": 58,
+        "print_page": "DINETTE 111",
+        "heading_region": [
+          88.5,
+          516.5,
+          261.6,
+          538.1
+        ],
+        "verbatim_heading": "3102T/2680BK-CHROME",
+        "region": [
+          88.4,
+          599.5,
+          507.8,
+          637.1
+        ],
+        "verbatim_text": "2680BK-CHROME  |  DINING CHAIR WITH CHROME FRAME    18\"W x 20\"D x 42\"H\nPACK: 2/1 CARTON"
+      }
+    ],
+    "raw_heading_text": "3102T/2680BK-CHROME",
+    "raw_model_text": "2680BK-CHROME",
+    "raw_color_text": "BLACK / CHROME FRAME",
+    "raw_dimensions_text": "18\"W x 20\"D x 42\"H",
+    "resolved_dimensions": "18\"W x 20\"D x 42\"H",
+    "raw_pack_text": "PACK: 2/1 CARTON",
+    "raw_price_text": "$79.00",
+    "price_unit_status": "unverified",
+    "price_evidence": {
+      "price_list_page": 6,
+      "exact_row_text": "2680BK-CHROME Chair (Weled) $79.00",
+      "component_skus": [
+        "2680BK-CHROME"
+      ],
+      "price": "$79.00",
+      "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $79.00 without unit"
+    },
+    "output_image": "reports/dining_batch6_draft_images/draft-2680bk-chrome.jpg",
+    "image_xref": 1375,
+    "image_pixel_size": "818x564",
+    "image_sha256": "ade9ec522d0eae18ad61c83294652ee8b31a73f30bb65c23b579a7d6973aad11",
+    "category": "DINING CHAIR",
+    "classification": [
+      "MULTI_PRODUCT_SCENE"
+    ],
+    "shared_layout_with_other_products": true,
+    "shared_products_in_scene": [
+      "3102T"
+    ],
+    "crop_contains_target_only": false,
+    "crop_contains_other_products": true,
+    "source_is_lifestyle_scene": true,
+    "standalone_crop_possible": false,
+    "source_notes": "Physical spread 58, printed page DINETTE 111 left. Distinct canonical chair SKU with matching black color and chrome frame.",
+    "visual_review_notes": "Cropped from P58 left scene. Overlaps with 3102T glass table in scene.",
+    "interpretation_notes": "First clean canonical appearance of 2680BK-CHROME where heading, body, and image all consistently depict black chrome chairs. Price list lists $79.00 without specifying unit. Marked price_unit_status: unverified and publish: false.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "source_verified": true,
+    "human_reviewed": true,
+    "publish": false,
+    "review_result": "rejected_for_publication",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
+    "candidate_title_zh": "2680BK-CHROME 铬色框架黑色餐椅",
+    "candidate_title_en": "2680BK-CHROME Chrome Frame Black Dining Chair"
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "1200GRAY",
+    "sku": "1200GRAY",
+    "product_identity": "dining chair",
+    "batch_occurrence_count": 2,
+    "batch_page_evidence": [
+      {
+        "physical_page": 56,
+        "print_page": "DINETTE 107",
+        "section": "DINETTE 107 bottom",
+        "raw_heading_text": "3008T/3007WH/1200GRAY",
+        "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
+        "raw_pack_text": "PACK: 2/1 CARTON",
+        "raw_body_text": "1200GRAY   |   STAINLESS CHROME DINING CHAIR     20\"W x 27\"D x 41\"H\nPACK: 2/1 CARTON",
+        "scene_table": "3008T/3007WH",
+        "image_xref": 1342
+      },
+      {
+        "physical_page": 57,
+        "print_page": "DINETTE 109",
+        "section": "DINETTE 109 left",
+        "raw_heading_text": "3008T/3008GRAY/1200GRAY",
+        "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
+        "raw_pack_text": "PACK: 2/1 CARTON",
+        "raw_body_text": "1200GRAY   |   STAINLESS GOLD DINING CHAIR     20\"W x 27\"D x 41\"H\nPACK: 2/1 CARTON",
+        "scene_table": "3008T/3008GRAY",
+        "image_xref": 1356
+      }
+    ],
+    "dimension_occurrences_in_batch": [
+      {
+        "physical_page": 56,
+        "print_page": "DINETTE 107",
+        "raw_dimensions_text": "20\"W x 27\"D x 41\"H"
+      },
+      {
+        "physical_page": 57,
+        "print_page": "DINETTE 109",
+        "raw_dimensions_text": "20\"W x 27\"D x 41\"H"
+      }
+    ],
+    "notes": "Occurrences #3 and #4 of 1200GRAY. P56 states STAINLESS CHROME while P57 states STAINLESS GOLD. Canonical record in Batch 3 maintained with conflict_status: unresolved.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "3008T/3008GRAY",
+    "sku": "3008T/3008GRAY",
+    "product_identity": "one complete round dining table",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 57,
+        "print_page": "DINETTE 109",
+        "section": "DINETTE 109 left",
+        "raw_heading_text": "3008T/3008GRAY/1200GRAY",
+        "raw_dimensions_text": "DIA 45\"D x 30\"H",
+        "raw_pack_text": "",
+        "raw_body_text": "3008T  |   ROUND DINING TABLE WITH STAINLESS GOLD FRAME,LEGS    DIA 45\"D x 30\"H \n3008GRAY  |   22MM ROUND GRAY MARBLE TOP",
+        "scene_chairs": "1200GRAY",
+        "image_xref": 1356
+      }
+    ],
+    "notes": "Occurrence #2 of 3008T/3008GRAY. P55 D106 printed STAINLESS CHROME FRAME, LEGS while P57 D109 prints STAINLESS GOLD FRAME,LEGS. Canonical record in Batch 5 maintained with conflict_status: unresolved.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "2680GRAY-CHROME",
+    "sku": "2680GRAY-CHROME",
+    "product_identity": "dining chair",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 57,
+        "print_page": "DINETTE 110",
+        "section": "DINETTE 110 right",
+        "raw_heading_text": "3102T/2680GRAY-CHROME",
+        "raw_dimensions_text": "18\"W x 20\"D x 42\"H",
+        "raw_pack_text": "PACK: 2/1 CARTON",
+        "raw_body_text": "2680GRAY-CHROME  |  DINING CHAIR WITH CHROME FRAME    18\"W x 20\"D x 42\"H\nPACK: 2/1 CARTON",
+        "scene_table": "3102T",
+        "image_xref": 1358
+      }
+    ],
+    "notes": "Occurrence #3 of 2680GRAY-CHROME. Both heading and body on P57 D110 state 2680GRAY-CHROME. Canonical record in Batch 3 maintained with conflict_status: unresolved.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false
+  },
+  {
+    "record_type": "occurrence_reference",
+    "canonical_sku": "2680WH-CHROME",
+    "sku": "2680WH-CHROME",
+    "product_identity": "dining chair",
+    "batch_occurrence_count": 1,
+    "batch_page_evidence": [
+      {
+        "physical_page": 58,
+        "print_page": "DINETTE 112",
+        "section": "DINETTE 112 right",
+        "raw_heading_text": "3102T/2680WH-CHROME",
+        "raw_dimensions_text": "18\"W x 20\"D x 42\"H",
+        "raw_pack_text": "PACK: 2/1 CARTON",
+        "raw_body_text": "2680WH-CHROME  |  DINING CHAIR WITH CHROME FRAME    18\"W x 20\"D x 42\"H\nPACK: 2/1 CARTON",
+        "scene_table": "3102T",
+        "image_xref": 1377
+      }
+    ],
+    "notes": "Occurrence #2 of 2680WH-CHROME. Both heading and body state 2680WH-CHROME.",
+    "source_catalog": "PJ 2026",
+    "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
+    "human_reviewed": true,
+    "publish": false
+  }
+]

@@ -209,28 +209,38 @@
     "price": "399.00",
     "price_source": "素材库/价钱/price list2026 (5_22).pdf P7 (Line 905: 3008T/3008GRAY Dining Table with Gray Marble Top $399.00)",
     "exact_price_row_text": "3008T/3008GRAY Dining Table with 22mm Gray Marble Top $399.00",
-    "conflict_status": "none",
+    "conflict_status": "unresolved",
     "conflict_type": null,
     "conflict_details": null,
     "human_reviewed": true,
     "publish": false,
     "review_result": "rejected_for_publication",
-    "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE",
+      "UNRESOLVED_SPECIFICATION_CONFLICT"
+    ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products (4 surrounding 1500GRAY-CHROME chairs); it cannot satisfy the one-SKU-one-product image rule.",
     "draft_image_path": "reports/dining_batch5_draft_images/draft-3008t-3008gray.jpg",
-    "occurrences": [
+    "occurrences": 2,
+    "raw_color_text": null,
+    "resolved_color": null,
+    "conflicting_source_tokens": [
       {
-        "page": 55,
-        "section": "DINETTE 106",
-        "region": [
-          920,
-          70,
-          1630,
-          520
-        ],
-        "scene_chairs": "1500GRAY-CHROME"
+        "token": "STAINLESS CHROME FRAME, LEGS",
+        "source_role": "DINETTE 106 body"
+      },
+      {
+        "token": "STAINLESS GOLD FRAME,LEGS",
+        "source_role": "DINETTE 109 body"
       }
-    ]
+    ],
+    "resolution_status": "unresolved",
+    "specification_status": "conflicting",
+    "evidence_pages": [
+      55,
+      57
+    ],
+    "conflict_notes": "Specification conflict: DINETTE 106 prints STAINLESS CHROME FRAME, LEGS while DINETTE 109 prints STAINLESS GOLD FRAME,LEGS. Unresolved without manufacturer clarification."
   },
   {
     "record_type": "occurrence_reference",

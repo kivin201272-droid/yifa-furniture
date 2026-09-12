@@ -217,7 +217,9 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
                 m_rejected += 1
                 # Must NOT appear as card in formal pages
                 for page_name, page_html in formal_pages.items():
-                    if f"<h3>{sku}" in page_html or f">{sku} " in page_html:
+                    p_cards = extract_cards(page_html)
+                    p_skus = [extract_canonical_sku(c) for c in p_cards]
+                    if sku in p_skus:
                         errors.append(f"[{mf}] Rejected SKU {sku} unexpectedly found in formal page {page_name}")
                         
         manifest_stats[os.path.basename(mf)] = {
@@ -234,42 +236,51 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
         sku_occurrences[sku] = []
         if "dimension_occurrences" in item:
             for occ in item["dimension_occurrences"]:
+                raw_d = occ.get("raw_dimensions_text") or ""
+                raw_p = occ.get("raw_pack_text") or item.get("raw_pack_text") or ""
+                raw_c = occ.get("raw_color_text") or item.get("raw_color_text") or ""
                 sku_occurrences[sku].append({
                     "manifest": mf,
                     "page": occ.get("physical_page"),
                     "print_page": occ.get("print_page"),
-                    "dimensions": occ.get("raw_dimensions_text", "").strip(),
-                    "pack": occ.get("raw_pack_text", "").strip() or item.get("raw_pack_text", "").strip(),
-                    "color": item.get("raw_color_text", "").strip(),
-                    "product_type": item.get("raw_product_type", "").strip(),
-                    "price": item.get("raw_price_text", "").strip() or str(item.get("price", "")).strip(),
+                    "dimensions": raw_d.strip() if raw_d else "",
+                    "pack": raw_p.strip() if raw_p else "",
+                    "color": raw_c.strip() if raw_c else "",
+                    "product_type": (item.get("raw_product_type") or "").strip(),
+                    "price": (item.get("raw_price_text") or str(item.get("price", ""))).strip(),
                     "conflict_status": item.get("conflict_status"),
                     "publish": item.get("publish", False)
                 })
         elif "source_text_regions" in item:
             for tr in item["source_text_regions"]:
+                raw_d = item.get("raw_dimensions_text") or ""
+                raw_p = item.get("raw_pack_text") or ""
+                raw_c = item.get("raw_color_text") or ""
                 sku_occurrences[sku].append({
                     "manifest": mf,
                     "page": tr.get("page"),
                     "print_page": tr.get("print_page"),
-                    "dimensions": item.get("raw_dimensions_text", "").strip(),
-                    "pack": item.get("raw_pack_text", "").strip(),
-                    "color": item.get("raw_color_text", "").strip(),
-                    "product_type": item.get("raw_product_type", "").strip(),
-                    "price": item.get("raw_price_text", "").strip() or str(item.get("price", "")).strip(),
+                    "dimensions": raw_d.strip() if raw_d else "",
+                    "pack": raw_p.strip() if raw_p else "",
+                    "color": raw_c.strip() if raw_c else "",
+                    "product_type": (item.get("raw_product_type") or "").strip(),
+                    "price": (item.get("raw_price_text") or str(item.get("price", ""))).strip(),
                     "conflict_status": item.get("conflict_status"),
                     "publish": item.get("publish", False)
                 })
         else:
+            raw_d = item.get("raw_dimensions_text") or ""
+            raw_p = item.get("raw_pack_text") or ""
+            raw_c = item.get("raw_color_text") or ""
             sku_occurrences[sku].append({
                 "manifest": mf,
                 "page": item.get("pdf_file_page") or item.get("pdf_physical_page"),
                 "print_page": item.get("printed_page") or item.get("print_page"),
-                "dimensions": item.get("raw_dimensions_text", "").strip(),
-                "pack": item.get("raw_pack_text", "").strip(),
-                "color": item.get("raw_color_text", "").strip(),
-                "product_type": item.get("raw_product_type", "").strip(),
-                "price": item.get("raw_price_text", "").strip() or str(item.get("price", "")).strip(),
+                "dimensions": raw_d.strip() if raw_d else "",
+                "pack": raw_p.strip() if raw_p else "",
+                "color": raw_c.strip() if raw_c else "",
+                "product_type": (item.get("raw_product_type") or "").strip(),
+                "price": (item.get("raw_price_text") or str(item.get("price", ""))).strip(),
                 "conflict_status": item.get("conflict_status"),
                 "publish": item.get("publish", False)
             })
@@ -284,41 +295,67 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
         c_mf, c_item = canonical_registry[c_sku]
         if "dimension_occurrences_in_batch" in item:
             for occ in item["dimension_occurrences_in_batch"]:
+                raw_d = occ.get("raw_dimensions_text") or ""
+                raw_p = item.get("raw_pack_text") or ""
+                raw_c = item.get("raw_color_text") or ""
                 sku_occurrences[c_sku].append({
                     "manifest": mf,
                     "page": occ.get("physical_page"),
                     "print_page": occ.get("print_page"),
-                    "dimensions": occ.get("raw_dimensions_text", "").strip(),
-                    "pack": item.get("raw_pack_text", "").strip(),
-                    "color": item.get("raw_color_text", "").strip(),
-                    "product_type": item.get("raw_product_type", "").strip(),
+                    "dimensions": raw_d.strip() if raw_d else "",
+                    "pack": raw_p.strip() if raw_p else "",
+                    "color": raw_c.strip() if raw_c else "",
+                    "product_type": (item.get("raw_product_type") or "").strip(),
                     "price": str(item.get("price", "")).strip(),
                     "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
                     "publish": item.get("publish", False)
                 })
         elif "page_evidence" in item:
             for pe in item["page_evidence"]:
+                raw_d = pe.get("raw_dimensions_text") or ""
+                raw_p = item.get("raw_pack_text") or ""
+                raw_c = item.get("raw_color_text") or ""
                 sku_occurrences[c_sku].append({
                     "manifest": mf,
                     "page": pe.get("physical_page"),
                     "print_page": pe.get("print_page"),
-                    "dimensions": pe.get("raw_dimensions_text", "").strip(),
-                    "pack": item.get("raw_pack_text", "").strip(),
-                    "color": item.get("raw_color_text", "").strip(),
-                    "product_type": item.get("raw_product_type", "").strip(),
+                    "dimensions": raw_d.strip() if raw_d else "",
+                    "pack": raw_p.strip() if raw_p else "",
+                    "color": raw_c.strip() if raw_c else "",
+                    "product_type": (item.get("raw_product_type") or "").strip(),
+                    "price": str(item.get("price", "")).strip(),
+                    "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
+                    "publish": item.get("publish", False)
+                })
+        elif "batch_page_evidence" in item:
+            for bpe in item["batch_page_evidence"]:
+                raw_d = bpe.get("raw_dimensions_text") or ""
+                raw_p = bpe.get("raw_pack_text") or ""
+                raw_c = bpe.get("raw_color_text") or ""
+                sku_occurrences[c_sku].append({
+                    "manifest": mf,
+                    "page": bpe.get("physical_page"),
+                    "print_page": bpe.get("print_page"),
+                    "dimensions": raw_d.strip() if raw_d else "",
+                    "pack": raw_p.strip() if raw_p else "",
+                    "color": raw_c.strip() if raw_c else "",
+                    "product_type": (item.get("raw_product_type") or "").strip(),
                     "price": str(item.get("price", "")).strip(),
                     "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
                     "publish": item.get("publish", False)
                 })
         elif "dimensions" in item or "raw_dimensions_text" in item:
+            raw_d = item.get("dimensions") or item.get("raw_dimensions_text") or ""
+            raw_p = item.get("raw_pack_text") or ""
+            raw_c = item.get("raw_color_text") or ""
             sku_occurrences[c_sku].append({
                 "manifest": mf,
                 "page": item.get("pdf_file_page") or item.get("pdf_physical_page"),
                 "print_page": item.get("printed_page") or item.get("print_page"),
-                "dimensions": (item.get("dimensions") or item.get("raw_dimensions_text", "")).strip(),
-                "pack": item.get("raw_pack_text", "").strip(),
-                "color": item.get("raw_color_text", "").strip(),
-                "product_type": item.get("raw_product_type", "").strip(),
+                "dimensions": raw_d.strip() if raw_d else "",
+                "pack": raw_p.strip() if raw_p else "",
+                "color": raw_c.strip() if raw_c else "",
+                "product_type": (item.get("raw_product_type") or "").strip(),
                 "price": str(item.get("price", "")).strip(),
                 "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
                 "publish": item.get("publish", False)
@@ -329,7 +366,10 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
     for sku, occs in sku_occurrences.items():
         c_mf, c_item = canonical_registry[sku]
         dim_values = {o["dimensions"] for o in occs if o["dimensions"]}
-        
+        pack_values = {o["pack"] for o in occs if o["pack"]}
+        color_values = {o["color"] for o in occs if o["color"]}
+        price_values = {o["price"] for o in occs if o["price"]}
+
         has_conflict = False
         if len(dim_values) > 1:
             has_conflict = True
@@ -337,8 +377,20 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
                 errors.append(f"CROSS-OCCURRENCE SPECIFICATION CONFLICT: SKU '{sku}' has conflicting dimensions {dim_values} across occurrences without conflict_status: 'unresolved' and publish: false.")
             if "dimension_occurrences" not in c_item and "conflict_notes" not in c_item:
                 errors.append(f"[{c_mf}] Conflicting SKU '{sku}' missing dimension_occurrences recording all conflicting source values.")
+        
+        if len(pack_values) > 1:
+            has_conflict = True
+            if c_item.get("conflict_status") != "unresolved" or c_item.get("publish", False) is not False:
+                errors.append(f"CROSS-OCCURRENCE SPECIFICATION CONFLICT: SKU '{sku}' has conflicting PACK {pack_values} across occurrences without conflict_status: 'unresolved' and publish: false.")
+
         if c_item.get("conflict_status") == "unresolved":
             unresolved_conflict_count += 1
+            if c_item.get("publish", False) is not False:
+                errors.append(f"[{c_mf}] Unresolved conflict SKU '{sku}' must have publish: false.")
+            if c_item.get("specification_status") == "conflicting":
+                # Ensure resolved_* or raw_* does not falsely provide unverified values
+                if "dimension_occurrences" in c_item and c_item.get("raw_dimensions_text") is not None:
+                    errors.append(f"[{c_mf}] Conflicting dimensions SKU '{sku}' must have raw_dimensions_text: null.")
 
     passed = (len(errors) == 0)
     stats = {
@@ -656,13 +708,18 @@ def check_office_baseline_protection():
     # 3. Dining Production PJ Card Check (Must be 0)
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
     din_zh = open("zh/dining/index.html", "r", encoding="utf-8").read()
+    din_cards_en = extract_cards(din_en)
+    din_cards_zh = extract_cards(din_zh)
+    din_skus_en = [extract_canonical_sku(c) for c in din_cards_en]
+    din_skus_zh = [extract_canonical_sku(c) for c in din_cards_zh]
+    
     din_pj_cards = 0
     for mf in glob.glob("reports/manifest_v2_dining_*.json"):
         with open(mf, "r", encoding="utf-8") as f:
             d_items = json.load(f)
         for it in d_items:
             s = it.get("sku", "")
-            if s and (f"<h3>{s}" in din_en or f"<h3>{s}" in din_zh):
+            if s and (s in din_skus_en or s in din_skus_zh):
                 din_pj_cards += 1
                 errors.append(f"Dining production page unexpectedly contains PJ card for {s}")
                 

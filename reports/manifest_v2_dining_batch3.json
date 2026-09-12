@@ -369,7 +369,7 @@
     "components_verified": true,
     "pdf_physical_page": 48,
     "print_page": "DINETTE 91",
-    "occurrences": 1,
+    "occurrences": 2,
     "source_text_regions": [
       {
         "page": 48,
@@ -431,7 +431,11 @@
     "rejection_code": "NO_CLEAN_STANDALONE_IMAGE",
     "rejection_reason": "PDF only provides a lifestyle scene containing other products; it cannot satisfy the one-SKU-one-product image rule.",
     "candidate_title_zh": "2680WH-CHROME 铬色框架白色餐椅",
-    "candidate_title_en": "2680WH-CHROME Dining Chair with Chrome Frame"
+    "candidate_title_en": "2680WH-CHROME Dining Chair with Chrome Frame",
+    "evidence_pages": [
+      48,
+      58
+    ]
   },
   {
     "sku": "2680GRAY-CHROME",
@@ -442,7 +446,7 @@
     "components_verified": false,
     "pdf_physical_page": 48,
     "print_page": "DINETTE 92 / 94",
-    "occurrences": 2,
+    "occurrences": 3,
     "source_text_regions": [
       {
         "page": 48,
@@ -482,8 +486,8 @@
       }
     ],
     "raw_heading_text": "3012T/3000GRAY/2680BK-CHROME",
-    "raw_model_text": "2680GRAY-CHROME",
-    "raw_color_text": "GRAY-CHROME",
+    "raw_model_text": null,
+    "raw_color_text": null,
     "raw_dimensions_text": "18\"W x 20\"D x 42\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$79.00",
@@ -532,7 +536,26 @@
       "publish": false,
       "resolution_status": "unresolved",
       "notes": "Heading states 2680BK-CHROME while body text states 2680GRAY-CHROME. Neither token is deleted or assumed."
-    }
+    },
+    "resolved_model": null,
+    "resolved_color": null,
+    "conflicting_source_tokens": [
+      {
+        "token": "2680BK-CHROME",
+        "source_role": "heading"
+      },
+      {
+        "token": "2680GRAY-CHROME",
+        "source_role": "body"
+      }
+    ],
+    "resolution_status": "unresolved",
+    "specification_status": "conflicting",
+    "evidence_pages": [
+      48,
+      49,
+      57
+    ]
   },
   {
     "sku": "3000T/3000GRAY",
@@ -550,7 +573,11 @@
       "section": "DINETTE 93 left"
     },
     "occurrences": 4,
-    "evidence_pages": [49, 52, 54],
+    "evidence_pages": [
+      49,
+      52,
+      54
+    ],
     "source_text_regions": [
       {
         "page": 49,
@@ -686,8 +713,13 @@
       "print_page": "DINETTE 93",
       "section": "DINETTE 93 left"
     },
-    "occurrences": 2,
-    "evidence_pages": [49, 50],
+    "occurrences": 4,
+    "evidence_pages": [
+      49,
+      50,
+      56,
+      57
+    ],
     "source_text_regions": [
       {
         "page": 49,
@@ -731,19 +763,51 @@
         "physical_page": 49,
         "print_page": "DINETTE 93",
         "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
-        "text_region": [72.3, 620.5, 450.5, 637.1]
+        "text_region": [
+          72.3,
+          620.5,
+          450.5,
+          637.1
+        ]
       },
       {
         "physical_page": 50,
         "print_page": "DINETTE 96",
         "raw_dimensions_text": "18\"W x 20\"D x 41\"H",
-        "text_region": [1240.8, 620.5, 1612.3, 637.1]
+        "text_region": [
+          1240.8,
+          620.5,
+          1612.3,
+          637.1
+        ]
+      },
+      {
+        "physical_page": 56,
+        "print_page": "DINETTE 107",
+        "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
+        "text_region": [
+          72.3,
+          620.5,
+          453.8,
+          637.1
+        ]
+      },
+      {
+        "physical_page": 57,
+        "print_page": "DINETTE 109",
+        "raw_dimensions_text": "20\"W x 27\"D x 41\"H",
+        "text_region": [
+          72.3,
+          620.5,
+          436.2,
+          637.1
+        ]
       }
     ],
     "raw_heading_text": "3000T/3000GRAY/1200GRAY",
     "raw_model_text": "1200GRAY",
-    "raw_color_text": "GRAY",
-    "raw_dimensions_text": "20\"W x 27\"D x 41\"H (P49) / 18\"W x 20\"D x 41\"H (P50)",
+    "raw_color_text": null,
+    "raw_dimensions_text": null,
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$89.00",
     "price_unit_status": "unverified",
@@ -790,6 +854,18 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products, and exhibits an unresolved cross-page specification conflict: physical page 49 prints 20\"W x 27\"D x 41\"H while physical page 50 prints 18\"W x 20\"D x 41\"H.",
     "candidate_title_zh": "1200GRAY 不锈钢铬色灰色餐椅",
-    "candidate_title_en": "1200GRAY Stainless Chrome Dining Chair"
+    "candidate_title_en": "1200GRAY Stainless Chrome Dining Chair",
+    "resolved_dimensions": null,
+    "resolved_color": null,
+    "conflicting_source_tokens": [
+      {
+        "token": "20\"W x 27\"D x 41\"H vs 18\"W x 20\"D x 41\"H",
+        "source_role": "dimension contradiction (P49/P56/P57 vs P50)"
+      },
+      {
+        "token": "STAINLESS CHROME vs STAINLESS GOLD",
+        "source_role": "frame finish contradiction (P49/P50/P56 vs P57)"
+      }
+    ]
   }
 ]

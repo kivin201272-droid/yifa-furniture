@@ -2,7 +2,10 @@
   {
     "record_type": "canonical_product",
     "sku": "3000T/3002WH",
-    "component_skus": ["3000T", "3002WH"],
+    "component_skus": [
+      "3000T",
+      "3002WH"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 50,
@@ -12,14 +15,24 @@
       {
         "page": 50,
         "print_page": "DINETTE 95",
-        "heading_region": [72, 522, 330, 544],
+        "heading_region": [
+          72,
+          522,
+          330,
+          544
+        ],
         "verbatim_heading": "3000T/3002WH/1500GRAY-CHROME",
-        "region": [72, 578, 529, 616],
+        "region": [
+          72,
+          578,
+          529,
+          616
+        ],
         "verbatim_text": "3000T  |   DINING TABLE WITH STAINLESS CHROME FRAME,LEGS    63\"W x 36\"D x 30\"H\n3000WH  |   12MM WHITE GLASS TOP"
       }
     ],
     "raw_heading_text": "3000T/3002WH/1500GRAY-CHROME",
-    "raw_model_text": "3000T / 3000WH",
+    "raw_model_text": null,
     "raw_color_text": "STAINLESS CHROME FRAME,LEGS / 12MM WHITE GLASS TOP",
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
@@ -28,7 +41,10 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3000T/3002WH Dining Table with White Glass Top $349.00",
-      "component_skus": ["3000T", "3002WH"],
+      "component_skus": [
+        "3000T",
+        "3002WH"
+      ],
       "price": "$349.00",
       "unit_text": "1 complete table (table base + glass top)"
     },
@@ -48,7 +64,9 @@
     "conflict_status": "unresolved",
     "resolution_status": "unresolved",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1500GRAY-CHROME"],
+    "shared_products_in_scene": [
+      "1500GRAY-CHROME"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -69,12 +87,27 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products, and body text contradicts heading (3000WH vs 3002WH).",
     "candidate_title_zh": "3000T/3002WH 不锈钢铬色腿12毫米白色玻璃餐桌",
-    "candidate_title_en": "3000T/3002WH Dining Table with Stainless Chrome Frame, Legs and 12mm White Glass Top"
+    "candidate_title_en": "3000T/3002WH Dining Table with Stainless Chrome Frame, Legs and 12mm White Glass Top",
+    "resolved_model": null,
+    "conflicting_source_tokens": [
+      {
+        "token": "3002WH",
+        "source_role": "heading"
+      },
+      {
+        "token": "3000WH",
+        "source_role": "body"
+      }
+    ],
+    "specification_status": "conflicting"
   },
   {
     "record_type": "canonical_product",
     "sku": "3000T/3000BK",
-    "component_skus": ["3000T", "3000BK"],
+    "component_skus": [
+      "3000T",
+      "3000BK"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 50,
@@ -85,38 +118,82 @@
       "section": "DINETTE 96 right"
     },
     "occurrences": 4,
-    "evidence_pages": [50, 51, 54],
+    "evidence_pages": [
+      50,
+      51,
+      54
+    ],
     "source_text_regions": [
       {
         "page": 50,
         "print_page": "DINETTE 96",
-        "heading_region": [1435.0, 523.3, 1612.3, 544.8],
+        "heading_region": [
+          1435.0,
+          523.3,
+          1612.3,
+          544.8
+        ],
         "verbatim_heading": "3000T/3000BK/1200GRAY",
-        "region": [1158.6, 578.5, 1615.7, 595.1],
+        "region": [
+          1158.6,
+          578.5,
+          1615.7,
+          595.1
+        ],
         "verbatim_text": "3000T  |  DINING TABLE WITH  STAINLESS CHROME FRAME, LEGS   63\"W x 36\"D x 30\"H\n3000BK  |   22MM BLACK MARBLE TOP"
       },
       {
         "page": 51,
         "print_page": "DINETTE 97",
-        "heading_region": [72.4, 522.8, 1612.3, 544.8],
+        "heading_region": [
+          72.4,
+          522.8,
+          1612.3,
+          544.8
+        ],
         "verbatim_heading": "3000T/3000BK/1500GRAY-CHROME",
-        "region": [72.3, 578.5, 529.4, 595.1],
+        "region": [
+          72.3,
+          578.5,
+          529.4,
+          595.1
+        ],
         "verbatim_text": "3000T  |   DINING TABLE WITH STAINLESS CHROME FRAME,LEGS    63\"W x 36\"D x 30\"H\n3000BK  |   22MM BLACK MARBLE TOP"
       },
       {
         "page": 51,
         "print_page": "DINETTE 98",
-        "heading_region": [72.4, 522.8, 1612.3, 544.8],
+        "heading_region": [
+          72.4,
+          522.8,
+          1612.3,
+          544.8
+        ],
         "verbatim_heading": "3000T/3000BK/1301BK",
-        "region": [1158.6, 578.5, 1615.7, 595.1],
+        "region": [
+          1158.6,
+          578.5,
+          1615.7,
+          595.1
+        ],
         "verbatim_text": "3000T  |  DINING TABLE WITH  STAINLESS CHROME FRAME, LEGS   63\"W x 36\"D x 30\"H\n3000BK  |   22MM BLACK MARBLE TOP"
       },
       {
         "page": 54,
         "print_page": "DINETTE 104",
-        "heading_region": [1456.5, 523.3, 1612.3, 544.8],
+        "heading_region": [
+          1456.5,
+          523.3,
+          1612.3,
+          544.8
+        ],
         "verbatim_heading": "3000T/3000BK/1001BK",
-        "region": [1158.6, 578.5, 1615.7, 595.1],
+        "region": [
+          1158.6,
+          578.5,
+          1615.7,
+          595.1
+        ],
         "verbatim_text": "3000T  |  DINING TABLE WITH  STAINLESS CHROME FRAME, LEGS   63\"W x 36\"D x 30\"H\n3000BK  |   22MM BLACK MARBLE TOP"
       }
     ],
@@ -130,7 +207,10 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3000T/3000BK Dining Table with Black Marble Top $399.00",
-      "component_skus": ["3000T", "3000BK"],
+      "component_skus": [
+        "3000T",
+        "3000BK"
+      ],
       "price": "$399.00",
       "unit_text": "1 complete table (table base + marble top)"
     },
@@ -138,7 +218,12 @@
     "category": "DINING TABLE",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1200GRAY", "1500GRAY-CHROME", "1301BK", "1001BK"],
+    "shared_products_in_scene": [
+      "1200GRAY",
+      "1500GRAY-CHROME",
+      "1301BK",
+      "1001BK"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -162,7 +247,9 @@
   {
     "record_type": "canonical_product",
     "sku": "1500GRAY-CHROME",
-    "component_skus": ["1500GRAY-CHROME"],
+    "component_skus": [
+      "1500GRAY-CHROME"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 50,
@@ -172,36 +259,67 @@
       "section": "DINETTE 95 left"
     },
     "occurrences": 5,
-    "evidence_pages": [50, 51, 52, 53, 55],
+    "evidence_pages": [
+      50,
+      51,
+      52,
+      53,
+      55
+    ],
     "source_text_regions": [
       {
         "page": 50,
         "print_page": "DINETTE 95",
-        "region": [72.3, 620.5, 500.6, 637.1],
+        "region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ],
         "verbatim_text": "1500GRAY-CHROME   |   STAINLESS CHROME DINING CHAIR    19\"W x 21\"D x 41\"H\nPACK: 2/1 CARTON"
       },
       {
         "page": 51,
         "print_page": "DINETTE 97",
-        "region": [72.3, 620.5, 500.6, 637.1],
+        "region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ],
         "verbatim_text": "1500GRAY-CHROME   |   STAINLESS CHROME DINING CHAIR    19\"W x 21\"D x 41\"H\nPACK: 2/1 CARTON"
       },
       {
         "page": 52,
         "print_page": "DINETTE 99",
-        "region": [72.3, 620.5, 500.6, 637.1],
+        "region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ],
         "verbatim_text": "1500GRAY-CHROME   |   STAINLESS CHROME DINING CHAIR    19\"W x 21\"D x 41\"H\nPACK: 2/1 CARTON"
       },
       {
         "page": 53,
         "print_page": "DINETTE 101",
-        "region": [72.3, 620.5, 500.6, 637.1],
+        "region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ],
         "verbatim_text": "1500GRAY-CHROME   |   STAINLESS CHROME DINING CHAIR    19\"W x 28\"D x 41\"H\nPACK: 2/1 CARTON"
       },
       {
         "page": 55,
         "print_page": "DINETTE 106",
-        "region": [1190.7, 620.5, 1612.4, 637.1],
+        "region": [
+          1190.7,
+          620.5,
+          1612.4,
+          637.1
+        ],
         "verbatim_text": "1500GRAY-CHROME  |  STAINLESS CHROME DINING CHAIR    19\"W x 28\"D x 41\"H\nPACK: 2/1 CARTON"
       }
     ],
@@ -210,43 +328,70 @@
         "physical_page": 50,
         "print_page": "DINETTE 95",
         "raw_dimensions_text": "19\"W x 21\"D x 41\"H",
-        "text_region": [72.3, 620.5, 500.6, 637.1]
+        "text_region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ]
       },
       {
         "physical_page": 51,
         "print_page": "DINETTE 97",
         "raw_dimensions_text": "19\"W x 21\"D x 41\"H",
-        "text_region": [72.3, 620.5, 500.6, 637.1]
+        "text_region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ]
       },
       {
         "physical_page": 52,
         "print_page": "DINETTE 99",
         "raw_dimensions_text": "19\"W x 21\"D x 41\"H",
-        "text_region": [72.3, 620.5, 500.6, 637.1]
+        "text_region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ]
       },
       {
         "physical_page": 53,
         "print_page": "DINETTE 101",
         "raw_dimensions_text": "19\"W x 28\"D x 41\"H",
-        "text_region": [72.3, 620.5, 500.6, 637.1]
+        "text_region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ]
       },
       {
         "physical_page": 55,
         "print_page": "DINETTE 106",
         "raw_dimensions_text": "19\"W x 28\"D x 41\"H",
-        "text_region": [1190.7, 620.5, 1612.4, 637.1]
+        "text_region": [
+          1190.7,
+          620.5,
+          1612.4,
+          637.1
+        ]
       }
     ],
     "raw_model_text": "1500GRAY-CHROME",
     "raw_color_text": "GRAY-CHROME",
-    "raw_dimensions_text": "19\"W x 21\"D x 41\"H (P50, P51, P52) / 19\"W x 28\"D x 41\"H (P53, P55)",
+    "raw_dimensions_text": null,
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$89.00",
     "price_unit_status": "unverified",
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1500GRAY-CHROME Dinning Chair $89.00",
-      "component_skus": ["1500GRAY-CHROME"],
+      "component_skus": [
+        "1500GRAY-CHROME"
+      ],
       "price": "$89.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $89.00 without unit"
     },
@@ -257,7 +402,13 @@
       "AMBIGUOUS"
     ],
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3000T/3002WH", "3000T/3000BK", "3000T/3000GRAY", "3000T/3002BK", "3008T/3008GRAY"],
+    "shared_products_in_scene": [
+      "3000T/3002WH",
+      "3000T/3000BK",
+      "3000T/3000GRAY",
+      "3000T/3002BK",
+      "3008T/3008GRAY"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -281,12 +432,15 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products, and exhibits an unresolved cross-page specification conflict: physical pages 50, 51, 52 print 19\"W x 21\"D x 41\"H while pages 53, 55 print 19\"W x 28\"D x 41\"H.",
     "candidate_title_zh": "1500GRAY-CHROME 不锈钢铬色灰色餐椅",
-    "candidate_title_en": "1500GRAY-CHROME Stainless Chrome Dining Chair"
+    "candidate_title_en": "1500GRAY-CHROME Stainless Chrome Dining Chair",
+    "resolved_dimensions": null
   },
   {
     "record_type": "canonical_product",
     "sku": "1301BK",
-    "component_skus": ["1301BK"],
+    "component_skus": [
+      "1301BK"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 51,
@@ -297,24 +451,43 @@
       "section": "DINETTE 98 right"
     },
     "occurrences": 3,
-    "evidence_pages": [51, 52, 53],
+    "evidence_pages": [
+      51,
+      52,
+      53
+    ],
     "source_text_regions": [
       {
         "page": 51,
         "print_page": "DINETTE 98",
-        "region": [1255.0, 620.5, 1612.4, 637.1],
+        "region": [
+          1255.0,
+          620.5,
+          1612.4,
+          637.1
+        ],
         "verbatim_text": "1301BK  |  STAINLESS CHROME DINING CHAIR    19\"W x 28\"D x 41\"H\nPACK: 2/1 CARTON"
       },
       {
         "page": 52,
         "print_page": "DINETTE 100",
-        "region": [1255.0, 620.5, 1612.4, 637.1],
+        "region": [
+          1255.0,
+          620.5,
+          1612.4,
+          637.1
+        ],
         "verbatim_text": "1301BK  |  STAINLESS CHROME DINING CHAIR    19\"W x 28\"D x 41\"H\nPACK: 2/1 CARTON"
       },
       {
         "page": 53,
         "print_page": "DINETTE 102",
-        "region": [1255.0, 620.5, 1612.4, 637.1],
+        "region": [
+          1255.0,
+          620.5,
+          1612.4,
+          637.1
+        ],
         "verbatim_text": "1301BK  |  STAINLESS CHROME DINING CHAIR    19\"W x 28\"D x 41\"H\nPACK: 2/1 CARTON"
       }
     ],
@@ -327,7 +500,9 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1301BK Dinning Chair $89.00",
-      "component_skus": ["1301BK"],
+      "component_skus": [
+        "1301BK"
+      ],
       "price": "$89.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $89.00 without unit"
     },
@@ -335,7 +510,11 @@
     "category": "DINING CHAIR",
     "classification": "MULTI_PRODUCT_SCENE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3000T/3000BK", "3000T/3000GRAY", "3000T/3002BK"],
+    "shared_products_in_scene": [
+      "3000T/3000BK",
+      "3000T/3000GRAY",
+      "3000T/3002BK"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -367,7 +546,12 @@
       {
         "page": 50,
         "print_page": "DINETTE 96",
-        "region": [1240, 620, 1612, 658],
+        "region": [
+          1240,
+          620,
+          1612,
+          658
+        ],
         "verbatim_text": "1200GRAY  |  STAINLESS CHROME DINING CHAIR    18\"W x 20\"D x 41\"H\nPACK: 2/1 CARTON"
       }
     ],
@@ -376,7 +560,9 @@
     "raw_dimensions_text": "18\"W x 20\"D x 41\"H",
     "raw_pack_text": "PACK: 2/1 CARTON",
     "raw_price_text": "$89.00",
-    "shared_products_in_scene": ["3000T/3000BK"],
+    "shared_products_in_scene": [
+      "3000T/3000BK"
+    ],
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "human_reviewed": true,
@@ -395,17 +581,37 @@
       {
         "page": 52,
         "print_page": "DINETTE 99",
-        "heading_region": [72, 522, 344, 544],
+        "heading_region": [
+          72,
+          522,
+          344,
+          544
+        ],
         "verbatim_heading": "3000T/3000GRAY/1500GRAY-CHROME",
-        "region": [72, 578, 529, 616],
+        "region": [
+          72,
+          578,
+          529,
+          616
+        ],
         "verbatim_text": "3000T  |   DINING TABLE WITH STAINLESS CHROME FRAME,LEGS    63\"W x 36\"D x 30\"H\n3000GRAY  |   22MM GRAY MARBLE TOP"
       },
       {
         "page": 52,
         "print_page": "DINETTE 100",
-        "heading_region": [1435, 523, 1612, 544],
+        "heading_region": [
+          1435,
+          523,
+          1612,
+          544
+        ],
         "verbatim_heading": "3000T/3000GRAY/1301BK",
-        "region": [1158, 578, 1615, 616],
+        "region": [
+          1158,
+          578,
+          1615,
+          616
+        ],
         "verbatim_text": "3000T  |  DINING TABLE WITH  STAINLESS CHROME FRAME, LEGS   63\"W x 36\"D x 30\"H\n3000GRAY  |   22MM GRAY MARBLE TOP"
       }
     ],
@@ -415,7 +621,10 @@
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$399.00",
-    "shared_products_in_scene": ["1500GRAY-CHROME", "1301BK"],
+    "shared_products_in_scene": [
+      "1500GRAY-CHROME",
+      "1301BK"
+    ],
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
     "human_reviewed": true,

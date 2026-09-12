@@ -1,7 +1,10 @@
 [
   {
     "sku": "3016T/3000WH",
-    "component_skus": ["3016T", "3000WH"],
+    "component_skus": [
+      "3016T",
+      "3000WH"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 44,
@@ -9,7 +12,12 @@
     "source_text_regions": [
       {
         "page": 44,
-        "region": [70, 530, 800, 590],
+        "region": [
+          70,
+          530,
+          800,
+          590
+        ],
         "verbatim_text": "3016T  |   DINING TABLE WITH STAINLESS GOLD FRAME,LEGS,BASE    63\"W x 36\"D x 30\"H\n3000WH  |   22MM WHITE MARBLE TOP"
       }
     ],
@@ -22,14 +30,20 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3016T/3000WH Dining Table with White Marble Table $549.00",
-      "component_skus": ["3016T", "3000WH"],
+      "component_skus": [
+        "3016T",
+        "3000WH"
+      ],
       "price": "$549.00",
       "unit_text": "1 complete table (table base + marble top)"
     },
     "output_image": "reports/dining_batch2_draft_images/draft-3016t-3000wh.jpg",
     "category": "DINING TABLE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1600WH-GOLD", "1500WH-GOLD"],
+    "shared_products_in_scene": [
+      "1600WH-GOLD",
+      "1500WH-GOLD"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -52,7 +66,9 @@
   },
   {
     "sku": "1600WH-GOLD",
-    "component_skus": ["1600WH-GOLD"],
+    "component_skus": [
+      "1600WH-GOLD"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 44,
@@ -60,7 +76,12 @@
     "source_text_regions": [
       {
         "page": 44,
-        "region": [70, 595, 800, 635],
+        "region": [
+          70,
+          595,
+          800,
+          635
+        ],
         "verbatim_text": "1600WH-GOLD  |    STAINLESS GOLD DINING CHAIR    20\"W x 22\"D x 43\"H    PACK: 2/1 CARTON"
       }
     ],
@@ -73,14 +94,18 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1600WH-GOLD Dinning Chair $149.00",
-      "component_skus": ["1600WH-GOLD"],
+      "component_skus": [
+        "1600WH-GOLD"
+      ],
       "price": "$149.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $149.00 without unit"
     },
     "output_image": "reports/dining_batch2_draft_images/draft-1600wh-gold.jpg",
     "category": "DINING CHAIR",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3016T/3000WH"],
+    "shared_products_in_scene": [
+      "3016T/3000WH"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -103,7 +128,9 @@
   },
   {
     "sku": "1500WH-GOLD",
-    "component_skus": ["1500WH-GOLD"],
+    "component_skus": [
+      "1500WH-GOLD"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 44,
@@ -111,7 +138,12 @@
     "source_text_regions": [
       {
         "page": 44,
-        "region": [920, 595, 1630, 635],
+        "region": [
+          920,
+          595,
+          1630,
+          635
+        ],
         "verbatim_text": "1500WH-GOLD  |    STAINLESS GOLD DINING CHAIR    18\"W x 21\"D x 41\"H    PACK: 2/1 CARTON"
       }
     ],
@@ -124,14 +156,18 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1500WH-GOLD Dinning Chair $99.00",
-      "component_skus": ["1500WH-GOLD"],
+      "component_skus": [
+        "1500WH-GOLD"
+      ],
       "price": "$99.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $99.00 without unit"
     },
     "output_image": "reports/dining_batch2_draft_images/draft-1500wh-gold.jpg",
     "category": "DINING CHAIR",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3016T/3000WH"],
+    "shared_products_in_scene": [
+      "3016T/3000WH"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -154,7 +190,10 @@
   },
   {
     "sku": "3011T/3000BK",
-    "component_skus": ["3011T", "3000BK"],
+    "component_skus": [
+      "3011T",
+      "3000BK"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": false,
     "pdf_physical_page": 45,
@@ -162,17 +201,27 @@
     "source_text_regions": [
       {
         "page": 45,
-        "region": [70, 530, 800, 590],
+        "region": [
+          70,
+          530,
+          800,
+          590
+        ],
         "verbatim_text": "3011T  |   DINING TABLE WITH STAINLESS GOLD FRAME,LEGS,BASE    63\"W x 36\"D x 30\"H\n3000BK  |   22MM BLACK MARBLE TOP"
       },
       {
         "page": 45,
-        "region": [920, 530, 1630, 590],
+        "region": [
+          920,
+          530,
+          1630,
+          590
+        ],
         "verbatim_text": "3011T  |   DINING TABLE WITH STAINLESS GOLD FRAME,LEGS,BASE    63\"W x 36\"D x 30\"H\n3000BK  |   22MM WHITE MARBLE TOP"
       }
     ],
     "raw_model_text": "3011T / 3000BK",
-    "raw_color_text": "STAINLESS GOLD FRAME,LEGS,BASE / 22MM BLACK MARBLE TOP",
+    "raw_color_text": null,
     "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
     "raw_pack_text": "",
     "raw_price_text": "$549.00",
@@ -180,14 +229,20 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3011T/3000BK Dining Table with Black Marble Table $549.00",
-      "component_skus": ["3011T", "3000BK"],
+      "component_skus": [
+        "3011T",
+        "3000BK"
+      ],
       "price": "$549.00",
       "unit_text": "1 complete table (table base + marble top)"
     },
     "output_image": "reports/dining_batch2_draft_images/draft-3011t-3000bk.jpg",
     "category": "DINING TABLE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1003BK-GOLD", "2680BK-GOLD"],
+    "shared_products_in_scene": [
+      "1003BK-GOLD",
+      "2680BK-GOLD"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -209,11 +264,26 @@
     ],
     "rejection_reason": "PDF only provides a lifestyle scene containing other products, and P45 right-side body text contains unresolved conflict ('WHITE MARBLE TOP' under SKU 3000BK).",
     "candidate_title_zh": "3011T/3000BK 不锈钢金环架黑色大理石餐桌 (暂停发布 - 正文冲突)",
-    "candidate_title_en": "3011T/3000BK Dining Table with Stainless Gold Frame, Legs, Base and Black Marble Top (PAUSED - UNRESOLVED CONFLICT)"
+    "candidate_title_en": "3011T/3000BK Dining Table with Stainless Gold Frame, Legs, Base and Black Marble Top (PAUSED - UNRESOLVED CONFLICT)",
+    "resolved_color": null,
+    "conflicting_source_tokens": [
+      {
+        "token": "22MM BLACK MARBLE TOP",
+        "source_role": "DINETTE 85 body"
+      },
+      {
+        "token": "22MM WHITE MARBLE TOP",
+        "source_role": "DINETTE 86 body"
+      }
+    ],
+    "resolution_status": "unresolved",
+    "specification_status": "conflicting"
   },
   {
     "sku": "1003BK-GOLD",
-    "component_skus": ["1003BK-GOLD"],
+    "component_skus": [
+      "1003BK-GOLD"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 45,
@@ -221,7 +291,12 @@
     "source_text_regions": [
       {
         "page": 45,
-        "region": [70, 595, 800, 635],
+        "region": [
+          70,
+          595,
+          800,
+          635
+        ],
         "verbatim_text": "1003BK-GOLD  |    STAINLESS GOLD DINING CHAIR    20\"W x 22\"D x 43\"H    PACK: 2/1 CARTON"
       }
     ],
@@ -234,14 +309,20 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "1003BK-GOLD Dinning Chair $149.00",
-      "component_skus": ["1003BK-GOLD"],
+      "component_skus": [
+        "1003BK-GOLD"
+      ],
       "price": "$149.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $149.00 without unit"
     },
     "output_image": "reports/dining_batch2_draft_images/draft-1003bk-gold.jpg",
     "category": "DINING CHAIR",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3011T/3000BK", "3010T/3000BK", "3010T/3002BK"],
+    "shared_products_in_scene": [
+      "3011T/3000BK",
+      "3010T/3000BK",
+      "3010T/3002BK"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -264,7 +345,9 @@
   },
   {
     "sku": "2680BK-GOLD",
-    "component_skus": ["2680BK-GOLD"],
+    "component_skus": [
+      "2680BK-GOLD"
+    ],
     "product_identity": "dining chair",
     "components_verified": true,
     "pdf_physical_page": 45,
@@ -272,7 +355,12 @@
     "source_text_regions": [
       {
         "page": 45,
-        "region": [920, 595, 1630, 635],
+        "region": [
+          920,
+          595,
+          1630,
+          635
+        ],
         "verbatim_text": "2680BK-GOLD  |   DINING CHAIR    18\"W x 20\"D x 42\"H    PACK: 2/1 CARTON"
       }
     ],
@@ -285,14 +373,18 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "2680BK-GOLD Dinning Chair $85.00",
-      "component_skus": ["2680BK-GOLD"],
+      "component_skus": [
+        "2680BK-GOLD"
+      ],
       "price": "$85.00",
       "unit_text": "PACK: 2/1 CARTON in catalog; Price list lists $85.00 without unit"
     },
     "output_image": "reports/dining_batch2_draft_images/draft-2680bk-gold.jpg",
     "category": "DINING CHAIR",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["3011T/3000BK"],
+    "shared_products_in_scene": [
+      "3011T/3000BK"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -315,7 +407,10 @@
   },
   {
     "sku": "3010T/3000BK",
-    "component_skus": ["3010T", "3000BK"],
+    "component_skus": [
+      "3010T",
+      "3000BK"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 46,
@@ -323,7 +418,12 @@
     "source_text_regions": [
       {
         "page": 46,
-        "region": [70, 530, 800, 590],
+        "region": [
+          70,
+          530,
+          800,
+          590
+        ],
         "verbatim_text": "3010T  |   DINING TABLE WITH STAINLESS GOLD FRAME,LEGS    63\"W x 36\"D x 30\"H\n3000BK  |   22MM BLACK MARBLE TOP"
       }
     ],
@@ -336,14 +436,19 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3010T/3000BK Dining Table with Black Marble Table $499.00",
-      "component_skus": ["3010T", "3000BK"],
+      "component_skus": [
+        "3010T",
+        "3000BK"
+      ],
       "price": "$499.00",
       "unit_text": "1 complete table (table base + marble top)"
     },
     "output_image": "reports/dining_batch2_draft_images/draft-3010t-3000bk.jpg",
     "category": "DINING TABLE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1003BK-GOLD"],
+    "shared_products_in_scene": [
+      "1003BK-GOLD"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,
@@ -366,7 +471,10 @@
   },
   {
     "sku": "3010T/3002BK",
-    "component_skus": ["3010T", "3002BK"],
+    "component_skus": [
+      "3010T",
+      "3002BK"
+    ],
     "product_identity": "one complete dining table",
     "components_verified": true,
     "pdf_physical_page": 46,
@@ -374,7 +482,12 @@
     "source_text_regions": [
       {
         "page": 46,
-        "region": [920, 530, 1630, 590],
+        "region": [
+          920,
+          530,
+          1630,
+          590
+        ],
         "verbatim_text": "3010T  |   DINING TABLE WITH STAINLESS GOLD FRAME,LEGS    63\"W x 36\"D x 30\"H\n3002BK  |   12MM BLACK GLASS TOP"
       }
     ],
@@ -387,14 +500,19 @@
     "price_evidence": {
       "price_list_page": 6,
       "exact_row_text": "3010T/3002BK Dining Table with Black Glass Table $499.00",
-      "component_skus": ["3010T", "3002BK"],
+      "component_skus": [
+        "3010T",
+        "3002BK"
+      ],
       "price": "$499.00",
       "unit_text": "1 complete table (table base + glass top)"
     },
     "output_image": "reports/dining_batch2_draft_images/draft-3010t-3002bk.jpg",
     "category": "DINING TABLE",
     "shared_layout_with_other_products": true,
-    "shared_products_in_scene": ["1003BK-GOLD"],
+    "shared_products_in_scene": [
+      "1003BK-GOLD"
+    ],
     "crop_contains_target_only": false,
     "crop_contains_other_products": true,
     "source_is_lifestyle_scene": true,

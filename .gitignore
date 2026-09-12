@@ -4,6 +4,8 @@ node_modules/
 Thumbs.db
 .vercel/
 venv/
+__pycache__/
+*.pyc
 scratch/
 backup_pre_overhaul/
 
