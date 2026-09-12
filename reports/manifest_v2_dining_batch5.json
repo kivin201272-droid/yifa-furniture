@@ -239,13 +239,11 @@
     "sku_canonical": "1500GRAY-CHROME",
     "is_occurrence_reference": true,
     "canonical_source_manifest": "reports/manifest_v2_dining_batch4.json",
-    "canonical_first_page": 51,
-    "canonical_first_section": "DINETTE 97",
+    "canonical_first_page": 50,
+    "canonical_first_section": "DINETTE 95",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
-    "pdf_file_page": 53,
-    "printed_page": "101",
-    "page_heading": "DINETTE 101",
+    "occurrence_count_in_batch": 2,
     "occurrence_pages": [
       53,
       55
@@ -254,9 +252,41 @@
       "DINETTE 101",
       "DINETTE 106"
     ],
+    "conflict_status": "unresolved",
+    "resolution_status": "unresolved",
+    "specification_status": "conflicting",
+    "dimension_occurrences_in_batch": [
+      {
+        "physical_page": 53,
+        "print_page": "DINETTE 101",
+        "raw_dimensions_text": "19\"W x 28\"D x 41\"H",
+        "text_region": [
+          72.3,
+          620.5,
+          500.6,
+          637.1
+        ]
+      },
+      {
+        "physical_page": 55,
+        "print_page": "DINETTE 106",
+        "raw_dimensions_text": "19\"W x 28\"D x 41\"H",
+        "text_region": [
+          1190.7,
+          620.5,
+          1612.4,
+          637.1
+        ]
+      }
+    ],
     "human_reviewed": true,
     "publish": false,
-    "review_result": "occurrence_only"
+    "review_result": "occurrence_only",
+    "rejection_code": [
+      "NO_CLEAN_STANDALONE_IMAGE",
+      "UNRESOLVED_SPECIFICATION_CONFLICT"
+    ],
+    "rejection_reason": "PDF only provides a lifestyle scene containing other products, and exhibits an unresolved cross-page specification conflict: physical pages 50, 51, 52 print 19\"W x 21\"D x 41\"H while pages 53, 55 print 19\"W x 28\"D x 41\"H."
   },
   {
     "record_type": "occurrence_reference",
@@ -265,18 +295,29 @@
     "sku_canonical": "1301BK",
     "is_occurrence_reference": true,
     "canonical_source_manifest": "reports/manifest_v2_dining_batch4.json",
-    "canonical_first_page": 52,
-    "canonical_first_section": "DINETTE 99",
+    "canonical_first_page": 51,
+    "canonical_first_section": "DINETTE 98",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
-    "pdf_file_page": 53,
-    "printed_page": "102",
-    "page_heading": "DINETTE 102",
+    "occurrence_count_in_batch": 1,
     "occurrence_pages": [
       53
     ],
     "occurrence_sections": [
       "DINETTE 102"
+    ],
+    "page_evidence": [
+      {
+        "physical_page": 53,
+        "print_page": "DINETTE 102",
+        "raw_dimensions_text": "19\"W x 28\"D x 41\"H",
+        "text_region": [
+          1255.0,
+          620.5,
+          1612.4,
+          637.1
+        ]
+      }
     ],
     "human_reviewed": true,
     "publish": false,
@@ -293,14 +334,25 @@
     "canonical_first_section": "DINETTE 93",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
-    "pdf_file_page": 54,
-    "printed_page": "103",
-    "page_heading": "DINETTE 103",
+    "occurrence_count_in_batch": 1,
     "occurrence_pages": [
       54
     ],
     "occurrence_sections": [
       "DINETTE 103"
+    ],
+    "page_evidence": [
+      {
+        "physical_page": 54,
+        "print_page": "DINETTE 103",
+        "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
+        "text_region": [
+          72.3,
+          578.5,
+          529.4,
+          595.1
+        ]
+      }
     ],
     "human_reviewed": true,
     "publish": false,
@@ -313,18 +365,29 @@
     "sku_canonical": "3000T/3000BK",
     "is_occurrence_reference": true,
     "canonical_source_manifest": "reports/manifest_v2_dining_batch4.json",
-    "canonical_first_page": 52,
-    "canonical_first_section": "DINETTE 99",
+    "canonical_first_page": 50,
+    "canonical_first_section": "DINETTE 96",
     "source_catalog": "PJ 2026",
     "source_pdf_sha256": "53da4ae32d4a1edebf8a01b1bde667b629071cb707163e09cc6beebe228400f5",
-    "pdf_file_page": 54,
-    "printed_page": "104",
-    "page_heading": "DINETTE 104",
+    "occurrence_count_in_batch": 1,
     "occurrence_pages": [
       54
     ],
     "occurrence_sections": [
       "DINETTE 104"
+    ],
+    "page_evidence": [
+      {
+        "physical_page": 54,
+        "print_page": "DINETTE 104",
+        "raw_dimensions_text": "63\"W x 36\"D x 30\"H",
+        "text_region": [
+          1158.6,
+          578.5,
+          1615.7,
+          595.1
+        ]
+      }
     ],
     "human_reviewed": true,
     "publish": false,

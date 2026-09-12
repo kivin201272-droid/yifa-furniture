@@ -228,16 +228,123 @@ def validate_manifests(manifest_files_override=None, custom_pages=None):
             "publish_false": m_rejected
         }
         
+    # Cross-Occurrence Specification Integrity Checks
+    sku_occurrences = {} # sku -> list of occurrence dicts
+    for sku, (mf, item) in canonical_registry.items():
+        sku_occurrences[sku] = []
+        if "dimension_occurrences" in item:
+            for occ in item["dimension_occurrences"]:
+                sku_occurrences[sku].append({
+                    "manifest": mf,
+                    "page": occ.get("physical_page"),
+                    "print_page": occ.get("print_page"),
+                    "dimensions": occ.get("raw_dimensions_text", "").strip(),
+                    "pack": occ.get("raw_pack_text", "").strip() or item.get("raw_pack_text", "").strip(),
+                    "color": item.get("raw_color_text", "").strip(),
+                    "product_type": item.get("raw_product_type", "").strip(),
+                    "price": item.get("raw_price_text", "").strip() or str(item.get("price", "")).strip(),
+                    "conflict_status": item.get("conflict_status"),
+                    "publish": item.get("publish", False)
+                })
+        elif "source_text_regions" in item:
+            for tr in item["source_text_regions"]:
+                sku_occurrences[sku].append({
+                    "manifest": mf,
+                    "page": tr.get("page"),
+                    "print_page": tr.get("print_page"),
+                    "dimensions": item.get("raw_dimensions_text", "").strip(),
+                    "pack": item.get("raw_pack_text", "").strip(),
+                    "color": item.get("raw_color_text", "").strip(),
+                    "product_type": item.get("raw_product_type", "").strip(),
+                    "price": item.get("raw_price_text", "").strip() or str(item.get("price", "")).strip(),
+                    "conflict_status": item.get("conflict_status"),
+                    "publish": item.get("publish", False)
+                })
+        else:
+            sku_occurrences[sku].append({
+                "manifest": mf,
+                "page": item.get("pdf_file_page") or item.get("pdf_physical_page"),
+                "print_page": item.get("printed_page") or item.get("print_page"),
+                "dimensions": item.get("raw_dimensions_text", "").strip(),
+                "pack": item.get("raw_pack_text", "").strip(),
+                "color": item.get("raw_color_text", "").strip(),
+                "product_type": item.get("raw_product_type", "").strip(),
+                "price": item.get("raw_price_text", "").strip() or str(item.get("price", "")).strip(),
+                "conflict_status": item.get("conflict_status"),
+                "publish": item.get("publish", False)
+            })
+
     # Check all occurrence references link to existing canonical SKUs
     for mf, item in occurrence_references:
         c_sku = item.get("canonical_sku", "").strip()
         if c_sku not in canonical_registry:
             errors.append(f"[{mf}] occurrence_reference links to non-existent canonical SKU '{c_sku}'")
+            continue
             
+        c_mf, c_item = canonical_registry[c_sku]
+        if "dimension_occurrences_in_batch" in item:
+            for occ in item["dimension_occurrences_in_batch"]:
+                sku_occurrences[c_sku].append({
+                    "manifest": mf,
+                    "page": occ.get("physical_page"),
+                    "print_page": occ.get("print_page"),
+                    "dimensions": occ.get("raw_dimensions_text", "").strip(),
+                    "pack": item.get("raw_pack_text", "").strip(),
+                    "color": item.get("raw_color_text", "").strip(),
+                    "product_type": item.get("raw_product_type", "").strip(),
+                    "price": str(item.get("price", "")).strip(),
+                    "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
+                    "publish": item.get("publish", False)
+                })
+        elif "page_evidence" in item:
+            for pe in item["page_evidence"]:
+                sku_occurrences[c_sku].append({
+                    "manifest": mf,
+                    "page": pe.get("physical_page"),
+                    "print_page": pe.get("print_page"),
+                    "dimensions": pe.get("raw_dimensions_text", "").strip(),
+                    "pack": item.get("raw_pack_text", "").strip(),
+                    "color": item.get("raw_color_text", "").strip(),
+                    "product_type": item.get("raw_product_type", "").strip(),
+                    "price": str(item.get("price", "")).strip(),
+                    "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
+                    "publish": item.get("publish", False)
+                })
+        elif "dimensions" in item or "raw_dimensions_text" in item:
+            sku_occurrences[c_sku].append({
+                "manifest": mf,
+                "page": item.get("pdf_file_page") or item.get("pdf_physical_page"),
+                "print_page": item.get("printed_page") or item.get("print_page"),
+                "dimensions": (item.get("dimensions") or item.get("raw_dimensions_text", "")).strip(),
+                "pack": item.get("raw_pack_text", "").strip(),
+                "color": item.get("raw_color_text", "").strip(),
+                "product_type": item.get("raw_product_type", "").strip(),
+                "price": str(item.get("price", "")).strip(),
+                "conflict_status": item.get("conflict_status") or c_item.get("conflict_status"),
+                "publish": item.get("publish", False)
+            })
+
+    # Verify cross-occurrence specification integrity across all canonical SKUs
+    unresolved_conflict_count = 0
+    for sku, occs in sku_occurrences.items():
+        c_mf, c_item = canonical_registry[sku]
+        dim_values = {o["dimensions"] for o in occs if o["dimensions"]}
+        
+        has_conflict = False
+        if len(dim_values) > 1:
+            has_conflict = True
+            if c_item.get("conflict_status") != "unresolved" or c_item.get("publish", False) is not False:
+                errors.append(f"CROSS-OCCURRENCE SPECIFICATION CONFLICT: SKU '{sku}' has conflicting dimensions {dim_values} across occurrences without conflict_status: 'unresolved' and publish: false.")
+            if "dimension_occurrences" not in c_item and "conflict_notes" not in c_item:
+                errors.append(f"[{c_mf}] Conflicting SKU '{sku}' missing dimension_occurrences recording all conflicting source values.")
+        if c_item.get("conflict_status") == "unresolved":
+            unresolved_conflict_count += 1
+
     passed = (len(errors) == 0)
     stats = {
         "global_unique_canonical_skus": len(canonical_registry),
         "total_occurrence_references": len(occurrence_references),
+        "unresolved_conflict_count": unresolved_conflict_count,
         "manifest_stats": manifest_stats
     }
     return passed, errors, stats
@@ -339,8 +446,8 @@ def check_live_scope_protection():
         assert False, f"Scope protection validator failed with {len(errors)} error(s)."
     print(f"  -> PASS: {card_cnt}/{card_cnt} cards and {img_cnt}/{img_cnt} image files 100% identical to root baseline (11157499).")
 
-def run_eight_negative_tests():
-    print("[TEST 4] Auditor Reliability & 8-Part Negative Test Suite:")
+def run_nine_negative_tests():
+    print("[TEST 4] Auditor Reliability & 9-Part Negative Test Suite:")
     off_en = open("office/index.html", "r", encoding="utf-8").read()
     off_zh = open("zh/office/index.html", "r", encoding="utf-8").read()
     din_en = open("dining/index.html", "r", encoding="utf-8").read()
@@ -447,6 +554,25 @@ def run_eight_negative_tests():
     os.remove(test_mf_conf)
     assert not passed_8, "Negative Test 8 Failed: Unresolved conflict with publish:true was NOT caught!"
     print(f"  - Neg Test 8 (Unresolved Conflict on Publish): Caught expected error: '{errors_8[0]}' [PASS]")
+
+    # Neg Test 9: Cross-occurrence specification conflict without unresolved conflict status -> MUST FAIL
+    test_mf_spec_conf = "reports/manifest_v2_test_spec_conf.draft.json"
+    spec_conf_item = [{
+        "record_type": "occurrence_reference",
+        "canonical_sku": "1301BK",
+        "source_catalog": "PJ 2026",
+        "source_pdf_sha256": EXPECTED_SHA256,
+        "human_reviewed": True,
+        "publish": False,
+        "dimensions": "19\"W x 35\"D x 41\"H"
+    }]
+    with open(test_mf_spec_conf, "w") as f:
+        json.dump(spec_conf_item, f)
+    passed_9, errors_9, _ = validate_manifests(manifest_files_override=sorted(glob.glob("reports/manifest_v2_*.json")) + [test_mf_spec_conf])
+    os.remove(test_mf_spec_conf)
+    assert not passed_9, "Negative Test 9 Failed: Cross-occurrence specification conflict was NOT caught!"
+    assert any("CROSS-OCCURRENCE SPECIFICATION CONFLICT" in e for e in errors_9), f"Expected specification conflict error, got: {errors_9}"
+    print(f"  - Neg Test 9 (Cross-Occurrence Specification Conflict): Caught expected error: '{errors_9[0]}' [PASS]")
 
 OFFICE_19_PJ_SKUS = [
     "2715", "2716", "4500TAUPE", "4500CA", "2704WH", "2704BK",
@@ -573,7 +699,7 @@ def main():
     check_manifests_source_fields()
     check_live_scope_protection()
     check_office_baseline_protection()
-    run_eight_negative_tests()
+    run_nine_negative_tests()
     check_git_cleanliness()
     print("=" * 70)
     print("SUMMARY METRICS:")
@@ -585,7 +711,7 @@ def main():
     print("  Dining production PJ cards: 0")
     print("  Cross-manifest duplicates: 0")
     print("  Unapproved production page changes: 0")
-    print("  Negative test suite assertions passed: 8/8")
+    print("  Negative test suite assertions passed: 9/9")
     print("=" * 70)
     print("ALL GLOBAL CANONICAL SCOPE PROTECTION TESTS PASSED (100% COMPLIANT)")
     print("=" * 70)
