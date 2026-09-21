@@ -53,3 +53,5 @@ scripts/negative_test_out_of_bounds.py
 scripts/validate_image_content_metrics.py
 scripts/build_dining_batch*.py
 scripts/restore_office_f_series.py
+.vercel
+.env*
