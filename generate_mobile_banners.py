@@ -152,42 +152,51 @@ html_sofa = f"""<!DOCTYPE html>
   }}
   .header-wrap {{
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    min-height: 175px;
+  }}
+  .headline-container {{
+    flex: 1;
     text-align: center;
-    margin-bottom: 2px;
+    padding-left: 10px;
   }}
   .headline-year {{
     font-size: 54px;
     font-weight: 900;
     color: #e51b24;
-    line-height: 1.1;
+    line-height: 1.12;
     letter-spacing: 0.02em;
     text-shadow: 1px 1px 0 #fff;
+    white-space: nowrap;
   }}
   .headline-event {{
-    font-size: 46px;
+    font-size: 47px;
     font-weight: 900;
     color: #e51b24;
-    line-height: 1.1;
+    line-height: 1.12;
     letter-spacing: 0.02em;
-    margin-top: 2px;
+    margin-top: 4px;
+    white-space: nowrap;
   }}
   .star-badge {{
-    position: absolute;
-    left: 4px;
-    top: -4px;
-    width: 100px;
-    height: 100px;
+    width: 195px;
+    height: 195px;
+    flex-shrink: 0;
     background: #e51b24;
     clip-path: polygon(50% 0%, 65% 15%, 85% 6%, 86% 27%, 100% 38%, 90% 55%, 100% 70%, 82% 78%, 82% 98%, 62% 88%, 50% 100%, 38% 88%, 18% 98%, 18% 78%, 0% 70%, 10% 55%, 0% 38%, 14% 27%, 15% 6%, 35% 15%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    font-size: 22px;
+    font-size: 44px;
     font-weight: 900;
     text-align: center;
     line-height: 1.15;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-left: -15px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
   }}
   .logos-bar {{
     background: #fff;
@@ -197,7 +206,7 @@ html_sofa = f"""<!DOCTYPE html>
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    margin: 6px 0 8px;
+    margin: 4px 0 8px;
   }}
   .logos-bar img {{
     width: 100%;
@@ -293,8 +302,10 @@ html_sofa = f"""<!DOCTYPE html>
 <body>
   <div class="header-wrap">
     <div class="star-badge">送<br>茶几</div>
-    <div class="headline-year">2026 易发家具</div>
-    <div class="headline-event">第33届沙发抢购节</div>
+    <div class="headline-container">
+      <div class="headline-year">2026 易发家具</div>
+      <div class="headline-event">第33届沙发抢购节</div>
+    </div>
   </div>
 
   <div class="logos-bar">

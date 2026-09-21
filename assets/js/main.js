@@ -92,8 +92,11 @@
       var heroOverlay = heroWrap ? heroWrap.querySelector(".hero-content-overlay") : document.querySelector(".hero-content-overlay");
       var slideOverlay = container.querySelector(".slideshow-overlay");
 
+      var activeSlide = slides[index];
+      var isVideoSlide = activeSlide && !!activeSlide.querySelector("video");
+
       if (heroOverlay) {
-        if (index === 0) {
+        if (isVideoSlide) {
           heroOverlay.classList.remove("hidden-overlay");
         } else {
           heroOverlay.classList.add("hidden-overlay");
@@ -101,7 +104,7 @@
       }
 
       if (slideOverlay) {
-        if (index === 0) {
+        if (isVideoSlide) {
           slideOverlay.classList.remove("hidden-overlay");
         } else {
           slideOverlay.classList.add("hidden-overlay");

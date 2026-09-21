@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 750px;
+    height: 1200px;
+    background: #fedc00;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "STHeiti", sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 44px 22px;
+    color: #111;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+  }
+  .header-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    min-height: 175px;
+  }
+  .headline-container {
+    flex: 1;
+    text-align: center;
+    padding-left: 10px;
+  }
+  .headline-year {
+    font-size: 54px;
+    font-weight: 900;
+    color: #e51b24;
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    text-shadow: 1px 1px 0 #fff;
+    white-space: nowrap;
+  }
+  .headline-event {
+    font-size: 47px;
+    font-weight: 900;
+    color: #e51b24;
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+  .star-badge {
+    width: 195px;
+    height: 195px;
+    flex-shrink: 0;
+    background: #e51b24;
+    clip-path: polygon(50% 0%, 65% 15%, 85% 6%, 86% 27%, 100% 38%, 90% 55%, 100% 70%, 82% 78%, 82% 98%, 62% 88%, 50% 100%, 38% 88%, 18% 98%, 18% 78%, 0% 70%, 10% 55%, 0% 38%, 14% 27%, 15% 6%, 35% 15%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 44px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.15;
+    margin-left: -15px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+  }
+  .logos-bar {
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin: 4px 0 8px;
+  }
+  .logos-bar img {
+    width: 100%;
+    max-height: 40px;
+    object-fit: contain;
+  }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border: 2px solid #fff;
+  }
+  .card-img {
+    width: 215px;
+    height: 145px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-title {
+    font-size: 27px;
+    font-weight: 900;
+    color: #222;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+  .card-subtitle {
+    font-size: 20px;
+    color: #555;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .card-price-orig {
+    font-size: 20px;
+    color: #666;
+    text-decoration: line-through;
+    margin-right: 8px;
+  }
+  .card-price-special {
+    font-size: 36px;
+    font-weight: 900;
+    color: #e51b24;
+    line-height: 1;
+  }
+  .card-unit {
+    font-size: 20px;
+    color: #444;
+    font-weight: 700;
+  }
+  .red-banner {
+    background: #e51b24;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin: 6px 0;
+  }
+  .bottom-sub {
+    text-align: center;
+    color: #e51b24;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin: 2px 0 2px;
+  }
+  .footer-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 19.5px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+</style>
+</head>
+<body>
+  <div class="header-wrap">
+    <div class="star-badge">送<br>茶几</div>
+    <div class="headline-container">
+      <div class="headline-year">2026 易发家具</div>
+      <div class="headline-event">第33届沙发抢购节</div>
+    </div>
+  </div>
+
+  <div class="logos-bar">
+    <img src="/Users/kivinwang/Documents/GitHub/yifa-furniture/assets/images/promo_elements/logos_white_bg.png">
+  </div>
+
+  <!-- Product 1: Sealy 记忆棉床垫 -->
+  <div class="card">
+    <img class="card-img" src="/Users/kivinwang/Documents/GitHub/yifa-furniture/assets/images/promo_elements/mattress_girl.png">
+    <div class="card-info">
+      <div class="card-title">Sealy 9寸 60"x80"</div>
+      <div class="card-subtitle">记忆棉床垫</div>
+      <div>
+        <span class="card-price-orig">市场价$1780</span>
+      </div>
+      <div>
+        <span class="card-price-special">特惠价 $599</span><span class="card-unit">/张</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Red Highlight Bar -->
+  <div class="red-banner">神奇床垫 50% OFF</div>
+
+  <!-- Product 2: 意大利真皮沙发 -->
+  <div class="card">
+    <img class="card-img" src="/Users/kivinwang/Documents/GitHub/yifa-furniture/assets/images/promo_elements/sofa_clean_perfect.png">
+    <div class="card-info">
+      <div class="card-title">意大利真皮沙发</div>
+      <div class="card-subtitle">（附送精美茶几）</div>
+      <div>
+        <span class="card-price-orig">原价$4689/套</span>
+      </div>
+      <div>
+        <span class="card-price-special">$2350</span><span class="card-unit">/套</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-sub">美国品牌床垫特卖场</div>
+
+  <div class="footer-box">
+    <div>周一至周六: 11:30AM - 4:30PM &nbsp;|&nbsp; 周日: 休息</div>
+    <div>电话: 917-771-5493 &nbsp;|&nbsp; 地址: 6410 8th Ave, Brooklyn, NY</div>
+  </div>
+</body>
+</html>

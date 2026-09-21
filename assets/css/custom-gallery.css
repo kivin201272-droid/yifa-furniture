@@ -3,13 +3,16 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
-  margin-top: 40px;
+  max-width: var(--wrap, 1180px);
+  margin: 40px auto 60px;
+  padding: 0 24px;
 }
 
 @media (max-width: 900px) {
   .sofa-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+    padding: 0 16px;
   }
 }
 
@@ -32,19 +35,25 @@
 
 .sofa-img-container {
   width: 100% !important;
-  height: 340px !important;
-  min-height: 260px;
+  aspect-ratio: 16 / 10 !important;
+  height: auto !important;
+  max-height: 380px !important;
+  min-height: 220px !important;
   overflow: hidden;
-  background: #ffffff !important;
+  background: radial-gradient(circle at center, #ffffff 20%, #f8f9fa 100%) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
+  padding: 8px 12px !important;
 }
 
 @media (max-width: 768px) {
   .sofa-img-container {
-    height: 260px !important;
+    aspect-ratio: 16 / 10 !important;
+    height: auto !important;
+    max-height: 280px !important;
+    padding: 6px 8px !important;
   }
 }
 
@@ -55,101 +64,66 @@
   max-width: 100% !important;
   max-height: 100% !important;
   object-fit: contain !important;
+  object-position: center !important;
   display: block !important;
   transition: transform 0.4s ease;
   image-rendering: -webkit-optimize-contrast;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
-  background: #ffffff;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.04));
 }
 
 .sofa-card:hover .sofa-img-container img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
-/* Bottom Multi-Variant Price Strip Styles */
-.price-tag {
-  font-weight: 800;
-  color: #e63946;
-  font-size: 1.05rem;
-  margin-right: 6px;
+/* ===== Modern Price Badge Component ===== */
+.sofa-price-badge {
   display: inline-flex;
-  align-items: center;
+  align-items: stretch;
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(156, 124, 74, 0.15);
+  border: 1px solid rgba(156, 124, 74, 0.25);
+  margin-bottom: 2px;
+  flex-shrink: 0;
 }
 
-.price-tag-multi {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-right: 8px;
-  font-size: 0.92rem;
-  line-height: 1.4;
-}
-
-.price-tag-multi .price-prefix {
-  font-weight: 800;
-  color: #e63946;
-  font-size: 0.98rem;
-  margin-right: 2px;
-}
-
-.price-tag-multi .spec-pill {
+.sofa-price-badge .price-label {
+  background: var(--accent-deep, #6f5630);
+  color: #fff;
+  font-size: 0.65rem;
   font-weight: 700;
-  background: #f4efe6;
-  padding: 2px 7px;
-  border-radius: 4px;
-  font-size: 0.82rem;
-  border: 1px solid #e7dcce;
-  display: inline-flex;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  display: flex;
   align-items: center;
-  gap: 3px;
   white-space: nowrap;
 }
 
-.price-tag-multi .spec-pill .pill-lbl {
-  color: #78716c;
-  font-weight: 600;
-}
-
-.price-tag-multi .spec-pill .pill-val {
-  color: #b91c1c;
-  font-weight: 800;
-}
-
-.price-tag-multi .spec-pill.queen,
-.price-tag-multi .spec-pill.highlight {
-  background: #fef3c7;
-  border-color: #f59e0b;
-  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.15);
-}
-
-.price-tag-multi .spec-pill.queen .pill-lbl {
-  color: #b45309;
-}
-
-.price-tag-multi .spec-pill.queen .pill-val {
-  color: #b45309;
-}
-
-.price-tag-multi .spec-divider {
-  color: #d1c7b7;
-  font-weight: 300;
-  font-size: 0.85rem;
+.sofa-price-badge .price-value {
+  background: #fffdf7;
+  color: #4a3620;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 5px 11px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 @media (max-width: 600px) {
-  .price-tag {
-    font-size: 0.95rem;
+  .sofa-price-badge .price-label {
+    font-size: 0.58rem;
+    padding: 4px 7px;
   }
-  .price-tag-multi {
-    font-size: 0.85rem;
-    gap: 3px;
-  }
-  .price-tag-multi .spec-pill {
-    padding: 1px 5px;
-    font-size: 0.78rem;
+  .sofa-price-badge .price-value {
+    font-size: 0.76rem;
+    padding: 4px 8px;
   }
 }
 
@@ -278,10 +252,11 @@
   margin-bottom: 12px;
 }
 
+/* Legacy price-tag fallback (kept for backward compat, no longer used in living-room pages) */
 .price-tag, .price-current {
-  font-size: 1.05rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: #e63946 !important;
+  color: var(--accent-deep, #6f5630);
   margin-right: 6px;
   display: inline-flex;
   align-items: center;

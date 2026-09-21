@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>精品床垫特价上架预览 | Yifa Furniture Product Preview</title>
+  <meta name="description" content="Yifa Furniture 精品床垫特价上架预览系统，涵盖五星级酒店床垫、椰棕护脊床垫、乳胶独立袋装弹簧及席梦思黑标系列。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #121316;
+      --surface: #ffffff;
+      --surface-subtle: #f8f7f4;
+      --border: #e6e2da;
+      --border-light: #f0eee9;
+      --accent: #b48c48;
+      --accent-deep: #8f6826;
+      --sale-red: #d32f2f;
+      --sale-bg: #fff1f0;
+      --sale-badge: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+      --text-main: #1d1d1f;
+      --text-muted: #6e6d7a;
+      --text-light: #94939b;
+      --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.07);
+      --shadow-lg: 0 16px 36px rgba(0,0,0,0.1);
+      --radius: 12px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #fbfaf8;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Banner */
+    .top-bar {
+      background: #19191b;
+      color: #fff;
+      padding: 10px 24px;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .top-bar .tagline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .top-bar .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #4caf50;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #4caf50;
+      display: inline-block;
+    }
+    .top-bar .actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .lang-toggle {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .lang-toggle:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Hero Section */
+    .preview-hero {
+      background: linear-gradient(180deg, #ffffff 0%, #f7f5f1 100%);
+      padding: 50px 24px 40px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .preview-hero .badge {
+      display: inline-block;
+      background: var(--sale-bg);
+      color: var(--sale-red);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(211, 47, 47, 0.2);
+    }
+    .preview-hero h1 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .preview-hero p {
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 20px;
+      font-size: 1.05rem;
+    }
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .filter-btn {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Container & Grid */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 48px 24px 90px;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 36px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: #d1cbc0;
+    }
+
+    /* Image Box */
+    .card-media {
+      position: relative;
+      height: 280px;
+      background: #f3f1ed;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .card-media img {
+      transform: scale(1.04);
+    }
+    .sale-tag-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--sale-badge);
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(211,47,47,0.35);
+      z-index: 2;
+    }
+    .origin-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(25,25,27,0.85);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      z-index: 2;
+    }
+
+    /* Card Content */
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .card-code {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .card-warranty {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #2e7d32;
+      background: #e8f5e9;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      min-height: 42px;
+    }
+
+    /* Feature Pills */
+    .features-list {
+      list-style: none;
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .features-list li {
+      font-size: 0.84rem;
+      color: #444349;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .features-list li::before {
+      content: "✓";
+      color: var(--accent-deep);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* Size Selector */
+    .size-selector-wrap {
+      margin-bottom: 18px;
+    }
+    .size-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .size-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .size-btn {
+      flex: 1;
+      min-width: 70px;
+      padding: 7px 10px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .size-btn:hover {
+      border-color: var(--primary);
+    }
+    .size-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Price Section */
+    .price-box {
+      background: #faf8f5;
+      border: 1px solid #eee7dc;
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .price-main {
+      display: flex;
+      flex-direction: column;
+    }
+    .price-dimension {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+    .price-values {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .special-price {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--sale-red);
+      line-height: 1;
+    }
+    .special-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--sale-red);
+      background: var(--sale-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .regular-price {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+    .save-amount {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #c62828;
+      margin-top: 4px;
+    }
+
+    /* Card Footer Action */
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn-inquire {
+      flex: 1;
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .btn-inquire:hover {
+      background: var(--accent-deep);
+    }
+    .btn-copy {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-copy:hover {
+      background: #f0ede6;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #19191b;
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 2000;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="tagline">
+      <span class="live-dot"></span>
+      <strong id="top-title">Yifa Furniture | 经典床垫特价上架预览中心</strong>
+      <span style="color:#94939b; margin-left: 8px;">(Classic Mattresses · 统一归类)</span>
+    </div>
+    <div class="actions">
+      <button class="lang-toggle" onclick="toggleLanguage()" id="lang-btn">Switch to English</button>
+      <a href="reports/yifa%20Price%20-%20All%20Prices.csv" download style="color:#c9c4ba; font-size: 0.8rem; text-decoration: none;">📥 价格表.csv</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="preview-hero">
+    <div class="badge" id="hero-badge">🔥 经典床垫专区 · CLASSIC MATTRESSES PREVIEW</div>
+    <h1 id="hero-h1">经典床垫 (Classic Mattresses) · 特价上架展示</h1>
+    <p id="hero-sub">统一归入「经典床垫」类目（slug: classic-mattresses）。涵盖 4"/6" 双面半棕护脊、9" 弹簧椰棕硬垫、11" 乳胶 Pillow Top、五星级酒店双面款及美国席梦思黑标 Series I。点击尺寸即时查看特价与结构化数据。</p>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProducts('all', this)" id="flt-all">全部经典床垫 (8)</button>
+      <button class="filter-btn" onclick="filterProducts('coir', this)" id="flt-coir">天然椰棕护脊 (3)</button>
+      <button class="filter-btn" onclick="filterProducts('latex', this)" id="flt-latex">高弹乳胶独立袋装 (1)</button>
+      <button class="filter-btn" onclick="filterProducts('hotel', this)" id="flt-hotel">五星级酒店系列 (1)</button>
+      <button class="filter-btn" onclick="filterProducts('beautyrest', this)" id="flt-br">席梦思黑标奢华款 (1)</button>
+      <button class="filter-btn" onclick="filterProducts('magical', this)" id="flt-magical">神奇床垫系列 (2)</button>
+    </div>
+  </section>
+
+  <!-- Products Main Grid -->
+  <main class="container">
+    <div class="products-grid" id="products-grid">
+      <!-- 动态卡片由 JavaScript 驱动渲染 -->
+    </div>
+  </main>
+
+  <div class="toast" id="toast">数据已复制到剪贴板！</div>
+
+  <script>
+    let currentLang = 'zh';
+
+    const productsData = [
+      {
+        id: "magical-m1001",
+        category: "经典床垫",
+        categoryEn: "Classic Mattresses",
+        categorySlug: "classic-mattresses",
+        typeKey: "magical",
+        code: "M1001 (Tech Sleep)",
+        warrantyZh: "科技睡眠",
+        warrantyEn: "Tech Sleep",
+        originZh: "神奇床垫",
+        originEn: "Magical Group",
+        img: "assets/images/magical/M1001.jpg",
+        titleZh: "椰棕床垫 M1001 (Tech Sleep)",
+        titleEn: "Coconut Palm Mattress M1001 (Tech Sleep)",
+        descZh: "椰棕床垫",
+        descEn: "Coconut Palm Mattress",
+        featuresZh: [
+          "美国神奇床垫特约合作：专注星级酒店与Ai科技睡眠32年",
+          "多层科技释压舒适层：柔韧包裹，均匀分摊关节点压",
+          "深睡抗干扰内核：有效吸震减压，夜间起夜翻身不惊扰",
+          "三种睡感定制保障：软、硬、中软定制，满足全家所需"
+        ],
+        featuresEn: [
+          "Magical Mattress Partnership: 32 years of hospitality & smart sleep expertise",
+          "Adaptive Contouring Foam: Relieves body pressure points naturally",
+          "Zero Motion Disturbance: Sound-dampening core absorbs all shifting",
+          "3 Firmness Customizations: Soft, Firm, and Medium options"
+        ],
+        variants: [
+          { size: "Twin", dim: "39\" x 75\" x 10\"", regular: null, special: "特价咨询 / Inquire", noteZh: "特价现货", noteEn: "In Stock" },
+          { size: "Full", dim: "54\" x 75\" x 10\"", regular: null, special: "特价咨询 / Inquire", noteZh: "特价现货", noteEn: "In Stock" },
+          { size: "Queen", dim: "60\" x 80\" x 10\"", regular: null, special: "特价咨询 / Inquire", noteZh: "特价现货", noteEn: "In Stock" },
+          { size: "King", dim: "76\" x 80\" x 10\"", regular: null, special: "特价咨询 / Inquire", noteZh: "特价现货", noteEn: "In Stock" }
+        ],
+        selectedIdx: 2
+      },
+      {
+        id: "001-163-4",
+        category: "经典床垫",
+        categoryEn: "Classic Mattresses",
+        categorySlug: "classic-mattresses",
+        typeKey: "coir",
+        code: "001-163 (4\" LIGHT)",
+        warrantyZh: "标准质保",
+        warrantyEn: "Standard Warranty",
+        originZh: "高性价比",
+        originEn: "Budget Choice",
+        img: "assets/images/mattress/TH-163.jpg",
+        titleZh: "001-163 4寸轻薄双面半棕床垫 (软、硬两面用)",
+        titleEn: "001-163 LIGHT 4\" Reversible Semi-Palm Mattress",
+        descZh: "4寸轻薄双面软硬两用半棕床垫，坚固耐用保护脊椎，搬运轻巧，是升级床垫硬度的理想之选。",
+        descEn: "4-inch low-profile flippable palm mattress. Lightweight, sag-resistant, and ideal as an orthopedic mattress topper.",
+        featuresZh: [
+          "4寸轻巧便携：适用于学生公寓、高低床、保姆房及加层垫",
+          "软硬两面随心翻：微弹与硬棕双重睡感随时切换",
+          "自然透气防潮：天然纤维透气排湿，不易闷热",
+          "Twin 特价仅 $190：6.8折亲民特价，实惠耐用"
+        ],
+        featuresEn: [
+          "4\" Low Profile: Ideal for trundles, bunks, and mattress toppers",
+          "Reversible Dual Surface: Soft contouring or firm palm backing",
+          "Breathable Natural Fiber: Air-permeable and odor-resistant",
+          "Twin Special Price $190: Exceptional entry-level price point"
+        ],
+        variants: [
+          { size: "Twin", dim: "39\" x 75\" x 4\"", regular: 288, special: 190, noteZh: "特价 6.8折 (立省 $98)", noteEn: "Special 6.8-Fold (Save $98)" },
+          { size: "Full", dim: "54\" x 75\" x 4\"", regular: null, special: 260, noteZh: "特价", noteEn: "Special Price" },
+          { size: "Queen", dim: "60\" x 80\" x 4\"", regular: null, special: 290, noteZh: "特价", noteEn: "Special Price" }
+        ],
+        selectedIdx: 0
+      },
+      {
+        id: "001-163-6",
+        category: "经典床垫",
+        categoryEn: "Classic Mattresses",
+        categorySlug: "classic-mattresses",
+        typeKey: "coir",
+        code: "001-163 (6\" LIGHT)",
+        warrantyZh: "标准质保",
+        warrantyEn: "Standard Warranty",
+        originZh: "热卖款",
+        originEn: "Best Seller",
+        img: "assets/images/mattress/TH-163.jpg",
+        titleZh: "001-163 6寸半棕双面用床垫 (软、硬两面用)",
+        titleEn: "001-163 LIGHT 6\" Dual-Sided Semi-Coir Mattress",
+        descZh: "6寸厚度半棕床垫，软硬两面用，提供適當的支撑力與舒適度，坚固耐用，保護脊椎健康。",
+        descEn: "6-inch semi-coir mattress with flippable soft and firm sides. Reliable back support with balanced contouring.",
+        featuresZh: [
+          "软硬双面两用：一面微弹贴合，一面硬棕承托",
+          "6寸黄金厚度：适合标准床架、高低床、日托床与客房",
+          "护脊防塌陷：提供恰当承托力，有效保护脊椎生理曲线",
+          "超高性价比：Twin 尺寸特价仅 $290 (6.8折特价)"
+        ],
+        featuresEn: [
+          "Flippable Soft & Firm: 2-in-1 firmness choices on demand",
+          "Versatile 6\" Profile: Great for platform beds, bunk beds, daybeds",
+          "Spinal Protection: Resilient high-density core prevents sagging",
+          "Outstanding Value: Twin Special Price only $290 (6.8-Fold)"
+        ],
+        variants: [
+          { size: "Twin", dim: "39\" x 75\" x 6\"", regular: 438, special: 290, noteZh: "特价 6.8折 (立省 $148)", noteEn: "Special 6.8-Fold (Save $148)" },
+          { size: "Full", dim: "54\" x 75\" x 6\"", regular: null, special: 366, noteZh: "特价", noteEn: "Special Price" },
+          { size: "Queen", dim: "60\" x 80\" x 6\"", regular: null, special: 399, noteZh: "特价", noteEn: "Special Price" }
+        ],
+        selectedIdx: 0
+      },
+      {
+        id: "001-168",
+        category: "经典床垫",
+        categoryEn: "Classic Mattresses",
+        categorySlug: "classic-mattresses",
+        typeKey: "coir",
+        code: "pin001-168 (MODEL: 168)",
+        warrantyZh: "护脊硬床",
+        warrantyEn: "Extra Firm",
+        originZh: "硬床首选",
+        originEn: "Firm Preference",
+        img: "assets/images/mattress/pin001-168.jpg?v=20260921_hd",
+        titleZh: "001-168 9寸高级弹簧加棕床垫 (MODEL: 168)",
+        titleEn: "001-168 9\" Luxury Innerspring & Coconut Palm Mattress (MODEL: 168)",
+        descZh: "001-168 -9''-T(39''x75'') 高级弹簧加棕单人床垫：市场价$568，特价:$385/张。F(54''x75'')特价$520，Q(60''x80'')$620/张。K(76''x80'')$999/张 (两折)。提供適當的支撐力與舒適度，彈簧和椰棕硬支撐，堅固耐用，保護脊椎健康，喜欢硬床垫的朋友首选。",
+        descEn: "001-168 - 9\"-T(39\"x75\") Luxury Innerspring & Palm Mattress: Regular $568, Sale: $385/each. F(54\"x75\") Sale: $520, Q(60\"x80\") Sale: $620/each. K(76\"x80\") Sale: $999/each (Bi-Fold). Provides optimal support and ergonomic comfort with firm innersprings and natural coconut palm. Durable and spine-protecting — top recommendation for firm mattress lovers.",
+        featuresZh: [
+          "天然椰棕复合强硬支撑：硬而不僵，防塌陷支撑极强",
+          "腰脊健康首选：保持脊柱天然平直，清晨醒来腰不僵",
+          "King 尺寸特别定制两折设计：轻松进出狭窄电梯与楼道",
+          "透气防潮耐久内核：排湿干爽，历久弥新"
+        ],
+        featuresEn: [
+          "Natural Coir & Spring Core: Extra-firm back support, sag-resistant",
+          "Orthopedic Lumbar Care: Keeps the spine aligned all night",
+          "Bi-Fold King Design: Foldable split build for narrow hallways and stairs",
+          "Breathable Eco-Materials: Moisture-wicking and hypoallergenic"
+        ],
+        variants: [
+          { size: "Twin", dim: "39\" x 75\" x 9\"", regular: 568, special: 385, noteZh: "特价 (立省 $183)", noteEn: "Special Price (Save $183)" },
+          { size: "Full", dim: "54\" x 75\" x 9\"", regular: null, special: 520, noteZh: "特价", noteEn: "Special Price" },
+          { size: "Queen", dim: "60\" x 80\" x 9\"", regular: null, special: 620, noteZh: "特价", noteEn: "Special Price" },
+          { size: "King", dim: "76\" x 80\" x 9\"", regular: null, special: 999, noteZh: "特价 (两折便携)", noteEn: "Special Price (Bi-Fold)" }
+        ],
+        selectedIdx: 2
+      },
+      {
+        id: "001-318",
+        category: "经典床垫",
+        categoryEn: "Classic Mattresses",
+        categorySlug: "classic-mattresses",
+        typeKey: "latex",
+        code: "001-318 Pillow Top",
+        warrantyZh: "20年质保",
+        warrantyEn: "20-Yr Warranty",
+        originZh: "加厚乳胶",
+        originEn: "2\" Latex Top",
+        img: "assets/images/mattress/TH-318.jpg",
+        titleZh: "001-318 11寸高级乳胶 Pillow Top 独立袋装弹簧床垫",
+        titleEn: "001-318 11\" Luxury Latex Pillow Top Pocket Spring Mattress",
+        descZh: "001-318 -11''-Q(60''x80'') pillow top 高级独立袋装弹簧加大床垫，市场价$1,280，折后$880/张；F(54''x75'') 市场价$1,180，折后$780/张；T(39''x75'') 市场价$880，折后$399/张。含 2寸高弹天然乳胶欧式缓冲顶层，2.1加粗独立袋装钢圈，双人翻身静音抗干扰。",
+        descEn: "11-inch profile with 2-inch latex pillow top and 2.1 heavy-gauge pocket coils for zero motion transfer.",
+        featuresZh: [
+          "2寸高弹乳胶 Pillow Top：贴合人体曲线，舒缓七区体压",
+          "2.1 粗钢独立袋装弹簧：强力点对点支撑腰椎，长久防塌陷",
+          "双人翻身静音抗干扰：伴侣起夜翻身不惊扰，安享深睡",
+          "全线高额特价：全尺寸享特惠折扣，官方 20 年质保保障"
+        ],
+        featuresEn: [
+          "2\" High-Resilience Latex Pillow Top: Gentle contouring and pressure relief",
+          "2.1 Gauge Pocket Springs: Dynamic spinal alignment with high load capacity",
+          "Whisper-Quiet Motion Isolation: Sleep soundly with zero disturbance",
+          "Massive Special Sale: Heavy discount across all sizes + 20-Yr Warranty"
+        ],
+        variants: [
+          { size: "Twin", dim: "39\" x 75\" x 11\"", regular: 880, special: 399, noteZh: "特价 4.5折 (立省 $481)", noteEn: "Special 4.5-Fold (Save $481)" },
+          { size: "Full", dim: "54\" x 75\" x 11\"", regular: 1180, special: 780, noteZh: "特价 6.6折 (立省 $400)", noteEn: "Special 6.6-Fold (Save $400)" },
+          { size: "Queen", dim: "60\" x 80\" x 11\"", regular: 1280, special: 880, noteZh: "特价 6.9折 (立省 $400)", noteEn: "Special 6.9-Fold (Save $400)" },
+          { size: "King", dim: "76\" x 80\" x 11\"", regular: 1480, special: 1180, noteZh: "特价 8.0折 (立省 $300)", noteEn: "Special 8.0-Fold (Save $300)" }
+        ],
+        selectedIdx: 2
+      },
+      {
+        id: "082-HT82",
+        category: "经典床垫",
+        categoryEn: "Classic Mattresses",
+        categorySlug: "classic-mattresses",
+        typeKey: "hotel",
+        code: "082-HT82 (MODEL: HT82-Firm)",
+        warrantyZh: "20年质保",
+        warrantyEn: "20-Yr Warranty",
+        originZh: "酒店标准",
+        originEn: "Hotel Grade",
+        img: "assets/images/mattress/082-HT82.jpg?v=20260921_hd",
+        titleZh: "082-HT82 9寸美国五星级酒店弹簧床垫 (软硬两用)",
+        titleEn: "082-HT82 9\" US Five-Star Hotel Dual-Sided Innerspring Mattress",
+        descZh: "软硬两面使用 (Reversible)，五星级酒店专供标准，一面柔韧舒缓、一面强劲护脊，经久耐用。",
+        descEn: "Reversible dual-firmness design built to 5-star hotel standards. Choose between plush comfort and firm spinal support.",
+        featuresZh: [
+          "软硬两面使用 (Reversible)：随心翻面，一床享受双重睡感",
+          "北美五星级酒店标准：高承托线圈，全面舒缓脊椎压力",
+          "Queen 尺寸惊爆 4.5折 特价：市场价 $2,199，特价仅 $938 (立省 $1,261)",
+          "黑红奢华包边工艺：抗塌陷边缘加固，尊享 20 年质保"
+        ],
+        featuresEn: [
+          "Flippable Reversible Dual-Firmness: Plush on one side, firm orthopedic on the other",
+          "5-Star Hospitality Standard: High-tensile spring system prevents back fatigue",
+          "Queen Size 55% OFF Special: Regular $2,199, now Special Price $938 (Save $1,261)",
+          "Crimson Accent Edge & 20-Yr Warranty: Reinforced anti-sag durability"
+        ],
+        variants: [
+          { size: "Twin", dim: "39\" x 75\" x 9\"", regular: null, special: 430, noteZh: "特价", noteEn: "Special Price" },
+          { size: "Full", dim: "54\" x 75\" x 9\"", regular: null, special: 880, noteZh: "特价", noteEn: "Special Price" },
+          { size: "Queen", dim: "60\" x 80\" x 9\"", regular: 2199, special: 938, noteZh: "特价 4.5折 (立省 $1,261)", noteEn: "Special 55% OFF (Save $1,261)" },
+          { size: "King", dim: "76\" x 80\" x 9\"", regular: null, special: 1180, noteZh: "特价", noteEn: "Special Price" }
+        ],
+        selectedIdx: 2
+      },
+      {
+        id: "288-beautyrest-1",
+        category: "经典床垫",
+        categoryEn: "Classic Mattresses",
+        categorySlug: "classic-mattresses",
+        typeKey: "beautyrest",
+        code: "288-Beautyrest Series I",
+        warrantyZh: "20年质保",
+        warrantyEn: "20-Yr Warranty",
+        originZh: "美国制造",
+        originEn: "Made in USA",
+        img: "assets/images/mattress/beautyrest-black-showroom.jpg?v=20260921_hd",
+        titleZh: "288-Beautyrest Black Series I 12寸 美国席梦思黑标床垫",
+        titleEn: "Beautyrest Black Series I 12\" Luxury Mattress",
+        descZh: "美国原装制造，搭载 T3 三环高碳钢独立袋装弹簧系统，全线 50% OFF 半价特惠，享 20 年质保。",
+        descEn: "Authentic Made in USA luxury with T3 Triple-Stranded Pocketed Coils. Exclusive 50% OFF Special with 20-Yr Warranty.",
+        featuresZh: [
+          "美国制造 (Made in USA)：原厂百年美式高端制造标准",
+          "T3 Pocketed Coil® 三环弹簧：三股钢线互绞，三倍稳固深层支撑",
+          "全线 50% OFF 特惠：顶级黑标旗舰睡感，半价轻松拥有",
+          "翻身静音零干扰：点对点吸收震动，伴侣安睡无干扰"
+        ],
+        featuresEn: [
+          "Authentic Made in USA: American luxury sleep engineering",
+          "T3 Triple-Stranded Pocket Coils: 3x steel strength for targeted lumbar alignment",
+          "All-Size 50% OFF Special: Top luxury mattress at unbeatable 50% discount",
+          "Zero Motion Transfer: Individually wrapped springs absorb all movement"
+        ],
+        variants: [
+          { size: "Twin", dim: "39\" x 75\" x 12\"", regular: 1500, special: 750, noteZh: "特价 50% OFF (立省 $750)", noteEn: "Special 50% OFF (Save $750)" },
+          { size: "Full", dim: "54\" x 75\" x 12\"", regular: 2399, special: 1200, noteZh: "特价 50% OFF (立省 $1,199)", noteEn: "Special 50% OFF (Save $1,199)" },
+          { size: "Queen", dim: "60\" x 80\" x 12\"", regular: 2680, special: 1350, noteZh: "特价 50% OFF (立省 $1,330)", noteEn: "Special 50% OFF (Save $1,330)" },
+          { size: "King", dim: "76\" x 80\" x 12\"", regular: 3280, special: 1650, noteZh: "特价 50% OFF (立省 $1,630)", noteEn: "Special 50% OFF (Save $1,630)" }
+        ],
+        selectedIdx: 2
+      }
+    ];
+
+    function renderProducts(filter = 'all') {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = '';
+
+      const filtered = filter === 'all' 
+        ? productsData 
+        : productsData.filter(p => p.typeKey === filter);
+
+      filtered.forEach((p) => {
+        const selVar = p.variants[p.selectedIdx];
+        const isSpecialNumber = typeof selVar.special === 'number';
+
+        const card = document.createElement('article');
+        card.className = 'product-card';
+        card.id = `card-${p.id}`;
+
+        const features = currentLang === 'zh' ? p.featuresZh : p.featuresEn;
+        const featuresHtml = features.map(f => `<li>${f}</li>`).join('');
+
+        const sizeButtonsHtml = p.variants.map((v, vIdx) => `
+          <button class="size-btn ${vIdx === p.selectedIdx ? 'active' : ''}" 
+                  onclick="selectSize('${p.id}', ${vIdx})">
+            ${v.size}
+          </button>
+        `).join('');
+
+        const regularPriceHtml = selVar.regular 
+          ? `<span class="regular-price">$${selVar.regular.toLocaleString()}</span>` 
+          : '';
+
+        const savingsHtml = (selVar.regular && isSpecialNumber) 
+          ? `<div class="save-amount">${currentLang === 'zh' ? '立省' : 'Save'} $${(selVar.regular - selVar.special).toLocaleString()}</div>` 
+          : '';
+
+        const displaySpecial = isSpecialNumber 
+          ? `$${selVar.special.toLocaleString()}` 
+          : selVar.special;
+
+        const note = currentLang === 'zh' ? selVar.noteZh : selVar.noteEn;
+        const categoryLabel = currentLang === 'zh' ? '经典床垫' : 'Classic Mattress';
+
+        card.innerHTML = `
+          <div class="card-media">
+            <span class="sale-tag-badge">🔥 ${currentLang === 'zh' ? '特价' : 'SPECIAL PRICE'}</span>
+            <span class="origin-badge">${currentLang === 'zh' ? p.originZh : p.originEn}</span>
+            <img src="${p.img}" alt="${currentLang === 'zh' ? p.titleZh : p.titleEn}" onerror="this.src='assets/images/collection-bedroom.jpg'">
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-code">${p.code}</span>
+              <span style="background: #eef2ff; color: #3b82f6; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(59,130,246,0.2);">
+                🏷️ ${categoryLabel}
+              </span>
+              <span class="card-warranty">${currentLang === 'zh' ? p.warrantyZh : p.warrantyEn}</span>
+            </div>
+            <h3 class="card-title">${currentLang === 'zh' ? p.titleZh : p.titleEn}</h3>
+            <p class="card-desc">${currentLang === 'zh' ? p.descZh : p.descEn}</p>
+            
+            <ul class="features-list">
+              ${featuresHtml}
+            </ul>
+
+            <div class="size-selector-wrap">
+              <span class="size-label">${currentLang === 'zh' ? '选择规格尺寸' : 'SELECT SIZE'}:</span>
+              <div class="size-buttons">
+                ${sizeButtonsHtml}
+              </div>
+            </div>
+
+            <div class="price-box">
+              <div class="price-main">
+                <span class="price-dimension">规格: ${selVar.dim}</span>
+                <div class="price-values">
+                  <span class="special-price">${displaySpecial}</span>
+                  <span class="special-label">${currentLang === 'zh' ? '特价' : 'Sale'}</span>
+                  ${regularPriceHtml}
+                </div>
+                ${savingsHtml}
+              </div>
+              <span style="font-size:0.75rem; color:#856404; background:#fff3cd; padding:4px 8px; border-radius:4px; font-weight:600;">
+                ${note}
+              </span>
+            </div>
+
+            <div class="card-actions">
+              <a href="tel:+19177715493" class="btn-inquire">
+                📞 ${currentLang === 'zh' ? '电话订购 / 咨询特价' : 'Call 917-771-5493'}
+              </a>
+              <button class="btn-copy" onclick="copyCardData('${p.id}')" title="复制JSON数据">
+                📋 复制数据
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function selectSize(productId, variantIdx) {
+      const p = productsData.find(item => item.id === productId);
+      if (p) {
+        p.selectedIdx = variantIdx;
+        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('onclick').match(/'(.*?)'/)[1];
+        renderProducts(activeFilter);
+      }
+    }
+
+    function filterProducts(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProducts(category);
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'zh' ? 'en' : 'zh';
+      const langBtn = document.getElementById('lang-btn');
+      
+      if (currentLang === 'en') {
+        langBtn.textContent = '切换为中文';
+        document.getElementById('top-title').textContent = 'Yifa Furniture | Classic Mattresses Special Sale Preview';
+        document.getElementById('hero-badge').textContent = '🔥 CLASSIC MATTRESSES · SPECIAL SALE PREVIEW';
+        document.getElementById('hero-h1').textContent = 'Classic Mattresses Collection · Special Sale';
+        document.getElementById('hero-sub').textContent = 'Unified under "Classic Mattresses" (slug: classic-mattresses). Featuring reversible semi-palm, 9" firm coir, 11" latex pillow top, 5-star hotel dual-sided, and Beautyrest Black Series 1. Click sizes for real-time pricing and structured data.';
+        document.getElementById('flt-all').textContent = 'All Classic Mattresses (6)';
+        document.getElementById('flt-coir').textContent = 'Orthopedic Coir (3)';
+        document.getElementById('flt-latex').textContent = 'Latex Pocket Spring (1)';
+        document.getElementById('flt-hotel').textContent = '5-Star Hotel (1)';
+        document.getElementById('flt-br').textContent = 'Beautyrest Black (1)';
+      } else {
+        langBtn.textContent = 'Switch to English';
+        document.getElementById('top-title').textContent = 'Yifa Furniture | 经典床垫特价上架预览中心';
+        document.getElementById('hero-badge').textContent = '🔥 经典床垫专区 · CLASSIC MATTRESSES PREVIEW';
+        document.getElementById('hero-h1').textContent = '经典床垫 (Classic Mattresses) · 特价上架展示';
+        document.getElementById('hero-sub').textContent = '统一归入「经典床垫」类目（slug: classic-mattresses）。涵盖 4"/6" 双面半棕护脊、9" 弹簧椰棕硬垫、11" 乳胶 Pillow Top、五星级酒店双面款及美国席梦思黑标 Series I。点击尺寸即时查看特价与结构化数据。';
+        document.getElementById('flt-all').textContent = '全部经典床垫 (6)';
+        document.getElementById('flt-coir').textContent = '天然椰棕护脊 (3)';
+        document.getElementById('flt-latex').textContent = '高弹乳胶独立袋装 (1)';
+        document.getElementById('flt-hotel').textContent = '五星级酒店系列 (1)';
+        document.getElementById('flt-br').textContent = '席梦思黑标奢华款 (1)';
+      }
+
+      const activeFilter = document.querySelector('.filter-btn.active').getAttribute('onclick').match(/'(.*?)'/)[1];
+      renderProducts(activeFilter);
+    }
+
+    function copyCardData(productId) {
+      const p = productsData.find(item => item.id === productId);
+      if (!p) return;
+      const jsonStr = JSON.stringify(p, null, 2);
+      navigator.clipboard.writeText(jsonStr).then(() => {
+        const toast = document.getElementById('toast');
+        toast.textContent = `已成功复制【${p.code}】（经典床垫）结构化数据！`;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      });
+    }
+
+    // 初始化渲染
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts('all');
+    });
+  </script>
+</body>
+</html>
