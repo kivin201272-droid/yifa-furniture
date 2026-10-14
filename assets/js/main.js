@@ -94,6 +94,23 @@
 
       var activeSlide = slides[index];
       var isVideoSlide = activeSlide && !!activeSlide.querySelector("video");
+      var isBeautyrestSlide = activeSlide && activeSlide.classList.contains("slide-beautyrest");
+
+      if (heroWrap) {
+        if (isBeautyrestSlide) {
+          heroWrap.classList.add("hero-beautyrest-active");
+        } else {
+          heroWrap.classList.remove("hero-beautyrest-active");
+        }
+      }
+
+      if (container) {
+        if (isBeautyrestSlide) {
+          container.classList.add("slideshow-beautyrest-active");
+        } else {
+          container.classList.remove("slideshow-beautyrest-active");
+        }
+      }
 
       if (heroOverlay) {
         if (isVideoSlide) {

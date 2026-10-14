@@ -380,14 +380,82 @@
 }
 
 @media (max-width: 768px) {
+  /* 当 Beautyrest 目标轮播激活时适配容器高度，切换其他轮播后恢复原有行为 */
+  .hero:has(.slide.slide-beautyrest.active),
+  .hero.hero-beautyrest-active {
+    aspect-ratio: unset !important;
+    height: auto !important;
+    min-height: unset !important;
+    overflow: visible !important;
+  }
+
+  .hero:has(.slide.slide-beautyrest.active) .hero-media.slideshow-container,
+  .slideshow-container.slideshow-beautyrest-active {
+    position: relative !important;
+    height: auto !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+  }
+
+  .hero:has(.slide.slide-beautyrest.active) .slideshow-track,
+  .slideshow-container.slideshow-beautyrest-active .slideshow-track {
+    height: auto !important;
+    position: relative !important;
+  }
+
+  /* 仅针对 .slide-beautyrest 设置图片宽度100%、高度auto，并解除缩窄限制 */
   .slide.slide-beautyrest {
     background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
+
+  .slide.slide-beautyrest.active {
+    position: relative !important;
+    height: auto !important;
+    min-height: unset !important;
+    display: block !important;
+    padding: 0 0 46px 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .slide.slide-beautyrest picture {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   .slide.slide-beautyrest picture img,
   .slide.slide-beautyrest img {
-    object-fit: contain !important;
-    padding-bottom: 28px !important;
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    object-fit: unset !important;
+    display: block !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
+    filter: none !important;
+  }
+
+  /* 当 Beautyrest 激活时，圆点位于图片正下方，箭头垂直居中在床垫区域 */
+  .hero:has(.slide.slide-beautyrest.active) .slideshow-dots,
+  .slideshow-container.slideshow-beautyrest-active .slideshow-dots {
+    bottom: 12px !important;
+    background: rgba(29, 29, 31, 0.45) !important;
+  }
+
+  .hero:has(.slide.slide-beautyrest.active) .slideshow-prev,
+  .hero:has(.slide.slide-beautyrest.active) .slideshow-next,
+  .slideshow-container.slideshow-beautyrest-active .slideshow-prev,
+  .slideshow-container.slideshow-beautyrest-active .slideshow-next {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
   }
 }
 
