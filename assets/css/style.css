@@ -379,6 +379,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .slide.slide-beautyrest {
+    background: #ffffff !important;
+  }
+  .slide.slide-beautyrest picture img,
+  .slide.slide-beautyrest img {
+    object-fit: contain !important;
+    padding-bottom: 28px !important;
+    box-sizing: border-box !important;
+  }
+}
+
 @media (max-width: 560px) {
   .hero {
     min-height: unset !important;
